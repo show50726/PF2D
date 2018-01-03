@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneOSXIntel64:27</UnityBuildTarget>
     <UnityVersion>2017.2.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -233,6 +235,17 @@
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIPauseEffect.cs" />
     <Compile Include="Assets\Scripts\UI\UIPointShow2D.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PlayerProperty2D.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyBurn.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyFeather.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyFrosting.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyFrozen.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyGiver2D.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyManager.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyNegative.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyRemover2D.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\PropertyWooden.cs" />
+    <Compile Include="Assets\Scripts\UnitProperty\UnitProperty.cs" />
     <Compile Include="Assets\Scripts\UnitySystem\ReadOnlyAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
