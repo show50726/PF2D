@@ -1,27 +1,30 @@
 ﻿//PropertyFeather made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/11/27
+//last maintained:  2018/01/07
 //Usage:            This is a specified property, which makes player run faster and jump higher.
 
 using UnityEngine;
-using System.Collections;
 
 public class PropertyFeather : PlayerProperty2D
 {
     public float moveSpeedMultiplier = 1.4f;
-    public float jumpHeightMulitplier = 1.571428f;
+    public float jumpHeightMultiplier = 1.571428f;
+    public float weightMultiplier = 0.5f;
+    private Rigidbody2D rb2d;
+    private float originalGravityScale;
 
     protected override void Start()
     {
         base.Start();
+        rb2d = GetComponent<Rigidbody2D>();
         ActivateEffect(true);
     }
 
     private void ActivateEffect(bool activate)
     {
-        if (moveSpeedMultiplier == 0 || jumpHeightMulitplier == 0)
+        if (moveSpeedMultiplier == 0 || jumpHeightMultiplier == 0)
         {
-            Debug.LogWarning(GetType().Name + " of " + name + " warning: one of multiplier has set to 0. For bug avoiding, this property won't work.");
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: one of multiplier has been set to 0. For bug avoiding, this property won't work.");
             enabled = false;
             return;
         }
@@ -35,15 +38,24 @@ public class PropertyFeather : PlayerProperty2D
         if (activate)
         {
             controller2D.movingSpeed *= moveSpeedMultiplier;
-            controller2D.jumpHeight *= jumpHeightMulitplier;
+            controller2D.jumpHeight *= jumpHeightMultiplier;
+            if (weightMultiplier <= 0)
+            {
+                Debug.LogWarning(GetType().Name + " of " + name + " warning: weightMultiplier has been set to 0. For bug avoiding, The mass won't change.");
+            }
+            else rb2d.mass *= weightMultiplier;
         }
         else
         {
             controller2D.movingSpeed /= moveSpeedMultiplier;
-            controller2D.jumpHeight /= jumpHeightMulitplier;
+            controller2D.jumpHeight /= jumpHeightMultiplier;
+            if (weightMultiplier <= 0)
+            {
+                Debug.LogWarning(GetType().Name + " of " + name + " warning: weightMultiplier has been set to 0. For bug avoiding, The mass won't change.");
+            }
+            else rb2d.mass /= weightMultiplier;
         }
     }
-    //尚未實裝：在水中會持續向上浮起
 
     protected override void OnDestroy()
     {

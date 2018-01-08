@@ -37,3 +37,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Scripts/Objects/PF2D_HarmfulArea.cs.meta
+Assets/Scripts/Objects/PF2DFinish.cs.meta
+Assets/Scripts/Objects/OnTouchingPlayer.cs.meta
+Assets/Scripts/Objects/LiquidFloat.cs.meta
+Assets/Scripts/GameSystem/PFManager.cs.meta
