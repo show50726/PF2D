@@ -1,6 +1,6 @@
 ﻿//Level Manager     made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2017/10/15
+//Last maintained:  2018/01/07
 //Usage:            Level Manager records eveything happened in level, and will call related system to work (think about completing level). Better assign it to an empty gameobject, which contains 'the whole level objects'.
 
 using UnityEngine;
@@ -75,10 +75,6 @@ public class LevelManager : MonoBehaviour
                     + levelUIManager.GetType().Name + " of " + levelUIManager.name + ". "
                     + "Thus the UI health point update won't work.");
             }
-        }
-        else
-        {
-            Debug.Log(GetType().Name + ": " + player.name + " is now " + "");
         }
     }
 
