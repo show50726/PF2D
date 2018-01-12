@@ -1,11 +1,12 @@
 ﻿//PF (Platformer) 2D Harmful Area by STC
 //contact: stc.ntu@gmail.com
-//last maintained: 2018/01/07
-//NOTE: 2D only.
+//last maintained: 2018/01/11
+//NOTE: 2D only. Need colliders.
 //Usage: add it to "Harmful areas", such as a poisoned water, and set it to trigger. This will damage any player inside once a period.
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class PF2D_HarmfulArea : MonoBehaviour {
 
     public PFManager platformerManager;

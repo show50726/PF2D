@@ -1,6 +1,6 @@
 ﻿//Level Manager     made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/01/07
+//Last maintained:  2018/01/11
 //Usage:            Level Manager records eveything happened in level, and will call related system to work (think about completing level). Better assign it to an empty gameobject, which contains 'the whole level objects'.
 
 using UnityEngine;
@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
         //below, do the "UI judge".
         if (levelUIManager == null)
         {
-            Debug.LogWarning(GetType().Name + "warning: the level UIManager doesn't assign or work right, please check it otherwise level-UI related function won't work. ");
+            Debug.LogWarning(GetType().Name + " warning: the level UIManager doesn't assign or work right, please check it otherwise level-UI related function won't work. ");
         }
 
     }
