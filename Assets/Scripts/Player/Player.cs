@@ -89,7 +89,7 @@ public class Player : MonoBehaviour {
         if (isDead == true)
         {
             //player has been dead already, skip the whole procedure (to avoid second-death).
-            //Debug.Log("This guy " + name + " is already dead. Don't let him die twice.");
+            Debug.Log("This guy " + name + " is already dead. Don't let him die twice.");
             return;
         }
         AfterDeathProcess(deadReason);

@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\UnitProperty\PropertyGiver2D.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\PropertyManager.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\PropertyNegative.cs" />
+     <Compile Include="Assets\Scripts\UnitProperty\PropertyRazer.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\PropertyRemover2D.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\PropertyWooden.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\UnitProperty.cs" />
