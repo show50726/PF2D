@@ -7,9 +7,10 @@
       <File FileName="Assets\Scripts\UI\UIManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UnitProperty\PropertyWooden.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UnitProperty\PropertyRazer.cs" Line="22" Column="113" />
-      <File FileName="Assets\Scripts\UnitProperty\PropertyBurn.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UnitProperty\PropertyRazer.cs" Line="36" Column="19" />
       <File FileName="Assets\Scripts\UnitProperty\PropertyFrozen.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UnitProperty\PropertyFrosting.cs" Line="15" Column="34" />
+      <File FileName="Assets\Scripts\UnitProperty\PropertyBurn.cs" Line="7" Column="34" />
       <File FileName="Assets\Scripts\UnitProperty\UnitProperty.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UnitProperty\PropertyManager.cs" Line="1" Column="1" />
     </Files>

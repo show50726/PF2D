@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4557145891039140}
   - component: {fileID: 212306391458080858}
   - component: {fileID: 61127622052444806}
+  - component: {fileID: 114608608375338924}
   m_Layer: 0
-  m_Name: Brown
+  m_Name: Wooden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,6 +67,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114608608375338924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200116083823812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3302d9799eeab8a4cabe0e344d6938c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyManager: {fileID: 0}
 --- !u!212 &212306391458080858
 SpriteRenderer:
   m_ObjectHideFlags: 1
