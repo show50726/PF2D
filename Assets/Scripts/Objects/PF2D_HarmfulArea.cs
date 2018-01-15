@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Harmful Area by STC
 //contact: stc.ntu@gmail.com
-//last maintained: 2018/01/11
+//last maintained: 2018/01/15
 //NOTE: 2D only. Need colliders.
 //Usage: add it to "Harmful areas", such as a poisoned water, and set it to trigger. This will damage any player inside once a period.
 using System.Collections.Generic;
@@ -16,6 +16,7 @@ public class PF2D_HarmfulArea : MonoBehaviour {
     public float period = 3;
     [Tooltip("Show up in system with combination of Player.cs. Can be null.")]
     public string damageReason = null;
+    public bool onlyHurtCriticalPosition = false;
 
     private List<OnTouchingPlayer> onTouchingList = new List<OnTouchingPlayer>();
     
@@ -37,6 +38,20 @@ public class PF2D_HarmfulArea : MonoBehaviour {
     {
         foreach (OnTouchingPlayer p in onTouchingList)
         {
+            if (onlyHurtCriticalPosition)
+            {
+                if (p.player.criticalPosition == null)
+                {
+                    Debug.LogWarning(GetType().Name + " of " + name + " warning: onlyHurtCriticalPosition but the " + p.player.gameObject.name + " didn't assign one. It will never get hurt.");
+                    continue;
+                }
+                if (GetComponent<Collider2D>().bounds.Contains(p.player.criticalPosition.position) == false)
+                {
+                    //critical position isn't inside. don't hurt it.
+                    Debug.Log("Position is " + p.player.criticalPosition.position + "and NO HURT!");
+                    continue;
+                }
+            }
             p.touchTime += Time.deltaTime;
             if (p.touchTime >= period)
             {
@@ -51,8 +66,7 @@ public class PF2D_HarmfulArea : MonoBehaviour {
         if (enabled == false) return;
         if (platformerManager.JudgePlayer(col.gameObject) == true)
         {
-            OnTouchingPlayer p = new OnTouchingPlayer(col.gameObject.GetComponent<Player>());
-            onTouchingList.Add(p);
+            onTouchingList.Add(new OnTouchingPlayer(col.gameObject.GetComponent<Player>()));
         }
     }
 
