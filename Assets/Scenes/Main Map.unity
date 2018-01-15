@@ -1034,7 +1034,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1973851332138044, guid: 64b0bc3ce79f042498cf909f4d8165f5, type: 2}
       propertyPath: m_Name
-      value: Block (1)
+      value: Door (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64b0bc3ce79f042498cf909f4d8165f5, type: 2}
@@ -1131,7 +1131,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1973851332138044, guid: 64b0bc3ce79f042498cf909f4d8165f5, type: 2}
       propertyPath: m_Name
-      value: Block (3)
+      value: Door (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1973851332138044, guid: 64b0bc3ce79f042498cf909f4d8165f5, type: 2}
       propertyPath: m_IsActive
@@ -1718,7 +1718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1973851332138044, guid: 64b0bc3ce79f042498cf909f4d8165f5, type: 2}
       propertyPath: m_Name
-      value: Block (2)
+      value: Door (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64b0bc3ce79f042498cf909f4d8165f5, type: 2}

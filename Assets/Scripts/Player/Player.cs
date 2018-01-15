@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/10/16
+//last maintained:  2018/01/15
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System.Collections;
@@ -13,6 +13,9 @@ public class Player : MonoBehaviour {
     public double manaPoint = 100;
     public int lives = 0;
     public double score = 0;
+
+    [Header("Damage Setting")]
+    public Transform criticalPosition;
 
     //inner player data.
     internal Vector3 respawnPos;
