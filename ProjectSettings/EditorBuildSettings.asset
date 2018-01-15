@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/STC-Test-Area.unity
+    guid: cde2ef67a197fb1459201cb9f8296ce1
+  - enabled: 1
+    path: Assets/Scenes/Ming-Test-Area.unity
+    guid: dc3e68722b31446dd96ae0a6ca309161

@@ -171,6 +171,9 @@ public class GameSystemManager : MonoBehaviour
                 haveCompletedLevels = 2;
                 break;
                 */
+            case "STC-Test-Area":
+                LoadLevel("Ming-Test-Area");
+                break;
             default:
                 LoadLevel("Title");
                 break;

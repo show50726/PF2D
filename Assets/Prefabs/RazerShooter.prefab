@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1912706787132360}
   m_IsPrefabParent: 1
+--- !u!1 &1169925331425320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4680040952508890}
+  m_Layer: 0
+  m_Name: EndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1912706787132360
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +39,7 @@ GameObject:
   - component: {fileID: 120878137130168972}
   - component: {fileID: 114834793713063916}
   m_Layer: 0
-  m_Name: Razer
+  m_Name: RazerShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,10 +52,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912706787132360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.58432, y: 6.321, z: 0}
+  m_LocalPosition: {x: 0.87406635, y: 3.9100242, z: 0}
   m_LocalScale: {x: 1.25, y: 0.75, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4680040952508890}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4680040952508890
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1169925331425320}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.21, y: -8.8, z: -0.4296875}
+  m_LocalScale: {x: 0.8, y: 1.3333334, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4198604838215580}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61477649491236950
@@ -76,10 +105,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1912706787132360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4abe1b410687e641bc98b151ee6617c, type: 3}
+  m_Script: {fileID: 11500000, guid: dbfb701f07a5fec499c37f07acdcdf10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
+  propertyManager: {fileID: 0}
+  endPoint: {fileID: 1169925331425320}
+  FrozenTime: 1
+  WoodenTime: 5
 --- !u!120 &120878137130168972
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -94,7 +126,8 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 656dc4a0ce2aa2244b6ea92eb5ba42aa, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 83c6f5b4bdcee80489aef221d8f0ec2a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
