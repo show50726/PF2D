@@ -1,4 +1,4 @@
-# =============== #
+﻿# =============== #
 # Unity generated #
 # =============== #
 [Ll]ibrary/
@@ -38,5 +38,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-*.meta
 開發記錄.txt
