@@ -1,6 +1,6 @@
 ﻿//PlayerState       made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/13
+//last maintained:  2018/01/19
 //usage:            This is a BASE class, inherit this to make custom one.
 //NOTE:             MUST be assigned on an Animator State, not GameObjects.
 
@@ -12,6 +12,8 @@ public class PlayerState : StateMachineBehaviour {
     protected Rigidbody2D _rb2d;
     protected Collider2D _col2d;
     protected PF2DController _controllerPF2d;
+    public static PlayerStateInfo psInfo = new PlayerStateInfo();
+
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
@@ -27,5 +29,10 @@ public class PlayerState : StateMachineBehaviour {
     {
         return GetType().Name + " of " + _obj.name + "'s Animator warning: didn't find its " + typeName + ". This might cause some functions unabled.";
     }
+
+}
+public class PlayerStateInfo
+{
+    public RigidbodyType2D rbType = new RigidbodyType2D();
 
 }

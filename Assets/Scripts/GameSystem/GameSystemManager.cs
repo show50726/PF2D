@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/10/14
+//last maintained:  2018/01/19
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -172,7 +172,10 @@ public class GameSystemManager : MonoBehaviour
                 break;
                 */
             case "STC-Test-Area":
-                LoadLevel("Ming-Test-Area");
+                LoadLevel("STC-Test-Area-2");
+                break;
+            case "STC-Test-Area-2":
+                LoadLevel("STC-Test-Area");
                 break;
             default:
                 LoadLevel("Title");

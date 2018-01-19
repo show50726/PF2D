@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/15
+//last maintained:  2018/01/19
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System.Collections;
@@ -29,8 +29,49 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb2D;
     private Collider cld;
     private Collider2D cld2D;
-    
+
+    #region Player Data Inherition
+    [Header("Update Animator")]
+    public Animator animator = new Animator();
+    [Tooltip("With this BOOL parameter name assigned, the parameter will be updated to TRUE when loaded.")]
+    public string resetParameter = "reset";
+
+    public static System.Collections.Generic.List<Player> playerDataStore = new System.Collections.Generic.List<Player>();
+
+
     private void OnEnable()
+    {
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: the animator isn't assigned, thus the animator-related function won't work.");
+        }
+        for (int i = 0; i < playerDataStore.Count; i++)
+        {
+            if (playerDataStore[i].gameObject.name == gameObject.name)
+            {
+                //update existing data.
+                GameObject existingOne = playerDataStore[i].gameObject;
+                existingOne.transform.position = gameObject.transform.position;
+                playerDataStore[i] = this;
+                Destroy(existingOne);
+                if (animator != null && resetParameter != "")
+                {
+                    animator.SetBool(resetParameter, true);
+                }
+                DontDestroyOnLoad(this);
+                return;
+            }
+        }
+        //if code comes to here, that means the player's data haven't been stored. Store it!
+        playerDataStore.Add(this);
+        DontDestroyOnLoad(this);
+        return;
+    }
+
+    #endregion
+
+    private void Start()
     {
         respawnPos = transform.position;
         initialHP = healthPoint;
@@ -39,7 +80,7 @@ public class Player : MonoBehaviour {
         rb2D = GetComponent<Rigidbody2D>();
         cld = GetComponent<Collider>();
         cld2D = GetComponent<Collider2D>();
-
+        
         //debug
         if (tag != "Player")
         {
