@@ -36,37 +36,45 @@ public class Player : MonoBehaviour {
     [Tooltip("With this BOOL parameter name assigned, the parameter will be updated to TRUE when loaded.")]
     public string resetParameter = "reset";
 
-    public static System.Collections.Generic.List<Player> playerDataStore = new System.Collections.Generic.List<Player>();
-
+    public void ResetState()
+    {
+        if (animator == null || resetParameter == "")
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: trying to reset animator state while animator not assigned, or resetParameter not assigned.");
+            return;
+        }
+        animator.SetBool(resetParameter, true);
+    }
 
     private void OnEnable()
     {
-        animator = GetComponent<Animator>();
+        if (animator == null) animator = GetComponent<Animator>();
         if (animator == null)
         {
             Debug.LogWarning(GetType().Name + " of " + name + " warning: the animator isn't assigned, thus the animator-related function won't work.");
         }
-        for (int i = 0; i < playerDataStore.Count; i++)
+        if (GameSystemManager.exist == null)
         {
-            if (playerDataStore[i].gameObject.name == gameObject.name)
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: the GameSystemManager doesn't exist, so the player data won't be inherited.");
+        }
+        else
+        {
+            int playerListIndex = GameSystemManager.exist.CheckPlayerIndex(this);
+            if (playerListIndex < 0)
             {
-                //update existing data.
-                GameObject existingOne = playerDataStore[i].gameObject;
-                existingOne.transform.position = gameObject.transform.position;
-                playerDataStore[i] = this;
-                Destroy(existingOne);
-                if (animator != null && resetParameter != "")
-                {
-                    animator.SetBool(resetParameter, true);
-                }
+                //the data has never been saved before.
+                Debug.Log("Saving a new player data: " + gameObject.name);
+                GameSystemManager.exist.AddPlayerData(this);
                 DontDestroyOnLoad(this);
-                return;
+            }
+            else
+            {
+                //update player data.
+                Debug.Log("Updating player data: " + gameObject.name);
+                GameSystemManager.exist.UpdatePlayerData(playerListIndex, this);
+                Destroy(gameObject);
             }
         }
-        //if code comes to here, that means the player's data haven't been stored. Store it!
-        playerDataStore.Add(this);
-        DontDestroyOnLoad(this);
-        return;
     }
 
     #endregion

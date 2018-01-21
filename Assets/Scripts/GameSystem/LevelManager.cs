@@ -1,6 +1,6 @@
 ﻿//Level Manager     made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/01/13
+//Last maintained:  2018/01/21
 //Usage:            Level Manager records eveything happened in level, and will call related system to work (think about completing level). Better assign it to an empty gameobject, which contains 'the whole level objects'.
 
 using UnityEngine;
@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     public UIManager levelUIManager;
+    [Tooltip("Will be auto updated if GameSystemManager exists.")]
     public Player[] players = new Player[0];
 
     public double levelScore = 0;
@@ -30,6 +31,10 @@ public class LevelManager : MonoBehaviour
     {
         if (players.Length == 0)
         {
+            if (GameSystemManager.exist)
+            {
+                players = GameSystemManager.exist.GetPlayerList();
+            }
             Debug.LogWarning(GetType().Name + " warning: didn't assign players. This might cause some bugs.");
         }
         foreach (Player p in players)
@@ -39,6 +44,7 @@ public class LevelManager : MonoBehaviour
                 Debug.LogError(GetType().Name + " error: didn't assign all of players!");
             }
         }
+
 
         //below, do the "UI judge".
         if (levelUIManager == null)

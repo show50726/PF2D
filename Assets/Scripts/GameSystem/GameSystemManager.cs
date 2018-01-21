@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/19
+//last maintained:  2018/01/21
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -22,6 +22,60 @@ public class GameSystemManager : MonoBehaviour
 
     internal float oringinalTimeScale;
 
+    #region Player Data Inherit/Store
+    public static System.Collections.Generic.List<Player> playerList = new System.Collections.Generic.List<Player>(); 
+    
+    public Player[] GetPlayerList()
+    {
+        Player[] pL = new Player[playerList.Count];
+        for (int i = 0; i < playerList.Count; i++) pL[i] = playerList[i];
+        return pL;
+    }
+
+    public int CheckPlayerIndex(Player player)
+    {
+        //return -1 when cannot find.
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            if (playerList[i].gameObject.name == player.gameObject.name)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public void UpdatePlayerData(int playerListIndex, Player newPlayerData)
+    {
+        //this part can be customized.
+        //Updating data in such format: playerList[i].something = newPlayerData.something;
+        playerList[playerListIndex].transform.position = newPlayerData.transform.position;
+
+        //NOTE: the useless newPlayerData will be automatically deleted. Check Player.cs
+        playerList[playerListIndex].ResetState();
+    }
+    public void AddPlayerData(Player player)
+    {
+        playerList.Add(player);
+    }
+    public void RemovePlayerData(int playerListIndex)
+    {
+        Debug.LogWarning(GetType().Name + " warning: trying to remove player data. Note that once removed some bugs might occur. Use this function carefully...");
+        playerList.RemoveAt(playerListIndex);
+    }
+    public void RemovePlayerData(Player player)
+    {
+        int index = CheckPlayerIndex(player);
+        if (index < 0)
+        {
+            Debug.LogWarning(GetType().Name + " warning: trying to remove a player data that has never be saved. This should be a bug and nothing will happen. Check your program flow.");
+            return;
+        }
+        RemovePlayerData(index);
+    }
+    #endregion
+
+
+
     #region "Only-One" Process
     public static GameSystemManager exist;
     //this is used to check whether there's already one manager.
@@ -39,7 +93,7 @@ public class GameSystemManager : MonoBehaviour
             //update Game and Scene Data
             exist.theSceneIsInGame = theSceneIsInGame;
             exist.afterThisLevelDoneWaitTime = afterThisLevelDoneWaitTime;
-            //update Game and Scene Data finished.
+            //update Game and Scene Data finished. Delete the later one (this)
             Destroy(gameObject);
         }
         oringinalTimeScale = Time.timeScale;
