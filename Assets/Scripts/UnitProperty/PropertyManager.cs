@@ -7,8 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PropertyManager : MonoBehaviour {
 
+	public int MaxProperty = 1;
     private List<UnitProperty> propertyList = new List<UnitProperty>();
     public Player player;
     public PF2DController controller2D;
@@ -73,7 +75,13 @@ public class PropertyManager : MonoBehaviour {
         else
         {
             UnitProperty p = gameObject.AddComponent(propertyType) as UnitProperty;
-            propertyList.Add(p); //it's a new property, record it on the list.
+			if(propertyList.Count < MaxProperty)
+            	propertyList.Add(p); //it's a new property, record it on the list.
+			else{
+				Debug.Log(name + " has lost the property " + propertyList[0].GetType().Name);
+				RemoveProperty (propertyList[0].GetType());
+				propertyList.Add (p);
+			}
             foreach (UnitProperty pe in propertyList)
             {
                 Debug.Log(name + " has property " + pe.GetType().Name);
@@ -138,6 +146,5 @@ public class PropertyManager : MonoBehaviour {
         }
         return true;
     }
-
     
 }
