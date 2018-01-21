@@ -1,6 +1,6 @@
 ﻿//Finish2D      made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/13
+//last maintained:  2018/01/18
 //usage:            set this to an object, then when (assigned) player is in right status, it will be checked.
 //NOTE:             use trigger. 2D only.
 using UnityEngine;
@@ -13,6 +13,10 @@ public class Finish2D : Finish
     public GameObject assignedPlayer;
 
     private System.Collections.Generic.List<GameObject> insideObjects = new System.Collections.Generic.List<GameObject>();
+
+    [Header("Portal Setting")]
+    [Tooltip("If left empty, will just be transported to the same level (and reset it).")]
+    public string destinationScene = "Title"; //Called by LevelManager
 
     [Header("Animator Detect")]
     [Tooltip("if set to nothing, it will skip checking.")]

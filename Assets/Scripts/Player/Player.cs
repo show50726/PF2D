@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/15
+//last maintained:  2018/01/19
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System.Collections;
@@ -29,8 +29,57 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb2D;
     private Collider cld;
     private Collider2D cld2D;
-    
+
+    #region Player Data Inherition
+    [Header("Update Animator")]
+    public Animator animator = new Animator();
+    [Tooltip("With this BOOL parameter name assigned, the parameter will be updated to TRUE when loaded.")]
+    public string resetParameter = "reset";
+
+    public void ResetState()
+    {
+        if (animator == null || resetParameter == "")
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: trying to reset animator state while animator not assigned, or resetParameter not assigned.");
+            return;
+        }
+        animator.SetBool(resetParameter, true);
+    }
+
     private void OnEnable()
+    {
+        if (animator == null) animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: the animator isn't assigned, thus the animator-related function won't work.");
+        }
+        if (GameSystemManager.exist == null)
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: the GameSystemManager doesn't exist, so the player data won't be inherited.");
+        }
+        else
+        {
+            int playerListIndex = GameSystemManager.exist.CheckPlayerIndex(this);
+            if (playerListIndex < 0)
+            {
+                //the data has never been saved before.
+                Debug.Log("Saving a new player data: " + gameObject.name);
+                GameSystemManager.exist.AddPlayerData(this);
+                DontDestroyOnLoad(this);
+            }
+            else
+            {
+                //update player data.
+                Debug.Log("Updating player data: " + gameObject.name);
+                GameSystemManager.exist.UpdatePlayerData(playerListIndex, this);
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    #endregion
+
+    private void Start()
     {
         respawnPos = transform.position;
         initialHP = healthPoint;
@@ -39,7 +88,7 @@ public class Player : MonoBehaviour {
         rb2D = GetComponent<Rigidbody2D>();
         cld = GetComponent<Collider>();
         cld2D = GetComponent<Collider2D>();
-
+        
         //debug
         if (tag != "Player")
         {
