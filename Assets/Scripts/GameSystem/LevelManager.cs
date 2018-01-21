@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     public UIManager levelUIManager;
-    [Tooltip("Will be auto updated if GameSystemManager exists.")]
+    [ReadOnly, Tooltip("Will be auto updated if GameSystemManager exists. Delete the ReadOnly attribute to allow manually assign.")]
     public Player[] players = new Player[0];
 
     public double levelScore = 0;
@@ -35,13 +35,13 @@ public class LevelManager : MonoBehaviour
             {
                 players = GameSystemManager.exist.GetPlayerList();
             }
-            Debug.LogWarning(GetType().Name + " warning: didn't assign players. This might cause some bugs.");
+            else Debug.LogWarning(GetType().Name + " warning: didn't assign players. This might cause some bugs.");
         }
         foreach (Player p in players)
         {
             if (p == null)
             {
-                Debug.LogError(GetType().Name + " error: didn't assign all of players!");
+                Debug.LogError(GetType().Name + " error: didn't assign all of players. Please check your set of size and elements.");
             }
         }
 
