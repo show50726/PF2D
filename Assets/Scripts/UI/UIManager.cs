@@ -1,6 +1,6 @@
 ﻿//UI Manager        made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2017/10/15
+//Last maintained:  2018/01/22
 //Usage:            UI Manager is used to 'connect' UI functions (like buttons) to 'Game System' (like GameSystemManager). Assign it to object that contain all UI-things.
 //Notice:           Unlike other manager, Multiple UI Manager is ALLOWED.
 
@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
     public Text systemMessageContainer;
     public Text levelScoreShower;
 
-    public Player[] players;
+    [ReadOnly, Tooltip("Will be auto updated if GameSystemManager exists. Delete the ReadOnly attribute to allow manually assign.")]
+    public Player[] players = new Player[0];
 
     public Text[] playerScoreShower;
 
