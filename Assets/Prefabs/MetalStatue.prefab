@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4751365215687198}
   - component: {fileID: 212271799462795036}
   - component: {fileID: 61679472072489986}
-  - component: {fileID: 114683681742966748}
+  - component: {fileID: 114526300980048850}
   m_Layer: 0
   m_Name: MetalStatue
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114683681742966748
+--- !u!114 &114526300980048850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588665765732158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb9ff3a0827ab64fb59abfab952af0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ff1b7df71b1f7840bf87e27c44f4eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   propertyManager: {fileID: 0}
