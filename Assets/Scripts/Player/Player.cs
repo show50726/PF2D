@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/19
+//last maintained:  2018/01/23
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System.Collections;
@@ -73,8 +73,10 @@ public class Player : MonoBehaviour {
     internal double initialMP;
     internal bool isDead = false;
     internal bool isRespawning = false;
+    //[ReadOnly]
+    //public string levelGoingDirectionConditionName = ""; //will be updated when into a finish
     [ReadOnly]
-    public string levelGoingDirectionConditionName = ""; //will be updated when into a finish
+    public string nextScene = ""; //will be updated when into a finish
     //QUESTION: making beyond into ASM?
     
     private Rigidbody rb;

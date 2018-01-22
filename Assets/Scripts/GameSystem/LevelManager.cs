@@ -1,6 +1,6 @@
 ﻿//Level Manager     made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/01/21
+//Last maintained:  2018/01/22
 //Usage:            Level Manager records eveything happened in level, and will call related system to work (think about completing level). Better assign it to an empty gameobject, which contains 'the whole level objects'.
 
 using UnityEngine;
@@ -227,12 +227,14 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            string oneGoingDirection = players[0].levelGoingDirectionConditionName;
+            //string oneGoingDirection = players[0].levelGoingDirectionConditionName;
+            string goingScene = players[0].nextScene;
             foreach (Player p in players)
             {
-                if (p.levelGoingDirectionConditionName != oneGoingDirection)
+                //if (p.levelGoingDirectionConditionName != oneGoingDirection)
+                if (p.nextScene != goingScene)
                 {
-                    Debug.LogWarning(GetType().Name +  " warning: not all of players are going to the same direction. " +
+                    Debug.LogWarning(GetType().Name +  " warning: not all of players are going to the same scene. " +
                         "This should be a bug, and GameSystemManager might load a wrong level.");
                     break;
                 }
@@ -240,7 +242,19 @@ public class LevelManager : MonoBehaviour
         }
         if (GameSystemManager.exist)
         {
-            GameSystemManager.exist.LevelIsFinished(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+            /*
+            if (players[0].levelGoingDirectionConditionName != "")
+            {
+                GameSystemManager.exist.LevelIsFinished(players[0].levelGoingDirectionConditionName);
+                Debug.Log("Setting parameter " + players[0].levelGoingDirectionConditionName + " to true");
+            }
+            */
+            if (players[0].nextScene != "")
+            {
+                GameSystemManager.exist.LoadScene(players[0].nextScene);
+            }
+            else
+                GameSystemManager.exist.LevelIsFinished(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
         }
         else
         {

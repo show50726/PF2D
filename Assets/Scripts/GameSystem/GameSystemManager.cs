@@ -201,6 +201,13 @@ public class GameSystemManager : MonoBehaviour
         Debug.Log("Exiting the game...");
         Application.Quit();
     }
+    public void LevelIsFinished(string turnOnThisParameter)
+    {
+        if (animatorSM!=null)
+        {
+            animatorSM.SetBool(turnOnThisParameter, true);
+        }
+    }
 
     public void LevelIsFinished (Scene theLevelFinished)
     {
