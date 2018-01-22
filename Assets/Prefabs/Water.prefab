@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212299278461557376}
   - component: {fileID: 61623390363397666}
   - component: {fileID: 114574605179098978}
-  - component: {fileID: 114341003633297234}
+  - component: {fileID: 253346706519097128}
   m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223351463103030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.424, y: -2.087, z: -0.001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 10.129, y: -1.97, z: -0.001}
+  m_LocalScale: {x: 9.39929, y: 3.425147, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,7 +53,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -68,18 +68,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114341003633297234
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1223351463103030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f583e0852b46ea4fa2c1145cd14b0f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  density: 1
 --- !u!114 &114574605179098978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +83,7 @@ MonoBehaviour:
   damage: 5
   period: 0.2
   damageReason: Poisoned water
+  onlyHurtCriticalPosition: 0
 --- !u!212 &212299278461557376
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -127,7 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1522151697
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0.6303525, g: 0.8668141, b: 0.9632353, a: 0.516}
@@ -139,3 +128,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!253 &253346706519097128
+BuoyancyEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1223351463103030}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_SurfaceLevel: 0
+  m_Density: 3
+  m_LinearDrag: 50
+  m_AngularDrag: 5
+  m_FlowAngle: 0
+  m_FlowMagnitude: 30
+  m_FlowVariation: 0
