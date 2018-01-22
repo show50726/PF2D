@@ -221,7 +221,23 @@ public class LevelManager : MonoBehaviour
         {
             UpdateSystemMessage("The player " + thePlayerFinishedIt.name + " has done " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "!");
         }
-        
+        if (players.Length == 0)
+        {
+            Debug.LogWarning(GetType().Name +" warning: no Player assigned. Some feature might not run correctly.");
+        }
+        else
+        {
+            string oneGoingDirection = players[0].levelGoingDirectionConditionName;
+            foreach (Player p in players)
+            {
+                if (p.levelGoingDirectionConditionName != oneGoingDirection)
+                {
+                    Debug.LogWarning(GetType().Name +  " warning: not all of players are going to the same direction. " +
+                        "This should be a bug, and GameSystemManager might load a wrong level.");
+                    break;
+                }
+            }
+        }
         if (GameSystemManager.exist)
         {
             GameSystemManager.exist.LevelIsFinished(UnityEngine.SceneManagement.SceneManager.GetActiveScene());

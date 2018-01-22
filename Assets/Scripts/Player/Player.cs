@@ -16,20 +16,7 @@ public class Player : MonoBehaviour {
 
     [Header("Damage Setting")]
     public Transform criticalPosition;
-
-    //inner player data.
-    internal Vector3 respawnPos;
-    internal double initialHP;
-    internal double initialMP;
-    internal bool isDead = false;
-    internal bool isRespawning = false;
-    //QUESTION: making it into ASM?
-
-    private Rigidbody rb;
-    private Rigidbody2D rb2D;
-    private Collider cld;
-    private Collider2D cld2D;
-
+    
     #region Player Data Inherition
     [Header("Update Animator")]
     public Animator animator = new Animator();
@@ -78,6 +65,22 @@ public class Player : MonoBehaviour {
     }
 
     #endregion
+
+    [Header("Controlled by Scripts")]
+    //inner player data.
+    internal Vector3 respawnPos;
+    internal double initialHP;
+    internal double initialMP;
+    internal bool isDead = false;
+    internal bool isRespawning = false;
+    [ReadOnly]
+    public string levelGoingDirectionConditionName = ""; //will be updated when into a finish
+    //QUESTION: making beyond into ASM?
+    
+    private Rigidbody rb;
+    private Rigidbody2D rb2D;
+    private Collider cld;
+    private Collider2D cld2D;
 
     private void Start()
     {

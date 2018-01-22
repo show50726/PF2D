@@ -474,10 +474,10 @@ BuoyancyEffector2D:
     m_Bits: 4294967295
   m_SurfaceLevel: 0
   m_Density: 3
-  m_LinearDrag: 5
+  m_LinearDrag: 50
   m_AngularDrag: 5
   m_FlowAngle: 0
-  m_FlowMagnitude: 0
+  m_FlowMagnitude: 30
   m_FlowVariation: 0
 --- !u!1001 &605750994
 Prefab:
@@ -1340,6 +1340,7 @@ MonoBehaviour:
   theSceneIsInGame: 1
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
+  animatorSM: {fileID: 0}
   pauseKey: 27
 --- !u!4 &1546966159
 Transform:

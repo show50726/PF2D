@@ -114,13 +114,13 @@ public class UIManager : MonoBehaviour
 
     public void GoBackToTitleFromUI()
     {
-        if (CheckGameSystemManager("go back to title from UI"))  GameSystemManager.exist.LoadLevel("Title");
+        if (CheckGameSystemManager("go back to title from UI"))  GameSystemManager.exist.LoadScene("Title");
     }
 
     public void LoadSceneFromUI(string sceneName)
     {
         if (CheckGameSystemManager("load level from UI") == false) return;
-        if (GameSystemManager.exist.JudgeIfAllowedToPlayThisLevel(sceneName)) GameSystemManager.exist.LoadLevel(sceneName);
+        if (GameSystemManager.exist.JudgeIfAllowedToPlayThisLevel(sceneName)) GameSystemManager.exist.LoadScene(sceneName);
         else ShowSystemMessage("Cannot load " + sceneName + " because you didn't finish the last level!");
     }
     #endregion

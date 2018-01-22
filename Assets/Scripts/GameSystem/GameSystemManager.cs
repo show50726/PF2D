@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/21
+//last maintained:  2018/01/22
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -21,6 +21,8 @@ public class GameSystemManager : MonoBehaviour
     public int haveCompletedLevels = 0;
 
     internal float oringinalTimeScale;
+
+    public Animator animatorSM;
 
     #region Player Data Inherit/Store
     public static System.Collections.Generic.List<Player> playerList = new System.Collections.Generic.List<Player>(); 
@@ -73,8 +75,7 @@ public class GameSystemManager : MonoBehaviour
         RemovePlayerData(index);
     }
     #endregion
-
-
+    
 
     #region "Only-One" Process
     public static GameSystemManager exist;
@@ -95,8 +96,14 @@ public class GameSystemManager : MonoBehaviour
             exist.afterThisLevelDoneWaitTime = afterThisLevelDoneWaitTime;
             //update Game and Scene Data finished. Delete the later one (this)
             Destroy(gameObject);
+            return;
         }
         oringinalTimeScale = Time.timeScale;
+        animatorSM = GetComponent<Animator>();
+        if (animatorSM == null)
+        {
+            Debug.LogWarning(GetType().Name +" warning: " + animatorSM + " not assigned. ");
+        }
     }
 
     #endregion
@@ -216,23 +223,23 @@ public class GameSystemManager : MonoBehaviour
         switch (afterThisLevel.name)
         {
             case "Level-1":
-                LoadLevel("Level-2");
+                LoadScene("Level-2");
                 haveCompletedLevels = 1;
                 break;
             /*
             case "Level-2":
-                LoadLevel("Level-ex");
+                LoadScene("Level-ex");
                 haveCompletedLevels = 2;
                 break;
                 */
             case "STC-Test-Area":
-                LoadLevel("STC-Test-Area-2");
+                LoadScene("STC-Test-Area-2");
                 break;
             case "STC-Test-Area-2":
-                LoadLevel("STC-Test-Area");
+                LoadScene("STC-Test-Area");
                 break;
             default:
-                LoadLevel("Title");
+                LoadScene("Title");
                 break;
         }
 
@@ -248,8 +255,13 @@ public class GameSystemManager : MonoBehaviour
         }
         return true;
     }
+    public void UpdateAnimatorControllerParameterBool(string nameOfControllerParameter)
+    {
+        AnimatorControllerParameter cp = GameSystemStateMachineState.GetParameter(animatorSM, nameOfControllerParameter);
+        if (cp != null) animatorSM.SetBool(cp.name, true);
+    }
     
-    public void LoadLevel(string sceneName)
+    public void LoadScene(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName);
         oringinalTimeScale = 1;
