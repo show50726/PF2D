@@ -7,29 +7,7 @@ using UnityEngine;
 
 public class Finish2D : Finish
 {
-    [Header("Basic Setting")]
-    public bool[] switchCase = { true };
-    [Tooltip("If not assigned, it will be finished as any gameobject with right status.")]
-    public GameObject assignedPlayer;
-
-    private System.Collections.Generic.List<GameObject> insideObjects = new System.Collections.Generic.List<GameObject>();
-
-    [Header("Portal Setting")]
-    [Tooltip("If left empty, will just be transported to the same level (and reset it).")]
-    public string destinationScene = "Title"; //Called by LevelManager
-
-    [Header("Animator Detect")]
-    [Tooltip("if set to nothing, it will skip checking.")]
-    public string stateName = "";
-    [Tooltip("0 is for base layer. Don't change it unless you know what you're doing.")]
-    public int targetLayer = 0;
-    private int stateHashCode = 0;
-
-    [Header("Animator Set")]
-    [Tooltip("if set to nothing, it will skip updating.")]
-    public string updateCondictionBoolName = "InFinish";
-
-
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         foreach (bool b in switchCase)
@@ -150,6 +128,17 @@ public class Finish2D : Finish
             isFinished = true;
             return;
         }
+    }
+    private void GiveDirectionToPlayer(GameObject playerObj)
+    {
+        Player player = playerObj.GetComponent<Player>();
+        if (player==null)
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: an non-player Object is trying to get direction. Did you forget to assign it Player component?");
+            return;
+        }
+        player.levelGoingDirectionConditionName = directionConditionBool;
+        return;
     }
 
 }
