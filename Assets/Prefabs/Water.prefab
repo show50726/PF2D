@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4175769828419428}
   - component: {fileID: 212299278461557376}
   - component: {fileID: 61623390363397666}
-  - component: {fileID: 114574605179098978}
   - component: {fileID: 253346706519097128}
+  - component: {fileID: 114760705112564278}
   m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
@@ -68,7 +68,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114574605179098978
+--- !u!114 &114760705112564278
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -76,13 +76,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1223351463103030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 247b4170c47071047b8ca0b91295c394, type: 3}
+  m_Script: {fileID: 11500000, guid: ef1935bf5f0f07b409ae59feaed4543e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platformerManager: {fileID: 0}
-  damage: 5
-  period: 0.2
-  damageReason: Poisoned water
+  damage: 1
+  period: 3
+  damageReason: 
   onlyHurtCriticalPosition: 0
 --- !u!212 &212299278461557376
 SpriteRenderer:

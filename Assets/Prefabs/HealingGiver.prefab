@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212279234441596740}
   - component: {fileID: 61232415570727284}
   - component: {fileID: 114867072239991180}
-  - component: {fileID: 114710636052214020}
+  - component: {fileID: 114724495075000800}
   m_Layer: 0
   m_Name: HealingGiver
   m_TagString: Untagged
@@ -68,7 +68,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114710636052214020
+--- !u!114 &114724495075000800
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1882356586815766}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72e3b1062df33e49a6ce9e7cd5405ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b08dd8e87b790047994d61ea633b11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   propertyManager: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 256
-  giveProperty: {fileID: 114710636052214020}
+  giveProperty: {fileID: 114724495075000800}
   updateInfoIfPropertyExists: 1
   removeWhenLeave: 0
 --- !u!212 &212279234441596740

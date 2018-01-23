@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212638519223957838}
   - component: {fileID: 61323009136863470}
   - component: {fileID: 50218132937859772}
-  - component: {fileID: 114366348246108838}
+  - component: {fileID: 114907569646990992}
   m_Layer: 8
   m_Name: DoorLeft
   m_TagString: Untagged
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 212811133415187418}
   - component: {fileID: 61687700574394296}
   - component: {fileID: 50838237215801080}
-  - component: {fileID: 114332402779901246}
+  - component: {fileID: 114116253263135060}
   m_Layer: 8
   m_Name: DoorRight
   m_TagString: Untagged
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4131272082595096}
   - component: {fileID: 212070842306092940}
   - component: {fileID: 61458225125229542}
-  - component: {fileID: 114484461476304748}
+  - component: {fileID: 114745168378980362}
   m_Layer: 8
   m_Name: Door
   m_TagString: Finish
@@ -223,7 +223,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114332402779901246
+--- !u!114 &114116253263135060
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -231,29 +231,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1418519533484314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f97c4e852c4792448ad3c918a688ec02, type: 3}
+  m_Script: {fileID: 11500000, guid: a87c2057df10cdf47ae009f1b5083a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
   destination: {x: 0.75, y: 0}
   speed: 2
   returnWhenOff: 1
---- !u!114 &114366348246108838
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1283300235903544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f97c4e852c4792448ad3c918a688ec02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  destination: {x: -0.75, y: 0}
-  speed: 2
-  returnWhenOff: 1
---- !u!114 &114484461476304748
+--- !u!114 &114745168378980362
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -261,16 +246,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1973851332138044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c66df71172a794e8fbe600f2842388, type: 3}
+  m_Script: {fileID: 11500000, guid: c6837f50ecbb72e40a67bb13e4a34a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFinished: 0
-  switchCase: 0000
+  switchCase: 01
   assignedPlayer: {fileID: 0}
   goToThisScene: Title
   stateName: 
   targetLayer: 0
   updateCondictionBoolName: InFinish
+--- !u!114 &114907569646990992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1283300235903544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87c2057df10cdf47ae009f1b5083a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  destination: {x: -0.75, y: 0}
+  speed: 2
+  returnWhenOff: 1
 --- !u!212 &212070842306092940
 SpriteRenderer:
   m_ObjectHideFlags: 1

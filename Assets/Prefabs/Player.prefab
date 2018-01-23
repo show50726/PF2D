@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 114068380428519914}
   - component: {fileID: 114621963817267716}
   - component: {fileID: 95484388098076296}
-  - component: {fileID: 114423375017222238}
   - component: {fileID: 114482633409753506}
+  - component: {fileID: 114889971047465268}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -409,21 +409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointShowText: {fileID: 0}
   bar: {fileID: 1989285110449458}
---- !u!114 &114423375017222238
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1802270482320094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aaa5e93de5906d4d949a9feef8ca97d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyOfIn: 115
-  targetSM: {fileID: 95484388098076296}
-  checkConditionBoolName: InFinish
-  updateConditionBoolName: HoldingIn
 --- !u!114 &114482633409753506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -487,6 +472,21 @@ MonoBehaviour:
   constantDashing: 0
   dashDuration: 0.1
   dashCoolDown: 0.5
+--- !u!114 &114889971047465268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802270482320094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2652784601de1f42be968731abff9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyOfIn: 115
+  targetSM: {fileID: 95484388098076296}
+  checkConditionBoolName: InFinish
+  updateConditionBoolName: HoldingIn
 --- !u!212 &212134519899323824
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4864220685840834}
   - component: {fileID: 212659779707421274}
   - component: {fileID: 61516919283369162}
-  - component: {fileID: 114402828568399276}
+  - component: {fileID: 114293476275595200}
   m_Layer: 8
   m_Name: Button-magenta
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114402828568399276
+--- !u!114 &114293476275595200
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,14 +75,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000253501227158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2dedd45facca8142a1e270728895193, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a1bccd50dbd9f643be689c63e4dc2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 48
-  connectedMechanism:
-  - {fileID: 0}
+  connectedMechanism: []
   switchInsteadTurnOn: 0
   willStayOn: 0
 --- !u!212 &212659779707421274
