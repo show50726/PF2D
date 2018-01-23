@@ -85,7 +85,7 @@ MonoBehaviour:
   propertyManager: {fileID: 0}
   controller2D: {fileID: 0}
   player: {fileID: 0}
-  endPoint: {fileID: 0}
+  endPoint: {fileID: 1169925331425320}
   RemoveFrozenPeriod: 1
   DestroyWoodPeriod: 3
 --- !u!120 &120878137130168972
