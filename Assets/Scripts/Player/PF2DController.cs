@@ -205,7 +205,16 @@ public class PF2DController : MonoBehaviour
         }
 
         //set of jump.
-        if (verticalJumpTime > 0)
+		if (verticalJumpTime <= 0) {
+			verticalJumpTime = jumpHeight / initialJumpSpeed;
+		} 
+		else if (jumpHeight <= 0) {
+			jumpHeight = verticalJumpTime * initialJumpSpeed;
+		} 
+		else if (initialJumpSpeed <= 0) {
+			initialJumpSpeed = jumpHeight / verticalJumpTime;
+		}
+        else if (verticalJumpTime > 0)
         {
             if (jumpHeight > 0)
             {

@@ -12,12 +12,14 @@ public class PropertyFeather : PlayerProperty2D
     public float weightMultiplier = 0.5f;
     private Rigidbody2D rb2d;
     private float originalGravityScale;
+	public GameObject featherGiver;
 
     protected override void Start()
     {
         base.Start();
-        rb2d = GetComponent<Rigidbody2D>();
+		rb2d = GetComponent<Rigidbody2D> ();
         ActivateEffect(true);
+		player.Circle.GetComponent<SpriteRenderer> ().color = featherGiver.GetComponent<SpriteRenderer>().color;
     }
 
     private void ActivateEffect(bool activate)
@@ -61,7 +63,7 @@ public class PropertyFeather : PlayerProperty2D
     {
         base.OnDestroy();
         if (enabled == false) return;
-        ActivateEffect(false);
+		ActivateEffect(false);
     }
 
 }

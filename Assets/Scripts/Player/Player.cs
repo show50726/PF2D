@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     public double manaPoint = 100;
     public int lives = 0;
     public double score = 0;
+	public GameObject Circle;
 
     [Header("Damage Setting")]
     public Transform criticalPosition;

@@ -26,6 +26,10 @@ public class PropertyRemover2D : MonoBehaviour
         else
         {
             Debug.Log("remove everything!");
+			if (obj.gameObject.tag == "Player") {
+				Player p = obj.gameObject.GetComponent<Player> ();
+				p.Circle.GetComponent<SpriteRenderer> ().color = Color.white;
+			}
             ClearPropertyFrom(obj);
         }
     }

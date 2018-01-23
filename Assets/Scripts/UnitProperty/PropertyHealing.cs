@@ -8,15 +8,17 @@ public class PropertyHealing : PlayerProperty2D {
 	public float healingPeriod = 1f;
 	public float healingOthersPeriod = 4f;
 	private float timer = 0f;
-	public LayerMask ignoreTheseObjects = (1 << 8);
+	public LayerMask ignoreTheseObjects = (1 << 9);
 	public bool updateIfExists = true;
 	public int maxHealth = 100;
 	private List<OnTouchingPlayer> onTouchingList = new List<OnTouchingPlayer>();
+	public GameObject healingGiver;
 
 	// Use this for initialization
 	protected override void Start()
 	{
 		base.Start();
+		player.Circle.GetComponent<SpriteRenderer> ().color = healingGiver.GetComponent<SpriteRenderer>().color;
 	}
 
 	private void OnCollisionEnter2D(Collision2D col)

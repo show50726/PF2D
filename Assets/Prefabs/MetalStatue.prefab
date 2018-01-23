@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4751365215687198}
   - component: {fileID: 212271799462795036}
   - component: {fileID: 61679472072489986}
-  - component: {fileID: 114416463752487850}
+  - component: {fileID: 114224102467374084}
   m_Layer: 0
   m_Name: MetalStatue
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114416463752487850
+--- !u!114 &114224102467374084
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588665765732158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2bdcb79e596ee448f3eba9581df0bd, type: 3}
+  m_Script: {fileID: 11500000, guid: b0e670b6da9954328861ab4a7eda9ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   propertyManager: {fileID: 0}
@@ -88,7 +88,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -104,7 +103,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
