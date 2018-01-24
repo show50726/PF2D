@@ -62,7 +62,7 @@ public class PropertyFeather : PlayerProperty2D
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        if (enabled == false) return;
+        //if (enabled == false) return;
 		ActivateEffect(false);
     }
 

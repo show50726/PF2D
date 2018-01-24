@@ -9,7 +9,8 @@ using System.Collections;
 
 public class PropertyGiver2D : MonoBehaviour
 {
-    public LayerMask ignoreTheseObjects = (1 << 8); //this format means the Layer 8 are selected.
+    public LayerMask ignoreTheseObjects = (1 << 8); //this format means the Layer 9 are selected.
+	public LayerMask ignoreGiver = (1 << 9);
     
     public UnitProperty giveProperty;
     public bool updateInfoIfPropertyExists = true;
@@ -30,19 +31,19 @@ public class PropertyGiver2D : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!enabled) return;
-        if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
+		if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer)) || ignoreGiver ==(ignoreGiver | (1 << col.gameObject.layer))) return;
         GivePropertyTo(col.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!enabled) return;
-        if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
+		if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer)) || ignoreGiver ==(ignoreGiver | (1 << col.gameObject.layer))) return;
         GivePropertyTo(col.gameObject);
     }
     private void OnCollisionExit2D(Collision2D col)
     {
         if (!enabled) return;
-        if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
+		if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer)) || ignoreGiver ==(ignoreGiver | (1 << col.gameObject.layer))) return;
         if (removeWhenLeave)
         {
             RemovePropertyFrom(col.gameObject);
@@ -51,7 +52,7 @@ public class PropertyGiver2D : MonoBehaviour
     private void OnTriggerExit2D(Collider2D col)
     {
         if (!enabled) return;
-        if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
+		if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer)) || ignoreGiver ==(ignoreGiver | (1 << col.gameObject.layer))) return;
         if (removeWhenLeave)
         {
             RemovePropertyFrom(col.gameObject);
