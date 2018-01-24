@@ -206,13 +206,15 @@ public class PF2DController : MonoBehaviour
 
         //set of jump.
 		if (verticalJumpTime <= 0) {
-			verticalJumpTime = jumpHeight / initialJumpSpeed;
+			double g = -Physics2D.gravity.y * rb.gravityScale;
+			float k = Mathf.Sqrt (4 * (float)g * (float)g * initialJumpSpeed * initialJumpSpeed + 4 * (float)g * jumpHeight);
+			verticalJumpTime = (-2 * (float)g * (float)initialJumpSpeed + k) / (2 * (float)g);
 		} 
 		else if (jumpHeight <= 0) {
-			jumpHeight = verticalJumpTime * initialJumpSpeed;
+			jumpHeight = initialJumpSpeed * (verticalJumpTime / 2) + 0.5f * -Physics2D.gravity.y * rb.gravityScale * (verticalJumpTime / 2) * (verticalJumpTime / 2);
 		} 
 		else if (initialJumpSpeed <= 0) {
-			initialJumpSpeed = jumpHeight / verticalJumpTime;
+			initialJumpSpeed = (jumpHeight - 0.5f * -Physics2D.gravity.y * rb.gravityScale * (verticalJumpTime / 2) * (verticalJumpTime / 2)) / verticalJumpTime * 2;
 		}
         else if (verticalJumpTime > 0)
         {
@@ -221,8 +223,9 @@ public class PF2DController : MonoBehaviour
                 rb.gravityScale = 2 * jumpHeight / ( - Physics2D.gravity.y * verticalJumpTime * verticalJumpTime / 4); //to make jump time correct.
             }
             else rb.gravityScale = initialJumpSpeed / ( - Physics2D.gravity.y * verticalJumpTime/2);
+			CheckJumpSpeed();
         }
-        CheckJumpSpeed();
+        //CheckJumpSpeed();
 
         //set of wall jump.
         if (allowWallJump && (leftPosition == null || rightPosition == null))
