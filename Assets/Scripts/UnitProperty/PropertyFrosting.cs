@@ -25,7 +25,7 @@ public class PropertyFrosting : PropertyNegative
     public PropertyFrozen freezePropertySample;
     public bool updateIfExists = true;
     [Tooltip("Objects in these layers won't be diffused.")]
-    public LayerMask ignoreTheseObjects = (1 << 9); //this format means the Layer 8 are selected.
+    public LayerMask ignoreTheseObjects = (1 << 9); //this format means the Layer 9 are selected.
 
 
 

@@ -205,27 +205,19 @@ public class PF2DController : MonoBehaviour
         }
 
         //set of jump.
-		if (verticalJumpTime <= 0) {
-			double g = -Physics2D.gravity.y * rb.gravityScale;
-			float k = Mathf.Sqrt (4 * (float)g * (float)g * initialJumpSpeed * initialJumpSpeed + 4 * (float)g * jumpHeight);
-			verticalJumpTime = (-2 * (float)g * (float)initialJumpSpeed + k) / (2 * (float)g);
-		} 
-		else if (jumpHeight <= 0) {
-			jumpHeight = initialJumpSpeed * (verticalJumpTime / 2) + 0.5f * -Physics2D.gravity.y * rb.gravityScale * (verticalJumpTime / 2) * (verticalJumpTime / 2);
-		} 
-		else if (initialJumpSpeed <= 0) {
-			initialJumpSpeed = (jumpHeight - 0.5f * -Physics2D.gravity.y * rb.gravityScale * (verticalJumpTime / 2) * (verticalJumpTime / 2)) / verticalJumpTime * 2;
-		}
-        else if (verticalJumpTime > 0)
+		if (verticalJumpTime > 0)
         {
-            if (jumpHeight > 0)
-            {
-                rb.gravityScale = 2 * jumpHeight / ( - Physics2D.gravity.y * verticalJumpTime * verticalJumpTime / 4); //to make jump time correct.
-            }
-            else rb.gravityScale = initialJumpSpeed / ( - Physics2D.gravity.y * verticalJumpTime/2);
-			CheckJumpSpeed();
+			Vector2 v = new Vector2(0f, 0f);
+			if (jumpHeight > 0) {
+				v.y = 2 * jumpHeight / (-verticalJumpTime * verticalJumpTime / 4);
+				Physics2D.gravity = v; //to make jump time correct.
+			} else 
+			{
+				v.y = initialJumpSpeed / ( - verticalJumpTime/2);
+				Physics2D.gravity = v;
+			} 
         }
-        //CheckJumpSpeed();
+        CheckJumpSpeed();
 
         //set of wall jump.
         if (allowWallJump && (leftPosition == null || rightPosition == null))
