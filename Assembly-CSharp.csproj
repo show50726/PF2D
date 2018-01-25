@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Objects\LiquidFloat.cs" />
      <Compile Include="Assets\Scripts\Objects\Mechanism2D.cs" />
      <Compile Include="Assets\Scripts\Objects\PF2D_HarmfulArea.cs" />
+     <Compile Include="Assets\Scripts\Objects\PF2DDeadArea.cs" />
      <Compile Include="Assets\Scripts\Objects\PressureSwitch2D.cs" />
      <Compile Include="Assets\Scripts\Objects\TrapFloor2D.cs" />
      <Compile Include="Assets\Scripts\Objects\TrapFloorSimple2D.cs" />

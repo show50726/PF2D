@@ -22,10 +22,12 @@ public class Laser : PlayerProperty2D {
 	// Update is called once per frame
 	protected void Update () {
 		laserLine.positionCount = 2;
-		laserLine.SetPosition (0, new Vector2(this.transform.position.x, this.transform.position.y - 0.225f));
+		float k = endPoint.transform.position.y > this.transform.position.y ? this.transform.position.y + 0.225f : this.transform.position.y - 0.225f;
+		laserLine.SetPosition (0, new Vector2(this.transform.position.x, k));
 		laserLine.SetPosition (1, endPoint.transform.position);
 
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, (this.transform.position.y - 0.4f)), new Vector2(endPoint.transform.position.x - this.transform.position.x, endPoint.transform.position.y - (this.transform.position.y - 0.4f)), Mathf.Infinity);  
+		float l = endPoint.transform.position.y > this.transform.position.y ? this.transform.position.y + 0.4f : this.transform.position.y - 0.4f;
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, l), new Vector2(endPoint.transform.position.x - this.transform.position.x, endPoint.transform.position.y - l), Mathf.Infinity);  
 		//Debug.Log (hit.collider.name);
 		if (hit.collider.tag == "Floor") {
 				
@@ -37,9 +39,6 @@ public class Laser : PlayerProperty2D {
 			if (frosting) {
 				laserLine.SetPosition (1, hit.point);
 			} 
-			else if (metal) {
-				Reflect ();
-			}
 			else {
 				p.Death ();
 			}
@@ -74,9 +73,9 @@ public class Laser : PlayerProperty2D {
 				}
 				lastPos = Pos;
 			}
-			if (metal) {
-				Reflect ();
-			}
+			//if (metal) {
+			//	Reflect ();
+			//}
 
 		}
 	}
