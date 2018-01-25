@@ -78,14 +78,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1bccd50dbd9f643be689c63e4dc2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activated: 0
+  stayOnAfterActivated: 0
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 48
+    m_Bits: 304
   connectedMechanism:
   - {fileID: 114907569646990992, guid: a47ccb15ef337d74a90d304c869faa6f, type: 2}
-  - {fileID: 114125775652282622, guid: a47ccb15ef337d74a90d304c869faa6f, type: 2}
+  - {fileID: 0}
   switchInsteadTurnOn: 0
-  willStayOn: 0
 --- !u!212 &212659779707421274
 SpriteRenderer:
   m_ObjectHideFlags: 1

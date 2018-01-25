@@ -1,6 +1,6 @@
 ﻿//Finish made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/23
+//last maintained:  2018/01/26
 //usage:            this is a BASE class. Inherit this to make a custom one.
 
 using UnityEngine;
@@ -102,10 +102,10 @@ public class Finish : MonoBehaviour
     }
     internal void GiveDirectionToPlayer(GameObject playerObj)
     {
-        Player player = playerObj.GetComponent<Player>();
+        Player player = playerObj.GetComponentInParent<Player>(); //due to magical solution of controller (?)
         if (player == null)
         {
-            Debug.LogWarning(GetType().Name + " of " + name + " warning: an non-player Object is trying to get direction. Did you forget to assign it Player component?");
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: an non-player Object " + playerObj.name + " is trying to get direction. Did you forget to assign it Player component?");
             return;
         }
         player.nextScene = goToThisScene;
