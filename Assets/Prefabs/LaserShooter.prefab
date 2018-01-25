@@ -88,6 +88,7 @@ MonoBehaviour:
   endPoint: {fileID: 1169925331425320}
   RemoveFrozenPeriod: 1
   DestroyWoodPeriod: 3
+  laserColor: {fileID: 2100000, guid: a1bb39e8894f5f04e96bbd61add95f18, type: 2}
 --- !u!120 &120878137130168972
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -141,15 +142,15 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 0.85882354, g: 0.90588236, b: 0.57254905, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 34117
-      ctime1: 63993
+      ctime0: 0
+      ctime1: 65535
       ctime2: 0
       ctime3: 0
       ctime4: 0

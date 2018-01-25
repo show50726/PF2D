@@ -34,7 +34,7 @@ public class Laser : PlayerProperty2D {
 		}
 		else if (hit.collider.tag == "Player") {
 			PropertyFrosting frosting = hit.collider.gameObject.GetComponent<PropertyFrosting>();
-			PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
+			//PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
 			Player p = hit.collider.gameObject.GetComponent<Player> ();
 			if (frosting) {
 				laserLine.SetPosition (1, hit.point);
@@ -47,7 +47,7 @@ public class Laser : PlayerProperty2D {
 			laserLine.SetPosition (1, hit.point);
 			PropertyFrozen frozen = hit.collider.gameObject.GetComponent<PropertyFrozen>();
 			PropertyWooden wooden = hit.collider.gameObject.GetComponent<PropertyWooden>();
-			PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
+			//PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
 			if (frozen) {
 				timer_f += Time.deltaTime;
 				if (timer_f >= RemoveFrozenPeriod) {
