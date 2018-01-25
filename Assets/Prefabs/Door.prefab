@@ -60,7 +60,6 @@ GameObject:
   - component: {fileID: 212070842306092940}
   - component: {fileID: 61458225125229542}
   - component: {fileID: 114745168378980362}
-  - component: {fileID: 114125775652282622}
   m_Layer: 8
   m_Name: Door
   m_TagString: Finish
@@ -75,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1973851332138044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 3.125, z: 0}
+  m_LocalPosition: {x: -10, y: 0.25, z: 0}
   m_LocalScale: {x: 1.5, y: 2.25, z: 1}
   m_Children:
   - {fileID: 4648910489261094}
@@ -236,23 +235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  destination: {x: 0.75, y: 0}
+  destination: {x: 0.5, y: 0}
   speed: 2
   returnWhenOff: 1
---- !u!114 &114125775652282622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1973851332138044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caed90d903e7c874c84c38d3b5714fd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  finish2d: {fileID: 114745168378980362}
-  switchCaseIndex: 0
 --- !u!114 &114745168378980362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  destination: {x: -0.75, y: 0}
+  destination: {x: -0.5, y: 0}
   speed: 2
   returnWhenOff: 1
 --- !u!212 &212070842306092940
