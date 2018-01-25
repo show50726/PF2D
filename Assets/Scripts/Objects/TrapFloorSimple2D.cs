@@ -1,6 +1,6 @@
 ﻿//TrapFloorSimple2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/15
+//last maintained:  2018/01/25
 //usage:            a basic trap floor, which you can set path and velocity.
 
 using UnityEngine;
@@ -14,10 +14,12 @@ public class TrapFloorSimple2D : Mechanism2D
     private Rigidbody2D rb2d;
     public bool returnWhenOff = true;
     private Vector2 direction = Vector2.zero;
+    private Vector2 originPos = new Vector2();
 
     protected override void Start()
     {
         base.Start();
+        originPos = transform.localPosition;
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.bodyType = RigidbodyType2D.Kinematic;
         start = transform.localPosition;
@@ -44,12 +46,11 @@ public class TrapFloorSimple2D : Mechanism2D
     }
     private Vector2 JudgeMoveDirection()
     {
-        Vector2 way = destination - start;
         if (Activated)
         {
-            if (((Vector2)transform.localPosition - start).magnitude < way.magnitude)
+            if (((Vector2)transform.localPosition - start).magnitude < destination.magnitude)
             {
-                return way.normalized;
+                return destination.normalized;
             }
             else
             {
@@ -59,9 +60,9 @@ public class TrapFloorSimple2D : Mechanism2D
         }
         else if (returnWhenOff)
         {
-            if (((Vector2)transform.localPosition - destination).magnitude < way.magnitude)
+            if (((Vector2)transform.localPosition - (originPos + destination)).magnitude < destination.magnitude)
             {
-                return -way.normalized;
+                return -destination.normalized;
             }
             else
             {
