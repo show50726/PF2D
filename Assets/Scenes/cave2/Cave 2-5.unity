@@ -961,6 +961,31 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.75
       objectReference: {fileID: 0}
+    - target: {fileID: 114760705112564278, guid: c4071c493c2f2f04ab04be395dc4e24e,
+        type: 2}
+      propertyPath: period
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760705112564278, guid: c4071c493c2f2f04ab04be395dc4e24e,
+        type: 2}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 253346706519097128, guid: c4071c493c2f2f04ab04be395dc4e24e,
+        type: 2}
+      propertyPath: m_FlowMagnitude
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 253346706519097128, guid: c4071c493c2f2f04ab04be395dc4e24e,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 253346706519097128, guid: c4071c493c2f2f04ab04be395dc4e24e,
+        type: 2}
+      propertyPath: m_Density
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
   m_IsPrefabParent: 0

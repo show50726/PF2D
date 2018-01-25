@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 212070842306092940}
   - component: {fileID: 61458225125229542}
   - component: {fileID: 114745168378980362}
+  - component: {fileID: 114125775652282622}
   m_Layer: 8
   m_Name: Door
   m_TagString: Finish
@@ -238,6 +239,20 @@ MonoBehaviour:
   destination: {x: 0.75, y: 0}
   speed: 2
   returnWhenOff: 1
+--- !u!114 &114125775652282622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973851332138044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caed90d903e7c874c84c38d3b5714fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  finish2d: {fileID: 114745168378980362}
+  switchCaseIndex: 0
 --- !u!114 &114745168378980362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFinished: 0
-  switchCase: 01
+  switchCase: 0000
   assignedPlayer: {fileID: 0}
   goToThisScene: Title
   stateName: 
