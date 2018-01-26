@@ -466,6 +466,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &423945332 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114147053406743900, guid: a74ed24c9cd896143aa4914b50ac2578,
+    type: 2}
+  m_PrefabInternal: {fileID: 423945331}
+  m_Script: {fileID: 11500000, guid: 7ccdfba7272c9964f9953c0340360af8, type: 3}
+--- !u!114 &423945333 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114068380428519914, guid: a74ed24c9cd896143aa4914b50ac2578,
+    type: 2}
+  m_PrefabInternal: {fileID: 423945331}
+  m_Script: {fileID: 11500000, guid: cd37cd4b48c767940aaa8badb94e36b0, type: 3}
 --- !u!1001 &426256820
 Prefab:
   m_ObjectHideFlags: 0
@@ -774,9 +786,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1014777516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da2d40cfdb36f294fb35d8024f680cb9, type: 3}
+  m_Script: {fileID: 11500000, guid: e73d89dc4f4a4e546a1e413b85149a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseEffect: {fileID: 0}
+  gameoverEffect: {fileID: 0}
+  systemMessageContainer: {fileID: 0}
+  levelScoreShower: {fileID: 0}
+  players:
+  - {fileID: 423945333}
+  - {fileID: 1303664346}
+  playerScoreShower: []
+  healthPointDisplay:
+  - {fileID: 423945332}
+  - {fileID: 1303664345}
+  manaPointDisplay: []
 --- !u!114 &1014777519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,8 +812,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c79f38fe9f86e348bb64cea7debadfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUIManager: {fileID: 0}
-  players: []
+  levelUIManager: {fileID: 1014777518}
+  players:
+  - {fileID: 423945333}
+  - {fileID: 1303664346}
   levelScore: 0
   restartWaitingTime: 3
   stopTimeAfterGameOver: 0
@@ -1061,6 +1087,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1303664345 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114403307235693142, guid: 7541c8b600d850044929c880a4f2678d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1303664344}
+  m_Script: {fileID: 11500000, guid: 7ccdfba7272c9964f9953c0340360af8, type: 3}
+--- !u!114 &1303664346 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114972848826850362, guid: 7541c8b600d850044929c880a4f2678d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1303664344}
+  m_Script: {fileID: 11500000, guid: cd37cd4b48c767940aaa8badb94e36b0, type: 3}
 --- !u!1001 &1390825959
 Prefab:
   m_ObjectHideFlags: 0

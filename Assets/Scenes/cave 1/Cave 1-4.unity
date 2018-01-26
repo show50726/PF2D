@@ -239,6 +239,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &43052362 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114972848826850362, guid: 7541c8b600d850044929c880a4f2678d,
+    type: 2}
+  m_PrefabInternal: {fileID: 43052361}
+  m_Script: {fileID: 11500000, guid: cd37cd4b48c767940aaa8badb94e36b0, type: 3}
+--- !u!114 &43052363 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114403307235693142, guid: 7541c8b600d850044929c880a4f2678d,
+    type: 2}
+  m_PrefabInternal: {fileID: 43052361}
+  m_Script: {fileID: 11500000, guid: 7ccdfba7272c9964f9953c0340360af8, type: 3}
 --- !u!4 &43970485 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4466564587792362, guid: 85508191ce440d942a411935f117ed7a,
@@ -755,7 +767,7 @@ Prefab:
         type: 2}
       propertyPath: connectedMechanism.Array.data[4]
       value: 
-      objectReference: {fileID: 1355768128}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74746ee75bb791b4d99db3d1c5c317c0, type: 2}
   m_IsPrefabParent: 0
@@ -791,6 +803,7 @@ GameObject:
   - component: {fileID: 1014777517}
   - component: {fileID: 1014777519}
   - component: {fileID: 1014777518}
+  - component: {fileID: 1014777520}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -851,11 +864,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c79f38fe9f86e348bb64cea7debadfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUIManager: {fileID: 0}
-  players: []
+  levelUIManager: {fileID: 1014777520}
+  players:
+  - {fileID: 2110138839}
+  - {fileID: 43052362}
   levelScore: 0
   restartWaitingTime: 3
   stopTimeAfterGameOver: 0
+--- !u!114 &1014777520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014777516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73d89dc4f4a4e546a1e413b85149a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseEffect: {fileID: 0}
+  gameoverEffect: {fileID: 0}
+  systemMessageContainer: {fileID: 0}
+  levelScoreShower: {fileID: 0}
+  players:
+  - {fileID: 2110138839}
+  - {fileID: 43052362}
+  playerScoreShower: []
+  healthPointDisplay:
+  - {fileID: 2110138840}
+  - {fileID: 43052363}
+  manaPointDisplay: []
 --- !u!1001 &1072888576
 Prefab:
   m_ObjectHideFlags: 0
@@ -1012,7 +1050,7 @@ Prefab:
         type: 2}
       propertyPath: connectedMechanism.Array.data[3]
       value: 
-      objectReference: {fileID: 1355768128}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74746ee75bb791b4d99db3d1c5c317c0, type: 2}
   m_IsPrefabParent: 0
@@ -1213,12 +1251,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85508191ce440d942a411935f117ed7a, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1355768128 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114125775652282622, guid: a47ccb15ef337d74a90d304c869faa6f,
-    type: 2}
-  m_PrefabInternal: {fileID: 2017028482}
-  m_Script: {fileID: 11500000, guid: caed90d903e7c874c84c38d3b5714fd9, type: 3}
 --- !u!1001 &1380751410
 Prefab:
   m_ObjectHideFlags: 0
@@ -1714,6 +1746,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2110138839 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114068380428519914, guid: a74ed24c9cd896143aa4914b50ac2578,
+    type: 2}
+  m_PrefabInternal: {fileID: 2110138838}
+  m_Script: {fileID: 11500000, guid: cd37cd4b48c767940aaa8badb94e36b0, type: 3}
+--- !u!114 &2110138840 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114147053406743900, guid: a74ed24c9cd896143aa4914b50ac2578,
+    type: 2}
+  m_PrefabInternal: {fileID: 2110138838}
+  m_Script: {fileID: 11500000, guid: 7ccdfba7272c9964f9953c0340360af8, type: 3}
 --- !u!1001 &2120514166
 Prefab:
   m_ObjectHideFlags: 0
