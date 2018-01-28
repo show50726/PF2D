@@ -52,9 +52,10 @@ public class PropertyHealing : PlayerProperty2D {
 
 	public void Update(){
 		timer += Time.deltaTime;
-		if (timer >= healingPeriod && player.healthPoint < maxHealth) {
-			player.healthPoint++;
-			Debug.Log("Player " + name + " is healing." + "HP is now " + player.healthPoint);
+		Player pl = this.GetComponent<Player> ();
+		if (pl && timer >= healingPeriod && pl.healthPoint < maxHealth) {
+			pl.healthPoint++;
+			Debug.Log("Player " + pl.name + " is healing." + "HP is now " + pl.healthPoint);
 			timer -= healingPeriod;
 		}
 

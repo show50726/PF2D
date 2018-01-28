@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\GameSystem\GameSystemManager.cs" />
      <Compile Include="Assets\Scripts\GameSystem\GameSystemState\GameSystemStateMachineState.cs" />
      <Compile Include="Assets\Scripts\GameSystem\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\GameSystem\LevelReporter.cs" />
      <Compile Include="Assets\Scripts\GameSystem\PFManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Finish.cs" />
      <Compile Include="Assets\Scripts\Objects\Finish2D.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\Objects\PF2D_HarmfulArea.cs" />
      <Compile Include="Assets\Scripts\Objects\PF2DDeadArea.cs" />
      <Compile Include="Assets\Scripts\Objects\PressureSwitch2D.cs" />
+     <Compile Include="Assets\Scripts\Objects\StayOnTrigger.cs" />
      <Compile Include="Assets\Scripts\Objects\TrapFloor2D.cs" />
      <Compile Include="Assets\Scripts\Objects\TrapFloorSimple2D.cs" />
      <Compile Include="Assets\Scripts\Player\Controller_GoIn.cs" />

@@ -22,12 +22,15 @@ public class Laser : PlayerProperty2D {
 	// Update is called once per frame
 	protected void Update () {
 		laserLine.positionCount = 2;
-		float k = endPoint.transform.position.y > this.transform.position.y ? this.transform.position.y + 0.225f : this.transform.position.y - 0.225f;
-		laserLine.SetPosition (0, new Vector2(this.transform.position.x, k));
+		Vector2 pos = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.49f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.49f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
+		//float k = endPoint.transform.position.y > this.transform.position.y ? this.transform.position.y + 0.225f : this.transform.position.y - 0.225f;
+		//Debug.Log(Mathf.Cos(this.transform.rotation.z / 180f * Mathf.PI));
+		//Debug.Log (this.transform.rotation);
+		laserLine.SetPosition (0, pos);
 		laserLine.SetPosition (1, endPoint.transform.position);
 
-		float l = endPoint.transform.position.y > this.transform.position.y ? this.transform.position.y + 0.4f : this.transform.position.y - 0.4f;
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(this.transform.position.x, l), new Vector2(endPoint.transform.position.x - this.transform.position.x, endPoint.transform.position.y - l), Mathf.Infinity);  
+		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.5f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.5f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
+		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);  
 		//Debug.Log (hit.collider.name);
 		if (hit.collider.tag == "Floor") {
 				
