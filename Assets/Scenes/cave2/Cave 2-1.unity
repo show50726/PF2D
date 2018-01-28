@@ -156,6 +156,11 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114697833397423052, guid: 15219aba2dc3eab498e3a558b87ffb9d,
+        type: 2}
+      propertyPath: moveSpeedMultiplier
+      value: 1.0256453
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
   m_IsPrefabParent: 0
