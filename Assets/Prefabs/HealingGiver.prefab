@@ -86,7 +86,10 @@ MonoBehaviour:
   healingOthersPeriod: 4
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
+  ignoreGiver:
+    serializedVersion: 2
+    m_Bits: 512
   updateIfExists: 1
   maxHealth: 100
   healingGiver: {fileID: 1882356586815766}
@@ -104,6 +107,9 @@ MonoBehaviour:
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 256
+  ignoreGiver:
+    serializedVersion: 2
+    m_Bits: 512
   giveProperty: {fileID: 114724495075000800}
   updateInfoIfPropertyExists: 1
   removeWhenLeave: 0
