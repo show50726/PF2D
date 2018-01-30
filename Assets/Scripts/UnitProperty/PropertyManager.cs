@@ -1,6 +1,6 @@
 ﻿//Property Manager  PROUDLY made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/12/18
+//last maintained:  2018/01/30
 //Usage:            This helps managing properties. Make sure you apply it to ANY unit that will be involved by properties.
 
 using System.Collections;
@@ -49,6 +49,17 @@ public class PropertyManager : MonoBehaviour {
             }
         }
         return null;
+    }
+    public UnitProperty[] GetPropertyList()
+    {
+        if (propertyList.Count == 0) return null;
+        UnitProperty[] list = new UnitProperty[propertyList.Count];
+        for (int i = 0; i < propertyList.Count; i++)
+        {
+            list[i] = propertyList[i];
+        }
+        return list;
+
     }
 
     public bool ApplyProperty(UnitProperty unitProperty)

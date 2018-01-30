@@ -1,8 +1,8 @@
 ﻿//UIPointShow2D      made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/10/15
+//last maintained:  2018/01/30
 //usage:            this can be used as point show, such as HP, MP, etc.
-using System.Collections;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,25 +22,33 @@ public class UIPointShow2D : MonoBehaviour {
 
     private void OnEnable()
     {
-        fullLengthScale = bar.transform.localScale.x;
-        Renderer rdr = bar.GetComponent<Renderer>();
-        if (rdr)
+        if (bar)
         {
-            fixScaleParameter = bar.transform.lossyScale.x / fullLengthScale;
-            originalLength = rdr.bounds.size.x / fixScaleParameter; 
-            //DEV NOTE: the scale/size in unity is so fucked up, this set is the result after trying error.
-            leftLocation = 
-                bar.transform.localPosition - new Vector3(originalLength / 2 ,0 );
-            /*
-            Debug.Log("The left position of " + bar.name + " is " + leftLocation + "; "
-                + "the length of it is " + originalLength + "; " 
-                + "the absolute scale is " + bar.transform.lossyScale.x + "; "
-                + "the local scale is " + bar.transform.localScale.x);
-            */
+            fullLengthScale = bar.transform.localScale.x;
+            Renderer rdr = bar.GetComponent<Renderer>();
+            if (rdr)
+            {
+                fixScaleParameter = bar.transform.lossyScale.x / fullLengthScale;
+                originalLength = rdr.bounds.size.x / fixScaleParameter;
+                //DEV NOTE: the scale/size in unity is so fucked up, this set is the result after trying error.
+                leftLocation =
+                    bar.transform.localPosition - new Vector3(originalLength / 2, 0);
+                /*
+                Debug.Log("The left position of " + bar.name + " is " + leftLocation + "; "
+                    + "the length of it is " + originalLength + "; " 
+                    + "the absolute scale is " + bar.transform.lossyScale.x + "; "
+                    + "the local scale is " + bar.transform.localScale.x);
+                */
+            }
+            else
+            {
+                Debug.Log(GetType().Name + " reporting: the bar assigned doesn't have a renderer. Thus the point bar might not be aligned to left,  instead it will shrink to the center (or to the anchor if in Canvas).");
+            }
         }
-        else
+        else if (pointShowText == null)
         {
-            Debug.Log(GetType().Name + " reporting: the bar assigned doesn't have a renderer. Thus the point bar might not be aligned to left,  instead it will shrink to the center (or to the anchor if in Canvas).");
+            Debug.LogWarning(GetType().Name + " warning: the bar and pointShowText are both not assigned. Script won't work, and probably will cause bugs.");
+            enabled = false;
         }
 
     }
@@ -63,7 +71,7 @@ public class UIPointShow2D : MonoBehaviour {
             bar.transform.localScale = new Vector3
                 (fullLengthScale * newScale, bar.transform.localScale.y);
         }
-        else
+        else if (bar)
         {
             bar.transform.localScale = new Vector3
                 (fullLengthScale * newScale, bar.transform.localScale.y);

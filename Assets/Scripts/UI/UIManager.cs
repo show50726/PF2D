@@ -1,6 +1,6 @@
 ﻿//UI Manager        made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/01/22
+//Last maintained:  2018/01/30
 //Usage:            UI Manager is used to 'connect' UI functions (like buttons) to 'Game System' (like GameSystemManager). Assign it to object that contain all UI-things.
 //Notice:           Unlike other manager, Multiple UI Manager is ALLOWED.
 
@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
 
     public UIPointShow2D[] healthPointDisplay = new UIPointShow2D[0];
     public UIPointShow2D[] manaPointDisplay = new UIPointShow2D[0];
+    public UIPropertyDisplayer[] propertyDisplay = new UIPropertyDisplayer[0];
 
     private string systemMessage;
 
@@ -47,6 +48,10 @@ public class UIManager : MonoBehaviour
             enabled = false;
             return;
         }
+        if (players.Length == 0)
+        {
+            players = GameSystemManager.exist.GetPlayerList();
+        }
 
         //if (pauseEffect == null) pauseEffect = FindObjectOfType<UIPauseEffect>();
         if(pauseEffect != null) pauseEffect.DoPauseEffect(GameSystemManager.exist.isPaused);
@@ -59,6 +64,10 @@ public class UIManager : MonoBehaviour
         if (manaPointDisplay.Length != players.Length)
         {
             //Debug.LogWarning(GetType().Name + " warning: the amounts of mana point display and players is not the same.");
+        }
+        if (propertyDisplay.Length != players.Length)
+        {
+            Debug.LogWarning(GetType().Name + " warning: the amounts of propertyDisplay and players is not the same.");
         }
 
         if(healthPointDisplay.Length != 0)
@@ -75,6 +84,13 @@ public class UIManager : MonoBehaviour
             {
                 manaPointDisplay[i].SetFullPoint(players[i].manaPoint);
                 manaPointDisplay[i].UpdatePoint(players[i].manaPoint); //this helps to initialize
+            }
+        }
+        if (propertyDisplay.Length != 0)
+        {
+            for (int i = 0; i < propertyDisplay.Length; i++)
+            {
+                RefreshPropertyDisplay(i);
             }
         }
 
@@ -148,6 +164,25 @@ public class UIManager : MonoBehaviour
         }
         if (healthPointDisplay[playerIndex]) healthPointDisplay[playerIndex].UpdatePoint(healthPoint);
         else Debug.LogWarning(GetType().Name + " reporting: the health point display of " + players[playerIndex].name + " is not assigned, thus it can't be displayed.");
+    }
+
+    public void RefreshPropertyDisplay(int playerIndex)
+    {
+        if (propertyDisplay[playerIndex] && players[playerIndex])
+        {
+            PropertyManager pM = players[playerIndex].GetComponent<PropertyManager>();
+            if (pM ==null)
+            {
+                Debug.LogWarning(GetType().Name + " warning: the assigned player " + players[playerIndex].gameObject.name + " doesn't have PropertyManager, and thus cannot display property. This should not happen.");
+                return;
+            }
+            propertyDisplay[playerIndex].DisplayProperty(pM);
+        }
+        else
+        {
+            Debug.LogWarning(GetType().Name + " warnig: cannot find the assigned " + playerIndex + "th player, or the corresponding propertyDisplay. Please check your variable assign.");
+        }
+
     }
 
     public void DoGameOverEffect()
