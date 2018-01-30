@@ -686,6 +686,7 @@ MonoBehaviour:
   - {fileID: 890244390}
   - {fileID: 752206526}
   manaPointDisplay: []
+  propertyDisplay: []
 --- !u!1001 &1040893700
 Prefab:
   m_ObjectHideFlags: 0
@@ -1144,6 +1145,22 @@ Prefab:
         type: 2}
       propertyPath: goToThisScene
       value: STC-Test-Area-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851868481193820, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -9.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851868481193820, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914164282291042, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 13.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232023245182384, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
