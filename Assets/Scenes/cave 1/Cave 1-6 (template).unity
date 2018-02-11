@@ -687,6 +687,7 @@ MonoBehaviour:
   - {fileID: 573500314}
   - {fileID: 1819330657}
   manaPointDisplay: []
+  propertyDisplay: []
 --- !u!114 &1014777519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,6 +819,51 @@ Transform:
   m_PrefabParentObject: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db,
     type: 2}
   m_PrefabInternal: {fileID: 1275855715}
+--- !u!1 &1277946183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1277946185}
+  - component: {fileID: 1277946184}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1277946184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277946183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04171f5f38935dc48891bff7a2439e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theSceneIsInGame: 1
+  afterThisLevelDoneWaitTime: 3
+  haveCompletedLevels: 0
+  animatorSM: {fileID: 0}
+  pauseKey: 27
+--- !u!4 &1277946185
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277946183}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.128914, y: 7.635535, z: 0.2421875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1536840969 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114116253263135060, guid: a47ccb15ef337d74a90d304c869faa6f,
