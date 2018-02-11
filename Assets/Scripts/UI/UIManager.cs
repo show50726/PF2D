@@ -1,6 +1,6 @@
 ﻿//UI Manager        made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/01/30
+//Last maintained:  2018/02/11
 //Usage:            UI Manager is used to 'connect' UI functions (like buttons) to 'Game System' (like GameSystemManager). Assign it to object that contain all UI-things.
 //Notice:           Unlike other manager, Multiple UI Manager is ALLOWED.
 
@@ -130,7 +130,11 @@ public class UIManager : MonoBehaviour
 
     public void GoBackToTitleFromUI()
     {
-        if (CheckGameSystemManager("go back to title from UI"))  GameSystemManager.exist.LoadScene("Title");
+        if (CheckGameSystemManager("go back to title from UI"))
+        {
+            GameSystemManager.exist.ResetData();
+            GameSystemManager.exist.LoadScene("Title");
+        }
     }
 
     public void LoadSceneFromUI(string sceneName)
