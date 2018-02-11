@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/26
+//last maintained:  2018/02/11
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -193,8 +193,16 @@ public class GameSystemManager : MonoBehaviour
         
     }//DEV NOTE: this function is still in testing
     #endregion
-    
-    
+
+    public void ResetData()
+    {
+        while (playerList.Count != 0)
+        {
+            Destroy(playerList[0].gameObject);
+            playerList.RemoveAt(0);
+        }
+    }
+
     public void QuitGame()
     {
         //here do the things before game ends.

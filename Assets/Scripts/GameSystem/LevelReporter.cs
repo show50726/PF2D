@@ -1,6 +1,6 @@
 ﻿//LevelReporter made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/26
+//last maintained:  2018/01/30
 //Usage:            for level-based project debugging, the script will report specified things if wanted.
 //NOTE:             to make sure this will be executed after ALL of initialization, I use a strange "later-start" method writting. See below.
 
@@ -40,6 +40,7 @@ public class LevelReporter : MonoBehaviour
                 }
             }
         }
+        if (PFManager.exist == null) Debug.Log("The level didn't assign PFM.");
         Finish[] doors = FindObjectsOfType<Finish>();
         foreach (Finish d in doors)
         {
