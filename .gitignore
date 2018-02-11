@@ -1,4 +1,4 @@
-﻿# =============== #
+# =============== #
 # Unity generated #
 # =============== #
 [Ll]ibrary/
@@ -35,3 +35,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 開發記錄.txt
+
+# Specified Service 
+Wakatime/
+
+Assets/Editor/WakaTime.meta
