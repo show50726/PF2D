@@ -29,7 +29,7 @@ public class Laser : PlayerProperty2D {
 		laserLine.SetPosition (0, pos);
 		laserLine.SetPosition (1, endPoint.transform.position);
 
-		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.5f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.5f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
+		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.501f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.501f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
 		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);  
 		//Debug.Log (hit.collider.name);
 		if (hit.collider.tag == "Floor") {
