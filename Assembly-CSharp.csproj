@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\UI\UIManager.cs" />
      <Compile Include="Assets\Scripts\UI\UIPauseEffect.cs" />
      <Compile Include="Assets\Scripts\UI\UIPointShow2D.cs" />
+     <Compile Include="Assets\Scripts\UI\UIPropertyDisplayer.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\Laser.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\PlayerProperty2D.cs" />
      <Compile Include="Assets\Scripts\UnitProperty\PropertyBurn.cs" />
