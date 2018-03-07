@@ -1,6 +1,6 @@
 ﻿//PropertyFeather made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/07
+//last maintained:  2018/03/07
 //Usage:            This is a specified property, which makes player run faster and jump higher.
 
 using UnityEngine;
@@ -12,14 +12,14 @@ public class PropertyFeather : PlayerProperty2D
     public float weightMultiplier = 0.5f;
     private Rigidbody2D rb2d;
     private float originalGravityScale;
-	public GameObject featherGiver;
+	public Color showingColor = new Color32(79,44,167,255);
 
     protected override void Start()
     {
         base.Start();
 		rb2d = GetComponent<Rigidbody2D> ();
         ActivateEffect(true);
-		player.Circle.GetComponent<SpriteRenderer> ().color = featherGiver.GetComponent<SpriteRenderer>().color;
+        player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
     }
 
     private void ActivateEffect(bool activate)

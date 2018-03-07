@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/02/11
+//last maintained:  2018/03/07
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -23,7 +23,7 @@ public class GameSystemManager : MonoBehaviour
     internal float oringinalTimeScale;
 
     public Animator animatorSM;
-
+    
     #region Player Data Inherit/Store
     public static System.Collections.Generic.List<Player> playerList = new System.Collections.Generic.List<Player>(); 
     
@@ -49,11 +49,29 @@ public class GameSystemManager : MonoBehaviour
     public void UpdatePlayerData(int playerListIndex, Player newPlayerData)
     {
         //this part can be customized.
-        //Updating data in such format: playerList[i].something = newPlayerData.something;
-        playerList[playerListIndex].transform.position = newPlayerData.transform.position;
+        Player originalPlayerData = playerList[playerListIndex];
+        PropertyManager newPPM = newPlayerData.GetComponent<PropertyManager>();
 
-        //NOTE: the useless newPlayerData will be automatically deleted. Check Player.cs
+        //upload the data. 
+        //DEV NOTE: can write in a better way? such as player.sync(player);
+        newPlayerData.UpdateHealthPoint(originalPlayerData.healthPoint);
+        
+        //upload the property
+        if (newPPM == null)
+        {
+            Debug.LogWarning(GetType().Name + " warning: a player without PropertyManager want to be registered, which is very strange in this game. Script will automatically add one.");
+            newPPM = newPlayerData.gameObject.AddComponent<PropertyManager>();
+        }
+        UnitProperty[] originalProperty = originalPlayerData.GetComponent<PropertyManager>().GetPropertyList();
+        if (originalProperty != null)
+        {
+            foreach (UnitProperty p in originalProperty) newPPM.ApplyProperty(p);
+        }
+
+        //replace the stored one due to system design. Ask your programmer.
+        playerList[playerListIndex] = newPlayerData;
         playerList[playerListIndex].ResetState();
+        Destroy(originalPlayerData.gameObject);
     }
     public void AddPlayerData(Player player)
     {
@@ -288,6 +306,38 @@ public class GameSystemManager : MonoBehaviour
         
     }
 
+    [ReadOnly]
+    public int[] WorldStarScore = new int[3];
 
+    public void AddWorldStarScore(int numOfWorld)
+    {
+        //here, World 1 is "1" (in array is 0)
+        if (numOfWorld > WorldStarScore.Length)
+        {
+            Debug.LogWarning(GetType().Name + " warning: trying to add Star Score do a non-existent world array. (Will not work)");
+        }
+        else if (numOfWorld == 0)
+        {
+            Debug.LogWarning(GetType().Name + " warning: AddWorldStarScore num counts from 1, not from 0. You might want to score the first world?" );
+            numOfWorld++;
+        }
+        numOfWorld--;
+        WorldStarScore[numOfWorld]++;
+    }
+    public int GetWorldStarScore(int numOfWorld)
+    {
+        //here, World 1 is "1" (in array is 0)
+        if (numOfWorld > WorldStarScore.Length)
+        {
+            Debug.LogWarning(GetType().Name + " warning: trying to add Star Score do a non-existent world array. (Will not work)");
+        }
+        else if (numOfWorld == 0)
+        {
+            Debug.LogWarning(GetType().Name + " warning: AddWorldStarScore num counts from 1, not from 0. You might want to score the first world?");
+            numOfWorld++;
+        }
+        numOfWorld--;
+        return WorldStarScore[numOfWorld];
+    }
     
 }
