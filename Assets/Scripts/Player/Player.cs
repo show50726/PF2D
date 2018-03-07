@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/23
+//last maintained:  2018/03/07
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System.Collections;
@@ -34,8 +34,44 @@ public class Player : MonoBehaviour {
         animator.SetBool(resetParameter, true);
     }
 
+    #endregion
+
+    [Header("Controlled by Scripts")]
+    //inner player data.
+    internal Vector3 respawnPos;
+    internal double initialHP;
+    internal double initialMP;
+    internal bool isDead = false;
+    internal bool isRespawning = false;
+    //[ReadOnly]
+    //public string levelGoingDirectionConditionName = ""; //will be updated when into a finish
+    [ReadOnly]
+    public string nextScene = ""; //will be updated when into a finish
+                                  //QUESTION: making beyond into ASM?
+
+    private Rigidbody rb;
+    private Rigidbody2D rb2D;
+    private Collider cld;
+    private Collider2D cld2D;
+
     private void OnEnable()
     {
+        respawnPos = transform.position;
+        initialHP = healthPoint;
+        initialMP = manaPoint;
+        rb = GetComponent<Rigidbody>();
+        rb2D = GetComponent<Rigidbody2D>();
+        cld = GetComponent<Collider>();
+        cld2D = GetComponent<Collider2D>();
+
+        //debug
+        if (tag != "Player")
+        {
+            Debug.LogWarning("Warning: the object " + name + " have script " + GetType().Name + ".cs"
+                + " (and thus should represents player?) but doesn't have tagged \"Player\". "
+                + "It might cause some unpredictable errors.");
+
+        }
         if (animator == null) animator = GetComponent<Animator>();
         if (animator == null)
         {
@@ -53,58 +89,17 @@ public class Player : MonoBehaviour {
                 //the data has never been saved before.
                 Debug.Log("Saving a new player data: " + gameObject.name);
                 GameSystemManager.exist.AddPlayerData(this);
-                DontDestroyOnLoad(this);
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
                 //update player data.
                 Debug.Log("Updating player data: " + gameObject.name);
                 GameSystemManager.exist.UpdatePlayerData(playerListIndex, this);
-                Destroy(gameObject);
             }
         }
     }
-
-    #endregion
-
-    [Header("Controlled by Scripts")]
-    //inner player data.
-    internal Vector3 respawnPos;
-    internal double initialHP;
-    internal double initialMP;
-    internal bool isDead = false;
-    internal bool isRespawning = false;
-    //[ReadOnly]
-    //public string levelGoingDirectionConditionName = ""; //will be updated when into a finish
-    [ReadOnly]
-    public string nextScene = ""; //will be updated when into a finish
-    //QUESTION: making beyond into ASM?
     
-    private Rigidbody rb;
-    private Rigidbody2D rb2D;
-    private Collider cld;
-    private Collider2D cld2D;
-
-    private void Start()
-    {
-        respawnPos = transform.position;
-        initialHP = healthPoint;
-        initialMP = manaPoint;
-        rb = GetComponent<Rigidbody>();
-        rb2D = GetComponent<Rigidbody2D>();
-        cld = GetComponent<Collider>();
-        cld2D = GetComponent<Collider2D>();
-        
-        //debug
-        if (tag != "Player")
-        {
-            Debug.LogWarning("Warning: the object " + name + " have script " + GetType().Name + ".cs" 
-                + " (and thus should represents player?) but doesn't have tagged \"Player\". "
-                + "It might cause some unpredictable errors.");
-            
-        }
-    }
-
     private void SystemMessage(string message)
     {
         if (LevelManager.exist)
