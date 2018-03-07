@@ -90,6 +90,9 @@ MonoBehaviour:
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 256
+  ignoreGiver:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &114817562835056118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,6 +107,9 @@ MonoBehaviour:
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 256
+  ignoreGiver:
+    serializedVersion: 2
+    m_Bits: 512
   giveProperty: {fileID: 114638914031378388}
   updateInfoIfPropertyExists: 1
   removeWhenLeave: 0
@@ -116,6 +122,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -131,6 +138,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
