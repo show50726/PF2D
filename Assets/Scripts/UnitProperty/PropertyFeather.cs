@@ -11,6 +11,7 @@ public class PropertyFeather : PlayerProperty2D
     public float jumpHeightMultiplier = 1.571428f;
     public float weightMultiplier = 0.5f;
     private Rigidbody2D rb2d;
+    private PF2DController pc;
     private float originalGravityScale;
 	public Color showingColor = new Color32(79,44,167,255);
 
@@ -18,6 +19,7 @@ public class PropertyFeather : PlayerProperty2D
     {
         base.Start();
 		rb2d = GetComponent<Rigidbody2D> ();
+        pc = GetComponent<PF2DController>();
         ActivateEffect(true);
         player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
     }
@@ -41,6 +43,7 @@ public class PropertyFeather : PlayerProperty2D
         {
             controller2D.movingSpeed *= moveSpeedMultiplier;
             controller2D.jumpHeight *= jumpHeightMultiplier;
+            pc.cannotJumpOnTheseThing = (1 << 1) | (1 << 2) | (1 << 5);
             if (weightMultiplier <= 0)
             {
                 Debug.LogWarning(GetType().Name + " of " + name + " warning: weightMultiplier has been set to 0. For bug avoiding, The mass won't change.");
@@ -51,6 +54,7 @@ public class PropertyFeather : PlayerProperty2D
         {
             controller2D.movingSpeed /= moveSpeedMultiplier;
             controller2D.jumpHeight /= jumpHeightMultiplier;
+            pc.cannotJumpOnTheseThing = (1 << 4) | (1 << 1) | (1 << 2) | (1 << 5); ;
             if (weightMultiplier <= 0)
             {
                 Debug.LogWarning(GetType().Name + " of " + name + " warning: weightMultiplier has been set to 0. For bug avoiding, The mass won't change.");
@@ -63,6 +67,7 @@ public class PropertyFeather : PlayerProperty2D
     {
         base.OnDestroy();
         //if (enabled == false) return;
+
 		ActivateEffect(false);
     }
 

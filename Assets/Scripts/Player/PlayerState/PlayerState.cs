@@ -12,6 +12,7 @@ public class PlayerState : StateMachineBehaviour {
     protected Rigidbody2D _rb2d;
     protected Collider2D _col2d;
     protected PF2DController _controllerPF2d;
+    protected SpriteRenderer _spr;
     public static PlayerStateInfo psInfo = new PlayerStateInfo();
 
 
@@ -20,6 +21,7 @@ public class PlayerState : StateMachineBehaviour {
         _obj = animator.gameObject;
         _rb2d = _obj.GetComponent<Rigidbody2D>();
         _col2d = _obj.GetComponent<Collider2D>();
+        _spr = _obj.GetComponent<SpriteRenderer>();
         _controllerPF2d = _obj.GetComponent<PF2DController>();
         if (_col2d == null) Debug.LogWarning(WarningOfMissingTypes(_col2d.GetType().Name));
         if (_rb2d == null) Debug.LogWarning(WarningOfMissingTypes(_rb2d.GetType().Name));

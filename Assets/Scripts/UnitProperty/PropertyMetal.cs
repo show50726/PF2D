@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PropertyMetal : PlayerProperty2D {
-	public GameObject metalGiver;
+    public Color showingColor = new Color32(170, 170, 170, 255);
 
-	protected override void Start()
+    protected override void Start()
 	{
 		base.Start();
-		player.Circle.GetComponent<SpriteRenderer> ().color = metalGiver.GetComponent<SpriteRenderer>().color;
-	}
+        player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
+    }
 }

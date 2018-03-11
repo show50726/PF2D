@@ -8,13 +8,13 @@ using System.Collections;
 
 public class PropertyFrosting : PropertyNegative
 {
-	public GameObject frostingGiver;
+    public Color showingColor = new Color32(94, 228, 240, 255);
 
-	protected override void Start()
+    protected override void Start()
 	{
 		base.Start();
-		player.Circle.GetComponent<SpriteRenderer> ().color = frostingGiver.GetComponent<SpriteRenderer>().color;
-	}
+        player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
+    }
 
     public PropertyFrosting()
     {

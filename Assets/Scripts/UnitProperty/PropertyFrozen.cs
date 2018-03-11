@@ -26,7 +26,7 @@ public class PropertyFrozen : UnitProperty
         {
             originalPM2d = rb2d.sharedMaterial;
             rb2d.sharedMaterial = new PhysicsMaterial2D();
-            rb2d.sharedMaterial.friction = friction;
+            rb2d.sharedMaterial.friction = 0;
         }
     }
 

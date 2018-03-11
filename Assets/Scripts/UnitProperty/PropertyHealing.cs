@@ -13,14 +13,14 @@ public class PropertyHealing : PlayerProperty2D {
 	public bool updateIfExists = true;
 	public int maxHealth = 100;
 	private List<OnTouchingPlayer> onTouchingList = new List<OnTouchingPlayer>();
-	public GameObject healingGiver;
+    public Color showingColor = new Color32(233, 63, 200, 255);
 
-	// Use this for initialization
-	protected override void Start()
+    // Use this for initialization
+    protected override void Start()
 	{
 		base.Start();
-		player.Circle.GetComponent<SpriteRenderer> ().color = healingGiver.GetComponent<SpriteRenderer>().color;
-	}
+        player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
+    }
 
 	private void OnCollisionEnter2D(Collision2D col)
 	{
