@@ -22,6 +22,8 @@ public class PF2DController : MonoBehaviour
     public KeyCode leftButton = KeyCode.A;
     public KeyCode rightButton = KeyCode.D;
     public float movingSpeed = 10f;
+    public GameObject SmoothyL;
+    public GameObject SmoothyR;
 
     [Header("Jump Setting")]
 
@@ -387,6 +389,15 @@ public class PF2DController : MonoBehaviour
         {
             baseVector += directionVector;
             isFacingRight = directionVector.x > 0 ? true : false;
+            if (isFacingRight)
+            {
+                SmoothyR.SetActive(true);
+                SmoothyL.SetActive(false);
+            }
+            else {
+                SmoothyL.SetActive(true);
+                SmoothyR.SetActive(false);
+            }
         }
     }
 
