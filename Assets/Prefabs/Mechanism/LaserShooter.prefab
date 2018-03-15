@@ -87,7 +87,7 @@ MonoBehaviour:
   player: {fileID: 0}
   endPoint: {fileID: 1169925331425320}
   RemoveFrozenPeriod: 1
-  DestroyWoodPeriod: 3
+  DestroyWoodPeriod: 1
 --- !u!120 &120878137130168972
 LineRenderer:
   m_ObjectHideFlags: 1
