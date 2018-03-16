@@ -54,16 +54,16 @@ public class PropertyHealing : PlayerProperty2D {
 		timer += Time.deltaTime;
 		Player pl = this.GetComponent<Player> ();
 		if (pl && timer >= healingPeriod && pl.healthPoint < maxHealth) {
-			pl.healthPoint++;
+            pl.UpdateHealthPoint(++pl.healthPoint);
 			Debug.Log("Player " + pl.name + " is healing." + "HP is now " + pl.healthPoint);
 			timer -= healingPeriod;
 		}
 
 		foreach (OnTouchingPlayer p in onTouchingList){
 			p.touchTime += Time.deltaTime;
-			if (p.touchTime >= healingOthersPeriod && p.player.healthPoint < maxHealth)
+			if (p.touchTime >= healingOthersPeriod && p.player.healthPoint < maxHealth && !p.player.isDead)
 			{
-				p.player.healthPoint++;
+                p.player.UpdateHealthPoint(++p.player.healthPoint);
 				Debug.Log ("Player " + p.player.name + " is healing." + "HP is now " + p.player.healthPoint);
 				p.touchTime = 0;
 			}
