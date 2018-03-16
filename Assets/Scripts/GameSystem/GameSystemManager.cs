@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/07
+//last maintained:  2018/03/16
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -140,7 +140,8 @@ public class GameSystemManager : MonoBehaviour
     {
         if (Input.GetKeyDown(pauseKey))
         {
-            if (theSceneIsInGame) PauseOrResume();
+            //if (theSceneIsInGame) PauseOrResume();
+            PauseOrResume();
         }
         //DEV NOTE: debug usage.
         /*
@@ -330,6 +331,7 @@ public class GameSystemManager : MonoBehaviour
         if (numOfWorld > WorldStarScore.Length)
         {
             Debug.LogWarning(GetType().Name + " warning: trying to add Star Score do a non-existent world array. (Will not work)");
+            return -1000;
         }
         else if (numOfWorld == 0)
         {
