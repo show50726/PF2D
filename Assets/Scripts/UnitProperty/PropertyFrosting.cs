@@ -41,6 +41,15 @@ public class PropertyFrosting : PropertyNegative
             else GivePropertyTo(col.gameObject, new PropertyFrozen(), updateIfExists);
         }
 
+        //creat frosted Ice when walking on water
+        if ((1<<4) == ((1<<4) | (1 << col.gameObject.layer)))
+        {
+            Debug.Log("Hello");
+            GameObject ice = Instantiate(Resources.Load("FrostedIce")) as GameObject;
+            ice.transform.position = col.contacts[0].point;
+
+        }
+
     }
 
 }
