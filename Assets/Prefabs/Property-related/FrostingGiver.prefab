@@ -93,6 +93,10 @@ MonoBehaviour:
   ignoreGiver:
     serializedVersion: 2
     m_Bits: 512
+  water:
+    serializedVersion: 2
+    m_Bits: 16
+  icePrefab: {fileID: 1731506550751006, guid: 58e2711332ef4184687a8da82bca8079, type: 2}
 --- !u!114 &114817562835056118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +149,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1522151697
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0.366782, g: 0.89364034, b: 0.9411765, a: 1}
