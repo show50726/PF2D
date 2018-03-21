@@ -1,6 +1,6 @@
 ﻿//UIPropertyDisplayer made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/30
+//last maintained:  2018/03/16
 //usage:            works with PropertyManager. It shows the property name (and futhermore information if you want).
 
 using UnityEngine;
@@ -23,7 +23,6 @@ public class UIPropertyDisplayer : MonoBehaviour
 
     public void DisplayProperty(PropertyManager manager)
     {
-        Debug.Log("yooooooo");
         UnitProperty[] list = manager.GetPropertyList();
         string propertyInfo = "";
         if (list == null) propertyInfo = "None";
