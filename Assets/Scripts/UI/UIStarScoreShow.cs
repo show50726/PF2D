@@ -1,6 +1,6 @@
 ﻿//UIStarScoreShow   made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/16
+//last maintained:  2018/03/22
 //usage:            use this to show GameSystemManager - WorldStarScore.
 
 using UnityEngine;
@@ -14,7 +14,10 @@ public class UIStarScoreShow : MonoBehaviour
 
     [Header("UI Show Setting")]
     public Text scoreText;
-    public string formerDisplay = "World Score: ";
+    [Tooltip("Score Text & Score Text Mesh don't need to exist at the same time.")]
+    public TextMesh scoreTextMesh;
+    [Tooltip("The text will be \"World n \" + formerDisplay + score. Modifiy script if you want.")]
+    public string formerDisplay = "score: ";
 
     private int score = 0;
 
@@ -33,7 +36,15 @@ public class UIStarScoreShow : MonoBehaviour
 
     public void UpdateScoreShow()
     {
-        scoreText.text = formerDisplay + score;
+        string showText = "World " + theWorld + " " + formerDisplay + score;
+        if (scoreText != null) scoreText.text = showText;
+        if (scoreTextMesh != null) scoreTextMesh.text = showText;
+        if (scoreText == null && scoreTextMesh == null)
+        {
+            Debug.LogWarning(GetType().Name + " warning: trying to update star score while nothing text assigned. You know this will do nothing, right?");
+            return;
+        }
+
     }
 
 }
