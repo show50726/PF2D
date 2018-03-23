@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212616023782918530}
   - component: {fileID: 114866829455660540}
   - component: {fileID: 61688078757152628}
-  - component: {fileID: 50377643781649064}
+  - component: {fileID: 50195700911674736}
   m_Layer: 0
   m_Name: FrostedIce
   m_TagString: Ice
@@ -36,14 +36,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731506550751006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: -3.53, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 21.642, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50377643781649064
+--- !u!50 &50195700911674736
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -102,7 +102,7 @@ MonoBehaviour:
   propertyManager: {fileID: 0}
   meltingFactor: 0
   friction: 0
-  moveSpeedMultiplier: 1.1
+  moveSpeedMultiplier: 1.4
 --- !u!212 &212616023782918530
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1522151697
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0.74264705, g: 0.98935086, b: 1, a: 0.666}
