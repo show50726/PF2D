@@ -12,6 +12,7 @@ public class Controller_GoIn : MonoBehaviour {
     [Tooltip("Check happens before update. Left nothing to skip check.")]
     public string checkConditionBoolName = "InFinish";
     public string updateConditionBoolName = "HoldingIn";
+    private bool GoOut = true;
     
     private bool checkedAnimatorAvailable = false;
 
@@ -56,11 +57,34 @@ public class Controller_GoIn : MonoBehaviour {
             {
                 if (checkConditionBoolName == "" || targetSM.GetBool(checkConditionBoolName))
                 {
-                    targetSM.SetBool(updateConditionBoolName, !targetSM.GetBool(updateConditionBoolName));
+                    if(targetSM.GetBool(updateConditionBoolName) && GoOut)
+                        targetSM.SetBool(updateConditionBoolName, !targetSM.GetBool(updateConditionBoolName));
+                    else if(!targetSM.GetBool(updateConditionBoolName))
+                        targetSM.SetBool(updateConditionBoolName, !targetSM.GetBool(updateConditionBoolName));
                 }
             }
         }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(targetSM.GetBool(updateConditionBoolName) && col.gameObject.tag == "Player")
+        {
+            GoOut = false;
+            Debug.Log("Cannot go out now!");
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (targetSM.GetBool(updateConditionBoolName) && col.gameObject.tag == "Player")
+        {
+            GoOut = true;
+            Debug.Log("Can go out now!");
+        }
+    }
+
 
 }
