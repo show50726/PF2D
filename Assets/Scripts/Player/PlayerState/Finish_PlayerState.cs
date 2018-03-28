@@ -16,7 +16,7 @@ public class Finish_PlayerState : PlayerState
         {
             psInfo.rbType = _rb2d.bodyType;
             _rb2d.bodyType = RigidbodyType2D.Static;
-            _rb2d.simulated = false;
+            //_rb2d.simulated = false;
         }
         if (_col2d)
         {
@@ -36,7 +36,7 @@ public class Finish_PlayerState : PlayerState
                 if (sp)
                 {
                     sp.color = new Color(sp.color.r, sp.color.g, sp.color.b, 0);
-                    Debug.Log(sp.color.r);
+                    //Debug.Log(sp.color.r);
                 }
                 else if (child.childCount > 0)
                 {

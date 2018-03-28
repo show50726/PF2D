@@ -234,6 +234,9 @@ public class PF2DController : MonoBehaviour
         initialAllowment[2] = allowDash;
         initialMovingSpeed = movingSpeed;
 
+        SmoothyR.SetActive(false);
+        SmoothyL.SetActive(false);
+
         //check if animStateMachine have the right bool var.
         /*if (animStateMachine != null)
             foreach (AnimatorControllerParameter para in animStateMachine.parameters)
@@ -391,13 +394,19 @@ public class PF2DController : MonoBehaviour
             isFacingRight = directionVector.x > 0 ? true : false;
             if (isFacingRight)
             {
-                SmoothyR.SetActive(true);
-                SmoothyL.SetActive(false);
-            }
-            else {
                 SmoothyL.SetActive(true);
                 SmoothyR.SetActive(false);
             }
+            else {
+                SmoothyR.SetActive(true);
+                SmoothyL.SetActive(false);
+            }
+        }
+
+        if (Input.GetKeyUp(keyCode))
+        {
+            SmoothyR.SetActive(false);
+            SmoothyL.SetActive(false);
         }
     }
 
