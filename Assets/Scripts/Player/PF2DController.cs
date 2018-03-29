@@ -394,12 +394,12 @@ public class PF2DController : MonoBehaviour
             isFacingRight = directionVector.x > 0 ? true : false;
             if (isFacingRight)
             {
-                SmoothyR.SetActive(true);
-                SmoothyL.SetActive(false);
-            }
-            else {
                 SmoothyL.SetActive(true);
                 SmoothyR.SetActive(false);
+            }
+            else {
+                SmoothyR.SetActive(true);
+                SmoothyL.SetActive(false);
             }
         }
 
