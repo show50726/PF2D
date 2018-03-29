@@ -11,6 +11,8 @@ public class UIStarScoreShow : MonoBehaviour
     [Header("Info Setting")]
     [Tooltip("This must count from 1"), Range(1, 99)]
     public int theWorld = 1;
+    [Tooltip("At least 1"), Range(1, 99)]
+	public int coinAmount = 1;
 
     [Header("UI Show Setting")]
     public Text scoreText;
@@ -36,7 +38,8 @@ public class UIStarScoreShow : MonoBehaviour
 
     public void UpdateScoreShow()
     {
-        string showText = "World " + theWorld + " " + formerDisplay + score;
+        //string showText = "World " + theWorld + " " + formerDisplay + score;
+		string showText = new string('○',coinAmount-score) + new System.String('●',score);
         if (scoreText != null) scoreText.text = showText;
         if (scoreTextMesh != null) scoreTextMesh.text = showText;
         if (scoreText == null && scoreTextMesh == null)
