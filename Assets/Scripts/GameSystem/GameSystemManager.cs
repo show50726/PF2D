@@ -68,6 +68,7 @@ public class GameSystemManager : MonoBehaviour
                 d_propertyManager.ApplyProperty(p);
             }
         }
+        else d_propertyManager.ClearProperty();
     }
     private string PlayerDataStorageName(string playerName)
     {
