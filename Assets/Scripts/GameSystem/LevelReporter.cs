@@ -1,6 +1,6 @@
 ﻿//LevelReporter made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/30
+//last maintained:  2018/03/30
 //Usage:            for level-based project debugging, the script will report specified things if wanted.
 //NOTE:             to make sure this will be executed after ALL of initialization, I use a strange "later-start" method writting. See below.
 
@@ -28,7 +28,7 @@ public class LevelReporter : MonoBehaviour
             {
                 Debug.Log("One player is " + p.gameObject.name +" standing on " + p.transform.position + ", " +
                     "hp: " + p.healthPoint + ", " +
-                    "animator state: " + p.animator.GetCurrentAnimatorStateInfo(0));
+                    "animator state: " + p.animator.GetCurrentAnimatorStateInfo(0).fullPathHash);
                 PropertyManager pM = p.GetComponent<PropertyManager>();
                 if (pM == null)
                 {

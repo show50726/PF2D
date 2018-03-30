@@ -1,11 +1,12 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/16
+//last maintained:  2018/03/28
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections.Generic;
 
 public class GameSystemManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class GameSystemManager : MonoBehaviour
     public Animator animatorSM;
     
     #region Player Data Inherit/Store
-    public static System.Collections.Generic.List<Player> playerList = new System.Collections.Generic.List<Player>(); 
+    public static List<Player> playerList = new List<Player>();
     
     public Player[] GetPlayerList()
     {
@@ -34,9 +35,95 @@ public class GameSystemManager : MonoBehaviour
         return pL;
     }
 
+    public static List<GameObject> playerStaticCopySeries = new List<GameObject>();
+    public void SavePlayerDataExp(GameObject playerObj)
+    {
+        GameObject playerStaticCopy = CheckPlayerDataStoraged(playerObj);
+        if (playerStaticCopy == null)
+        {
+            //didn't save before. Create a static copy.
+            //Debug.Log(GetType().Name + ": first time to save " + playerObj.name + ".");
+            playerStaticCopy = new GameObject(PlayerDataStorageName(playerObj.name));
+            DontDestroyOnLoad(playerStaticCopy);
+            playerStaticCopy.SetActive(false);
+            playerStaticCopy.transform.SetParent(transform);
+            playerStaticCopySeries.Add(playerStaticCopy);
+        }
+        //else Debug.Log(GetType().Name + ": not the first time to save " + playerObj.name + ".");
+        //Data Copy. DEV NOTE: could use interface and function to make a better / simpler code?
+        Player d_player = playerStaticCopy.GetComponent<Player>();
+        if (d_player == null) d_player = playerStaticCopy.AddComponent<Player>();
+        
+        Player o_player = playerObj.GetComponent<Player>();
+        d_player.CopyData(o_player);
+        
+        PropertyManager d_propertyManager = playerStaticCopy.GetComponent<PropertyManager>();
+        if (d_propertyManager == null) d_propertyManager = playerStaticCopy.AddComponent<PropertyManager>();
+        PropertyManager o_propertyManager = playerObj.GetComponent<PropertyManager>();
+        UnitProperty[] o_propertyList = o_propertyManager.GetPropertyList();
+        if (o_propertyList != null)
+        {
+            foreach (UnitProperty p in o_propertyList)
+            {
+                d_propertyManager.ApplyProperty(p);
+            }
+        }
+        else d_propertyManager.ClearProperty();
+    }
+    private string PlayerDataStorageName(string playerName)
+    {
+        //Used to save / load player data.
+        return playerName + " Static Copy";
+    }
+    public GameObject CheckPlayerDataStoraged(GameObject playerObj)
+    {
+        foreach (GameObject pSC in playerStaticCopySeries)
+        {
+            if (pSC.name == PlayerDataStorageName(playerObj.name))
+            {
+                return pSC;
+            }
+        }
+        return null;
+    }
+    public void LoadPlayerDataExp(GameObject playerObj)
+    {
+        LoadPlayerDataExp(playerObj, playerObj.name);
+    }
+    public void LoadPlayerDataExp(GameObject playerObj, string loadTargetName)
+    {
+        GameObject playerStaticCopy = CheckPlayerDataStoraged(playerObj);
+        if (playerStaticCopy == null)
+        {
+            Debug.LogWarning(GetType().Name + " warning: cannot find saved data called " + loadTargetName + ", " +
+                "thus the data of " + playerObj.name + " will remain the same.");
+            return;
+        }
+
+        //Data Inherition. DEV NOTE: could use interface and function to make a better / simpler code?
+        Player d_player = playerStaticCopy.GetComponent<Player>();
+        Player o_player = playerObj.GetComponent<Player>();
+        o_player.CopyData(d_player);
+
+        PropertyManager d_propertyManager = playerStaticCopy.GetComponent<PropertyManager>();
+        PropertyManager o_propertyManager = playerObj.GetComponent<PropertyManager>();
+        UnitProperty[] d_propertyList = d_propertyManager.GetPropertyList();
+        if (d_propertyList !=null)
+        {
+            foreach (UnitProperty p in d_propertyList)
+            {
+                o_propertyManager.ApplyProperty(p);
+            }
+        }
+        
+    }
+
+
+
     public int CheckPlayerIndex(Player player)
     {
         //return -1 when cannot find.
+        
         for (int i = 0; i < playerList.Count; i++)
         {
             if (playerList[i].gameObject.name == player.gameObject.name)
@@ -44,6 +131,7 @@ public class GameSystemManager : MonoBehaviour
                 return i;
             }
         }
+        
         return -1;
     }
     public void UpdatePlayerData(int playerListIndex, Player newPlayerData)
@@ -79,7 +167,7 @@ public class GameSystemManager : MonoBehaviour
     }
     public void RemovePlayerData(int playerListIndex)
     {
-        Debug.LogWarning(GetType().Name + " warning: trying to remove player data. Note that once removed some bugs might occur. Use this function carefully...");
+        Debug.LogWarning(GetType().Name + ": trying to remove player data. Note that once removed some bugs might occur. Use this function carefully...");
         playerList.RemoveAt(playerListIndex);
     }
     public void RemovePlayerData(Player player)
@@ -136,6 +224,7 @@ public class GameSystemManager : MonoBehaviour
         }
     }
 
+    public KeyCode keyOfShowPList = KeyCode.P;
     private void Update()
     {
         if (Input.GetKeyDown(pauseKey))
@@ -151,7 +240,18 @@ public class GameSystemManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-        
+
+        if (Input.GetKeyDown(keyOfShowPList))
+        {
+            Debug.Log(GetType().Name + ": there's " + playerList.Count + " player(s) assigned in playerList.");
+            if (playerList.Count > 0)
+            {
+                foreach (Player p in playerList)
+                {
+                    Debug.Log(p.gameObject.name + " is assigned.");
+                }
+            }
+        }
     }
 
     #region Pause Thing
@@ -343,3 +443,4 @@ public class GameSystemManager : MonoBehaviour
     }
     
 }
+

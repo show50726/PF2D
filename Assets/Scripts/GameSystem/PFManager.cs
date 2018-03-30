@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) Manager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/26
+//last maintained:  2018/03/30
 //Usage:            add it to anywhere on scene, it will work with "PF-" scripts.
 
 using System.Collections.Generic;
@@ -26,7 +26,12 @@ public class PFManager : MonoBehaviour{
         {
             Debug.Log(GetType().Name +": checkTheseState not assigned. Will inherit ones from players.");
             Player[] l = GameSystemManager.exist.GetPlayerList();
-            foreach (Player p in l) checkTheseState.Add(p.gameObject);
+            
+            if(l!=null)
+                foreach (Player p in l)
+                    if (p!= null && p.gameObject != null)
+                        checkTheseState.Add(p.gameObject);
+            
         }
         foreach (GameObject obj in checkTheseState)
             if(obj == null)
