@@ -44,8 +44,11 @@ public class PropertyFrosting : PropertyNegative
                 return;
             }
             GameObject ice = Instantiate(icePrefab) as GameObject;
-            ice.transform.position = col.bounds.ClosestPoint(transform.position);
-
+            float iceLocalLength = col.bounds.size.x / ice.transform.lossyScale.x;
+            ice.transform.localScale = new Vector3(iceLocalLength, ice.transform.localScale.y);
+            ice.transform.position = new Vector3(
+                col.transform.position.x,
+                col.bounds.ClosestPoint(transform.position).y);
         }
     }
 
