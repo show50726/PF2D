@@ -1,6 +1,6 @@
 ﻿//Level Manager     made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/02/11
+//Last maintained:  2018/03/30
 //Usage:            Level Manager records eveything happened in level, and will call related system to work (think about completing level). Better assign it to an empty gameobject, which contains 'the whole level objects'.
 
 using UnityEngine;
@@ -18,7 +18,8 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     public UIManager levelUIManager;
-    [ReadOnly, Tooltip("Will be auto updated if GameSystemManager exists. Delete the ReadOnly attribute to allow manually assign.")]
+    //[ReadOnly]
+    [Tooltip("Will be auto updated if GameSystemManager exists. Delete the ReadOnly attribute to allow manually assign.")]
     public Player[] players = new Player[0];
 
     public double levelScore = 0;
@@ -29,10 +30,18 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        if (players.Length == 0 && GameSystemManager.exist)
+        {
+            players = GameSystemManager.exist.GetPlayerList();
+        }
+
+        //DEV NOTE: below are temporary design. can be deleted.
+        /*
         if (GameSystemManager.exist)
         {
             players = GameSystemManager.exist.GetPlayerList();
         }
+        */
         if (players.Length == 0)
         {
             Debug.LogWarning(GetType().Name + " warning: didn't assign players. This might cause some bugs.");
@@ -249,6 +258,12 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Setting parameter " + players[0].levelGoingDirectionConditionName + " to true");
             }
             */
+            //saving the data.
+            foreach (Player p in players)
+            {
+                GameSystemManager.exist.SavePlayerDataExp(p.gameObject);
+            }
+
             if (players[0].nextScene != "")
             {
                 GameSystemManager.exist.LoadScene(players[0].nextScene);

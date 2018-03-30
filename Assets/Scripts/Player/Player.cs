@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/07
+//last maintained:  2018/03/30
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System.Collections;
@@ -34,6 +34,14 @@ public class Player : MonoBehaviour {
         animator.SetBool(resetParameter, true);
     }
 
+    public void CopyData(Player player)
+    {
+        healthPoint = player.healthPoint;
+        manaPoint = player.manaPoint;
+
+    }
+
+
     #endregion
 
     [Header("Controlled by Scripts")]
@@ -56,6 +64,7 @@ public class Player : MonoBehaviour {
 
     private void OnEnable()
     {
+        //Debug.Log("Hello from the script of " + gameObject.name + " OnEnable." );
         respawnPos = transform.position;
         initialHP = healthPoint;
         initialMP = manaPoint;
@@ -64,7 +73,7 @@ public class Player : MonoBehaviour {
         cld = GetComponent<Collider>();
         cld2D = GetComponent<Collider2D>();
 
-        //debug
+        //secure
         if (tag != "Player")
         {
             Debug.LogWarning("Warning: the object " + name + " have script " + GetType().Name + ".cs"
@@ -77,19 +86,29 @@ public class Player : MonoBehaviour {
         {
             Debug.LogWarning(GetType().Name + " of " + name + " warning: the animator isn't assigned, thus the animator-related function won't work.");
         }
+
+
         if (GameSystemManager.exist == null)
         {
             Debug.LogWarning(GetType().Name + " of " + name + " warning: the GameSystemManager doesn't exist, so the player data won't be inherited.");
         }
         else
         {
+            if (GameSystemManager.exist.CheckPlayerDataStoraged(gameObject) != null)
+            {
+                //There's some player data saved before. Load it.
+                GameSystemManager.exist.LoadPlayerDataExp(gameObject);
+            }
+
+            //DEV NOTE: Below are some out-dated save method. Legal save should operate ONLY when level is finished.
+            //However, due to MASSIVE script in a level rely on the player list when progressing, below "save" should still remain.
             int playerListIndex = GameSystemManager.exist.CheckPlayerIndex(this);
             if (playerListIndex < 0)
             {
                 //the data has never been saved before.
                 Debug.Log("Saving a new player data: " + gameObject.name);
                 GameSystemManager.exist.AddPlayerData(this);
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -97,9 +116,16 @@ public class Player : MonoBehaviour {
                 Debug.Log("Updating player data: " + gameObject.name);
                 GameSystemManager.exist.UpdatePlayerData(playerListIndex, this);
             }
+            
         }
     }
-    
+    private void OnDestroy()
+    {
+        //Debug.Log("Goodbye from the script of " + gameObject.name + " OnDestroy.");
+        //GameSystemManager.exist.SavePlayerDataExp(gameObject);
+        GameSystemManager.exist.RemovePlayerData(this);
+    }
+
     private void SystemMessage(string message)
     {
         if (LevelManager.exist)

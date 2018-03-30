@@ -816,7 +816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUIManager: {fileID: 1014777520}
-  players: []
+  players:
+  - {fileID: 2089851210}
+  - {fileID: 297689337}
   levelScore: 0
   restartWaitingTime: 3
   stopTimeAfterGameOver: 0
@@ -1332,6 +1334,7 @@ MonoBehaviour:
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
   animatorSM: {fileID: 0}
+  keyOfShowPList: 112
   pauseKey: 27
   WorldStarScore: 000000000000000000000000
 --- !u!4 &1546966159
