@@ -364,7 +364,7 @@ Prefab:
     - target: {fileID: 50802228269366940, guid: 30ed393c7e96c9a45a227b39798850e2,
         type: 2}
       propertyPath: m_Constraints
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 50802228269366940, guid: 30ed393c7e96c9a45a227b39798850e2,
         type: 2}
@@ -1019,6 +1019,16 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -10.46
       objectReference: {fileID: 0}
+    - target: {fileID: 114809493217030492, guid: 0f53ca51089cce4438c127eed8beefdf,
+        type: 2}
+      propertyPath: goToThisPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114809493217030492, guid: 0f53ca51089cce4438c127eed8beefdf,
+        type: 2}
+      propertyPath: goToThisPosition.y
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
   m_IsPrefabParent: 0
@@ -1053,6 +1063,7 @@ MonoBehaviour:
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
   animatorSM: {fileID: 0}
+  keyOfShowPList: 112
   pauseKey: 27
   WorldStarScore: 000000000000000000000000
 --- !u!4 &1546966159
