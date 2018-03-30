@@ -1,6 +1,6 @@
 ﻿//Finish made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/26
+//last maintained:  2018/03/30
 //usage:            this is a BASE class. Inherit this to make a custom one.
 
 using UnityEngine;
@@ -21,6 +21,8 @@ public class Finish : MonoBehaviour
     //public string directionConditionBool = "Go"; //Saved in Player, will be called by LevelManager
     [Tooltip("If left empty or not-saved scene name, will just restart level.")]
     public string goToThisScene = "Title";
+    [Tooltip("Will transfer to the position in NEW scene. Except set to (0,0,0).")]
+    public Vector3 goToThisPosition = Vector3.zero;
 
     [Header("Animator Detect")]
     [Tooltip("if set to nothing, it will skip checking.")]
@@ -109,6 +111,7 @@ public class Finish : MonoBehaviour
             return;
         }
         player.nextScene = goToThisScene;
+        if(goToThisPosition != Vector3.zero) player.nextPosition = goToThisPosition;
         //player.levelGoingDirectionConditionName = directionConditionBool;
         return;
     }

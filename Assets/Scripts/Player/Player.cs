@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
     {
         healthPoint = player.healthPoint;
         manaPoint = player.manaPoint;
-
+        nextPosition = player.nextPosition;
     }
 
 
@@ -56,6 +56,8 @@ public class Player : MonoBehaviour {
     [ReadOnly]
     public string nextScene = ""; //will be updated when into a finish
                                   //QUESTION: making beyond into ASM?
+    [ReadOnly]
+    public Vector3 nextPosition = Vector3.zero;
 
     private Rigidbody rb;
     private Rigidbody2D rb2D;
@@ -87,7 +89,7 @@ public class Player : MonoBehaviour {
             Debug.LogWarning(GetType().Name + " of " + name + " warning: the animator isn't assigned, thus the animator-related function won't work.");
         }
 
-
+        //Data Loading
         if (GameSystemManager.exist == null)
         {
             Debug.LogWarning(GetType().Name + " of " + name + " warning: the GameSystemManager doesn't exist, so the player data won't be inherited.");
@@ -116,8 +118,17 @@ public class Player : MonoBehaviour {
                 Debug.Log("Updating player data: " + gameObject.name);
                 GameSystemManager.exist.UpdatePlayerData(playerListIndex, this);
             }
-            
         }
+
+        //Things after data loading.
+        if (nextPosition != Vector3.zero)
+        {
+            //this must be inherited from the last scene and is intended to update position.
+            transform.position = nextPosition;
+            respawnPos = transform.position;
+            nextPosition = Vector3.zero;
+        }
+
     }
     private void OnDestroy()
     {
