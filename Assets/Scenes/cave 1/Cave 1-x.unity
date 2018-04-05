@@ -113,6 +113,22 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10608416 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1912706787132360, guid: b7edcc109882b6043a8a07826976a455,
+    type: 2}
+  m_PrefabInternal: {fileID: 1016341695}
+--- !u!114 &10608421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 10608416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8801b7f0da7c55e4eadce305eaa521c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &24495942
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +855,16 @@ Prefab:
     - target: {fileID: 4680040952508890, guid: b7edcc109882b6043a8a07826976a455, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212007548241654800, guid: b7edcc109882b6043a8a07826976a455,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 140020661
+      objectReference: {fileID: 0}
+    - target: {fileID: 212007548241654800, guid: b7edcc109882b6043a8a07826976a455,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7edcc109882b6043a8a07826976a455, type: 2}
