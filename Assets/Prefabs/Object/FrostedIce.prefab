@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114866829455660540}
   - component: {fileID: 61688078757152628}
   - component: {fileID: 50195700911674736}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FrostedIce
   m_TagString: Ice
   m_Icon: {fileID: 0}

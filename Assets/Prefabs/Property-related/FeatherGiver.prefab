@@ -85,7 +85,6 @@ MonoBehaviour:
   moveSpeedMultiplier: 1.0256453
   jumpHeightMultiplier: 1.571428
   weightMultiplier: 0.5
-  featherGiver: {fileID: 1882356586815766}
   showingColor: {r: 0.30980393, g: 0.17254902, b: 0.654902, a: 1}
 --- !u!114 &114867072239991180
 MonoBehaviour:
@@ -100,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 1808
   ignoreGiver:
     serializedVersion: 2
     m_Bits: 512
@@ -139,7 +138,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1522151697
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0.30928594, g: 0.17322665, b: 0.6544118, a: 1}
