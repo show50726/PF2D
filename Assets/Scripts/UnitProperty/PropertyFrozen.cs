@@ -14,6 +14,7 @@ public class PropertyFrozen : UnitProperty
     [Header("Interact Aettings")]
     public float friction = 0;
     public float moveSpeedMultiplier = 1.1f;
+    private bool multiplied = false;
 
     private Rigidbody2D rb2d;
     private PhysicsMaterial2D originalPM2d;
@@ -45,7 +46,19 @@ public class PropertyFrozen : UnitProperty
             }
             else
             {
-                controller.movingSpeed *= moveSpeedMultiplier;
+                if (!multiplied)
+                {
+                    PF2DController p = col.gameObject.GetComponent<PF2DController>();
+                    Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
+                    if (p)
+                    {
+                        p.AddVelocity(new Vector2((moveSpeedMultiplier-1)*rb.velocity.x, (moveSpeedMultiplier - 1) * rb.velocity.y));
+                        //rb.velocity *=  moveSpeedMultiplier * (p.isFacingRight ? 1f : -1f);
+                        multiplied = true;
+                    }
+
+                }
+                
             }
         }
     }
@@ -64,7 +77,7 @@ public class PropertyFrozen : UnitProperty
             }
             else
             {
-                controller.movingSpeed /= moveSpeedMultiplier;
+                multiplied = false;
             }
         }
     }

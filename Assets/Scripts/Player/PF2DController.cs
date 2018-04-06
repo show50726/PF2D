@@ -84,7 +84,7 @@ public class PF2DController : MonoBehaviour
     public float dashDuration = 0.1f;
     [Tooltip("Only works when constant dashing isn't checked. Unit: seconds.")]
     public float dashCoolDown = 0.5f;
-    private bool isFacingRight = false;
+    public bool isFacingRight = false;
     private float initialMovingSpeed = 0f;
     #endregion
     
