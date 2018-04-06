@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/13
+//last maintained:  2018/04/06
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -15,16 +15,21 @@ public class PF2DController : MonoBehaviour
 {
     #region Control Setting
 
-    [Header("Move Setting")]
+    #region Move Setting
 
+    [Header("Move Setting")]
     [Tooltip("When disabling this, player will unable to move.")]
     public bool allowMovement = true;
     public KeyCode leftButton = KeyCode.A;
     public KeyCode rightButton = KeyCode.D;
     public float movingSpeed = 10f;
+    [Tooltip("Calculated as unit/sec^2. Would be unable to move when set to 0.")]
+    public float movingAcceleration = 40f; //DEV NOTE: more smart detection / correction?
     public GameObject SmoothyL;
     public GameObject SmoothyR;
 
+    #endregion
+    #region Jump Setting
     [Header("Jump Setting")]
 
     [Tooltip("When disabling this, player will unable to jump. Notice that you still CAN make jump by script-calling.")]
@@ -44,7 +49,8 @@ public class PF2DController : MonoBehaviour
     [Tooltip("Only when only 1 foot is set, this info will be given to judge.")]
     public float footDepth = 0.05f; // the judgement depth of foot 'touching' thing.
 
-
+    #endregion
+    #region Wall Jump Setting
     [Header("Wall Jump Setting")]
 
     public bool allowWallJump = true;
@@ -64,6 +70,8 @@ public class PF2DController : MonoBehaviour
     public bool inheritAllSetFromJump = false; //DEV NOTE: still in developing.
     private bool leftIsLeanOnWall = false, rightIsLeanOnWall = false;
 
+    #endregion
+    #region Dash Setting
     [Header("Dash Setting")]
     public bool allowDash = true;
     public KeyCode dashButton = KeyCode.LeftShift;
@@ -78,14 +86,17 @@ public class PF2DController : MonoBehaviour
     public float dashCoolDown = 0.5f;
     private bool isFacingRight = false;
     private float initialMovingSpeed = 0f;
-
+    #endregion
+    
     #endregion
 
     #region Initial Data
 
-    private bool[] initialAllowment = new bool[3]; //DEV NOTE: bad structure. consider enum?
+    private bool[] initialAllowment = new bool[3]; //DEV NOTE: bad structure. consider enum or specified interface?
 
     #endregion
+
+    #region State Description
 
     //for state updating
     //public Animator animStateMachine;
@@ -143,7 +154,6 @@ public class PF2DController : MonoBehaviour
             return g;
         }
     }
-    
     private bool JudgeIfIsLeanOnWall(bool judgeTheRightSide)
     {
         RaycastHit2D scan;
@@ -190,11 +200,11 @@ public class PF2DController : MonoBehaviour
         return scan;
     }
 
-    private bool needToRefreshVelocity = false;
+    private bool needToRefreshVelocity = false; //use as ALMOST EVERY action in this script.
     private Rigidbody2D rb;
-    
     private Vector2 forcedSpeed = Vector2.zero;
-    
+    #endregion
+
     //When enabled, accquiring data
     private void OnEnable()
     {
@@ -273,6 +283,10 @@ public class PF2DController : MonoBehaviour
         {
             lastMovingDirection = movingDirection;
             movingDirection = Vector2.zero;
+            CheckMove(rightButton, ref movingDirection, transform.right);
+            CheckMove(leftButton, ref movingDirection, -transform.right);
+            ControlMove(movingDirection);
+            /*
             if (rightIsLeanOnWall == false)
             {
                 CheckMove(rightButton, ref movingDirection, transform.right);
@@ -281,12 +295,18 @@ public class PF2DController : MonoBehaviour
             {
                 CheckMove(leftButton, ref movingDirection, -transform.right);
             }
+            */
             //if (movingDirection != lastMovingDirection) needToRefreshVelocity = true;
-            if (movingDirection != Vector2.zero || lastMovingDirection != Vector2.zero) needToRefreshVelocity = true;
+            //if (movingDirection != Vector2.zero || lastMovingDirection != Vector2.zero)
+            //{
+            //    needToRefreshVelocity = true;
+            //}
+            
         }
         if (needToRefreshVelocity)
         {
-            rb.velocity = new Vector2(movingDirection.x * movingSpeed, rb.velocity.y) + forcedSpeed;
+            //rb.velocity = new Vector2(movingDirection.x * movingSpeed, rb.velocity.y) + forcedSpeed;
+            rb.velocity += forcedSpeed;
             needToRefreshVelocity = false;
         }
 
@@ -327,6 +347,57 @@ public class PF2DController : MonoBehaviour
     }
 
     #endregion
+
+    private void ControlMove(Vector2 movingDirection)
+    {
+        //check->change
+        //check list:
+        //  加速/減速check(同方向尚未滿檔)
+        //  自動減速(不動則減速)
+        //change:
+        //  使用加速度(若超過則修正)
+
+        short accDirection = 0; // 1/-1 go to vel max. 2/-2 go to vel.zero. 0 does nothing.
+        //check
+        if (movingDirection.x > 0 && rb.velocity.x < movingSpeed)
+        {
+            accDirection = 1;
+        }
+        else if (movingDirection.x < 0 && rb.velocity.x > -movingSpeed)
+        {
+            accDirection = -1;
+        }
+        else if (movingDirection.x == 0)
+        {
+            if (rb.velocity.x > 0) accDirection = -2;
+            if (rb.velocity.x < 0) accDirection = 2;
+        }
+        if (movingAcceleration <= 0)
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: movingAcceleration set to 0 or negative. This is illegal and will reset movingAcceleration.");
+            movingAcceleration = 10f;
+        }
+        float movingAccPerFrame = movingAcceleration * Time.deltaTime;
+        //change
+        switch (accDirection)
+        {
+            case 1:
+                rb.velocity += new Vector2 (Mathf.Min(movingSpeed - rb.velocity.x, movingAccPerFrame), 0);
+                break;
+            case -1:
+                rb.velocity -= new Vector2(Mathf.Min(movingSpeed + rb.velocity.x, movingAccPerFrame), 0);
+                break;
+            case 2:
+                rb.velocity -= new Vector2(Mathf.Min(rb.velocity.x, movingAccPerFrame), 0);
+                break;
+            case -2:
+                rb.velocity += new Vector2(Mathf.Min(-rb.velocity.x, movingAccPerFrame), 0);
+                break;
+            default:
+                break;
+        }
+
+    }
 
     public void Reset()
     {
