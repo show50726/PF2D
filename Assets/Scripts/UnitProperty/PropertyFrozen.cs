@@ -14,10 +14,12 @@ public class PropertyFrozen : UnitProperty
     [Header("Interact Aettings")]
     public float friction = 0;
     public float moveSpeedMultiplier = 1.1f;
-    private bool multiplied = false;
 
     private Rigidbody2D rb2d;
     private PhysicsMaterial2D originalPM2d;
+
+    private System.Collections.Generic.List<PF2DController> thingsHasBeenSpeedUp =
+        new System.Collections.Generic.List<PF2DController>();
 
     protected override void Start()
     {
@@ -26,61 +28,62 @@ public class PropertyFrozen : UnitProperty
         if (rb2d)
         {
             originalPM2d = rb2d.sharedMaterial;
-            rb2d.sharedMaterial = new PhysicsMaterial2D();
             rb2d.sharedMaterial.friction = 0;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void ModifyControllerSpeed(PF2DController controller, bool isMultiply)
     {
-        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
-        if (controller)
+        //if isMultiply set to false, will divide then
+        if (moveSpeedMultiplier < 0)
         {
-            if (moveSpeedMultiplier < 0)
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: moveSpeedMultiplier set < 0. This might cause strange move.");
+        }
+        if (moveSpeedMultiplier == 0)
+        {
+            Debug.LogWarning(GetType().Name + " of " + name + " warning: moveSpeedMultiplier set to 0. To avoid bugs, the script will not modify movingSpeed.");
+        }
+        else
+        {
+            if (thingsHasBeenSpeedUp.Contains(controller) == true && isMultiply == true) return;//has been multiplied, don't do twice.
+            if (thingsHasBeenSpeedUp.Contains(controller) == false && isMultiply == true)
             {
-                Debug.LogWarning(GetType().Name + " of " + name + " warning: moveSpeedMultiplier set < 0. This might cause strange move.");
+                Debug.Log("original move speed is " + controller.movingSpeed);
+                controller.movingSpeed *= moveSpeedMultiplier;
+                //p.AddVelocity(new Vector2((moveSpeedMultiplier-1)*rb.velocity.x, (moveSpeedMultiplier - 1) * rb.velocity.y));
+                //rb.velocity *=  moveSpeedMultiplier * (p.isFacingRight ? 1f : -1f);
+                thingsHasBeenSpeedUp.Add(controller);
+                Debug.Log("set multiplied completed. now speed is " + controller.movingSpeed);
             }
-            if (moveSpeedMultiplier == 0)
+            else if (thingsHasBeenSpeedUp.Contains(controller) == false && isMultiply == false)
             {
-                Debug.LogWarning(GetType().Name + " of " + name + " warning: moveSpeedMultiplier set to 0. To avoid bugs, the script will not modify movingSpeed.");
+                Debug.LogWarning(GetType().Name + " warning: trying to divide speed of " + controller.gameObject.name + " which isn't multiplied before. To avoid bugs the speed will not divide. Check your flow.");
             }
-            else
+            else if (thingsHasBeenSpeedUp.Contains(controller) == true && isMultiply == false)
             {
-                if (!multiplied)
-                {
-                    PF2DController p = col.gameObject.GetComponent<PF2DController>();
-                    Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
-                    if (p)
-                    {
-                        p.movingSpeed *= moveSpeedMultiplier;
-                        //p.AddVelocity(new Vector2((moveSpeedMultiplier-1)*rb.velocity.x, (moveSpeedMultiplier - 1) * rb.velocity.y));
-                        //rb.velocity *=  moveSpeedMultiplier * (p.isFacingRight ? 1f : -1f);
-                        multiplied = true;
-                    }
-
-                }
-                
+                controller.movingSpeed /= moveSpeedMultiplier;
+                thingsHasBeenSpeedUp.Remove(controller);
+                Debug.Log("set divided completed. now speed is " + controller.movingSpeed);
             }
         }
     }
-    private void OnCollisionExit2D(Collision2D col)
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
         PF2DController controller = col.gameObject.GetComponent<PF2DController>();
         if (controller)
         {
-            if (moveSpeedMultiplier < 0)
-            {
-                Debug.LogWarning(GetType().Name + " of " + name + " warning: moveSpeedMultiplier set < 0. This might cause strange move.");
-            }
-            if (moveSpeedMultiplier == 0)
-            {
-                Debug.LogWarning(GetType().Name + " of " + name + " warning: moveSpeedMultiplier set to 0. To avoid bugs, the script will not modify movingSpeed.");
-            }
-            else
-            {
-                controller.movingSpeed /= moveSpeedMultiplier;
-                multiplied = false;
-            }
+            ModifyControllerSpeed(controller, true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
+        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
+        if (controller)
+        {
+            ModifyControllerSpeed(controller, false);
         }
     }
 
@@ -91,7 +94,7 @@ public class PropertyFrozen : UnitProperty
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        rb2d.sharedMaterial = originalPM2d;
+        if(rb2d) rb2d.sharedMaterial = originalPM2d;
     }
 
 }
