@@ -1,6 +1,6 @@
 ﻿//Finish_PlayerState made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/19
+//last maintained:  2018/04/07
 //usage:            in this script, write special effects (like unable to move) when a player has finished.
 //NOTE:             MUST be assigned on an Animator State, not GameObjects.
 
@@ -15,7 +15,7 @@ public class Finish_PlayerState : PlayerState
         if (_rb2d)
         {
             psInfo.rbType = _rb2d.bodyType;
-            _rb2d.bodyType = RigidbodyType2D.Static;
+            _rb2d.bodyType = RigidbodyType2D.Kinematic;
             //_rb2d.simulated = false;
         }
         if (_col2d)

@@ -559,7 +559,7 @@ MonoBehaviour:
   leftButton: 276
   rightButton: 275
   movingSpeed: 7
-  movingAcceleration: 400
+  movingAcceleration: 40
   SmoothyL: {fileID: 1773218896331644}
   SmoothyR: {fileID: 1887141755958582}
   allowJump: 1
@@ -569,7 +569,7 @@ MonoBehaviour:
   verticalJumpTime: 0.5
   cannotJumpOnTheseThing:
     serializedVersion: 2
-    m_Bits: 54
+    m_Bits: 2102
   onlyJumpOnTheseThing:
     serializedVersion: 2
     m_Bits: 4294967295

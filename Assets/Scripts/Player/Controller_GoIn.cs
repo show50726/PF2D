@@ -1,6 +1,6 @@
 ﻿//Controller_GoIn   made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/13
+//last maintained:  2018/04/07
 //usage:            a controller to make player "go in / go out" some room.
 
 using UnityEngine;
@@ -53,6 +53,11 @@ public class Controller_GoIn : MonoBehaviour {
     {
         if (Input.GetKeyDown(keyOfIn))
         {
+            if (GetComponent<Rigidbody2D>().velocity.magnitude != 0)
+            {
+                Debug.Log(name + " cannot \"go in\" while in action.");
+                return;
+            }
             if (checkedAnimatorAvailable)
             {
                 if (checkConditionBoolName == "" || targetSM.GetBool(checkConditionBoolName))

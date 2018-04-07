@@ -1,6 +1,6 @@
 ﻿//UI Manager        made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/03/30
+//Last maintained:  2018/04/07
 //Usage:            UI Manager is used to 'connect' UI functions (like buttons) to 'Game System' (like GameSystemManager). Assign it to object that contain all UI-things.
 //Notice:           Unlike other manager, Multiple UI Manager is ALLOWED.
 
@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
         }
         if (propertyDisplay.Length != players.Length)
         {
-            Debug.LogWarning(GetType().Name + " warning: the amounts of propertyDisplay and players is not the same.");
+            //Debug.LogWarning(GetType().Name + " warning: the amounts of propertyDisplay and players is not the same.");
         }
 
         if(healthPointDisplay.Length != 0)

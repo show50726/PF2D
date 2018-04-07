@@ -1,13 +1,13 @@
 ﻿//Finish2D      made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/18
+//last maintained:  2018/04/07
 //usage:            set this to an object, then when (assigned) player is in right status, it will be checked.
 //NOTE:             use trigger. 2D only.
 using UnityEngine;
 
 public class Finish2D : Finish
 {
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         foreach (bool b in switchCase)
@@ -18,17 +18,11 @@ public class Finish2D : Finish
                 return;
             }
         }
+        if (CheckObjectIsLegal(col.gameObject) == false) return;
         if (stateName == "")
         {
             insideObjects.Add(col.gameObject);
-            if (updateCondictionBoolName != "")
-            {
-                Animator anim = col.GetComponent<Animator>();
-                if (anim != null)
-                {
-                    anim.SetBool(updateCondictionBoolName, true);
-                }
-            }
+            UpdateObjectAnimatorCondictionBool(col.gameObject, updateCondictionBoolName, true);
             GiveDirectionToPlayer(col.gameObject);
             RefreshCheckedStatus(col.gameObject);
         }
@@ -36,6 +30,7 @@ public class Finish2D : Finish
     private void OnTriggerStay2D(Collider2D col)
     {
         if (stateName == "") return; //see OnTriggerEnter2D
+        if (CheckObjectIsLegal(col.gameObject) == false) return;
         Animator anim = col.GetComponent<Animator>();
         stateHashCode = Animator.StringToHash(anim.GetLayerName(targetLayer) + "." + stateName);
         if (anim != null)
@@ -53,20 +48,28 @@ public class Finish2D : Finish
     }
     private void OnTriggerExit2D(Collider2D col)
     {
+        if (CheckObjectIsLegal(col.gameObject) == false) return;
         if (CheckObjectInside(col.gameObject))
         {
             insideObjects.Remove(col.gameObject);
-            if (updateCondictionBoolName != "")
-            {
-                Animator anim = col.GetComponent<Animator>();
-                if (anim != null)
-                {
-                    anim.SetBool(updateCondictionBoolName, true);
-                }
-            }
+            UpdateObjectAnimatorCondictionBool(col.gameObject, updateCondictionBoolName, false);
             RefreshCheckedStatus();
         }
     }
-
+    private void UpdateObjectAnimatorCondictionBool(GameObject obj, string boolName, bool setValue)
+    {
+        Animator anim = obj.GetComponent<Animator>();
+        if (anim == null)
+        {
+            Debug.LogWarning(GetType().Name + " warning: trying to update " + obj.name + " animator, but animator not exists. Will do nothing, and this might cause bugs.");
+            return;
+        }
+        if (boolName == null)
+        {
+            Debug.LogWarning(GetType().Name + " warning: trying to update " + obj.name + " animator parameter with empty name. Did you forget to set it?");
+            return;
+        }
+        anim.SetBool(boolName, setValue);
+    }
 
 }
