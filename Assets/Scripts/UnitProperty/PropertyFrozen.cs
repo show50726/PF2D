@@ -52,7 +52,8 @@ public class PropertyFrozen : UnitProperty
                     Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
                     if (p)
                     {
-                        p.AddVelocity(new Vector2((moveSpeedMultiplier-1)*rb.velocity.x, (moveSpeedMultiplier - 1) * rb.velocity.y));
+                        p.movingSpeed *= moveSpeedMultiplier;
+                        //p.AddVelocity(new Vector2((moveSpeedMultiplier-1)*rb.velocity.x, (moveSpeedMultiplier - 1) * rb.velocity.y));
                         //rb.velocity *=  moveSpeedMultiplier * (p.isFacingRight ? 1f : -1f);
                         multiplied = true;
                     }
@@ -77,6 +78,7 @@ public class PropertyFrozen : UnitProperty
             }
             else
             {
+                controller.movingSpeed /= moveSpeedMultiplier;
                 multiplied = false;
             }
         }

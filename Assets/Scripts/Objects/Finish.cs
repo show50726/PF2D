@@ -1,6 +1,6 @@
 ﻿//Finish made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/30
+//last maintained:  2018/04/07
 //usage:            this is a BASE class. Inherit this to make a custom one.
 
 using UnityEngine;
@@ -9,10 +9,13 @@ public class Finish : MonoBehaviour
 {
     [ReadOnly, Tooltip("Don't modifiy it, as it is used to system auto judge.")]
     public bool isFinished = false;
+
     [Header("Basic Setting")]
     public bool[] switchCase = { true };
     [Tooltip("If not assigned, it will be finished as any gameobject with right status.")]
     public GameObject assignedPlayer;
+    [Tooltip("Only check when assigned.")]
+    public string checkTag = "";
 
     internal System.Collections.Generic.List<GameObject> insideObjects = new System.Collections.Generic.List<GameObject>();
 
@@ -34,6 +37,20 @@ public class Finish : MonoBehaviour
     [Header("Animator Set")]
     [Tooltip("if set to nothing, it will skip updating.")]
     public string updateCondictionBoolName = "InFinish";
+
+    internal bool CheckObjectIsLegal(GameObject targetObj)
+    {
+        if (checkTag != "")
+        {
+            if (targetObj.tag != checkTag)
+            {
+                //Debug.Log(GetType().Name + " of " + name + ": object " + targetObj.name + " is not allowed to get in due to its tag is wrong.");
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     internal bool CheckObjectInside(GameObject targetObj)
     {

@@ -310,8 +310,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802270482320094}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.45, y: 1.8, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.509034, y: 1.8229513, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4282592811875722}
@@ -507,6 +507,7 @@ MonoBehaviour:
   animator: {fileID: 95484388098076296}
   resetParameter: reset
   nextScene: 
+  nextPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114147053406743900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,6 +550,7 @@ MonoBehaviour:
   leftButton: 97
   rightButton: 100
   movingSpeed: 7
+  movingAcceleration: 40
   SmoothyL: {fileID: 1420954500742592}
   SmoothyR: {fileID: 1312947373766090}
   allowJump: 1
@@ -558,7 +560,7 @@ MonoBehaviour:
   verticalJumpTime: 0.5
   cannotJumpOnTheseThing:
     serializedVersion: 2
-    m_Bits: 54
+    m_Bits: 2102
   onlyJumpOnTheseThing:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -585,6 +587,7 @@ MonoBehaviour:
   constantDashing: 0
   dashDuration: 0.1
   dashCoolDown: 0.5
+  isFacingRight: 0
 --- !u!114 &114889971047465268
 MonoBehaviour:
   m_ObjectHideFlags: 1

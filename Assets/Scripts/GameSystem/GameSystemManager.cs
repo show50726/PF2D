@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/28
+//last maintained:  2018/04/07
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -167,7 +167,7 @@ public class GameSystemManager : MonoBehaviour
     }
     public void RemovePlayerData(int playerListIndex)
     {
-        Debug.LogWarning(GetType().Name + ": trying to remove player data. Note that once removed some bugs might occur. Use this function carefully...");
+        //Debug.LogWarning(GetType().Name + ": trying to remove player data. Note that once removed some bugs might occur. Use this function carefully...");
         playerList.RemoveAt(playerListIndex);
     }
     public void RemovePlayerData(Player player)
@@ -208,7 +208,7 @@ public class GameSystemManager : MonoBehaviour
         animatorSM = GetComponent<Animator>();
         if (animatorSM == null)
         {
-            Debug.LogWarning(GetType().Name +" warning: animatorSM + not assigned. ");
+            //Debug.LogWarning(GetType().Name +" warning: animatorSM + not assigned. ");
         }
     }
 

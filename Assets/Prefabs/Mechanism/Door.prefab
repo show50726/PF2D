@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61323009136863470}
   - component: {fileID: 50218132937859772}
   - component: {fileID: 114907569646990992}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: DoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 61687700574394296}
   - component: {fileID: 50838237215801080}
   - component: {fileID: 114116253263135060}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: DoorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 212070842306092940}
   - component: {fileID: 61458225125229542}
   - component: {fileID: 114745168378980362}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Door
   m_TagString: Finish
   m_Icon: {fileID: 0}
@@ -253,7 +253,9 @@ MonoBehaviour:
   isFinished: 0
   switchCase: 0000
   assignedPlayer: {fileID: 0}
+  checkTag: Player
   goToThisScene: Title
+  goToThisPosition: {x: 0, y: 0, z: 0}
   stateName: 
   targetLayer: 0
   updateCondictionBoolName: InFinish
