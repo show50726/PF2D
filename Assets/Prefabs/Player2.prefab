@@ -559,7 +559,7 @@ MonoBehaviour:
   leftButton: 276
   rightButton: 275
   movingSpeed: 7
-  movingAcceleration: 40
+  movingAcceleration: 300
   SmoothyL: {fileID: 1773218896331644}
   SmoothyR: {fileID: 1887141755958582}
   allowJump: 1
