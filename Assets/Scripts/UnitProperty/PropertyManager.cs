@@ -1,6 +1,6 @@
 ﻿//Property Manager  PROUDLY made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/30
+//last maintained:  2018/04/08
 //Usage:            This helps managing properties. Make sure you apply it to ANY unit that will be involved by properties.
 
 using System.Collections;
@@ -72,7 +72,7 @@ public class PropertyManager : MonoBehaviour {
         System.Type propertyType = property.GetType();
         if (GetProperty(propertyType) != null)
         {
-            Debug.Log(property.GetType().Name + " exists on " + gameObject);
+            //Debug.Log(property.GetType().Name + " exists on " + gameObject);
             if (updateInfoIfAlreadyExists)
             {
                 Debug.Log(GetType().Name + " of " + name + ": " + propertyType.Name + " already exists. Script will UPDATE the existing property to be the new assigned one.");

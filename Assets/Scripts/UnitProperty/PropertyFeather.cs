@@ -1,6 +1,6 @@
 ﻿//PropertyFeather made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/07
+//last maintained:  2018/04/08
 //Usage:            This is a specified property, which makes player run faster and jump higher.
 
 using UnityEngine;
@@ -26,7 +26,6 @@ public class PropertyFeather : PlayerProperty2D
 
     private void ActivateEffect(bool activate)
     {
-        if (!enabled) return;
         if (moveSpeedMultiplier == 0 || jumpHeightMultiplier == 0)
         {
             Debug.LogWarning(GetType().Name + " of " + name + " warning: one of multiplier has been set to 0. For bug avoiding, this property won't work.");
@@ -64,12 +63,9 @@ public class PropertyFeather : PlayerProperty2D
         }
     }
 
-    protected override void OnDestroy()
+    private void OnDisable()
     {
-        base.OnDestroy();
-        //if (enabled == false) return;
-
-		ActivateEffect(false);
+        ActivateEffect(false);
     }
 
 }
