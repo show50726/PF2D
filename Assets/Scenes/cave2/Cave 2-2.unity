@@ -1129,6 +1129,16 @@ Prefab:
       propertyPath: goToThisScene
       value: Cave 2-xx
       objectReference: {fileID: 0}
+    - target: {fileID: 114809493217030492, guid: 0f53ca51089cce4438c127eed8beefdf,
+        type: 2}
+      propertyPath: goToThisPosition.x
+      value: 3.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 114809493217030492, guid: 0f53ca51089cce4438c127eed8beefdf,
+        type: 2}
+      propertyPath: goToThisPosition.y
+      value: 3.375
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
   m_IsPrefabParent: 0

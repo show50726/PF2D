@@ -522,7 +522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &573500313
 Prefab:
@@ -848,6 +848,16 @@ Prefab:
         type: 2}
       propertyPath: goToThisScene
       value: Main Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 114809493217030492, guid: 0f53ca51089cce4438c127eed8beefdf,
+        type: 2}
+      propertyPath: goToThisPosition.x
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114809493217030492, guid: 0f53ca51089cce4438c127eed8beefdf,
+        type: 2}
+      propertyPath: goToThisPosition.y
+      value: 6.625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
