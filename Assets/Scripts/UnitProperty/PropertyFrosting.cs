@@ -1,10 +1,9 @@
 ﻿//Property Frosting made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/21
+//last maintained:  2018/04/07
 //Usage:            This is a specified property, which makes player "cool" and freeze other objects.
 
 using UnityEngine;
-using System.Collections;
 
 public class PropertyFrosting : PropertyNegative
 {
@@ -31,6 +30,10 @@ public class PropertyFrosting : PropertyNegative
     [Header("Make water Frozen")]
     public LayerMask water = (1 << 4);
     public GameObject icePrefab;
+    [Tooltip("This prevents the repeat production of ice.")]
+    public float heightTuning = 0.1f;
+
+    private System.Collections.Generic.List<GameObject> iceCreatedWater = new System.Collections.Generic.List<GameObject>();
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -38,17 +41,31 @@ public class PropertyFrosting : PropertyNegative
         //creat frosted Ice when walking on water
         if (CheckLayerIsInTheLayerMask(col.gameObject.layer, water))
         {
+            if (iceCreatedWater.Contains(col.gameObject)) return; //already did the ice instantiation.
             if (icePrefab == null)
             {
                 Debug.LogError(GetType().Name + " error: trying to instantiate ice while icePrefab not selected.");
                 return;
             }
-            GameObject ice = Instantiate(icePrefab) as GameObject;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb)
+            {
+                rb.velocity -= new Vector2(0, rb.velocity.y);
+            }
+            transform.position += new Vector3 (0, heightTuning * 1.1f); //this help ice effect work normally
+            Debug.Log("Jump kappp1312312!");
+
+            //create an ice
+            Vector3 p = new Vector3(
+                col.transform.position.x,
+                col.bounds.ClosestPoint(transform.position).y + heightTuning);
+            GameObject ice = Instantiate(icePrefab, p, Quaternion.Euler(0, 0, 0)) as GameObject;
             float iceLocalLength = col.bounds.size.x / ice.transform.lossyScale.x;
             ice.transform.localScale = new Vector3(iceLocalLength, ice.transform.localScale.y);
-            ice.transform.position = new Vector3(
-                col.transform.position.x,
-                col.bounds.ClosestPoint(transform.position).y);
+            Debug.Log("An ice " + ice.name + " has been instantiated.");
+            //create finished.
+
+            iceCreatedWater.Add(col.gameObject);
         }
     }
 
@@ -63,8 +80,14 @@ public class PropertyFrosting : PropertyNegative
             if (freezePropertySample) GivePropertyTo(col.gameObject, freezePropertySample, updateIfExists);
             else GivePropertyTo(col.gameObject, new PropertyFrozen(), updateIfExists);
         }
-
-
+        
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (iceCreatedWater.Contains(col.gameObject))
+        {
+            iceCreatedWater.Remove(col.gameObject);
+        }
     }
 
     private bool CheckLayerIsInTheLayerMask(int layer, LayerMask layerMask)
