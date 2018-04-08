@@ -9,6 +9,7 @@ public class Laser : MonoBehaviour {
     [Tooltip("unit: melting factor(see PropertyFrozen). Set 0 to melt ice immediately.")]
 	public float meltingIcePeriod = 1f;
 	public float DestroyWoodPeriod = 3f;
+    [SerializeField]
 	private float timer_f = 0f;
 	private float timer_w = 0f;
 	private Vector2 lastPos;
@@ -74,7 +75,11 @@ public class Laser : MonoBehaviour {
                 PropertyFrozen frozenProperty = objPropertyManager.GetProperty<PropertyFrozen>();
                 if (frozenProperty)
                 {
-                    timer_f += Time.deltaTime;
+                    timer_f += Time.deltaTime *2; //DEV NOTE: the nasty sol. of Unity's broken collision detect.
+                    if (frozenProperty.immortalize)
+                    {
+                        timer_f = 0; //DEV NOTE: the nasty sol. of strange setting of Laser.
+                    }
                     if (timer_f >= meltingIcePeriod)
                     {
                         frozenProperty.Melt();

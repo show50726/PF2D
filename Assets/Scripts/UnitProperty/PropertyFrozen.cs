@@ -38,11 +38,13 @@ public class PropertyFrozen : UnitProperty
     {
         if (isTurnOn)
         {
+            //Debug.Log("Hi I'm stay frozen");
             immortalize = true;
             meltingFactorStorage = initialMeltingFactorStorage;
         }
         else
         {
+            //Debug.Log("Oh no I'm not stay frozen anymore");
             immortalize = false;
         }
     }
@@ -83,28 +85,28 @@ public class PropertyFrozen : UnitProperty
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
-        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
-        if (controller)
-        {
-            ModifyControllerSpeed(controller, true);
-        }
-    }
-    private void OnCollisionExit2D(Collision2D col)
-    {
-        Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
-        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
-        if (controller)
-        {
-            ModifyControllerSpeed(controller, false);
-        }
-    }
-    /*
+    //private void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
+    //    PF2DController controller = col.gameObject.GetComponent<PF2DController>();
+    //    if (controller)
+    //    {
+    //        ModifyControllerSpeed(controller, true);
+    //    }
+    //}
+    //private void OnCollisionExit2D(Collision2D col)
+    //{
+    //    Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
+    //    PF2DController controller = col.gameObject.GetComponent<PF2DController>();
+    //    if (controller)
+    //    {
+    //        ModifyControllerSpeed(controller, false);
+    //    }
+    //}
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
+        //Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
         PF2DController controller = col.gameObject.GetComponent<PF2DController>();
         if (controller)
         {
@@ -113,14 +115,14 @@ public class PropertyFrozen : UnitProperty
     }
     private void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
+        //Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
         PF2DController controller = col.gameObject.GetComponent<PF2DController>();
         if (controller)
         {
             ModifyControllerSpeed(controller, false);
         }
     }
-    */
+
     public void Melt()
     {
         //Destroy the property, or even the whole gameobject
