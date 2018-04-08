@@ -52,8 +52,7 @@ public class PropertyFrosting : PropertyNegative
             {
                 rb.velocity -= new Vector2(0, rb.velocity.y);
             }
-            transform.position += new Vector3 (0, heightTuning * 1.1f); //this help ice effect work normally
-            Debug.Log("Jump kappp1312312!");
+            transform.position += new Vector3 (0, heightTuning * 1.3f); //this help ice effect work normally
 
             //create an ice
             Vector3 p = new Vector3(
@@ -66,6 +65,13 @@ public class PropertyFrosting : PropertyNegative
             //create finished.
 
             iceCreatedWater.Add(col.gameObject);
+        }
+
+        PropertyFrozen f = col.gameObject.GetComponent<PropertyFrozen>();
+        if (f != null)
+        {
+            //Debug.Log("Ready to set stay frozen");
+            f.StayFrozen(true);
         }
     }
 
@@ -82,11 +88,21 @@ public class PropertyFrosting : PropertyNegative
         }
         
     }
+    private void OnCollisionExit2D(Collision2D col)
+    {
+
+    }
+
     private void OnTriggerExit2D(Collider2D col)
     {
         if (iceCreatedWater.Contains(col.gameObject))
         {
             iceCreatedWater.Remove(col.gameObject);
+        }
+        PropertyFrozen f = col.gameObject.GetComponent<PropertyFrozen>();
+        if (f != null)
+        {
+            f.StayFrozen(false);
         }
     }
 
