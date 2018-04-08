@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : PlayerProperty2D {
+public class Laser : MonoBehaviour {
 
 	public GameObject endPoint;
 	private LineRenderer laserLine;
@@ -14,7 +14,7 @@ public class Laser : PlayerProperty2D {
 	private Vector2 Pos;
 
 	// Use this for initialization
-	protected override void Start () {
+	protected void Start () {
 		laserLine = GetComponent<LineRenderer> ();
 		laserLine.enabled = true;
 	}
@@ -30,15 +30,16 @@ public class Laser : PlayerProperty2D {
 		laserLine.SetPosition (1, endPoint.transform.position);
 
 		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.501f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.501f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
-		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);  
-		//Debug.Log (hit.collider.name);
-		if (hit.collider.tag == "Floor") {
+		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);
+        //Debug.Log (hit.collider.name);
+        GameObject hitObj = hit.collider.gameObject;
+		if (hitObj.tag == "Floor") {
 				
 		}
-		else if (hit.collider.tag == "Player") {
-			PropertyFrosting frosting = hit.collider.gameObject.GetComponent<PropertyFrosting>();
-			//PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
-			Player p = hit.collider.gameObject.GetComponent<Player> ();
+		else if (hitObj.tag == "Player") {
+			PropertyFrosting frosting = hitObj.GetComponent<PropertyFrosting>();
+			//PropertyMetal metal = hitObj.GetComponent<PropertyMetal>();
+			Player p = hitObj.GetComponent<Player> ();
 			if (frosting) {
 				laserLine.SetPosition (1, hit.point);
 			} 
@@ -48,38 +49,48 @@ public class Laser : PlayerProperty2D {
 		} 
 		else {
 			laserLine.SetPosition (1, hit.point);
-			PropertyFrozen frozen = hit.collider.gameObject.GetComponent<PropertyFrozen>();
-			PropertyWooden wooden = hit.collider.gameObject.GetComponent<PropertyWooden>();
-			//PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
-			if (frozen) {
-				timer_f += Time.deltaTime;
-				if (timer_f >= RemoveFrozenPeriod) {
-					propertyManager.RemoveProperty (this.GetType ());
-					timer_f = 0;
-				}
-			} 
-			else{
-				timer_f = 0;
-			}
-			if (wooden) {
-				timer_w += Time.deltaTime;
-				Pos = hit.collider.gameObject.transform.position;
-				if (Pos == lastPos) {
-					timer_w += Time.deltaTime;
-				}
-				else {
-					timer_w = 0;
-				}
-				if (timer_w >= DestroyWoodPeriod) {
-					Destroy (hit.collider.gameObject);
-					timer_w = 0;
-				}
-				lastPos = Pos;
-			}
-			//if (metal) {
-			//	Reflect ();
-			//}
-
+			//PropertyFrozen frozen = hitObj.GetComponent<PropertyFrozen>();
+			//PropertyWooden wooden = hitObj.GetComponent<PropertyWooden>();
+            //PropertyMetal metal = hitObj.GetComponent<PropertyMetal>();
+            PropertyManager objPropertyManager = hitObj.GetComponent<PropertyManager>();
+            if (objPropertyManager != null)
+            {
+                if (objPropertyManager.GetProperty<PropertyFrozen>())
+                {
+                    timer_f += Time.deltaTime;
+                    if (timer_f >= RemoveFrozenPeriod)
+                    {
+                        objPropertyManager.RemoveProperty<PropertyFrozen>();
+                        timer_f = 0;
+                    }
+                }
+                else
+                {
+                    timer_f = 0;
+                }
+                if (objPropertyManager.GetProperty<PropertyWooden>())
+                {
+                    timer_w += Time.deltaTime;
+                    Pos = hitObj.transform.position;
+                    if (Pos == lastPos)
+                    {
+                        timer_w += Time.deltaTime;
+                    }
+                    else
+                    {
+                        timer_w = 0;
+                    }
+                    if (timer_w >= DestroyWoodPeriod)
+                    {
+                        Destroy(hitObj);
+                        timer_w = 0;
+                    }
+                    lastPos = Pos;
+                }
+                //if (metal) {
+                //	Reflect ();
+                //}
+            }
 		}
 	}
 
