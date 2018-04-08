@@ -6,20 +6,31 @@ public class Laser : MonoBehaviour {
 
 	public GameObject endPoint;
 	private LineRenderer laserLine;
-	public float RemoveFrozenPeriod = 1f;
+    [Tooltip("unit: melting factor(see PropertyFrozen). Set 0 to melt ice immediately.")]
+	public float meltingIcePeriod = 1f;
 	public float DestroyWoodPeriod = 3f;
 	private float timer_f = 0f;
 	private float timer_w = 0f;
 	private Vector2 lastPos;
 	private Vector2 Pos;
 
-	// Use this for initialization
 	protected void Start () {
-		laserLine = GetComponent<LineRenderer> ();
+        if (meltingIcePeriod < 0)
+        {
+            Debug.LogError(GetType().Name + " of " + name + " error: meltingIcePeriod is not allowed to set under 0. The script will not work if continues.");
+            enabled = false;
+            return;
+        }
+        laserLine = GetComponent<LineRenderer> ();
 		laserLine.enabled = true;
-	}
+    }
 
-	// Update is called once per frame
+    protected void ResetEffect()
+    {
+        timer_f = 0;
+        timer_w = 0;
+    }
+    private GameObject lastHittingObj = null;
 	protected void Update () {
 		laserLine.positionCount = 2;
 		Vector2 pos = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.49f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.49f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
@@ -31,8 +42,15 @@ public class Laser : MonoBehaviour {
 
 		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.501f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.501f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
 		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);
+
+        bool needToReset = false;
         //Debug.Log (hit.collider.name);
         GameObject hitObj = hit.collider.gameObject;
+        if (hitObj != lastHittingObj || hitObj ==null)
+        {
+            needToReset = true;
+            lastHittingObj = hitObj;
+        }
 		if (hitObj.tag == "Floor") {
 				
 		}
@@ -49,24 +67,18 @@ public class Laser : MonoBehaviour {
 		} 
 		else {
 			laserLine.SetPosition (1, hit.point);
-			//PropertyFrozen frozen = hitObj.GetComponent<PropertyFrozen>();
-			//PropertyWooden wooden = hitObj.GetComponent<PropertyWooden>();
-            //PropertyMetal metal = hitObj.GetComponent<PropertyMetal>();
             PropertyManager objPropertyManager = hitObj.GetComponent<PropertyManager>();
+            //Debug.Log("Have got property manager of " + hitObj.name + ": " + (objPropertyManager!=null));
             if (objPropertyManager != null)
             {
-                if (objPropertyManager.GetProperty<PropertyFrozen>())
+                PropertyFrozen frozenProperty = objPropertyManager.GetProperty<PropertyFrozen>();
+                if (frozenProperty)
                 {
                     timer_f += Time.deltaTime;
-                    if (timer_f >= RemoveFrozenPeriod)
+                    if (timer_f >= meltingIcePeriod)
                     {
-                        objPropertyManager.RemoveProperty<PropertyFrozen>();
-                        timer_f = 0;
+                        frozenProperty.Melt();
                     }
-                }
-                else
-                {
-                    timer_f = 0;
                 }
                 if (objPropertyManager.GetProperty<PropertyWooden>())
                 {
@@ -87,11 +99,16 @@ public class Laser : MonoBehaviour {
                     }
                     lastPos = Pos;
                 }
-                //if (metal) {
-                //	Reflect ();
+                //if (objPropertyManager.GetProperty<PropertyMetal>())
+                //{
+                //    Reflect();
                 //}
             }
 		}
+        if (needToReset)
+        {
+            ResetEffect();
+        }
 	}
 
 	private void Reflect(){

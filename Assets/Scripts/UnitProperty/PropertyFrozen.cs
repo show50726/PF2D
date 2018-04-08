@@ -1,22 +1,24 @@
 ﻿//Property Frozen   made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/11/25
+//last maintained:  2018/04/08
 //Usage:            This is a specified property, which makes things become frozen.
 
 using UnityEngine;
-using System.Collections;
-
 public class PropertyFrozen : UnitProperty
 {
-    [ReadOnly, Tooltip("This is used (only in script) to determine when to \"melt\".")]
-    public float meltingFactor = 0;
+    [ReadOnly]
+    [Tooltip("This is used (only in script) to determine when to \"melt\". Think as negative HP of ice.")]
+    public float meltingFactorStorage = 0;
+    [Tooltip("If set to true, ice will never melt.")]
+    public bool immortalize = false;
 
     [Header("Interact Aettings")]
     public float friction = 0;
-    public float moveSpeedMultiplier = 1.1f;
+    public float moveSpeedMultiplier = 1.4f;
 
     private Rigidbody2D rb2d;
     private PhysicsMaterial2D originalPM2d;
+    private float initialMeltingFactorStorage;
 
     private System.Collections.Generic.List<PF2DController> thingsHasBeenSpeedUp =
         new System.Collections.Generic.List<PF2DController>();
@@ -29,6 +31,19 @@ public class PropertyFrozen : UnitProperty
         {
             originalPM2d = rb2d.sharedMaterial;
             rb2d.sharedMaterial.friction = 0;
+        }
+        initialMeltingFactorStorage = meltingFactorStorage;
+    }
+    public void StayFrozen(bool isTurnOn)
+    {
+        if (isTurnOn)
+        {
+            immortalize = true;
+            meltingFactorStorage = initialMeltingFactorStorage;
+        }
+        else
+        {
+            immortalize = false;
         }
     }
 
@@ -68,6 +83,25 @@ public class PropertyFrozen : UnitProperty
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
+        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
+        if (controller)
+        {
+            ModifyControllerSpeed(controller, true);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
+        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
+        if (controller)
+        {
+            ModifyControllerSpeed(controller, false);
+        }
+    }
+    /*
     private void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
@@ -86,11 +120,28 @@ public class PropertyFrozen : UnitProperty
             ModifyControllerSpeed(controller, false);
         }
     }
-
+    */
     public void Melt()
     {
-        Destroy(this);
+        //Destroy the property, or even the whole gameobject
+        if (immortalize) return;
+        if (tag == "Fragile")
+        {
+            Destroy(gameObject);
+        }
+        else propertyManager.RemoveProperty(GetType());
     }
+    public void Melt(float meltingFactor)
+    {
+        //when meltingFactor is set to <= 0, melt immediately.
+        meltingFactorStorage += Time.deltaTime;
+        Debug.Log(name + ": melting factor is now " + meltingFactorStorage);
+        if (meltingFactorStorage >= meltingFactor)
+        {
+            Melt();
+        }
+    }
+
     protected override void OnDestroy()
     {
         base.OnDestroy();
