@@ -1,17 +1,24 @@
 ﻿//PropertyBurn made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/12/17
+//last maintained:  2018/04/08
 //Usage:            This is a specified property, which makes player burn.
 
 using UnityEngine;
-using System.Collections.Generic;
 
 public class PropertyBurn : PropertyNegative
 {
-    [Tooltip("unit: seconds. Set 0 to melt ice immediately.")]
-    public float meltIceAfterTime = 3f;
+    [Tooltip("unit: melting factor(see PropertyFrozen). Set 0 to melt ice immediately.")]
+    public float meltingIcePeriod = 3f;
     [Tooltip("Objects in these layers won't be diffused.")]
     public LayerMask ignoreTheseObjects = (1 << 8); //this format means the Layer 8 are selected.
+    protected override void Start()
+    {
+        if (meltingIcePeriod < 0)
+        {
+            Debug.LogError(GetType().Name + " of " + name + " error: meltingIcePeriod is not allowed to set under 0. The script will not work if continues.");
+            enabled = false;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -33,14 +40,7 @@ public class PropertyBurn : PropertyNegative
         if (!enabled) return;
         if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
         PropertyFrozen p = col.gameObject.GetComponent<PropertyFrozen>();
-        if (p)
-        {
-            p.meltingFactor += Time.deltaTime;
-            if (p.meltingFactor > meltIceAfterTime)
-            {
-                p.Melt();
-            }
-        }
+        if (p) p.Melt(meltingIcePeriod);
 
     }
 

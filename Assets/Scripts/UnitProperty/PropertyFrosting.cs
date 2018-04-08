@@ -37,7 +37,7 @@ public class PropertyFrosting : PropertyNegative
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-
+        if (!enabled) return;
         //creat frosted Ice when walking on water
         if (CheckLayerIsInTheLayerMask(col.gameObject.layer, water))
         {

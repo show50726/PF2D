@@ -10,8 +10,8 @@ using UnityEngine;
 
 public class PropertyManager : MonoBehaviour {
 
-	public int MaxProperty = 1;
-    private List<UnitProperty> propertyList = new List<UnitProperty>();
+	public int MaxProperty = 1;    
+    public List<UnitProperty> propertyList = new List<UnitProperty>();
     public Player player;
     public PF2DController controller2D;
 
@@ -26,6 +26,14 @@ public class PropertyManager : MonoBehaviour {
         {
             Debug.Log(GetType().Name + " of " + name + ": looks like controller2D isn't assigned. Script will try to find one.");
             controller2D = GetComponent<PF2DController>();
+        }
+        UnitProperty[] checkList = GetComponents<UnitProperty>();
+        foreach (UnitProperty p in checkList)
+        {
+            if (propertyList.Contains(p)!=true)
+            {
+                propertyList.Add(p);
+            }
         }
     }
     public T GetProperty<T>() where T : UnitProperty
