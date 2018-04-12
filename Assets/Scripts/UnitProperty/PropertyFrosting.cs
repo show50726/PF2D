@@ -1,12 +1,13 @@
 ﻿//Property Frosting made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/07
+//last maintained:  2018/04/11
 //Usage:            This is a specified property, which makes player "cool" and freeze other objects.
 
 using UnityEngine;
 
 public class PropertyFrosting : PropertyNegative
 {
+    public static System.Collections.Generic.List<GameObject> frozenWater = new System.Collections.Generic.List<GameObject>();
     public Color showingColor = new Color32(94, 228, 240, 255);
 
     protected override void Start()
@@ -32,16 +33,14 @@ public class PropertyFrosting : PropertyNegative
     public GameObject icePrefab;
     [Tooltip("This prevents the repeat production of ice.")]
     public float heightTuning = 0.1f;
-
-    private System.Collections.Generic.List<GameObject> iceCreatedWater = new System.Collections.Generic.List<GameObject>();
-
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!enabled) return;
         //creat frosted Ice when walking on water
         if (CheckLayerIsInTheLayerMask(col.gameObject.layer, water))
         {
-            if (iceCreatedWater.Contains(col.gameObject)) return; //already did the ice instantiation.
+            if (frozenWater.Contains(col.gameObject)) return; //already did the ice instantiation.
             if (icePrefab == null)
             {
                 Debug.LogError(GetType().Name + " error: trying to instantiate ice while icePrefab not selected.");
@@ -61,10 +60,11 @@ public class PropertyFrosting : PropertyNegative
             GameObject ice = Instantiate(icePrefab, p, Quaternion.Euler(0, 0, 0)) as GameObject;
             float iceLocalLength = col.bounds.size.x / ice.transform.lossyScale.x;
             ice.transform.localScale = new Vector3(iceLocalLength, ice.transform.localScale.y);
-            Debug.Log("An ice " + ice.name + " has been instantiated.");
+            ice.transform.SetParent(col.transform);
+            //Debug.Log("An ice " + ice.name + " has been instantiated.");
             //create finished.
 
-            iceCreatedWater.Add(col.gameObject);
+            frozenWater.Add(col.gameObject);
         }
 
         PropertyFrozen f = col.gameObject.GetComponent<PropertyFrozen>();
@@ -95,10 +95,6 @@ public class PropertyFrosting : PropertyNegative
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (iceCreatedWater.Contains(col.gameObject))
-        {
-            iceCreatedWater.Remove(col.gameObject);
-        }
         PropertyFrozen f = col.gameObject.GetComponent<PropertyFrozen>();
         if (f != null)
         {

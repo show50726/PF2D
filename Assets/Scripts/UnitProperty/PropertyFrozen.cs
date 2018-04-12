@@ -1,11 +1,12 @@
 ﻿//Property Frozen   made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/08
+//last maintained:  2018/04/11
 //Usage:            This is a specified property, which makes things become frozen.
 
 using UnityEngine;
 public class PropertyFrozen : UnitProperty
 {
+    
     [ReadOnly]
     [Tooltip("This is used (only in script) to determine when to \"melt\". Think as negative HP of ice.")]
     public float meltingFactorStorage = 0;
@@ -127,6 +128,10 @@ public class PropertyFrozen : UnitProperty
     {
         //Destroy the property, or even the whole gameobject
         if (immortalize) return;
+        if (PropertyFrosting.frozenWater.Contains(this.gameObject.transform.parent.gameObject))
+        {
+            PropertyFrosting.frozenWater.Remove(this.gameObject.transform.parent.gameObject);
+        }
         if (tag == "Fragile")
         {
             Destroy(gameObject);
