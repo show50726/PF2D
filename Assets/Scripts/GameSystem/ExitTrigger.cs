@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class ExitTrigger : MonoBehaviour {
 
-    public GameSystemManager GSM;
-
     [SerializeField]
     private UnityEvent EndGame;
 
