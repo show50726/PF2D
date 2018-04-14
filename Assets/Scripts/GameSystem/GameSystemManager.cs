@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/07
+//last maintained:  2018/04/14
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -229,8 +229,8 @@ public class GameSystemManager : MonoBehaviour
     {
         if (Input.GetKeyDown(pauseKey))
         {
-            //if (theSceneIsInGame) PauseOrResume();
-            PauseOrResume();
+            if (theSceneIsInGame) PauseOrResume();
+            //PauseOrResume();
         }
         //DEV NOTE: debug usage.
         /*

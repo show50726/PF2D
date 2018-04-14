@@ -145,8 +145,8 @@ RectTransform:
   - {fileID: 347061544}
   - {fileID: 1465886354}
   - {fileID: 1147615095}
-  - {fileID: 1916214007}
   - {fileID: 1648607867}
+  - {fileID: 1916214007}
   - {fileID: 1335311756}
   m_Father: {fileID: 1964460636}
   m_RootOrder: 0
@@ -1096,11 +1096,11 @@ RectTransform:
   m_Father: {fileID: 1232309967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1151911031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theWorld: 1
+  coinAmount: 1
   scoreText: {fileID: 1151911032}
   scoreTextMesh: {fileID: 0}
   formerDisplay: 'World Score: '
@@ -1165,6 +1166,7 @@ GameObject:
   - component: {fileID: 1232309967}
   - component: {fileID: 1232309969}
   - component: {fileID: 1232309968}
+  - component: {fileID: 1232309970}
   m_Layer: 5
   m_Name: LevelText
   m_TagString: Untagged
@@ -1188,8 +1190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 30, y: -30}
+  m_SizeDelta: {x: 330, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1232309968
 MonoBehaviour:
@@ -1230,6 +1232,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232309966}
+--- !u!114 &1232309970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232309966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eef8a1a687905947a4a306166958cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showSceneName: {fileID: 1232309968}
+  formerDisplay: '['
+  laterDisplay: ']'
 --- !u!1 &1335311755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,10 +1605,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04171f5f38935dc48891bff7a2439e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theSceneIsInGame: 0
+  theSceneIsInGame: 1
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
   animatorSM: {fileID: 0}
+  keyOfShowPList: 112
   pauseKey: 27
   WorldStarScore: 000000000000000000000000
 --- !u!4 &1468000453
@@ -1774,11 +1791,11 @@ RectTransform:
   m_Children:
   - {fileID: 678006060}
   m_Father: {fileID: 306032}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: -100}
+  m_AnchoredPosition: {x: -30, y: 0}
   m_SizeDelta: {x: 360, y: 80}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1648607868
@@ -1885,11 +1902,11 @@ RectTransform:
   m_Children:
   - {fileID: 1520879762}
   m_Father: {fileID: 306032}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 0}
+  m_AnchoredPosition: {x: -30, y: -100}
   m_SizeDelta: {x: 360, y: 80}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1916214008
