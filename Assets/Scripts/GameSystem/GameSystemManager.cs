@@ -320,6 +320,16 @@ public class GameSystemManager : MonoBehaviour
             Destroy(playerList[0].gameObject);
             playerList.RemoveAt(0);
         }
+        while (playerStaticCopySeries.Count != 0)
+        {
+            Destroy(playerStaticCopySeries[0].gameObject);
+            playerStaticCopySeries.RemoveAt(0);
+        }
+        for (int i = 0; i < WorldStarScore.Length; i++)
+        {
+            WorldStarScore[i] = 0;
+        }
+
     }
 
     public void QuitGame()
@@ -397,13 +407,13 @@ public class GameSystemManager : MonoBehaviour
     
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadSceneAsync(sceneName);
+        SceneManager.LoadScene(sceneName);
         oringinalTimeScale = 1;
         TogglePauseAndResume(false);
     }
     public void LoadScene(string sceneName, LoadSceneMode mode)
     {
-        SceneManager.LoadSceneAsync(sceneName,mode);
+        SceneManager.LoadScene(sceneName,mode);
         
     }
 
