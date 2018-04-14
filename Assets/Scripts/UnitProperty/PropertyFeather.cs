@@ -1,6 +1,6 @@
 ﻿//PropertyFeather made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/07
+//last maintained:  2018/04/09
 //Usage:            This is a specified property, which makes player run faster and jump higher.
 
 using UnityEngine;
@@ -15,6 +15,10 @@ public class PropertyFeather : PlayerProperty2D
     private float originalGravityScale;
 	public Color showingColor = new Color32(79,44,167,255);
 
+    private LayerMask o_JumpLayer;
+    private bool o_JumpLayerIsAllow = true;
+    public LayerMask allowJumpOnTheseThing = (1 << 4);
+
     protected override void Start()
     {
         base.Start();
@@ -26,7 +30,6 @@ public class PropertyFeather : PlayerProperty2D
 
     private void ActivateEffect(bool activate)
     {
-        if (!enabled) return;
         if (moveSpeedMultiplier == 0 || jumpHeightMultiplier == 0)
         {
             Debug.LogWarning(GetType().Name + " of " + name + " warning: one of multiplier has been set to 0. For bug avoiding, this property won't work.");
@@ -44,7 +47,18 @@ public class PropertyFeather : PlayerProperty2D
         {
             controller2D.movingSpeed *= moveSpeedMultiplier;
             controller2D.jumpHeight *= jumpHeightMultiplier;
-            pc.cannotJumpOnTheseThing = (1 << 1) | (1 << 2) | (1 << 5);
+            if (~pc.onlyJumpOnTheseThing != 0)
+            {
+                o_JumpLayer = pc.onlyJumpOnTheseThing;
+                o_JumpLayerIsAllow = true;
+                pc.onlyJumpOnTheseThing |= allowJumpOnTheseThing;
+            }
+            else
+            {
+                o_JumpLayer = pc.cannotJumpOnTheseThing;
+                o_JumpLayerIsAllow = false;
+                pc.cannotJumpOnTheseThing &= ~(allowJumpOnTheseThing);
+            }
             if (weightMultiplier <= 0)
             {
                 Debug.LogWarning(GetType().Name + " of " + name + " warning: weightMultiplier has been set to 0. For bug avoiding, The mass won't change.");
@@ -55,7 +69,14 @@ public class PropertyFeather : PlayerProperty2D
         {
             controller2D.movingSpeed /= moveSpeedMultiplier;
             controller2D.jumpHeight /= jumpHeightMultiplier;
-            pc.cannotJumpOnTheseThing = (1 << 4) | (1 << 1) | (1 << 2) | (1 << 5); ;
+            if (o_JumpLayerIsAllow)
+            {
+                pc.onlyJumpOnTheseThing = o_JumpLayer; 
+            }
+            else
+            {
+                pc.cannotJumpOnTheseThing = o_JumpLayer;
+            }
             if (weightMultiplier <= 0)
             {
                 Debug.LogWarning(GetType().Name + " of " + name + " warning: weightMultiplier has been set to 0. For bug avoiding, The mass won't change.");
@@ -64,12 +85,9 @@ public class PropertyFeather : PlayerProperty2D
         }
     }
 
-    protected override void OnDestroy()
+    private void OnDisable()
     {
-        base.OnDestroy();
-        //if (enabled == false) return;
-
-		ActivateEffect(false);
+        ActivateEffect(false);
     }
 
 }

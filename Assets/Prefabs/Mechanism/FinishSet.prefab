@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61714529224210152}
   - component: {fileID: 50844931695524226}
   - component: {fileID: 114075213817395098}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: DoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 61564305988757076}
   - component: {fileID: 50971656530933794}
   - component: {fileID: 114947321548834082}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: DoorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511903316005064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.25, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 1}
   m_Children:
   - {fileID: 4428923751179978}
@@ -242,8 +242,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483809408270286}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 3.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4914164282291042}
@@ -313,7 +313,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295801986870794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8.25, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 1}
   m_Children:
   - {fileID: 4053258270783162}
@@ -568,7 +568,7 @@ MonoBehaviour:
   switchCase: 0000
   assignedPlayer: {fileID: 0}
   checkTag: Player
-  goToThisScene: Title
+  goToThisScene: Cave 1-2
   goToThisPosition: {x: 0, y: 0, z: 0}
   stateName: 
   targetLayer: 0

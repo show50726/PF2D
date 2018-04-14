@@ -11,20 +11,19 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1731506550751006}
   m_IsPrefabParent: 1
---- !u!1 &1612393027676242
+--- !u!1 &1711323138642096
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4537912795242694}
-  - component: {fileID: 61259028269198426}
-  - component: {fileID: 114172562970336490}
-  - component: {fileID: 114758601858763956}
+  - component: {fileID: 4215475624380598}
+  - component: {fileID: 114310821237778660}
+  - component: {fileID: 61785794774379424}
   m_Layer: 10
-  m_Name: Trigger
-  m_TagString: Untagged
+  m_Name: IceTrigger
+  m_TagString: Fragile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,20 +40,19 @@ GameObject:
   - component: {fileID: 61688078757152628}
   - component: {fileID: 50195700911674736}
   - component: {fileID: 114370840776221824}
-  - component: {fileID: 114171654225980880}
   m_Layer: 10
   m_Name: FrostedIce
-  m_TagString: Ice
+  m_TagString: Fragile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4537912795242694
+--- !u!4 &4215475624380598
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612393027676242}
+  m_GameObject: {fileID: 1711323138642096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -72,7 +70,7 @@ Transform:
   m_LocalPosition: {x: 0.46, y: -4.25, z: 0}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children:
-  - {fileID: 4537912795242694}
+  - {fileID: 4215475624380598}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,31 +94,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61259028269198426
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612393027676242}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!61 &61688078757152628
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -146,34 +119,47 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114171654225980880
+--- !u!61 &61785794774379424
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1711323138642096}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.025665522}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.051331}
+  m_EdgeRadius: 0
+--- !u!114 &114310821237778660
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1731506550751006}
+  m_GameObject: {fileID: 1711323138642096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8212f133ac1db448482709f4065d93, type: 3}
+  m_Script: {fileID: 11500000, guid: 757cb62652ff6814fa1af14857bab2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxProperty: 1
-  player: {fileID: 0}
-  controller2D: {fileID: 0}
---- !u!114 &114172562970336490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612393027676242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8212f133ac1db448482709f4065d93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxProperty: 1
-  player: {fileID: 0}
-  controller2D: {fileID: 0}
+  propertyManager: {fileID: 0}
+  meltingFactorStorage: 0
+  immortalize: 0
+  friction: 0
+  moveSpeedMultiplier: 1.4
 --- !u!114 &114370840776221824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,22 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propertyManager: {fileID: 0}
-  meltingFactor: 0
-  friction: 0
-  moveSpeedMultiplier: 1.4
---- !u!114 &114758601858763956
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612393027676242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757cb62652ff6814fa1af14857bab2a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  propertyManager: {fileID: 0}
-  meltingFactor: 0
+  meltingFactorStorage: 0
+  immortalize: 0
   friction: 0
   moveSpeedMultiplier: 1.4
 --- !u!212 &212616023782918530

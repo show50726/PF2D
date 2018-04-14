@@ -1,6 +1,6 @@
 ﻿//Property Manager  PROUDLY made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/30
+//last maintained:  2018/04/08
 //Usage:            This helps managing properties. Make sure you apply it to ANY unit that will be involved by properties.
 
 using System.Collections;
@@ -10,8 +10,8 @@ using UnityEngine;
 
 public class PropertyManager : MonoBehaviour {
 
-	public int MaxProperty = 1;
-    private List<UnitProperty> propertyList = new List<UnitProperty>();
+	public int MaxProperty = 1;    
+    public List<UnitProperty> propertyList = new List<UnitProperty>();
     public Player player;
     public PF2DController controller2D;
 
@@ -26,6 +26,14 @@ public class PropertyManager : MonoBehaviour {
         {
             Debug.Log(GetType().Name + " of " + name + ": looks like controller2D isn't assigned. Script will try to find one.");
             controller2D = GetComponent<PF2DController>();
+        }
+        UnitProperty[] checkList = GetComponents<UnitProperty>();
+        foreach (UnitProperty p in checkList)
+        {
+            if (propertyList.Contains(p)!=true)
+            {
+                propertyList.Add(p);
+            }
         }
     }
     public T GetProperty<T>() where T : UnitProperty
@@ -72,7 +80,7 @@ public class PropertyManager : MonoBehaviour {
         System.Type propertyType = property.GetType();
         if (GetProperty(propertyType) != null)
         {
-            Debug.Log(property.GetType().Name + " exists on " + gameObject);
+            //Debug.Log(property.GetType().Name + " exists on " + gameObject);
             if (updateInfoIfAlreadyExists)
             {
                 Debug.Log(GetType().Name + " of " + name + ": " + propertyType.Name + " already exists. Script will UPDATE the existing property to be the new assigned one.");

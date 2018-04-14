@@ -2,24 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : PlayerProperty2D {
+public class Laser : MonoBehaviour {
 
 	public GameObject endPoint;
 	private LineRenderer laserLine;
-	public float RemoveFrozenPeriod = 1f;
+    [Tooltip("unit: melting factor(see PropertyFrozen). Set 0 to melt ice immediately.")]
+	public float meltingIcePeriod = 1f;
 	public float DestroyWoodPeriod = 3f;
+    [SerializeField]
 	private float timer_f = 0f;
 	private float timer_w = 0f;
 	private Vector2 lastPos;
 	private Vector2 Pos;
 
-	// Use this for initialization
-	protected override void Start () {
-		laserLine = GetComponent<LineRenderer> ();
+	protected void Start () {
+        if (meltingIcePeriod < 0)
+        {
+            Debug.LogError(GetType().Name + " of " + name + " error: meltingIcePeriod is not allowed to set under 0. The script will not work if continues.");
+            enabled = false;
+            return;
+        }
+        laserLine = GetComponent<LineRenderer> ();
 		laserLine.enabled = true;
-	}
+    }
 
-	// Update is called once per frame
+    protected void ResetEffect()
+    {
+        timer_f = 0;
+        timer_w = 0;
+    }
+    private GameObject lastHittingObj = null;
 	protected void Update () {
 		laserLine.positionCount = 2;
 		Vector2 pos = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.49f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.49f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
@@ -30,15 +42,23 @@ public class Laser : PlayerProperty2D {
 		laserLine.SetPosition (1, endPoint.transform.position);
 
 		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.501f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.501f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
-		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);  
-		//Debug.Log (hit.collider.name);
-		if (hit.collider.tag == "Floor") {
+		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);
+
+        bool needToReset = false;
+        //Debug.Log (hit.collider.name);
+        GameObject hitObj = hit.collider.gameObject;
+        if (hitObj != lastHittingObj || hitObj ==null)
+        {
+            needToReset = true;
+            lastHittingObj = hitObj;
+        }
+		if (hitObj.tag == "Floor") {
 				
 		}
-		else if (hit.collider.tag == "Player") {
-			PropertyFrosting frosting = hit.collider.gameObject.GetComponent<PropertyFrosting>();
-			//PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
-			Player p = hit.collider.gameObject.GetComponent<Player> ();
+		else if (hitObj.tag == "Player") {
+			PropertyFrosting frosting = hitObj.GetComponent<PropertyFrosting>();
+			//PropertyMetal metal = hitObj.GetComponent<PropertyMetal>();
+			Player p = hitObj.GetComponent<Player> ();
 			if (frosting) {
 				laserLine.SetPosition (1, hit.point);
 			} 
@@ -48,39 +68,52 @@ public class Laser : PlayerProperty2D {
 		} 
 		else {
 			laserLine.SetPosition (1, hit.point);
-			PropertyFrozen frozen = hit.collider.gameObject.GetComponent<PropertyFrozen>();
-			PropertyWooden wooden = hit.collider.gameObject.GetComponent<PropertyWooden>();
-			//PropertyMetal metal = hit.collider.gameObject.GetComponent<PropertyMetal>();
-			if (frozen) {
-				timer_f += Time.deltaTime;
-				if (timer_f >= RemoveFrozenPeriod) {
-					propertyManager.RemoveProperty (this.GetType ());
-					timer_f = 0;
-				}
-			} 
-			else{
-				timer_f = 0;
-			}
-			if (wooden) {
-				timer_w += Time.deltaTime;
-				Pos = hit.collider.gameObject.transform.position;
-				if (Pos == lastPos) {
-					timer_w += Time.deltaTime;
-				}
-				else {
-					timer_w = 0;
-				}
-				if (timer_w >= DestroyWoodPeriod) {
-					Destroy (hit.collider.gameObject);
-					timer_w = 0;
-				}
-				lastPos = Pos;
-			}
-			//if (metal) {
-			//	Reflect ();
-			//}
-
+            PropertyManager objPropertyManager = hitObj.GetComponent<PropertyManager>();
+            //Debug.Log("Have got property manager of " + hitObj.name + ": " + (objPropertyManager!=null));
+            if (objPropertyManager != null)
+            {
+                PropertyFrozen frozenProperty = objPropertyManager.GetProperty<PropertyFrozen>();
+                if (frozenProperty)
+                {
+                    timer_f += Time.deltaTime *2; //DEV NOTE: the nasty sol. of Unity's broken collision detect.
+                    if (frozenProperty.immortalize)
+                    {
+                        timer_f = 0; //DEV NOTE: the nasty sol. of strange setting of Laser.
+                    }
+                    if (timer_f >= meltingIcePeriod)
+                    {
+                        frozenProperty.Melt();
+                    }
+                }
+                if (objPropertyManager.GetProperty<PropertyWooden>())
+                {
+                    timer_w += Time.deltaTime;
+                    Pos = hitObj.transform.position;
+                    if (Pos == lastPos)
+                    {
+                        timer_w += Time.deltaTime;
+                    }
+                    else
+                    {
+                        timer_w = 0;
+                    }
+                    if (timer_w >= DestroyWoodPeriod)
+                    {
+                        Destroy(hitObj);
+                        timer_w = 0;
+                    }
+                    lastPos = Pos;
+                }
+                //if (objPropertyManager.GetProperty<PropertyMetal>())
+                //{
+                //    Reflect();
+                //}
+            }
 		}
+        if (needToReset)
+        {
+            ResetEffect();
+        }
 	}
 
 	private void Reflect(){
