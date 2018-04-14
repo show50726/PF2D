@@ -39,7 +39,7 @@ public class UIStarScoreShow : MonoBehaviour
     public void UpdateScoreShow()
     {
         //string showText = "World " + theWorld + " " + formerDisplay + score;
-		string showText = new string('○',coinAmount-score) + new System.String('●',score);
+		string showText = new string('○', (score>0)? 0: 1) + new System.String('●', (score>0)? 1: 0);
         if (scoreText != null) scoreText.text = showText;
         if (scoreTextMesh != null) scoreTextMesh.text = showText;
         if (scoreText == null && scoreTextMesh == null)
