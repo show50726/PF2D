@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theWorld: 1
+  coinAmount: 1
   scoreText: {fileID: 0}
   scoreTextMesh: {fileID: 102723564107184114}
   formerDisplay: 'score: '

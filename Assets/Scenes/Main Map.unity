@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -492,6 +492,19 @@ Prefab:
         type: 2}
       propertyPath: m_Color.rgba
       value: 4278255615
+      objectReference: {fileID: 0}
+    - target: {fileID: 102514205483798414, guid: 3247f97e365d59d408ff403cfb31669b,
+        type: 2}
+      propertyPath: m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011612750720450, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011612750720450, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
@@ -1966,6 +1979,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2056,6 +2070,19 @@ Prefab:
         type: 2}
       propertyPath: m_Color.rgba
       value: 4278255615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011612750720450, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011612750720450, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 102514205483798414, guid: 3247f97e365d59d408ff403cfb31669b,
+        type: 2}
+      propertyPath: m_FontSize
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
@@ -2154,12 +2181,20 @@ Prefab:
     - target: {fileID: 102514205483798414, guid: 3247f97e365d59d408ff403cfb31669b,
         type: 2}
       propertyPath: m_FontSize
-      value: 20
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 102514205483798414, guid: 3247f97e365d59d408ff403cfb31669b,
         type: 2}
       propertyPath: m_Text
       value: "\u25CB"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011612750720450, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011612750720450, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3247f97e365d59d408ff403cfb31669b, type: 2}
