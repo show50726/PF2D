@@ -285,7 +285,10 @@ public class PF2DController : MonoBehaviour
             movingDirection = Vector2.zero;
             CheckMove(rightButton, ref movingDirection, transform.right);
             CheckMove(leftButton, ref movingDirection, -transform.right);
-            ControlMove(movingDirection);
+            if (movingDirection != Vector2.zero || lastMovingDirection != Vector2.zero)
+            {
+                ControlMove(movingDirection);
+            }
             /*
             if (rightIsLeanOnWall == false)
             {
@@ -301,7 +304,7 @@ public class PF2DController : MonoBehaviour
             //{
             //    needToRefreshVelocity = true;
             //}
-            
+
         }
         if (needToRefreshVelocity)
         {

@@ -1,6 +1,6 @@
 ﻿//TrapFloorSimple2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/14
+//last maintained:  2018/04/15
 //usage:            a basic trap floor, which you can set path and velocity.
 
 using UnityEngine;
@@ -72,25 +72,6 @@ public class TrapFloorSimple2D : Mechanism2D
         }
         //since not activated nor need to return, no need to move
         return Vector2.zero;
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        Debug.Log(col.gameObject.name + " has entered " + gameObject.name);
-        if (col.gameObject.tag == "Player")
-        {
-            Debug.Log(col.gameObject.name + " set parent.");
-            col.transform.SetParent(this.transform);
-        }
-    }
-    private void OnCollisionExit2D(Collision2D col)
-    {
-        Debug.Log(col.gameObject.name + " has exited " + gameObject.name);
-        if (col.gameObject.tag == "Player")
-        {
-            Debug.Log(col.gameObject.name + " detach parent.");
-            col.transform.SetParent(null);
-        }
     }
 
 }
