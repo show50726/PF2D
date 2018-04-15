@@ -1,6 +1,6 @@
 ﻿//TrapFloorSimple2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/25
+//last maintained:  2018/04/15
 //usage:            a basic trap floor, which you can set path and velocity.
 
 using UnityEngine;
