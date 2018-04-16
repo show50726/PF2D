@@ -1469,17 +1469,17 @@ Prefab:
     - target: {fileID: 114745168378980362, guid: a47ccb15ef337d74a90d304c869faa6f,
         type: 2}
       propertyPath: goToThisScene
-      value: Main Map
+      value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 114745168378980362, guid: a47ccb15ef337d74a90d304c869faa6f,
         type: 2}
       propertyPath: goToThisPosition.x
-      value: 30.75
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114745168378980362, guid: a47ccb15ef337d74a90d304c869faa6f,
         type: 2}
       propertyPath: goToThisPosition.y
-      value: 2.875
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a47ccb15ef337d74a90d304c869faa6f, type: 2}

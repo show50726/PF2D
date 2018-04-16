@@ -10,7 +10,8 @@ public class ExitTrigger : MonoBehaviour {
 
     public void End()
     {
-        this.EndGame.Invoke();
+        GameSystemManager.exist.QuitGame();
+        //this.EndGame.Invoke();
     }
 
     public void OnTriggerEnter2D(Collider2D col)
