@@ -82,12 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6f47471a40f8644ad078b3fa303329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propertyManager: {fileID: 0}
-  controller2D: {fileID: 0}
-  player: {fileID: 0}
   endPoint: {fileID: 1169925331425320}
-  RemoveFrozenPeriod: 1
+  meltingIcePeriod: 0.1
   DestroyWoodPeriod: 1
+  timer_f: 0
 --- !u!120 &120878137130168972
 LineRenderer:
   m_ObjectHideFlags: 1
