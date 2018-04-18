@@ -1,6 +1,6 @@
 ﻿//Level Manager     made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/03/30
+//Last maintained:  2018/04/18
 //Usage:            Level Manager records eveything happened in level, and will call related system to work (think about completing level). Better assign it to an empty gameobject, which contains 'the whole level objects'.
 
 using UnityEngine;
@@ -243,9 +243,11 @@ public class LevelManager : MonoBehaviour
                 //if (p.levelGoingDirectionConditionName != oneGoingDirection)
                 if (p.nextScene != goingScene)
                 {
-                    Debug.LogWarning(GetType().Name +  " warning: not all of players are going to the same scene. " +
-                        "This should be a bug, and GameSystemManager might load a wrong level.");
-                    break;
+                    Debug.LogWarning(GetType().Name + " warning: not all of players are going to the same scene. " +
+                        "For design purpose, this means Scene won't change. " +
+                        "If you want to still want to change, open LevelManager.CS and find this line.");
+                    //break; 
+                    return; //comment this line and un-comment upper line to make scene load. 
                 }
             }
         }
