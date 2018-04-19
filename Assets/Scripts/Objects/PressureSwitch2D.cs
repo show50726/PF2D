@@ -1,6 +1,6 @@
 ﻿//PressureSwitch2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/26
+//last maintained:  2018/04/19
 //usage:            apply this on "button-like" objects to make pressure switches.
 //NOTE:             Mechanism2D needed. Using collider instead of trigger.
 
@@ -13,7 +13,9 @@ public class PressureSwitch2D : Mechanism2D {
 
     [Tooltip("When checked, mechanisms will 'switch state' (on<->off) instead of turning on / off.")]
     public bool switchInsteadTurnOn = false;
-    
+
+    private System.Collections.Generic.List<GameObject> pressingObject
+        = new System.Collections.Generic.List<GameObject>();
 
     protected override void Start()
     {
@@ -45,6 +47,7 @@ public class PressureSwitch2D : Mechanism2D {
         if (!enabled) return;
         if (LayerIsInLayerMask(col.gameObject.layer,ignoreTheseObjects) == false)
         {
+            pressingObject.Add(col.gameObject);
             Activated = true;
         }
     }
@@ -53,7 +56,11 @@ public class PressureSwitch2D : Mechanism2D {
         if (!enabled || stayOnAfterActivated == true) return;
         if (LayerIsInLayerMask(col.gameObject.layer, ignoreTheseObjects) == false)
         {
-            Activated = false;
+            pressingObject.Remove(col.gameObject);
+            if (pressingObject.Count == 0)
+            {
+                Activated = false;
+            }
         }
     }
     protected override void WhenActivate(bool isTurnOn)
