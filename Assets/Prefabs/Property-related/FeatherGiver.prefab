@@ -84,8 +84,11 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeedMultiplier: 1.0256453
   jumpHeightMultiplier: 1.571428
-  weightMultiplier: 0.5
+  weightMultiplier: 0.2
   showingColor: {r: 0.30980393, g: 0.17254902, b: 0.654902, a: 1}
+  allowJumpOnTheseThing:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!114 &114867072239991180
 MonoBehaviour:
   m_ObjectHideFlags: 1
