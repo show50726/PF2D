@@ -5,9 +5,17 @@ using UnityEngine;
 public class PropertyHealing : PlayerProperty2D {
 
 	private Rigidbody2D rb2d;
+    [Header("Healing Setting")]
 	public float healingPeriod = 1f;
 	public float healingOthersPeriod = 4f;
 	private float timer = 0f;
+
+    [Tooltip("unit: second.")]
+    public float fastHealWaitingTime = 2f;
+    [Tooltip("unit: hp / s.")]
+    public float fastHealRate = 40f;
+    private float stayTimer = 0f;
+
 	public LayerMask ignoreTheseObjects = (1 << 8);
 	public LayerMask ignoreGiver = (1 << 9);
 	public bool updateIfExists = true;
@@ -19,6 +27,7 @@ public class PropertyHealing : PlayerProperty2D {
     protected override void Start()
 	{
 		base.Start();
+        rb2d = GetComponent<Rigidbody2D>();
         player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
     }
 
@@ -52,10 +61,9 @@ public class PropertyHealing : PlayerProperty2D {
 
 	public void Update(){
 		timer += Time.deltaTime;
-		Player pl = this.GetComponent<Player> ();
-		if (pl && timer >= healingPeriod && pl.healthPoint < maxHealth) {
-            pl.UpdateHealthPoint(++pl.healthPoint);
-			Debug.Log("Player " + pl.name + " is healing." + "HP is now " + pl.healthPoint);
+		if (player && timer >= healingPeriod && player.healthPoint < maxHealth) {
+            player.UpdateHealthPoint(++player.healthPoint);
+			Debug.Log("Player " + player.name + " is healing." + "HP is now " + player.healthPoint);
 			timer -= healingPeriod;
 		}
 
@@ -68,6 +76,18 @@ public class PropertyHealing : PlayerProperty2D {
 				p.touchTime = 0;
 			}
 		}
+
+        if (rb2d.velocity.magnitude <= 0.01)
+            stayTimer += Time.deltaTime;
+        else
+            stayTimer = 0;
+
+        if (stayTimer >= fastHealWaitingTime)
+        {
+            //start fast healing
+            player.UpdateHealthPoint(player.healthPoint + fastHealRate * Time.deltaTime);
+        }
+
 	}
 
 }
