@@ -84,6 +84,8 @@ MonoBehaviour:
   player: {fileID: 0}
   healingPeriod: 1
   healingOthersPeriod: 4
+  fastHealWaitingTime: 2
+  fastHealRate: 5
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 1280
