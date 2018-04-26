@@ -82,7 +82,7 @@ public class PropertyHealing : PlayerProperty2D {
         else
             stayTimer = 0;
 
-        if (stayTimer >= fastHealWaitingTime)
+        if (stayTimer >= fastHealWaitingTime && player.healthPoint < maxHealth && player.isDead == false)
         {
             //start fast healing
             player.UpdateHealthPoint(player.healthPoint + fastHealRate * Time.deltaTime);
