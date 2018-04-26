@@ -87,6 +87,10 @@ public class PropertyHealing : PlayerProperty2D {
             //start fast healing
             player.UpdateHealthPoint(player.healthPoint + fastHealRate * Time.deltaTime);
         }
+        if (player.healthPoint > maxHealth)
+        {
+            player.UpdateHealthPoint(maxHealth);
+        }
 
 	}
 
