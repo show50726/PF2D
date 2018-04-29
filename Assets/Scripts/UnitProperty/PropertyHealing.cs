@@ -8,9 +8,9 @@ public class PropertyHealing : PlayerProperty2D {
 	public float healingPeriod = 1f;
 	public float healingOthersPeriod = 4f;
 	private float timer = 0f;
-	public LayerMask ignoreTheseObjects = (1 << 8);
-	public LayerMask ignoreGiver = (1 << 9);
-	public bool updateIfExists = true;
+    public LayerMask ignoreTheseObjects = (1 << 8) | (1 << 9);
+
+    public bool updateIfExists = true;
 	public int maxHealth = 100;
 	private List<OnTouchingPlayer> onTouchingList = new List<OnTouchingPlayer>();
     public Color showingColor = new Color32(233, 63, 200, 255);
@@ -25,7 +25,7 @@ public class PropertyHealing : PlayerProperty2D {
 	private void OnCollisionEnter2D(Collision2D col)
 	{
 		if (!enabled) return;
-		if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer)) || ignoreGiver ==(ignoreGiver | (1 << col.gameObject.layer))) return;
+		if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
 		//notice that PropertyBurn has scripted to destroy each other on touch already.
 		if(col.gameObject.tag == "Player"){
 			onTouchingList.Add (new OnTouchingPlayer (col.gameObject.GetComponent<Player> ()));

@@ -25,8 +25,7 @@ public class PropertyFrosting : PropertyNegative
     public PropertyFrozen freezePropertySample;
     public bool updateIfExists = true;
     [Tooltip("Objects in these layers won't be diffused.")]
-    public LayerMask ignoreTheseObjects = (1 << 8); //this format means the Layer 9 are selected.
-	public LayerMask ignoreGiver = (1 << 9);
+    public LayerMask ignoreTheseObjects = (1 << 8)|(1 << 9); //this format means the Layer 8. 9 are selected.
 
     [Header("Make water Frozen")]
     public LayerMask water = (1 << 4);
@@ -55,8 +54,7 @@ public class PropertyFrosting : PropertyNegative
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!enabled) return;
-		if (CheckLayerIsInTheLayerMask(col.gameObject.layer, ignoreTheseObjects) 
-            || CheckLayerIsInTheLayerMask(col.gameObject.layer, ignoreGiver)) return;
+		if (CheckLayerIsInTheLayerMask(col.gameObject.layer, ignoreTheseObjects)) return;
         //notice that PropertyBurn has scripted to destroy each other on touch already.
         if (GetProperty<PropertyWooden>(col.gameObject) != null)
         {
