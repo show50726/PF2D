@@ -1,8 +1,9 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/03/30
+//last maintained:  2018/05/13
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour {
         healthPoint = player.healthPoint;
         manaPoint = player.manaPoint;
         nextPosition = player.nextPosition;
+        openThisDoorInNextScene = player.openThisDoorInNextScene;
     }
 
 
@@ -54,10 +56,64 @@ public class Player : MonoBehaviour {
     //[ReadOnly]
     //public string levelGoingDirectionConditionName = ""; //will be updated when into a finish
     [ReadOnly]
+    [Tooltip("will be updated when into a finish")]
     public string nextScene = ""; //will be updated when into a finish
                                   //QUESTION: making beyond into ASM?
     [ReadOnly]
+    [Tooltip("will be updated when into a finish")]
     public Vector3 nextPosition = Vector3.zero;
+    [ReadOnly]
+    [Tooltip("will be updated when into a finish")]
+    public string openThisDoorInNextScene = "";
+    private bool openDoorBoolFlag = false; //DEV NOTE: stupid coding. Maybe improve by orders?
+
+    private void CheckAndOpenDoor()
+    {
+        Debug.Log(name + "/" + GetType().Name + ": start checking door. Saved name: " + openThisDoorInNextScene);
+        if (openThisDoorInNextScene == "") return;
+        Finish2D[] doors = FindObjectsOfType<Finish2D>();
+        //DEV NOTE: below are HEAVILY RELY on how door objects are named.
+        Finish2D thatDoor = null;
+        GameObject thatDoorSet = null;
+        foreach (Finish2D d in doors)
+        {
+            if (d.gameObject.transform.parent.gameObject.name == openThisDoorInNextScene)
+            {
+                thatDoor = d;
+                thatDoorSet = thatDoor.gameObject.transform.parent.gameObject;
+                Debug.Log(name + "/" + GetType().Name + ": found a doorset named " + thatDoorSet.name + " to open.");
+                break;
+            }
+            else if (d.gameObject.name == openThisDoorInNextScene)
+            {
+                //the door is itself. Just open it.
+                thatDoor = d;
+            }
+        }
+        if (thatDoor == null) return;
+        if (thatDoorSet != null)
+        {
+            //it's a door set. Activate the beyond 2 button and the door will open.
+            Debug.Log(name + "/" + GetType().Name + ": opening the door " + thatDoorSet.name + "...");
+            PressureSwitch2D[] doorBtns = thatDoorSet.GetComponentsInChildren<PressureSwitch2D>();
+            if (doorBtns.Length != 2) Debug.LogWarning(GetType().Name + " warning: design problem. It should be only 2 buttons belong to the door....?");
+
+            foreach (PressureSwitch2D btn in doorBtns)
+            {
+                btn.stayOnAfterActivated = true;
+                btn.Activated = true;
+            }
+        }
+        else
+        {
+            //only open the door (allow portal). Although it should not happen in this project...?
+            for (int i = 0; i < thatDoor.switchCase.Length; i++)
+            {
+                thatDoor.switchCase[i] = true;
+            }
+        }
+    }
+
 
     private Rigidbody rb;
     private Rigidbody2D rb2D;
@@ -66,15 +122,6 @@ public class Player : MonoBehaviour {
 
     private void OnEnable()
     {
-        //Debug.Log("Hello from the script of " + gameObject.name + " OnEnable." );
-        respawnPos = transform.position;
-        initialHP = healthPoint;
-        initialMP = manaPoint;
-        rb = GetComponent<Rigidbody>();
-        rb2D = GetComponent<Rigidbody2D>();
-        cld = GetComponent<Collider>();
-        cld2D = GetComponent<Collider2D>();
-
         //secure
         if (tag != "Player")
         {
@@ -125,11 +172,28 @@ public class Player : MonoBehaviour {
         {
             //this must be inherited from the last scene and is intended to update position.
             transform.position = nextPosition;
-            respawnPos = transform.position;
             nextPosition = Vector3.zero;
         }
 
+        respawnPos = transform.position;
+        initialHP = healthPoint;
+        initialMP = manaPoint;
+        rb = GetComponent<Rigidbody>();
+        rb2D = GetComponent<Rigidbody2D>();
+        cld = GetComponent<Collider>();
+        cld2D = GetComponent<Collider2D>();
+
     }
+    private void FixedUpdate()
+    {
+        if (!openDoorBoolFlag)
+        {
+            CheckAndOpenDoor();
+            openDoorBoolFlag = true;
+        }
+    }
+
+
     private void OnDestroy()
     {
         //Debug.Log("Goodbye from the script of " + gameObject.name + " OnDestroy.");

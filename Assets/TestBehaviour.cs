@@ -6,6 +6,9 @@ public class TestBehaviour : MonoBehaviour {
 
     public float checkSpeed = 9.8f;
     private Rigidbody2D rb2d;
+
+    public KeyCode activateKey = KeyCode.L;
+    public Mechanism2D[] activateThis = new Mechanism2D[1];
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -23,6 +26,14 @@ public class TestBehaviour : MonoBehaviour {
                 Debug.Log(name + " speed has reached " + checkSpeed + "!");
             }
         }
+        if (Input.GetKeyDown(activateKey))
+        {
+            foreach (Mechanism2D m in activateThis)
+            {
+                m.Activated = !m.Activated;
+            }
+        }
+
     }
     
 }
