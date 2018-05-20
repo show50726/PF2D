@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/05/07
+//last maintained:  2018/05/21
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -260,7 +260,7 @@ public class PF2DController : MonoBehaviour
     }
 
     private Vector2 movingDirection = Vector2.zero;
-    private Vector2 lastMovingDirection = Vector2.zero;
+    //private Vector2 lastMovingDirection = Vector2.zero;
     void Update()
     {
         if (isFreezed) return;
@@ -284,7 +284,7 @@ public class PF2DController : MonoBehaviour
         }
         if (allowMovement)
         {
-            lastMovingDirection = movingDirection;
+            //lastMovingDirection = movingDirection;
             movingDirection = Vector2.zero;
             CheckMove(rightButton, ref movingDirection, transform.right);
             CheckMove(leftButton, ref movingDirection, -transform.right);
