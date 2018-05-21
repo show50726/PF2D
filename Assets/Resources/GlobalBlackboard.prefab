@@ -54,7 +54,12 @@ MonoBehaviour:
   m_FloatVars: []
   m_IntVars: []
   m_BoolVars: []
-  m_StringVars: []
+  m_StringVars:
+  - m_ID: -729775018
+    m_Name: Tag Player
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    value: Player
   m_Vector3Vars: []
   m_RectVars: []
   m_ColorVars: []
