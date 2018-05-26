@@ -1,12 +1,26 @@
 ﻿//Finish2D      made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/07
+//last maintained:  2018/05/14
 //usage:            set this to an object, then when (assigned) player is in right status, it will be checked.
 //NOTE:             use trigger. 2D only.
 using UnityEngine;
 
 public class Finish2D : Finish
 {
+    [Tooltip("If next scene contains this door (by name), it will be opened. Assign the DOORSET name, not the door.")]
+    public string openThisDoor = "FinishSet";
+
+    private void SaveDoorOnPlayer(GameObject playerObj, string doorName)
+    {
+        Player p = playerObj.GetComponent<Player>();
+        if (p == null)
+        {
+            Debug.LogWarning(name + "/" + GetType().Name + " warning: trying to update a doorName onto non-player object " + playerObj.name + "." +
+                "Check your code.");
+            return;
+        }
+        p.openThisDoorInNextScene = doorName;
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -25,6 +39,7 @@ public class Finish2D : Finish
             UpdateObjectAnimatorCondictionBool(col.gameObject, updateCondictionBoolName, true);
             GiveDirectionToPlayer(col.gameObject);
             RefreshCheckedStatus(col.gameObject);
+            SaveDoorOnPlayer(col.gameObject, openThisDoor);
         }
     }
     private void OnTriggerStay2D(Collider2D col)
@@ -41,6 +56,7 @@ public class Finish2D : Finish
                 GiveDirectionToPlayer(col.gameObject);
                 CheckAndAddObjectInside(col.gameObject);
                 RefreshCheckedStatus(col.gameObject);
+                SaveDoorOnPlayer(col.gameObject, openThisDoor);
                 if (updateCondictionBoolName != "") anim.SetBool(updateCondictionBoolName, true);
                 return;
             }

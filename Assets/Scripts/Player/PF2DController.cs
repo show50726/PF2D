@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/06
+//last maintained:  2018/05/21
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -105,7 +105,8 @@ public class PF2DController : MonoBehaviour
 
     private bool isFreezed = false; //once isFreezed, the controller will (for player) be unabled to use.
     private bool isDead = false; //only used by "a-player-is-dead" situation. look at Dead / Reset.
-    
+
+    private GameObject standOn = null;
     private bool IsOnGround
     {
         get
@@ -146,10 +147,12 @@ public class PF2DController : MonoBehaviour
                     Debug.LogError(GetType().Name + " error on " + name + ": the 'standing judge' find it stand on player itself. Fix it (by moving lower the foot position) otherwise the jump will never work.");
                     return false;
                 }
+                standOn = hitObj;
             }
             else
             {
                 //Debug.Log("The foot is standing on nothing.");
+                standOn = null;
             }
             return g;
         }
@@ -257,7 +260,7 @@ public class PF2DController : MonoBehaviour
     }
 
     private Vector2 movingDirection = Vector2.zero;
-    private Vector2 lastMovingDirection = Vector2.zero;
+    //private Vector2 lastMovingDirection = Vector2.zero;
     void Update()
     {
         if (isFreezed) return;
@@ -281,14 +284,24 @@ public class PF2DController : MonoBehaviour
         }
         if (allowMovement)
         {
-            lastMovingDirection = movingDirection;
+            //lastMovingDirection = movingDirection;
             movingDirection = Vector2.zero;
             CheckMove(rightButton, ref movingDirection, transform.right);
             CheckMove(leftButton, ref movingDirection, -transform.right);
-            if (movingDirection != Vector2.zero || lastMovingDirection != Vector2.zero)
+            Vector2 baseVel = Vector2.zero;
+            if (IsOnGround != true)
             {
-                ControlMove(movingDirection);
+                //not standing on something. turn off move here if needed.
             }
+            if (movingDirection.x !=0 && standOn != null)
+            {
+                Rigidbody2D standOnRb = standOn.GetComponent<Rigidbody2D>();
+                if (standOnRb != null)
+                {
+                    baseVel = standOnRb.velocity;
+                }
+            }
+            ControlMove(movingDirection, baseVel);
             /*
             if (rightIsLeanOnWall == false)
             {
@@ -351,7 +364,7 @@ public class PF2DController : MonoBehaviour
 
     #endregion
 
-    private void ControlMove(Vector2 movingDirection)
+    private void ControlMove(Vector2 movingDirection, Vector2 baseSpeed)
     {
         //check->change
         //check list:
@@ -359,21 +372,22 @@ public class PF2DController : MonoBehaviour
         //  自動減速(不動則減速)
         //change:
         //  使用加速度(若超過則修正)
+        Vector2 relativeSpeed = rb.velocity - baseSpeed;
 
         short accDirection = 0; // 1/-1 go to vel max. 2/-2 go to vel.zero. 0 does nothing.
         //check
-        if (movingDirection.x > 0 && rb.velocity.x < movingSpeed)
+        if (movingDirection.x > 0 && relativeSpeed.x < movingSpeed)
         {
             accDirection = 1;
         }
-        else if (movingDirection.x < 0 && rb.velocity.x > -movingSpeed)
+        else if (movingDirection.x < 0 && relativeSpeed.x > -movingSpeed)
         {
             accDirection = -1;
         }
         else if (movingDirection.x == 0)
         {
-            if (rb.velocity.x > 0) accDirection = -2;
-            if (rb.velocity.x < 0) accDirection = 2;
+            if (relativeSpeed.x > 0) accDirection = -2;
+            if (relativeSpeed.x < 0) accDirection = 2;
         }
         if (movingAcceleration <= 0)
         {
@@ -385,16 +399,16 @@ public class PF2DController : MonoBehaviour
         switch (accDirection)
         {
             case 1:
-                rb.velocity += new Vector2 (Mathf.Min(movingSpeed - rb.velocity.x, movingAccPerFrame), 0);
+                rb.velocity += new Vector2 (Mathf.Min(movingSpeed - relativeSpeed.x, movingAccPerFrame), 0);
                 break;
             case -1:
-                rb.velocity -= new Vector2(Mathf.Min(movingSpeed + rb.velocity.x, movingAccPerFrame), 0);
+                rb.velocity -= new Vector2(Mathf.Min(movingSpeed + relativeSpeed.x, movingAccPerFrame), 0);
                 break;
             case 2:
-                rb.velocity -= new Vector2(Mathf.Min(rb.velocity.x, movingAccPerFrame), 0);
+                rb.velocity -= new Vector2(Mathf.Min(relativeSpeed.x, movingAccPerFrame), 0);
                 break;
             case -2:
-                rb.velocity += new Vector2(Mathf.Min(-rb.velocity.x, movingAccPerFrame), 0);
+                rb.velocity += new Vector2(Mathf.Min(-relativeSpeed.x, movingAccPerFrame), 0);
                 break;
             default:
                 break;
