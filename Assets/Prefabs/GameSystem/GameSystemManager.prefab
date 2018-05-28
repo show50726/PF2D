@@ -55,4 +55,6 @@ MonoBehaviour:
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
   animatorSM: {fileID: 0}
+  keyOfShowPList: 112
   pauseKey: 27
+  WorldStarScore: 000000000000000000000000

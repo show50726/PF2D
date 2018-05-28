@@ -1,7 +1,7 @@
 ﻿//----------------------------------------------
 //            Behaviour Machine
 // Copyright © 2014 Anderson Campos Cardoso
-// Customized Property by STC 2018
+// Customized Property by STC 2018 stc.ntu@gmail.com
 //----------------------------------------------
 
 using UnityEngine;
@@ -99,8 +99,7 @@ namespace BehaviourMachine
                     Rigidbody2D rb2d = obj.GetComponent<Rigidbody2D>();
                     if (rb2d != null)
                     {
-                        Debug.Log("rb2d value: (mass)" + rb2d.mass + 
-                            "; (gScale)" + rb2d.gravityScale + ";(gravity)" + Physics2D.gravity);
+                        //Debug.Log("rb2d value: (mass)" + rb2d.mass + "; (gScale)" + rb2d.gravityScale + ";(gravity)" + Physics2D.gravity);
                         return rb2d.mass * rb2d.gravityScale * Physics2D.gravity.magnitude;
                     }
 
