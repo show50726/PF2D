@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿//S(Stater) Unit Stater by STC
+//contact:          stc.ntu@gmail.com
+//last maintained:  2018/05/21
+//Usage:            State the info of generic unit, such as hp. Assign it to any GO that needs these info.
 
-namespace Assets.Scripts.Stater
+using System;
+using UnityEngine;
+namespace CMSR
 {
-    class SLivingStater
+    public class SLivingStater : SUnitStater
     {
+
+
+
     }
 }
