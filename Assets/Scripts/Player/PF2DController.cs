@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/05/21
+//last maintained:  2018/06/01
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -27,6 +27,8 @@ public class PF2DController : MonoBehaviour
     public float movingAcceleration = 40f; //DEV NOTE: more smart detection / correction?
     public GameObject SmoothyL;
     public GameObject SmoothyR;
+    [Tooltip("If true, movement will consider the stand-on platform speed.")]
+    public bool referVel = true;
 
     #endregion
     #region Jump Setting
@@ -293,7 +295,7 @@ public class PF2DController : MonoBehaviour
             {
                 //not standing on something. turn off move here if needed.
             }
-            if (movingDirection.x !=0 && standOn != null)
+            if (referVel == true && movingDirection.x !=0 && standOn != null)
             {
                 Rigidbody2D standOnRb = standOn.GetComponent<Rigidbody2D>();
                 if (standOnRb != null)
