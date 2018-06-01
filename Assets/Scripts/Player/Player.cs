@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/05/13
+//last maintained:  2018/06/01
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System;
@@ -53,6 +53,8 @@ public class Player : MonoBehaviour {
     internal double initialMP;
     internal bool isDead = false;
     internal bool isRespawning = false;
+    [ReadOnly]
+    public UnityEngine.Events.UnityEvent onDead;//triggered by death, updated by other scripts.
     //[ReadOnly]
     //public string levelGoingDirectionConditionName = ""; //will be updated when into a finish
     [ReadOnly]
@@ -253,7 +255,7 @@ public class Player : MonoBehaviour {
         //NOTE: AfterDeathProcess should be called ONLY after Death (to avoid bugs).
         //write the death process here, like "life-1", some animation, etc.
         //Suggestion: for status that will change between alive and dead, write them in ToggleAliveOrDeadStatus remind yourself.
-
+        onDead.Invoke();
         lives--;
         ToggleAliveOrDeadStatus(false);
 
