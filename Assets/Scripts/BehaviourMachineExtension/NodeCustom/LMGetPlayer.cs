@@ -23,6 +23,9 @@ public class LMGetPlayer : ActionNode
     [VariableInfo(canBeConstant = false, tooltip = "The (blackboard) var to store player 2.")]
     public GameObjectVar player2;
 
+    public LevelManagerVar lM;
+    public StaterVar keycode;
+
     public override void Reset()
     {
         player1 = new ConcreteGameObjectVar();

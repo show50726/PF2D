@@ -9,6 +9,25 @@ namespace CMSR
 {
     public class SUnitStater : MonoBehaviour
     {
+        public string LogTitle(LogType logType)
+        {
+            string logHint = "";
+            switch (logType)
+            {
+                case LogType.Normal:
+                    break;
+                case LogType.Warning:
+                    logHint = " warning";
+                    break;
+                case LogType.Error:
+                    logHint = " error";
+                    break;
+                default:
+                    break;
+            }
+
+            return name + "/" + GetType().Name + logHint + ":";
+        }
 
         public float HP = 100;
         public float HPLimit = 100;
@@ -20,9 +39,9 @@ namespace CMSR
         }
 
         /// <summary>
-        /// Use this function to check if state is legal.
+        /// Use this function to correct data.
         /// </summary>
-        protected virtual bool CheckLegal()
+        protected virtual bool DataCorrect()
         {
             if (HP < 0)
             {
@@ -48,25 +67,27 @@ namespace CMSR
             return true;
         }
 
-        public string LogTitle(LogType logType)
+        /// <summary>
+        /// Heal() will heal to full HP.
+        /// </summary>
+        public void Heal()
         {
-            string logHint = "";
-            switch (logType)
-            {
-                case LogType.Normal:
-                    break;
-                case LogType.Warning:
-                    logHint = " warning";
-                    break;
-                case LogType.Error:
-                    logHint = " error";
-                    break;
-                default:
-                    break;
-            }
-
-            return name + "/" + GetType().Name + logHint + ":";
+            DataCorrect();
+            HP = HPLimit;
+            Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
         }
+        /// <summary>
+        /// Heal(healAmount) will heal specified amount until reach limit.
+        /// </summary>
+        public void Heal(float healAmount)
+        {
+            DataCorrect();
+            HP = (HPLimit - HP) <= healAmount ? HPLimit : HP + healAmount;
+            if (HP <= 0) HP = 0;
+            Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
+
+        }
+
 
     }
     public enum LogType { Normal, Warning, Error }

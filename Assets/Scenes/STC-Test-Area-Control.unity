@@ -815,6 +815,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 212648096745753792, guid: de9f07814c8e3ae49ac22bfc1dd469f0,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.38927335
+      objectReference: {fileID: 0}
+    - target: {fileID: 212648096745753792, guid: de9f07814c8e3ae49ac22bfc1dd469f0,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.64938545
+      objectReference: {fileID: 0}
+    - target: {fileID: 212648096745753792, guid: de9f07814c8e3ae49ac22bfc1dd469f0,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.7352941
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de9f07814c8e3ae49ac22bfc1dd469f0, type: 2}
   m_IsPrefabParent: 0
@@ -1970,6 +1985,7 @@ GameObject:
   - component: {fileID: 2037971159}
   - component: {fileID: 2037971158}
   - component: {fileID: 2037971157}
+  - component: {fileID: 2037971167}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2035,7 +2051,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 2037971159}
     m_EventID: -438203413
-  m_CachedInstanceID: -34398
+  m_CachedInstanceID: 15220
   m_CanTransitionToSelf: 0
 --- !u!114 &2037971158
 MonoBehaviour:
@@ -2055,7 +2071,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -10, y: 100}
   m_Transitions: []
-  m_CachedInstanceID: -29054
+  m_CachedInstanceID: 15222
   m_Description: Default Function. Please Set as Concurrent (Right Click).
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -2108,25 +2124,34 @@ MonoBehaviour:
     m_EventID: 1374145191
   - m_Destination: {fileID: 0}
     m_EventID: 1982900910
-  m_CachedInstanceID: -27336
+  m_CachedInstanceID: 15224
   m_NodeSerialization:
     m_NodeTypes:
+    - BehaviourMachine.StaterHPAdd
     - BehaviourMachine.EveryFrame
-    m_NodeTypeHash: 89ef8210
-    m_NodeFieldStartIndex: 0000000003000000
-    m_BranchIndex: ffffffff
+    m_NodeTypeHash: 4bd13d7589ef8210
+    m_NodeFieldStartIndex: 000000000500000008000000
+    m_BranchIndex: ffffffffffffffff
     m_UnityObjectValue: []
-    m_IntValue: 0100000001000000
-    m_FloatValue: []
+    m_IntValue: 02000000000000000100000001000000
+    m_FloatValue:
+    - 30
     m_StringValue:
+    - StaterHPAdd
     - EveryFrame
     m_CurveValue: []
-    m_GenericFieldType: []
-    m_GenericFieldHash: 
-    m_GenericFieldSize: 
-    m_FieldIndex: 000000000000000001000000
-    m_FieldType: 010000000200000005000000
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 264ce8ef
+    m_GenericFieldSize: 01000000
+    m_FieldIndex: 0000000000000000000000000000000001000000020000000100000003000000
+    m_FieldType: 0100000002000000100000000300000005000000010000000200000005000000
     m_FieldPath:
+    - instanceID
+    - name
+    - addHP
+    - addHP.value
+    - perSecond
     - instanceID
     - name
     - enabled
@@ -2151,7 +2176,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -26314
+  m_CachedInstanceID: 15226
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -2242,6 +2267,7 @@ MonoBehaviour:
   propertyList: []
   player: {fileID: 2089851210}
   controller2D: {fileID: 0}
+  debugMessage: 0
 --- !u!50 &2037971164
 Rigidbody2D:
   serializedVersion: 4
@@ -2334,6 +2360,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &2037971167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037971154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4243885e7be1ecd4faa6474f6c76e441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 60
+  HPLimit: 100
+  moveSpeed: 0
+  jumpSpeed: 0
 --- !u!1 &2054693229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,6 +2452,11 @@ MonoBehaviour:
   criticalPosition: {fileID: 0}
   animator: {fileID: 2037971156}
   resetParameter: reset
+  onDead:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   nextScene: 
   nextPosition: {x: 0, y: 0, z: 0}
   openThisDoorInNextScene: 

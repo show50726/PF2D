@@ -3,84 +3,85 @@
 //last maintained: 2018/05/23
 
 using UnityEngine;
+using CMSR;
 
 namespace BehaviourMachine
 {
     /// <summary>
-    /// Base class to store LevelManager values.
+    /// Base class to store Stater values.
     /// </summary>
+    
     [System.Serializable]
-    [ConcreteClass(typeof(ConcreteFloatVar))]
-    public abstract class LevelManagerVar : Variable
+    [ConcreteClass(typeof(ConcreteStaterVar))]
+    public abstract class StaterVar : Variable
     {
-
         /// <summary>
         /// Variable value.
         /// </summary>
-        public abstract LevelManager Value { get; set; }
+        public abstract SUnitStater Value { get; set; }
 
         /// <summary>
         /// A generic get and set value.
         /// </summary>
-        public override object genericValue { get { return this.Value; } set { this.Value = (LevelManager)value; } }
+        public override object genericValue { get { return this.Value; } set { this.Value = (SUnitStater)value; } }
 
         /// <summary>
         /// Constructor for none variables.
         /// </summary>
-        public LevelManagerVar() : base() { }
+        public StaterVar() : base() { }
 
         /// <summary>
-        /// Constructor for float variables that will be added to a blackboard.
+        /// Constructor for Stater variables that will be added to a blackboard.
         /// <param name="name">The name of the variable.</param>
         /// <param name="blackboard">The variable blackboard.</param>
         /// <param name="id">The unique id of the variable</param>
         /// </summary>
-        public LevelManagerVar(string name, InternalBlackboard blackboard, int id) : base(name, blackboard, id) { }
+        public StaterVar(string name, InternalBlackboard blackboard, int id) : base(name, blackboard, id) { }
 
         /// <summary>
-        /// User-defined conversion from FloatVar to float
+        /// User-defined conversion from KeycodeVar to Keycode
         /// </summary>
-        public static implicit operator LevelManager(LevelManagerVar variable)
+        public static implicit operator SUnitStater(StaterVar variable)
         {
             return variable.Value;
         }
 
         /// <summary>
-        /// User-defined conversion from float to FloatVar
+        /// User-defined conversion from Keycode to KeycodeVar
         /// </summary>
-        public static implicit operator LevelManagerVar(LevelManager value)
+        public static implicit operator StaterVar(SUnitStater value)
         {
-            return new ConcreteLevelManagerVar(value);
+            return new ConcreteStaterVar(value);
         }
     }
 
     /// <summary>
-    /// Store float values.
+    /// Store Keycode values.
     /// </summary>
     [System.Serializable]
-    public class ConcreteLevelManagerVar : LevelManagerVar
+    public class ConcreteStaterVar : StaterVar
     {
 
         /// <summary>
         /// Serialized value.
         /// </summary>
-        public LevelManager value;
+        public SUnitStater value;
 
         /// <summary>
         /// Variable value.
         /// </summary>
-        public override LevelManager Value { get { return value; } set { this.value = value; } }
+        public override SUnitStater Value { get { return value; } set { this.value = value; } }
 
         /// <summary>
         /// Constructor for none variables.
         /// </summary>
-        public ConcreteLevelManagerVar() : base() { }
+        public ConcreteStaterVar() : base() { }
 
         /// <summary>
         /// Constructor for constants.
         /// <param name="value">The value of the variable.</param>
         /// </summary>
-        public ConcreteLevelManagerVar(LevelManager value)
+        public ConcreteStaterVar(SUnitStater value)
         {
             this.SetAsConstant();
             this.value = value;
@@ -92,6 +93,7 @@ namespace BehaviourMachine
         /// <param name="blackboard">The variable blackboard.</param>
         /// <param name="id">The unique id of the variable</param>
         /// </summary>
-        public ConcreteLevelManagerVar(string name, InternalBlackboard blackboard, int id) : base(name, blackboard, id) { }
+        public ConcreteStaterVar(string name, InternalBlackboard blackboard, int id) : base(name, blackboard, id) { }
     }
+
 }
