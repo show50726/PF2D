@@ -2,29 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour {
-
-	public GameObject endPoint;
-	private LineRenderer laserLine;
-    [Tooltip("unit: melting factor(see PropertyFrozen). Set 0 to melt ice immediately.")]
-	public float meltingIcePeriod = 1f;
-	public float DestroyWoodPeriod = 3f;
-    [SerializeField]
-	private float timer_f = 0f;
-	private float timer_w = 0f;
-	private Vector2 lastPos;
-	private Vector2 Pos;
-
-	protected void Start () {
+public class LaserController : MonoBehaviour {
+    public KeyCode keyOfShooting = KeyCode.Space;
+    public KeyCode keyOfStopShooting = KeyCode.S;
+    public Transform StartPoint;
+    public Vector2 Direction;
+    public float Duration = 3f;
+    private LineRenderer laserLine;
+    public float meltingIcePeriod = 1f;
+    public float DestroyWoodPeriod = 3f;
+    private float timer_f = 0f;
+    private float timer_w = 0f;
+    private float timer = 0f;
+    private Vector2 lastPos;
+    private Vector2 Pos;
+    public bool UseDirection = true;
+    public Transform endPoint;
+    // Use this for initialization
+    void Start () {
         if (meltingIcePeriod < 0)
         {
             Debug.LogError(GetType().Name + " of " + name + " error: meltingIcePeriod is not allowed to set under 0. The script will not work if continues.");
             enabled = false;
             return;
         }
-        laserLine = GetComponent<LineRenderer> ();
-		laserLine.enabled = true;
+        laserLine = GetComponent<LineRenderer>();
+        laserLine.enabled = true;
     }
+	
+	// Update is called once per frame
+	void Update () {
+        if (Input.GetKeyDown(keyOfShooting))
+        {
+            timer += Time.deltaTime;
+        }
+        if (timer < Duration && timer > 0)
+        {
+            ShootLaser(StartPoint.position, Direction);
+            timer += Time.deltaTime;
+            if (Input.GetKeyDown(keyOfStopShooting))
+            {
+                StopShooting();
+                timer = 0;
+            }
+        }
+        else if(timer >= Duration)
+        {
+            StopShooting();
+            timer = 0;
+        }
+        
+	}
 
     protected void ResetEffect()
     {
@@ -32,27 +60,31 @@ public class Laser : MonoBehaviour {
         timer_w = 0;
     }
     private GameObject lastHittingObj = null;
-	protected void Update () {
-		laserLine.positionCount = 2;
-		Vector2 pos = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.49f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.49f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
-		//float k = endPoint.transform.position.y > this.transform.position.y ? this.transform.position.y + 0.225f : this.transform.position.y - 0.225f;
-		//Debug.Log(Mathf.Cos(this.transform.rotation.z / 180f * Mathf.PI));
-		//Debug.Log (this.transform.rotation);
-		laserLine.SetPosition (0, pos);
-		laserLine.SetPosition (1, endPoint.transform.position);
+    public void ShootLaser(Vector3 StartPosition, Vector3 Direction)
+    {
 
-		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.501f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.501f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
-		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);
-
+        //Debug.Log("shoot");
+        laserLine.positionCount = 2;
+        laserLine.SetPosition(0, StartPoint.position);
+        RaycastHit2D hit;
+        if (UseDirection)
+            hit = Physics2D.Raycast(StartPosition, Direction, Mathf.Infinity);
+        else
+        {
+            Vector2 l = new Vector2(this.transform.position.x , this.transform.position.y);
+            hit = Physics2D.Raycast(StartPosition, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);
+        }
         bool needToReset = false;
-        //Debug.Log (hit.collider.name);
+
+        laserLine.SetPosition(1, hit.point);
         GameObject hitObj = null;
+        //Debug.Log (hit.collider.name);
         if (hit.collider != null)
             hitObj = hit.collider.gameObject;
-        if (hitObj != lastHittingObj || hitObj ==null)
+        if (hitObj != lastHittingObj || hitObj == null)
         {
-            needToReset = true;
-            lastHittingObj = hitObj;
+                needToReset = true;
+                lastHittingObj = hitObj;
         }
         if (hitObj != null)
         {
@@ -124,10 +156,14 @@ public class Laser : MonoBehaviour {
         {
             ResetEffect();
         }
-	}
 
-	private void Reflect(){
+    }
 
-	}
+    public void StopShooting()
+    {
+        Debug.Log("Stop");
+        laserLine.positionCount = 1;
+    }
+
 
 }
