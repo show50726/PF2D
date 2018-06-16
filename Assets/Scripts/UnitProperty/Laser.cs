@@ -42,7 +42,7 @@ public class Laser : MonoBehaviour {
 		laserLine.SetPosition (1, endPoint.transform.position);
 
 		Vector2 l = new Vector2 ((this.transform.position.x + this.transform.localScale.y * 0.501f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.501f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
-		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Mathf.Infinity);
+		RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Vector2.Distance(l, endPoint.transform.position));
 
         bool needToReset = false;
         //Debug.Log (hit.collider.name);

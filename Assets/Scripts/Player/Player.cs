@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/01
+//last maintained:  2018/06/13
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System;
@@ -200,7 +200,7 @@ public class Player : MonoBehaviour {
     {
         //Debug.Log("Goodbye from the script of " + gameObject.name + " OnDestroy.");
         //GameSystemManager.exist.SavePlayerDataExp(gameObject);
-        GameSystemManager.exist.RemovePlayerData(this);
+        if(GameSystemManager.exist) GameSystemManager.exist.RemovePlayerData(this);
     }
 
     private void SystemMessage(string message)
