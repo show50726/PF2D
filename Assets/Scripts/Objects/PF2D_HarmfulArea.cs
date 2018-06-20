@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Harmful Area by STC
 //contact: stc.ntu@gmail.com
-//last maintained: 2018/01/21
+//last maintained: 2018/06/06
 //NOTE: 2D only. Need colliders (to trigger).
 //Usage: add it to "Harmful areas", such as a poisoned water, and set it to trigger. This will damage any player inside once a period.
 using System.Collections.Generic;
@@ -57,7 +57,7 @@ public class PF2D_HarmfulArea : MonoBehaviour {
             {
                 if (p.player.LivingJudge() == false)
                 {
-                    return; //already dead.
+                    continue; //already dead.
                 }
                 p.player.TakeDamage(damage, damageReason);
                 p.touchTime = 0;

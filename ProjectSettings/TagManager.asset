@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Fragile
+  - Wall Collider
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Giver
   - Item
   - Portal
-  - 
-  - 
+  - Camera
+  - Camera Collision
   - 
   - 
   - 
@@ -69,4 +70,7 @@ TagManager:
     locked: 0
   - name: Player Icon
     uniqueID: 1476883561
+    locked: 0
+  - name: Editor Priority
+    uniqueID: 1055208951
     locked: 0

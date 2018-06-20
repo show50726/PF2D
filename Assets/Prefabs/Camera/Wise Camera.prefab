@@ -1,0 +1,521 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1086193230602424}
+  m_IsPrefabParent: 1
+--- !u!1 &1086193230602424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4518401782453240}
+  - component: {fileID: 20503031615038412}
+  - component: {fileID: 124601790261986572}
+  - component: {fileID: 81599849463046168}
+  - component: {fileID: 114618376746569760}
+  - component: {fileID: 114430507403621166}
+  - component: {fileID: 50917402112592842}
+  m_Layer: 12
+  m_Name: Wise Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1449659156827010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4526367611042020}
+  - component: {fileID: 70874120897063080}
+  m_Layer: 12
+  m_Name: Camera Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4518401782453240
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086193230602424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 13.25, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4526367611042020}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4526367611042020
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449659156827010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4518401782453240}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20503031615038412
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086193230602424}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 12
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!50 &50917402112592842
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086193230602424}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.01
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!70 &70874120897063080
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449659156827010}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 42, y: 24}
+  m_Direction: 1
+--- !u!81 &81599849463046168
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086193230602424}
+  m_Enabled: 1
+--- !u!114 &114430507403621166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086193230602424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 114618376746569760}
+  m_Parent: {fileID: 0}
+  m_StateName: Collided Camera Follower
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 0, y: 0}
+  m_Transitions: []
+  m_CachedInstanceID: -11956
+  m_Description: 'Follows player; press O to change follower.
+
+    Will stop if collided to Objects whose tag is set to Wall Collider.
+
+    (Need Trigger)'
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.Start
+    - LMGetPlayer
+    - BehaviourMachine.GameObjectSet
+    - BehaviourMachine.Update
+    - BehaviourMachine.TickFunctionInSelf
+    - BehaviourMachine.AddForce2D
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.IsKeyDown
+    - BehaviourMachine.TickFunctionInSelf
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.PrioritySelector
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.IsGameObjectEqual
+    - BehaviourMachine.GameObjectSet
+    - BehaviourMachine.Log
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.IsGameObjectEqual
+    - BehaviourMachine.GameObjectSet
+    - BehaviourMachine.Log
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.GetPosition
+    - BehaviourMachine.Vector3Subtract
+    - BehaviourMachine.Vector3CorrectByBool
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.Vector3GetMagnitude
+    - BehaviourMachine.IsFloatLessOrEqual
+    - BehaviourMachine.Vector3Set
+    - BehaviourMachine.SetRigidbody2DVelocity
+    - BehaviourMachine.Vector3Normalize
+    m_NodeTypeHash: 89ef82105b2017335b20173389ef821060e3c9bbf2928592fbd4a94442292c3c60e3c9bb89ef8210fbd4a944fbd4a9446ac62f3e5b2017331a7dcc74fbd4a9446ac62f3e5b2017331a7dcc7489ef82106aae7af3a5d2088c6d140a5ffbd4a944ab80b4cb46d570ad5f9d1538ce24ac25ad883638
+    m_NodeFieldStartIndex: 0000000003000000070000000b0000000e000000120000001b0000001d0000002100000025000000280000002a0000002c00000031000000350000003a0000003c00000041000000450000004a0000004d000000550000005e000000690000006b0000006f00000074000000790000008000000083000000
+    m_BranchIndex: ffffffff0000000000000000ffffffff0300000003000000030000000600000006000000ffffffff090000000a0000000b0000000b0000000b0000000a0000000f0000000f0000000f000000ffffffff130000001300000013000000130000001700000017000000170000001700000013000000
+    m_UnityObjectValue:
+    - {fileID: 1086193230602424}
+    - {fileID: 4518401782453240}
+    m_IntValue: 0f0000000100000003000000ef356c62f76cc427100000009c4cf246ef356c6202000000010000001b00000027000000f7e2b231bbdb784a010000000c0000000b0000006f0000000d00000004000000010000000e00000007000000050000009c4cf246ef356c62090000009c4cf246f76cc4271e0000000000000006000000080000009c4cf246f76cc4270a0000009c4cf246ef356c6226000000000000001a00000001000000190000009c4cf246f7e2b231000000001c000000f7e2b23100000000000000001d000000f7e2b2318909973cba53485b10d22e676379296600000000000000002100000023000000f7e2b23178c24b472400000078c24b4704e5c12125000000f7e2b231010000001f000000f7e2b231
+    m_FloatValue:
+    - 8
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    m_StringValue:
+    - Start
+    - LMGetPlayer
+    - GameObjectSet
+    - Update
+    - Tick SetMoveDirection
+    - SetMoveDirection
+    - AddForce2D
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - Change Target?
+    - Is O Down?
+    - BehaviourMachine.FsmEvent
+    - Tick Change Target
+    - Change Target
+    - Change Target
+    - PrioritySelector
+    - Player1->Player2
+    - Is Player1?
+    - BehaviourMachine.FsmEvent
+    - Set To Player2
+    - Log
+    - Camera Changed target.
+    - Player2->Player1
+    - Is Player2?
+    - BehaviourMachine.FsmEvent
+    - Set To Player1
+    - Log
+    - Camera Changed target.
+    - SetMoveDirection
+    - Get Pos Of Target
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - Minus Pos Of Self
+    - position
+    - Limit Direction
+    - Smoothing
+    - Get Direc. Magnitude
+    - Is That Too Small?
+    - BehaviourMachine.FsmEvent
+    - Set To Zero
+    - Set Vel To Zero
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - Direc. Normalize
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.Vector3Property
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteVector3Var
+    m_GenericFieldHash: 7de9e6027de9e6027de9e6027de9e6026305154ee4b98a66e4b98a66148542ea148542ea
+    m_GenericFieldSize: 010000000100000001000000010000000400000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000002000000010000000300000004000000050000000200000006000000070000000800000003000000090000000a0000000400000000000000050000000b00000006000000070000000c00000008000000090000000d000000000000000e0000000f0000000a000000100000000b0000000c00000011000000120000000d000000010000000e000000130000000f000000140000001500000010000000160000001100000017000000120000001300000018000000190000001a000000140000001b0000001c0000001d0000001500000002000000160000001e0000001f000000170000002000000018000000190000002100000022000000230000001a0000002400000025000000260000001b000000030000001c00000027000000280000001d000000290000002a0000001e0000002b0000002c0000001f00000020000000210000002d0000002e000000220000002f00000004000000000000000100000030000000230000003100000032000000240000003300000034000000350000003600000037000000050000003800000006000000390000003a000000250000003b000000260000003c0000003d0000003e00000027000000280000003f000000400000004100000029000000420000000700000001000000430000002a0000002b00000008000000040000002c0000002d000000440000002e00000045000000
+    m_FieldType: 01000000020000000500000001000000020000001a0000001a00000001000000020000001a0000001a0000000100000002000000050000000100000002000000100000000200000001000000020000001100000016000000110000001100000012000000030000000500000001000000020000000100000002000000110000000400000001000000020000001000000002000000010000000200000005000000010000000200000001000000020000000100000002000000110000001a0000001a00000001000000020000001a0000001a000000010000000200000010000000020000000400000001000000020000000100000002000000110000001a0000001a00000001000000020000001a0000001a000000010000000200000010000000020000000400000001000000020000000500000001000000020000001a0000001600000011000000110000001100000004000000010000000200000016000000100000000f0000000f00000005000000020000000500000001000000020000001600000014000000140000001400000014000000100000000500000010000000050000000100000002000000010000000200000016000000120000000100000002000000110000001200000012000000010000000200000016000000100000000700000001000000020000001100000010000000070000001100000011000000010000000200000016000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - player1
+    - player2
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - gameObject
+    - force
+    - forceX
+    - forceY
+    - multiplyForceBy
+    - maxVelocity
+    - perSecond
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - keyCode
+    - instanceID
+    - name
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - instanceID
+    - name
+    - message
+    - message.value
+    - logType
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - instanceID
+    - name
+    - message
+    - message.value
+    - logType
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - storePosition
+    - storeX
+    - storeY
+    - storeZ
+    - relativeTo
+    - instanceID
+    - name
+    - variable
+    - subtract
+    - subtract.target
+    - subtract.component
+    - subtract.isStatic
+    - subtract.property
+    - perSecond
+    - instanceID
+    - name
+    - target
+    - XAllowP
+    - XAllowN
+    - YAllowP
+    - YAllowN
+    - ZAllowP
+    - ZAllowP.value
+    - ZAllowN
+    - ZAllowN.value
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - variable
+    - storeMagnitude
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - newValue.value
+    - instanceID
+    - name
+    - gameObject
+    - newVelocity
+    - newVelocity.value
+    - horizontalVelocity
+    - verticalVelocity
+    - instanceID
+    - name
+    - variable
+--- !u!114 &114618376746569760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086193230602424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FloatVars:
+  - m_ID: 1196147320
+    m_Name: Float Temp
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: 0
+  - m_ID: 1249434555
+    m_Name: Speed
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: 2
+  - m_ID: 566355204
+    m_Name: Smooth Factor
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: 3
+  m_IntVars: []
+  m_BoolVars:
+  - m_ID: 1731121680
+    m_Name: Allow To Go Up
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: 1
+  - m_ID: 1713994083
+    m_Name: Allow To Go Down
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: 1
+  - m_ID: 1531466682
+    m_Name: Allow To Go Left
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: 1
+  - m_ID: 1016531337
+    m_Name: Allow To Go Right
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: 1
+  m_StringVars: []
+  m_Vector3Vars:
+  - m_ID: 976551116
+    m_Name: Col. Direc.
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: {x: 0, y: 0, z: 0}
+  - m_ID: 833807095
+    m_Name: Direction
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: {x: 0, y: 0, z: 0}
+  m_RectVars: []
+  m_ColorVars: []
+  m_QuaternionVars: []
+  m_GameObjectVars:
+  - m_ID: 1190284444
+    m_Name: Look At
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: {fileID: 0}
+  - m_ID: 1651258863
+    m_Name: Player1
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: {fileID: 0}
+  - m_ID: 667184375
+    m_Name: Player2
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: {fileID: 0}
+  - m_ID: 2031510457
+    m_Name: GO Temp
+    m_Blackboard: {fileID: 114618376746569760}
+    m_IsConstant: 0
+    value: {fileID: 0}
+  m_TextureVars: []
+  m_MaterialVars: []
+  m_ObjectVars: []
+  m_DynamicLists: []
+  m_FsmEvents: []
+  m_ConcreteFsmEvents: []
+  m_Namespace: 
+--- !u!124 &124601790261986572
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086193230602424}
+  m_Enabled: 1

@@ -60,6 +60,11 @@ MonoBehaviour:
     m_Blackboard: {fileID: 114934193876717976}
     m_IsConstant: 0
     value: Player
+  - m_ID: -977670856
+    m_Name: Tag Wall Collider
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    value: Wall Collider
   m_Vector3Vars: []
   m_RectVars: []
   m_ColorVars: []
@@ -171,5 +176,15 @@ MonoBehaviour:
     m_Blackboard: {fileID: 114934193876717976}
     m_IsConstant: 0
     m_IsSystem: 1
+  - m_ID: -438203413
+    m_Name: ToIdle
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: -269976692
+    m_Name: OnDamage
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    m_IsSystem: 0
   m_Namespace: BehaviourMachine
   m_GUICallback: {fileID: 0}

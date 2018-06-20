@@ -1,6 +1,6 @@
 ﻿//Finish2D      made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/05/14
+//last maintained:  2018/06/01
 //usage:            set this to an object, then when (assigned) player is in right status, it will be checked.
 //NOTE:             use trigger. 2D only.
 using UnityEngine;
@@ -24,6 +24,7 @@ public class Finish2D : Finish
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (CheckObjectIsLegal(col.gameObject) == false) return;
         foreach (bool b in switchCase)
         {
             if (b == false)
@@ -32,7 +33,6 @@ public class Finish2D : Finish
                 return;
             }
         }
-        if (CheckObjectIsLegal(col.gameObject) == false) return;
         if (stateName == "")
         {
             insideObjects.Add(col.gameObject);

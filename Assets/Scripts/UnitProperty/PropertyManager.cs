@@ -1,6 +1,6 @@
 ﻿//Property Manager  PROUDLY made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/08
+//last maintained:  2018/06/01
 //Usage:            This helps managing properties. Make sure you apply it to ANY unit that will be involved by properties.
 
 using System.Collections;
@@ -14,17 +14,28 @@ public class PropertyManager : MonoBehaviour {
     public List<UnitProperty> propertyList = new List<UnitProperty>();
     public Player player;
     public PF2DController controller2D;
-
+    [Tooltip("Check it if you need debug message.")]
+    public bool debugMessage = false;
+    public void CleanUp()
+    {
+        ClearProperty();
+    }
     private void Start()
     {
         if (player == null)
         {
-            Debug.Log(GetType().Name + " of " + name + ": looks like player isn't assigned. Script will try to find one.");
+            if(debugMessage) Debug.Log(GetType().Name + " of " + name + ": looks like player isn't assigned. Script will try to find one.");
             player = GetComponent<Player>();
+        }
+        if (player)
+        {
+            player.onDead.AddListener(CleanUp);
+            //player.onDead.AddListener(()=>ClearProperty());
+            if(debugMessage) Debug.Log("Listener added.");
         }
         if (controller2D == null)
         {
-            Debug.Log(GetType().Name + " of " + name + ": looks like controller2D isn't assigned. Script will try to find one.");
+            if (debugMessage) Debug.Log(GetType().Name + " of " + name + ": looks like controller2D isn't assigned. Script will try to find one.");
             controller2D = GetComponent<PF2DController>();
         }
         UnitProperty[] checkList = GetComponents<UnitProperty>();
@@ -83,11 +94,11 @@ public class PropertyManager : MonoBehaviour {
             //Debug.Log(property.GetType().Name + " exists on " + gameObject);
             if (updateInfoIfAlreadyExists)
             {
-                Debug.Log(GetType().Name + " of " + name + ": " + propertyType.Name + " already exists. Script will UPDATE the existing property to be the new assigned one.");
+                if (debugMessage) Debug.Log(GetType().Name + " of " + name + ": " + propertyType.Name + " already exists. Script will UPDATE the existing property to be the new assigned one.");
             }
             else
             {
-                Debug.Log(GetType().Name + " of " + name + ": " + propertyType.Name + " has cancelled updating / re-applying due to script setting.");
+                if (debugMessage) Debug.Log(GetType().Name + " of " + name + ": " + propertyType.Name + " has cancelled updating / re-applying due to script setting.");
                 return false;
             }
         }
@@ -97,13 +108,13 @@ public class PropertyManager : MonoBehaviour {
 			if(propertyList.Count < MaxProperty)
             	propertyList.Add(p); //it's a new property, record it on the list.
 			else{
-				Debug.Log(name + " has lost the property " + propertyList[0].GetType().Name);
+                if (debugMessage) Debug.Log(name + " has lost the property " + propertyList[0].GetType().Name);
 				RemoveProperty (propertyList[0].GetType());
 				propertyList.Add (p);
 			}
             foreach (UnitProperty pe in propertyList)
             {
-                Debug.Log(name + " has property " + pe.GetType().Name);
+                if (debugMessage) Debug.Log(name + " has property " + pe.GetType().Name);
             }
         }
         //update(copy) the value / setting of original one. 
@@ -163,6 +174,7 @@ public class PropertyManager : MonoBehaviour {
         {
             RemoveProperty(propertyList[0].GetType());
         }
+        player.Circle.GetComponent<SpriteRenderer>().color = Color.white;
         return true;
     }
     
