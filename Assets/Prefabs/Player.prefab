@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 1158876673277372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.6666667, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 4561750573310070}
   m_RootOrder: 3
@@ -312,7 +312,7 @@ Transform:
   m_GameObject: {fileID: 1802270482320094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.509034, y: 1.8229513, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 1, z: 1}
   m_Children:
   - {fileID: 4282592811875722}
   - {fileID: 4741151399202280}
@@ -508,6 +508,7 @@ MonoBehaviour:
   resetParameter: reset
   nextScene: 
   nextPosition: {x: 0, y: 0, z: 0}
+  openThisDoorInNextScene: 
 --- !u!114 &114147053406743900
 MonoBehaviour:
   m_ObjectHideFlags: 1

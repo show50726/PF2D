@@ -1717,7 +1717,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
+<<<<<<< HEAD
+  m_CachedInstanceID: 10880
+=======
   m_CachedInstanceID: 14540
+>>>>>>> origin/Feature
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3266,7 +3270,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -170, y: 30}
   m_Transitions: []
+<<<<<<< HEAD
+  m_CachedInstanceID: 10988
+=======
   m_CachedInstanceID: 14658
+>>>>>>> origin/Feature
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -3412,7 +3420,11 @@ MonoBehaviour:
     m_EventID: 1890031046
   - m_Destination: {fileID: 1719818325}
     m_EventID: 1662078051
+<<<<<<< HEAD
+  m_CachedInstanceID: 10990
+=======
   m_CachedInstanceID: 14660
+>>>>>>> origin/Feature
   m_CanTransitionToSelf: 0
 --- !u!114 &1719818319
 MonoBehaviour:
@@ -3432,7 +3444,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
+<<<<<<< HEAD
+  m_CachedInstanceID: 10992
+=======
   m_CachedInstanceID: 14662
+>>>>>>> origin/Feature
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -3531,7 +3547,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
+<<<<<<< HEAD
+  m_CachedInstanceID: 10994
+=======
   m_CachedInstanceID: 14664
+>>>>>>> origin/Feature
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -3628,7 +3648,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -50}
   m_Transitions: []
+<<<<<<< HEAD
+  m_CachedInstanceID: 10996
+=======
   m_CachedInstanceID: 14666
+>>>>>>> origin/Feature
   m_Description: Jump in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3786,7 +3810,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
+<<<<<<< HEAD
+  m_CachedInstanceID: 10998
+=======
   m_CachedInstanceID: 14668
+>>>>>>> origin/Feature
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -3815,7 +3843,11 @@ MonoBehaviour:
     m_EventID: 1135201954
   - m_Destination: {fileID: 1719818321}
     m_EventID: 1985460778
+<<<<<<< HEAD
+  m_CachedInstanceID: 11000
+=======
   m_CachedInstanceID: 14670
+>>>>>>> origin/Feature
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3956,8 +3988,15 @@ MonoBehaviour:
   m_Color: 2
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
+<<<<<<< HEAD
+  m_Transitions:
+  - m_Destination: {fileID: 1719818321}
+    m_EventID: 1985460778
+  m_CachedInstanceID: 11002
+=======
   m_Transitions: []
   m_CachedInstanceID: 14672
+>>>>>>> origin/Feature
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3977,15 +4016,20 @@ MonoBehaviour:
     - BehaviourMachine.SetRigidbody2DVelocity
     - BehaviourMachine.GetDeltaTime
     - BehaviourMachine.FloatAdd
+    - BehaviourMachine.Sequence
+    - BehaviourMachine.WaitRandom
+    - BehaviourMachine.SendEvent
     - BehaviourMachine.IsFloatGreaterOrEqual
-    m_NodeTypeHash: 89ef8210c00f4abc77b81120f9872707c00f4abc79e713e6fbd4a9442856a0188d24a0b489ef8210ce24ac2579e713e68d24a0b446d570ad
-    m_NodeFieldStartIndex: 00000000030000000a0000000f00000012000000190000001c0000001e00000023000000290000002c00000032000000350000003a0000003f000000
-    m_BranchIndex: ffffffff0000000000000000000000000000000000000000000000000600000006000000ffffffff09000000090000000900000009000000
+    m_NodeTypeHash: 89ef8210c00f4abc77b81120f9872707c00f4abc79e713e6fbd4a9442856a0188d24a0b489ef8210ce24ac2579e713e68d24a0b4fbd4a9444cce38470ee2ebc646d570ad
+    m_NodeFieldStartIndex: 00000000030000000a0000000f00000012000000190000001c0000001e00000023000000290000002c00000032000000350000003a0000003c000000440000004a0000004f000000
+    m_BranchIndex: ffffffff0000000000000000000000000000000000000000000000000600000006000000ffffffff090000000900000009000000090000000d0000000d00000009000000
     m_UnityObjectValue: []
-    m_IntValue: 0100000001000000110000000b0000009ad0e11d0600000064484148030000000400000027c2222b0a0000000c000000644841480500000027c2222b0000000002000000010000000900000027c2222b0d00000060d4a20f0f0000008047861560d4a20f000000000e000000c695a770804786159ad0e11d
+    m_IntValue: 0100000001000000110000000b0000009ad0e11d0600000064484148030000000400000027c2222b0a0000000c000000644841480500000027c2222b0000000002000000010000000900000027c2222b0d00000060d4a20f0f0000008047861560d4a20f00000000070000000800000001000000100000002aba57760e000000c695a770804786159ad0e11d
     m_FloatValue:
     - 2.5
     - -1
+    - 0.5
+    - 1.5
     m_StringValue:
     - OnEnable
     - Initialization
@@ -4010,6 +4054,13 @@ MonoBehaviour:
     - BehaviourMachine.ConcreteFloatVar
     - GetDeltaTime
     - Time Pass
+    - Sequence
+    - WaitRandom
+    - BehaviourMachine.ConcreteFloatVar
+    - ToJump
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
     - Time Out Reset
     m_CurveValue: []
     m_GenericFieldType:
@@ -4020,10 +4071,12 @@ MonoBehaviour:
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.BoolVar
     - BehaviourMachine.ConcreteFloatVar
-    m_GenericFieldHash: 7de9e6027de9e602264ce8ef7de9e6027de9e60200000000264ce8ef
-    m_GenericFieldSize: 01000000010000000100000001000000010000000100000001000000
-    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000000000000500000006000000060000000700000007000000080000000300000009000000040000000a000000080000000b000000090000000a0000000c0000000b0000000d0000000e000000050000000c0000000d0000000f0000000e00000006000000010000000f00000010000000100000001100000012000000110000001200000013000000130000001400000014000000150000001500000016000000160000001700000018000000190000001a000000170000001b0000001c0000001d000000
-    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001200000010000000030000000100000002000000140000000100000002000000110000001000000002000000100000000200000001000000020000001200000001000000020000000100000002000000110000001f00000014000000010000000200000012000000100000000300000005000000010000000200000005000000010000000200000011000000110000001200000011000000010000000200000012000000010000000200000012000000120000000500000001000000020000001e0000001200000012000000
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 7de9e6027de9e602264ce8ef7de9e6027de9e60200000000264ce8ef264ce8ef264ce8ef
+    m_GenericFieldSize: 010000000100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000000000000500000006000000060000000700000007000000080000000300000009000000040000000a000000080000000b000000090000000a0000000c0000000b0000000d0000000e000000050000000c0000000d0000000f0000000e00000006000000010000000f00000010000000100000001100000012000000110000001200000013000000130000001400000014000000150000001500000016000000160000001700000018000000190000001a000000170000001b0000001800000007000000020000000800000003000000190000001c0000001d0000001a0000001e0000001b0000001c0000001d0000001f0000001e000000200000002100000022000000
+    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001200000010000000030000000100000002000000140000000100000002000000110000001000000002000000100000000200000001000000020000001200000001000000020000000100000002000000110000001f0000001400000001000000020000001200000010000000030000000500000001000000020000000500000001000000020000001100000011000000120000001100000001000000020000001200000001000000020000001200000012000000050000000100000002000000010000000200000010000000030000001000000003000000110000000400000001000000020000001e00000011000000110000001100000001000000020000001e0000001200000012000000
     m_FieldPath:
     - instanceID
     - name
@@ -4085,6 +4138,22 @@ MonoBehaviour:
     - perSecond
     - instanceID
     - name
+    - instanceID
+    - name
+    - min
+    - min.value
+    - max
+    - max.value
+    - storeCurrentTime
+    - finishedStatus
+    - instanceID
+    - name
+    - eventToSend
+    - delay
+    - storeDelayTime
+    - storeEventUsed
+    - instanceID
+    - name
     - onSuccess
     - a
     - b
@@ -4106,7 +4175,11 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
+<<<<<<< HEAD
+  m_CachedInstanceID: 11004
+=======
   m_CachedInstanceID: 14674
+>>>>>>> origin/Feature
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
