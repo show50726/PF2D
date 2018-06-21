@@ -506,6 +506,11 @@ MonoBehaviour:
   criticalPosition: {fileID: 0}
   animator: {fileID: 95484388098076296}
   resetParameter: reset
+  onDead:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   nextScene: 
   nextPosition: {x: 0, y: 0, z: 0}
   openThisDoorInNextScene: 
@@ -537,6 +542,7 @@ MonoBehaviour:
   propertyList: []
   player: {fileID: 114068380428519914}
   controller2D: {fileID: 114621963817267716}
+  debugMessage: 0
 --- !u!114 &114621963817267716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,6 +561,7 @@ MonoBehaviour:
   movingAcceleration: 400
   SmoothyL: {fileID: 1420954500742592}
   SmoothyR: {fileID: 1312947373766090}
+  referVel: 1
   allowJump: 1
   jumpButton: 119
   initialJumpSpeed: 0
