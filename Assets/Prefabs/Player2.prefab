@@ -406,9 +406,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635943495190070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.91, y: 2.98, z: 0}
-  m_LocalScale: {x: 0.6, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.23, y: 3.483, z: 0}
+  m_LocalScale: {x: 0.7272728, y: 1.2121212, z: 1}
   m_Children:
   - {fileID: 4805244502813456}
   - {fileID: 4674546237114170}
@@ -588,7 +588,7 @@ MonoBehaviour:
   allowMovement: 1
   leftButton: 276
   rightButton: 275
-  movingSpeed: 7
+  movingSpeed: 9.333333
   movingAcceleration: 400
   SmoothyL: {fileID: 1773218896331644}
   SmoothyR: {fileID: 1887141755958582}
@@ -596,7 +596,7 @@ MonoBehaviour:
   allowJump: 1
   jumpButton: 273
   initialJumpSpeed: 0
-  jumpHeight: 1.75
+  jumpHeight: 2.3333333
   verticalJumpTime: 0.5
   cannotJumpOnTheseThing:
     serializedVersion: 2

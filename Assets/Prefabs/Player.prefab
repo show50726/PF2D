@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 95484388098076296}
   - component: {fileID: 114482633409753506}
   - component: {fileID: 114889971047465268}
+  - component: {fileID: 114990917368409286}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -339,9 +340,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802270482320094}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.61, y: 2.98, z: 0}
-  m_LocalScale: {x: 0.6, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.03, y: 5.32, z: 0}
+  m_LocalScale: {x: 0.7272728, y: 1.2121212, z: 1}
   m_Children:
   - {fileID: 4282592811875722}
   - {fileID: 4741151399202280}
@@ -587,7 +588,7 @@ MonoBehaviour:
   allowMovement: 1
   leftButton: 97
   rightButton: 100
-  movingSpeed: 7
+  movingSpeed: 9.333333
   movingAcceleration: 400
   SmoothyL: {fileID: 1420954500742592}
   SmoothyR: {fileID: 1312947373766090}
@@ -595,7 +596,7 @@ MonoBehaviour:
   allowJump: 1
   jumpButton: 119
   initialJumpSpeed: 0
-  jumpHeight: 1.75
+  jumpHeight: 2.3333333
   verticalJumpTime: 0.5
   cannotJumpOnTheseThing:
     serializedVersion: 2
@@ -642,6 +643,17 @@ MonoBehaviour:
   targetSM: {fileID: 95484388098076296}
   checkConditionBoolName: InFinish
   updateConditionBoolName: HoldingIn
+--- !u!114 &114990917368409286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802270482320094}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212134519899323824
 SpriteRenderer:
   m_ObjectHideFlags: 1
