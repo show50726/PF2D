@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/01
+//last maintained:  2018/06/23
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -13,7 +13,87 @@ using System.Collections;
 [RequireComponent(typeof(Collider2D))]
 public class PF2DController : MonoBehaviour
 {
+    private string debugTag;
     #region Control Setting
+
+    #region Animaton
+    [Header("Animation")]
+    [Tooltip("If true, sprite will flip while changing facing direction.")]
+    public bool enableFliping = true;
+    public bool defaultSpriteIsFacingRight = true;
+    [ReadOnly]
+    public bool isFacingRight = false;
+
+    public Animator animator;
+    [Tooltip("If set, controller will try to update the animator bool of this name -- true when moving, false when not.")]
+    public string m_MoveUpdateBoolName = "";
+    [Tooltip("If set, controller will try to update the animator bool of this name -- true when jumping, false when not jumping(on ground).")]
+    public string m_JumpUpdateBoolName = "";
+    //[Tooltip("If set, controller will try to update the animator bool of this name -- true when wall-jumping, false when not.")]
+    //public string m_WallJumpUpdateBoolName = "";
+    //[Tooltip("If set, controller will try to update the animator bool of this name -- true when leaning on wall, false when not.")]
+    //public string m_LeanWallUpdateBoolName = "";
+    
+    public bool UpdateAnimatorBool(UpdateControlStatus condition, bool value)
+    {
+        string updateBoolName = "";
+        switch (condition)
+        {
+            case UpdateControlStatus.UpdateMove:
+                updateBoolName = m_MoveUpdateBoolName;
+                break;
+            case UpdateControlStatus.UpdateJump:
+                updateBoolName = m_JumpUpdateBoolName;
+                break;
+            case UpdateControlStatus.UpdateWallJump:
+                break;
+            case UpdateControlStatus.UpdateLean:
+                break;
+            default:
+                break;
+        }
+        if (animator == null)
+        {
+            if (updateBoolName == "")
+            {
+                //Developer no need for animation. do nothing.
+                return true;
+            }
+            else
+            {
+                animator = GetComponent<Animator>();
+                if (animator == null)
+                {
+                    Debug.LogError(debugTag + " error: animator not assigned while trying update animator bools. Are you missing animator?");
+                    return false;
+                }
+            }
+        }
+        AnimatorControllerParameter targetP = null;
+        AnimatorControllerParameter[] pList = animator.parameters;
+        foreach (AnimatorControllerParameter p in pList)
+        {
+            if (p.name == updateBoolName)
+            {
+                targetP = p;
+                break;
+            }
+        }
+        if (targetP == null)
+        {
+            Debug.LogError(debugTag + " error: cannot find animator named " + updateBoolName + ". Did you misspell the name?");
+            return false;
+        }
+        else if (targetP.type != AnimatorControllerParameterType.Bool)
+        {
+            Debug.LogWarning(debugTag + " warning: found non-bool-parameter using name " + updateBoolName + ". The script cannot handle non-bool-parameter now. Ask your programmer to expand this part.");
+            return false;
+        }
+        animator.SetBool(updateBoolName, value);
+        return true;
+    }
+
+    #endregion
 
     #region Move Setting
 
@@ -29,7 +109,7 @@ public class PF2DController : MonoBehaviour
     public GameObject SmoothyR;
     [Tooltip("If true, movement will consider the stand-on platform speed.")]
     public bool referVel = true;
-
+ 
     #endregion
     #region Jump Setting
     [Header("Jump Setting")]
@@ -50,7 +130,7 @@ public class PF2DController : MonoBehaviour
     [Range(0.001f, 0.1f)]
     [Tooltip("Only when only 1 foot is set, this info will be given to judge.")]
     public float footDepth = 0.05f; // the judgement depth of foot 'touching' thing.
-
+    
     #endregion
     #region Wall Jump Setting
     [Header("Wall Jump Setting")]
@@ -68,7 +148,7 @@ public class PF2DController : MonoBehaviour
     [Range(-89f,89f)]
     [Tooltip("Wall jump works based on jump speed and jump degree. When set to 0, the wall jump will be horizontal.")]
     public float wallJumpDegree = 45f;
-
+    
     public bool inheritAllSetFromJump = false; //DEV NOTE: still in developing.
     private bool leftIsLeanOnWall = false, rightIsLeanOnWall = false;
 
@@ -86,7 +166,6 @@ public class PF2DController : MonoBehaviour
     public float dashDuration = 0.1f;
     [Tooltip("Only works when constant dashing isn't checked. Unit: seconds.")]
     public float dashCoolDown = 0.5f;
-    public bool isFacingRight = false;
     private float initialMovingSpeed = 0f;
     #endregion
     
@@ -100,15 +179,16 @@ public class PF2DController : MonoBehaviour
 
     #region State Description
 
-    //for state updating
-    //public Animator animStateMachine;
-    //public string updateBoolName;
-    //private bool animSMConditionChecked = false;
+
 
     private bool isFreezed = false; //once isFreezed, the controller will (for player) be unabled to use.
     private bool isDead = false; //only used by "a-player-is-dead" situation. look at Dead / Reset.
 
     private GameObject standOn = null;
+    /// <summary>
+    /// it is used to make smoothier animation. See Update().
+    /// </summary>
+    private bool inMidAir = false;
     private bool IsOnGround
     {
         get
@@ -118,7 +198,7 @@ public class PF2DController : MonoBehaviour
             Vector3 judgePoint1, judgePoint2;
             if (footPosition.Length == 0)
             {
-                Debug.LogWarning(GetType().Name + " warning: didn't set up foot for " + name + ", script will take this as permission to jump.");
+                Debug.LogWarning(debugTag + " warning: didn't set up foot, script will take this as permission to jump.");
                 return true;
             }
             else if (footPosition.Length == 1)
@@ -143,17 +223,19 @@ public class PF2DController : MonoBehaviour
             if (g)
             {
                 hitObj = g.collider.gameObject;
-                //Debug.Log("The foot is detected stand on " + hitObj.name);
+                //Debug.Log(debugTag + ": The foot is detected stand on " + hitObj.name);
                 if (hitObj.transform == GetComponentInParent<Transform>())
                 {
-                    Debug.LogError(GetType().Name + " error on " + name + ": the 'standing judge' find it stand on player itself. Fix it (by moving lower the foot position) otherwise the jump will never work.");
+                    Debug.LogError(debugTag + " error: the 'standing judge' find it stand on player itself. Fix it (by moving lower the foot position) otherwise the jump will never work.");
                     return false;
                 }
                 standOn = hitObj;
+                //hit ground. Not jumping / in mid air anymore.
+                UpdateAnimatorBool(UpdateControlStatus.UpdateJump, false);
             }
             else
             {
-                //Debug.Log("The foot is standing on nothing.");
+                //Debug.Log(debugTag + ": The foot is standing on nothing.");
                 standOn = null;
             }
             return g;
@@ -204,6 +286,23 @@ public class PF2DController : MonoBehaviour
         }
         return scan;
     }
+    private void ChangeFacing(bool facingRight)
+    {
+        isFacingRight = facingRight;
+        //start flipping
+        if (enableFliping)
+        {
+            SpriteRenderer r = GetComponent<SpriteRenderer>();
+            if (r == null)
+            {
+                Debug.LogWarning(debugTag + " warning: cannot find sprite renderer, thus cannot flip.");
+                return;
+            }
+            r.flipX = facingRight ^ defaultSpriteIsFacingRight;//if facing right(left) && default isn't, then flip
+            //if (facingRight) r.flipX = !defaultSpriteIsFacingRight;
+            //else r.flipX = defaultSpriteIsFacingRight;
+        }
+    }
 
     private bool needToRefreshVelocity = false; //use as ALMOST EVERY action in this script.
     private Rigidbody2D rb;
@@ -213,6 +312,7 @@ public class PF2DController : MonoBehaviour
     //When enabled, accquiring data
     private void OnEnable()
     {
+        debugTag = name + "/" + GetType().Name;
         rb = GetComponent<Rigidbody2D>();
         if (!GetComponent<Player>())
         {
@@ -252,9 +352,9 @@ public class PF2DController : MonoBehaviour
         SmoothyR.SetActive(false);
         SmoothyL.SetActive(false);
 
-        //check if animStateMachine have the right bool var.
-        /*if (animStateMachine != null)
-            foreach (AnimatorControllerParameter para in animStateMachine.parameters)
+        //check if animator have the right bool var.
+        /*if (animator != null)
+            foreach (AnimatorControllerParameter para in animator.parameters)
             {
                 if (para.name == updateBoolName) animSMConditionChecked = true;
             }*/
@@ -267,6 +367,10 @@ public class PF2DController : MonoBehaviour
     {
         if (isFreezed) return;
         if (isDead) return;
+        if (inMidAir)
+        {
+            inMidAir = !IsOnGround;
+        }
         if (allowDash)
         {
             if (Input.GetKeyDown(dashButton))
@@ -381,19 +485,22 @@ public class PF2DController : MonoBehaviour
         if (movingDirection.x > 0 && relativeSpeed.x < movingSpeed)
         {
             accDirection = 1;
+            UpdateAnimatorBool(UpdateControlStatus.UpdateMove, true);
         }
         else if (movingDirection.x < 0 && relativeSpeed.x > -movingSpeed)
         {
             accDirection = -1;
+            UpdateAnimatorBool(UpdateControlStatus.UpdateMove, true);
         }
         else if (movingDirection.x == 0)
         {
+            UpdateAnimatorBool(UpdateControlStatus.UpdateMove, false);
             if (relativeSpeed.x > 0) accDirection = -2;
             if (relativeSpeed.x < 0) accDirection = 2;
         }
         if (movingAcceleration <= 0)
         {
-            Debug.LogWarning(GetType().Name + " of " + name + " warning: movingAcceleration set to 0 or negative. This is illegal and will reset movingAcceleration.");
+            Debug.LogWarning(debugTag + " warning: movingAcceleration set to 0 or negative. This is illegal and will reset movingAcceleration.");
             movingAcceleration = 10f;
         }
         float movingAccPerFrame = movingAcceleration * Time.deltaTime;
@@ -481,7 +588,7 @@ public class PF2DController : MonoBehaviour
         if (Input.GetKey(keyCode))
         {
             baseVector += directionVector;
-            isFacingRight = directionVector.x > 0 ? true : false;
+            ChangeFacing(directionVector.x > 0);
             if (isFacingRight)
             {
                 SmoothyR.SetActive(true);
@@ -508,7 +615,7 @@ public class PF2DController : MonoBehaviour
         }
         else if (initialJumpSpeed <= 0)
         {
-            Debug.LogWarning(GetType().Name +  " warning: jump speed below than 0. It might cause a bug.");
+            Debug.LogWarning(debugTag +  " warning: jump speed below than 0. It might cause a bug.");
         }
     }
 
@@ -525,12 +632,12 @@ public class PF2DController : MonoBehaviour
         if (isFromRightWall)
         {
             rb.velocity = VectorOfGivenMagnitudeAndAngle(initialJumpSpeed, 180 - wallJumpDegree);
-            isFacingRight = false;
+            ChangeFacing(false);
         }
         else
         {
             rb.velocity = VectorOfGivenMagnitudeAndAngle(initialJumpSpeed, wallJumpDegree);
-            isFacingRight = true;
+            ChangeFacing(true);
         }
         JumpEffect(true); //this means wall jump share the same effect/animation with jump. Can be differed / rewritten if wanted.
     }
@@ -538,7 +645,7 @@ public class PF2DController : MonoBehaviour
     private void JumpEffect(bool turnOn)
     {
         //here, put the effect, like do the animation
-        //if (animSMConditionChecked) animStateMachine.SetBool(updateBoolName, true);
+        UpdateAnimatorBool(UpdateControlStatus.UpdateJump, turnOn);
     }
     
     public void AddVelocity(Vector2 velocity)
@@ -579,4 +686,9 @@ public class PF2DController : MonoBehaviour
             magnitude * Mathf.Sin(angleInDegree * Mathf.Deg2Rad));
     }
 
+}
+
+public enum UpdateControlStatus
+{
+    UpdateMove, UpdateJump, UpdateWallJump, UpdateLean
 }
