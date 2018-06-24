@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Map-p.unity
+    guid: 4edff6524100e6946a09c5043abb11b1
+  - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 1158a5c8f702d1b499c3b479062440cd
   - enabled: 1
@@ -68,9 +71,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cave3/Cave 3-2.unity
     guid: 40a0534da909105499b2c94e7d41eca0
-  - enabled: 1
-    path: Assets/Scenes/STC-Test-Area.unity
-    guid: cde2ef67a197fb1459201cb9f8296ce1
-  - enabled: 1
-    path: Assets/Scenes/STC-Test-Area-2.unity
-    guid: 8579958d29cc69a41b8ab211e8abb27b
