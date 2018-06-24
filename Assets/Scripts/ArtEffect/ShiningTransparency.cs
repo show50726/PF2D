@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿//ShiningTransparency made by STC
+//contact:          stc.ntu@gmail.com
+//last maintained:  2018/06/24
+//Usage:            Assign it to the object, this will help you to make object's transparency go up & down. Something like "twinkle" effect.
+//NOTE:             2D (sprite) Only.
+
+using UnityEngine;
 using System.Collections;
 using System;
 
