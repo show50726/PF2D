@@ -185,9 +185,8 @@ GameObject:
   - component: {fileID: 95484388098076296}
   - component: {fileID: 114482633409753506}
   - component: {fileID: 114889971047465268}
-  - component: {fileID: 114990917368409286}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,7 +528,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd37cd4b48c767940aaa8badb94e36b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMessage: 0
   healthPoint: 100
+  healthPointLimit: 100
+  moveSpeed: 0
+  jumpSpeed: 0
   manaPoint: 100
   lives: 0
   score: 0
@@ -648,17 +651,6 @@ MonoBehaviour:
   targetSM: {fileID: 95484388098076296}
   checkConditionBoolName: InFinish
   updateConditionBoolName: HoldingIn
---- !u!114 &114990917368409286
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1802270482320094}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212134519899323824
 SpriteRenderer:
   m_ObjectHideFlags: 1

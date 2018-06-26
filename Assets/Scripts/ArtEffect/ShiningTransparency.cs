@@ -1,11 +1,17 @@
-﻿using UnityEngine;
+﻿//ShiningTransparency made by STC
+//contact:          stc.ntu@gmail.com
+//last maintained:  2018/06/25
+//Usage:            Assign it to the object, this will help you to make object's transparency go up & down. Something like "twinkle" effect.
+//NOTE:             2D (sprite) Only.
+
+using UnityEngine;
 using System.Collections;
 using System;
 
 public class ShiningTransparency : MonoBehaviour
 {
     [Range(0.002f, 0.9f)]
-    [Tooltip("The transparency value in program verify from 0 to 1. if changing value too large, this will make color looks like the same.")]
+    [Tooltip("Per sec.The transparency value in program verify from 0 to 1. if changing value too large, this will make color looks like the same.")]
     public float changingSpeed = 0.005f;
     [Range(0, 1)]
     public float leastTransparency = 0;
@@ -36,10 +42,11 @@ public class ShiningTransparency : MonoBehaviour
 
     private void TransparencyShine()
     {
+        float delT = changingSpeed * Time.deltaTime;
         if (upward)
         {
             //go valid
-            if (renderer.color.a + changingSpeed >= maxTransparency)
+            if (renderer.color.a + delT >= maxTransparency)
             {
                 renderer.color += new Color(0, 0, 0, maxTransparency - renderer.color.a);
                 upward = false;
@@ -47,14 +54,14 @@ public class ShiningTransparency : MonoBehaviour
             }
             else
             {
-                renderer.color += new Color(0, 0, 0, changingSpeed);
+                renderer.color += new Color(0, 0, 0, delT);
                 return;
             }
         }
         else
         {
             //go transparent
-            if (renderer.color.a - changingSpeed <= leastTransparency)
+            if (renderer.color.a - delT <= leastTransparency)
             {
                 renderer.color += new Color(0, 0, 0, leastTransparency - renderer.color.a);
                 upward = true;
@@ -62,7 +69,7 @@ public class ShiningTransparency : MonoBehaviour
             }
             else
             {
-                renderer.color += new Color(0, 0, 0, - changingSpeed);
+                renderer.color += new Color(0, 0, 0, - delT);
                 return;
             }
         }

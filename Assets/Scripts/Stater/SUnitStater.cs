@@ -1,6 +1,6 @@
 ﻿//S(Stater) Unit Stater by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/05/21
+//last maintained:  2018/06/26
 //Usage:            State the info of generic unit, such as hp. Assign it to any GO that needs these info.
 
 using System;
@@ -9,6 +9,8 @@ namespace CMSR
 {
     public class SUnitStater : MonoBehaviour
     {
+        public bool debugMessage = false;
+
         public string LogTitle(LogType logType)
         {
             string logHint = "";
@@ -29,13 +31,13 @@ namespace CMSR
             return name + "/" + GetType().Name + logHint + ":";
         }
 
-        public float HP = 100;
-        public float HPLimit = 100;
+        public float healthPoint = 100;
+        public float healthPointLimit = 100;
 
         protected virtual void Reset()
         {
-            HP = 100;
-            HPLimit = 100;
+            healthPoint = 100;
+            healthPointLimit = 100;
         }
 
         /// <summary>
@@ -43,21 +45,21 @@ namespace CMSR
         /// </summary>
         protected virtual bool DataCorrect()
         {
-            if (HP < 0)
+            if (healthPoint < 0)
             {
-                Debug.LogError(LogTitle(LogType.Error) + "HP cannot be negative! " +
+                Debug.LogError(LogTitle(LogType.Error) + "healthPoint cannot be negative! " +
                     "(Will set to positive if continues.)");
-                HP = -HP;
+                healthPoint = -healthPoint;
             }
-            if (HP == 0)
+            if (healthPoint == 0)
             {
                 Debug.Log(LogTitle(LogType.Normal) + "");
             }
-            if (HPLimit <= 0)
+            if (healthPointLimit <= 0)
             {
-                Debug.LogError(LogTitle(LogType.Error) + "HP Limit cannot be negative! " +
-                    "(Will set to HP / 100 if continues)");
-                HPLimit = HP > 0 ? HP : 100;
+                Debug.LogError(LogTitle(LogType.Error) + "healthPoint Limit cannot be negative! " +
+                    "(Will set to healthPoint / 100 if continues)");
+                healthPointLimit = healthPoint > 0 ? healthPoint : 100;
             }
             if (true)
             {
@@ -68,13 +70,14 @@ namespace CMSR
         }
 
         /// <summary>
-        /// Heal() will heal to full HP.
+        /// Heal() will heal to full healthPoint.
         /// </summary>
         public void Heal()
         {
-            DataCorrect();
-            HP = HPLimit;
-            Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
+            Heal(healthPointLimit);
+            //DataCorrect();
+            //healthPoint = healthPointLimit;
+            //Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
         }
         /// <summary>
         /// Heal(healAmount) will heal specified amount until reach limit.
@@ -82,12 +85,16 @@ namespace CMSR
         public void Heal(float healAmount)
         {
             DataCorrect();
-            HP = (HPLimit - HP) <= healAmount ? HPLimit : HP + healAmount;
-            if (HP <= 0) HP = 0;
-            Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
+            healthPoint = (healthPointLimit - healthPoint) <= healAmount ? healthPointLimit : healthPoint + healAmount;
+            if (healthPoint <= 0) healthPoint = 0;
+            if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
 
         }
-
+        public void Damage(float damageAmount)
+        {
+            healthPoint = (healthPoint - damageAmount) <= 0 ? 0 : healthPoint - damageAmount;
+            if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " damaged.");
+        }
 
     }
     public enum LogType { Normal, Warning, Error }

@@ -9,7 +9,7 @@ using System.Collections;
 public class PropertyNegative : PlayerProperty2D
 {
     [Header("HP reduce setting")]
-    public double damage = 1f;
+    public float damage = 1f;
     [Tooltip("unit: seconds.")]
     public float damagePeriod = 2f;
     private float damageTimer = 0;
