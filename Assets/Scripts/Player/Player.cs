@@ -1,17 +1,18 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/13
+//last maintained:  2018/06/26
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System;
 using System.Collections;
 using UnityEngine;
+using CMSR;
 
-public class Player : MonoBehaviour {
+public class Player : SLivingStater {
 
     [Header("Basic Player Data")]
-    public double healthPoint = 100;
-    public double manaPoint = 100;
+    //public float healthPoint = 100;
+    public float manaPoint = 100;
     public int lives = 0;
     public double score = 0;
 	public GameObject Circle;
@@ -49,8 +50,8 @@ public class Player : MonoBehaviour {
     [Header("Controlled by Scripts")]
     //inner player data.
     internal Vector3 respawnPos;
-    internal double initialHP;
-    internal double initialMP;
+    internal float initialHP;
+    internal float initialMP;
     internal bool isDead = false;
     internal bool isRespawning = false;
     [ReadOnly]
@@ -415,7 +416,7 @@ public class Player : MonoBehaviour {
 
     }
     
-    public void UpdateHealthPoint(double hp)
+    public void UpdateHealthPoint(float hp)
     {
         healthPoint = hp;
         if (LevelManager.exist)
@@ -428,7 +429,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void TakeDamage(double damageTaken, string reason)
+    public void TakeDamage(float damageTaken, string reason)
     {
         UpdateHealthPoint(healthPoint - damageTaken);
         if (reason== "")    SystemMessage("Player " + name + " is hurt." + "HP is now " + healthPoint);
@@ -438,7 +439,7 @@ public class Player : MonoBehaviour {
             Death();
         }
     }
-    public void TakeDamage(double damageTaken)
+    public void TakeDamage(float damageTaken)
     {
         TakeDamage(damageTaken, "");
     }

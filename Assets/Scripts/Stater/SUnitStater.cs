@@ -29,13 +29,13 @@ namespace CMSR
             return name + "/" + GetType().Name + logHint + ":";
         }
 
-        public float HP = 100;
-        public float HPLimit = 100;
+        public float healthPoint = 100;
+        public float healthPointLimit = 100;
 
         protected virtual void Reset()
         {
-            HP = 100;
-            HPLimit = 100;
+            healthPoint = 100;
+            healthPointLimit = 100;
         }
 
         /// <summary>
@@ -43,21 +43,21 @@ namespace CMSR
         /// </summary>
         protected virtual bool DataCorrect()
         {
-            if (HP < 0)
+            if (healthPoint < 0)
             {
-                Debug.LogError(LogTitle(LogType.Error) + "HP cannot be negative! " +
+                Debug.LogError(LogTitle(LogType.Error) + "healthPoint cannot be negative! " +
                     "(Will set to positive if continues.)");
-                HP = -HP;
+                healthPoint = -healthPoint;
             }
-            if (HP == 0)
+            if (healthPoint == 0)
             {
                 Debug.Log(LogTitle(LogType.Normal) + "");
             }
-            if (HPLimit <= 0)
+            if (healthPointLimit <= 0)
             {
-                Debug.LogError(LogTitle(LogType.Error) + "HP Limit cannot be negative! " +
-                    "(Will set to HP / 100 if continues)");
-                HPLimit = HP > 0 ? HP : 100;
+                Debug.LogError(LogTitle(LogType.Error) + "healthPoint Limit cannot be negative! " +
+                    "(Will set to healthPoint / 100 if continues)");
+                healthPointLimit = healthPoint > 0 ? healthPoint : 100;
             }
             if (true)
             {
@@ -68,12 +68,12 @@ namespace CMSR
         }
 
         /// <summary>
-        /// Heal() will heal to full HP.
+        /// Heal() will heal to full healthPoint.
         /// </summary>
         public void Heal()
         {
             DataCorrect();
-            HP = HPLimit;
+            healthPoint = healthPointLimit;
             Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
         }
         /// <summary>
@@ -82,8 +82,8 @@ namespace CMSR
         public void Heal(float healAmount)
         {
             DataCorrect();
-            HP = (HPLimit - HP) <= healAmount ? HPLimit : HP + healAmount;
-            if (HP <= 0) HP = 0;
+            healthPoint = (healthPointLimit - healthPoint) <= healAmount ? healthPointLimit : healthPoint + healAmount;
+            if (healthPoint <= 0) healthPoint = 0;
             Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
 
         }
