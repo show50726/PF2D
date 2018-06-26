@@ -1,6 +1,6 @@
 ﻿//S(Stater) Unit Stater by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/05/21
+//last maintained:  2018/06/26
 //Usage:            State the info of generic unit, such as hp. Assign it to any GO that needs these info.
 
 using System;
@@ -9,6 +9,8 @@ namespace CMSR
 {
     public class SUnitStater : MonoBehaviour
     {
+        public bool debugMessage = false;
+
         public string LogTitle(LogType logType)
         {
             string logHint = "";
@@ -72,9 +74,10 @@ namespace CMSR
         /// </summary>
         public void Heal()
         {
-            DataCorrect();
-            healthPoint = healthPointLimit;
-            Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
+            Heal(healthPointLimit);
+            //DataCorrect();
+            //healthPoint = healthPointLimit;
+            //Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
         }
         /// <summary>
         /// Heal(healAmount) will heal specified amount until reach limit.
@@ -84,10 +87,14 @@ namespace CMSR
             DataCorrect();
             healthPoint = (healthPointLimit - healthPoint) <= healAmount ? healthPointLimit : healthPoint + healAmount;
             if (healthPoint <= 0) healthPoint = 0;
-            Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
+            if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
 
         }
-
+        public void Damage(float damageAmount)
+        {
+            healthPoint = (healthPoint - damageAmount) <= 0 ? 0 : healthPoint - damageAmount;
+            if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " damaged.");
+        }
 
     }
     public enum LogType { Normal, Warning, Error }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PropertyHealing : PlayerProperty2D {
@@ -20,7 +19,7 @@ public class PropertyHealing : PlayerProperty2D {
 	public LayerMask ignoreGiver = (1 << 9);
 	public bool updateIfExists = true;
 	public int maxHealth = 100;
-	private List<OnTouchingPlayer> onTouchingList = new List<OnTouchingPlayer>();
+	private List<OnTouchingLiving> onTouchingList = new List<OnTouchingLiving>();
     public Color showingColor = new Color32(233, 63, 200, 255);
 
     // Use this for initialization
@@ -37,7 +36,7 @@ public class PropertyHealing : PlayerProperty2D {
 		if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer)) || ignoreGiver ==(ignoreGiver | (1 << col.gameObject.layer))) return;
 		//notice that PropertyBurn has scripted to destroy each other on touch already.
 		if(col.gameObject.tag == "Player"){
-			onTouchingList.Add (new OnTouchingPlayer (col.gameObject.GetComponent<Player> ()));
+			onTouchingList.Add (new OnTouchingLiving (col.gameObject.GetComponent<Player> ()));
 		}
 
 	}
@@ -45,9 +44,9 @@ public class PropertyHealing : PlayerProperty2D {
 	private void OnCollisionExit2D(Collision2D col){
 		if (!enabled) return;
 		if (col.gameObject.tag == "Player") {
-			foreach (OnTouchingPlayer p in onTouchingList)
+			foreach (OnTouchingLiving p in onTouchingList)
 			{
-				if (p.player == col.gameObject.GetComponent<Player>())
+				if (p.targetLiving == col.gameObject.GetComponent<Player>())
 				{
 					onTouchingList.Remove(p);
 					return;
@@ -67,14 +66,34 @@ public class PropertyHealing : PlayerProperty2D {
 			timer -= healingPeriod;
 		}
 
-		foreach (OnTouchingPlayer p in onTouchingList){
+		foreach (OnTouchingLiving p in onTouchingList){
 			p.touchTime += Time.deltaTime;
-			if (p.touchTime >= healingOthersPeriod && p.player.healthPoint < maxHealth && !p.player.isDead)
-			{
-                p.player.UpdateHealthPoint(++p.player.healthPoint);
-				Debug.Log ("Player " + p.player.name + " is healing." + "HP is now " + p.player.healthPoint);
-				p.touchTime = 0;
-			}
+            if (p.targetLiving.GetType() == typeof(Player))
+            {
+                Player target = (Player)p.targetLiving;
+                if (p.touchTime >= healingOthersPeriod && p.targetLiving.healthPoint < maxHealth && !target.isDead)
+                {
+                    target.UpdateHealthPoint(++p.targetLiving.healthPoint);
+                    Debug.Log("Player " + p.targetLiving.name + " is healing." + "HP is now " + p.targetLiving.healthPoint);
+                    p.touchTime = 0;
+                }
+            }
+            else
+            {
+                if (p.touchTime >= healingOthersPeriod && p.targetLiving.healthPoint < maxHealth)
+                {
+                    p.targetLiving.Heal(1);
+                    //p.targetLiving.UpdateHealthPoint(++p.targetLiving.healthPoint);
+                    Debug.Log("Player " + p.targetLiving.name + " is healing." + "HP is now " + p.targetLiving.healthPoint);
+                    p.touchTime = 0;
+                }
+            }
+			//if (p.touchTime >= healingOthersPeriod && p.targetLiving.healthPoint < maxHealth && !p.targetLiving.isDead)
+			//{
+   //             p.targetLiving.UpdateHealthPoint(++p.targetLiving.healthPoint);
+			//	Debug.Log ("Player " + p.targetLiving.name + " is healing." + "HP is now " + p.targetLiving.healthPoint);
+			//	p.touchTime = 0;
+			//}
 		}
 
         if (rb2d.velocity.magnitude <= 0.01)

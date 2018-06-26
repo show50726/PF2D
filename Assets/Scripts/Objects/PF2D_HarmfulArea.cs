@@ -5,10 +5,12 @@
 //Usage: add it to "Harmful areas", such as a poisoned water, and set it to trigger. This will damage any player inside once a period.
 using System.Collections.Generic;
 using UnityEngine;
+using CMSR;
 
 [RequireComponent(typeof(Collider2D))]
 public class PF2D_HarmfulArea : MonoBehaviour {
 
+    public bool debugMessage = false;
     public PFManager platformerManager;
 
     [Header("Damage Setting")]
@@ -18,7 +20,7 @@ public class PF2D_HarmfulArea : MonoBehaviour {
     public string damageReason = null;
     public bool onlyHurtCriticalPosition = false;
 
-    private List<OnTouchingPlayer> onTouchingList = new List<OnTouchingPlayer>();
+    private List<OnTouchingLiving> onTouchingList = new List<OnTouchingLiving>();
     
     void Start()
     {
@@ -36,42 +38,67 @@ public class PF2D_HarmfulArea : MonoBehaviour {
 
     private void Update()
     {
-        foreach (OnTouchingPlayer p in onTouchingList)
+        foreach (OnTouchingLiving targetData in onTouchingList)
         {
-            if (onlyHurtCriticalPosition)
+            if (targetData.targetLiving.GetType() == typeof(Player))
             {
-                if (p.player.criticalPosition == null)
+                Player target = (Player)targetData.targetLiving;
+                if (onlyHurtCriticalPosition)
                 {
-                    Debug.LogWarning(GetType().Name + " of " + name + " warning: onlyHurtCriticalPosition but the " + p.player.gameObject.name + " didn't assign one. It will never get hurt.");
-                    continue;
+                    if (target.criticalPosition == null)
+                    {
+                        Debug.LogWarning(GetType().Name + " of " + name + " warning: onlyHurtCriticalPosition but the " + target.gameObject.name + " didn't assign one. It will never get hurt.");
+                        continue;
+                    }
+                    if (GetComponent<Collider2D>().bounds.Contains(target.criticalPosition.position) == false)
+                    {
+                        //critical position isn't inside. don't hurt it.
+                        Debug.Log("Position is " + target.criticalPosition.position + "and NO HURT!");
+                        continue;
+                    }
                 }
-                if (GetComponent<Collider2D>().bounds.Contains(p.player.criticalPosition.position) == false)
+                targetData.touchTime += Time.deltaTime;
+                if (targetData.touchTime >= period)
                 {
-                    //critical position isn't inside. don't hurt it.
-                    Debug.Log("Position is " + p.player.criticalPosition.position + "and NO HURT!");
-                    continue;
+                    if (target.LivingJudge() == false)
+                    {
+                        continue; //already dead.
+                    }
+                    target.TakeDamage(damage, damageReason);
+                    targetData.touchTime = 0;
                 }
             }
-            p.touchTime += Time.deltaTime;
-            if (p.touchTime >= period)
+            else
             {
-                if (p.player.LivingJudge() == false)
+                targetData.touchTime += Time.deltaTime;
+                if (targetData.touchTime >= period)
                 {
-                    continue; //already dead.
+                    //if (targetData.LivingJudge() == false)
+                    //{
+                    //    continue; //already dead.
+                    //}
+                    targetData.targetLiving.Damage(damage);
+                    targetData.touchTime = 0;
                 }
-                p.player.TakeDamage(damage, damageReason);
-                p.touchTime = 0;
             }
+            
         }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (enabled == false) return;
-        if (platformerManager.JudgePlayer(col.gameObject) == true)
+        //if (platformerManager.JudgePlayer(col.gameObject) == true)
+        //{
+        //    onTouchingList.Add(new OnTouchingLiving(col.gameObject.GetComponent<Player>()));
+        //}
+        SLivingStater target = col.gameObject.GetComponent<SLivingStater>();
+        if (target != null)
         {
-            onTouchingList.Add(new OnTouchingPlayer(col.gameObject.GetComponent<Player>()));
+            onTouchingList.Add(new OnTouchingLiving(target));
+            if (debugMessage) Debug.Log(col.gameObject.name + "has been added.");
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D col)
@@ -79,9 +106,9 @@ public class PF2D_HarmfulArea : MonoBehaviour {
         if (enabled == false) return;
         if (platformerManager.JudgePlayer(col.gameObject) == true)
         {
-            foreach (OnTouchingPlayer p in onTouchingList)
+            foreach (OnTouchingLiving p in onTouchingList)
             {
-                if (p.player == col.gameObject.GetComponent<Player>())
+                if (p.targetLiving == col.gameObject.GetComponent<Player>())
                 {
                     onTouchingList.Remove(p);
                     return;

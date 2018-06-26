@@ -1,15 +1,16 @@
-﻿//On Touching Player by STC
+﻿//On Touching Living by STC
 //contact: stc.ntu@gmail.com
-//last maintained: 2018/01/07
+//last maintained: 2018/06/26
 //Usage: this can be used to count down and make effect, such as harmful area.
 
-public class OnTouchingPlayer
+using CMSR;
+public class OnTouchingLiving
 {
-    public Player player;
+    public SLivingStater targetLiving;
     public float touchTime;
-    public OnTouchingPlayer(Player p)
+    public OnTouchingLiving(SLivingStater target)
     {
-        player = p;
+        targetLiving = target;
         touchTime = 0;
     }
 }
