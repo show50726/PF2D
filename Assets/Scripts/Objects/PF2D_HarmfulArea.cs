@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Harmful Area by STC
 //contact: stc.ntu@gmail.com
-//last maintained: 2018/06/26
+//last maintained: 2018/06/27
 //NOTE: 2D only. Need colliders (to trigger).
 //Usage: add it to "Harmful areas", such as a poisoned water, and set it to trigger. This will damage any player inside once a period.
 using System.Collections.Generic;
@@ -98,22 +98,34 @@ public class PF2D_HarmfulArea : MonoBehaviour {
             onTouchingList.Add(new OnTouchingLiving(target));
             if (debugMessage) Debug.Log(col.gameObject.name + "has been added.");
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
         if (enabled == false) return;
-        if (platformerManager.JudgePlayer(col.gameObject) == true)
+        //if (platformerManager.JudgePlayer(col.gameObject) == true)
+        //{
+        //    foreach (OnTouchingLiving p in onTouchingList)
+        //    {
+        //        if (p.targetLiving == col.gameObject.GetComponent<Player>())
+        //        {
+        //            onTouchingList.Remove(p);
+        //            return;
+        //        }
+        //    }
+        //}
+        SLivingStater target = col.gameObject.GetComponent<SLivingStater>();
+        if (target != null)
         {
             foreach (OnTouchingLiving p in onTouchingList)
             {
-                if (p.targetLiving == col.gameObject.GetComponent<Player>())
+                if (p.targetLiving == target)
                 {
                     onTouchingList.Remove(p);
-                    return;
+                    break;
                 }
             }
+            if (debugMessage) Debug.Log(col.gameObject.name + "has been removed.");
         }
     }
 

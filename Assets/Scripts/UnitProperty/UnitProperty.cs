@@ -1,6 +1,6 @@
 ﻿//Unit Property     made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/12/13
+//last maintained:  2018/06/27
 //Usage:            This is made for property example. Inherit this to write a property script.
 
 using UnityEngine;
@@ -9,6 +9,7 @@ using System.Collections;
 public class UnitProperty : MonoBehaviour
 {
     //public string test = "hi";
+    public bool debugMessage = false;
 
     #region String Saving Area
 

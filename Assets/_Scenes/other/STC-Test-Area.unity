@@ -410,11 +410,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.426897
+      value: 3.52
       objectReference: {fileID: 0}
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.801841
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -439,6 +439,11 @@ Prefab:
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760705112564278, guid: c4071c493c2f2f04ab04be395dc4e24e,
+        type: 2}
+      propertyPath: period
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
@@ -1759,7 +1764,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 18728
+  m_CachedInstanceID: 20924
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3077,6 +3082,7 @@ GameObject:
   - component: {fileID: 1719818321}
   - component: {fileID: 1719818325}
   - component: {fileID: 1719818326}
+  - component: {fileID: 1719818327}
   m_Layer: 0
   m_Name: Little AI
   m_TagString: Untagged
@@ -3309,7 +3315,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -170, y: 30}
   m_Transitions: []
-  m_CachedInstanceID: 18846
+  m_CachedInstanceID: 21042
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -3455,7 +3461,7 @@ MonoBehaviour:
     m_EventID: 1890031046
   - m_Destination: {fileID: 1719818325}
     m_EventID: 1662078051
-  m_CachedInstanceID: 18848
+  m_CachedInstanceID: 21044
   m_CanTransitionToSelf: 0
 --- !u!114 &1719818319
 MonoBehaviour:
@@ -3475,7 +3481,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 18850
+  m_CachedInstanceID: 21046
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -3574,7 +3580,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 18852
+  m_CachedInstanceID: 21048
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -3671,7 +3677,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -50}
   m_Transitions: []
-  m_CachedInstanceID: 18854
+  m_CachedInstanceID: 21050
   m_Description: Jump in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3829,7 +3835,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 18856
+  m_CachedInstanceID: 21052
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -3858,7 +3864,7 @@ MonoBehaviour:
     m_EventID: 1135201954
   - m_Destination: {fileID: 1719818321}
     m_EventID: 1985460778
-  m_CachedInstanceID: 18858
+  m_CachedInstanceID: 21054
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4000,7 +4006,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
   m_Transitions: []
-  m_CachedInstanceID: 18860
+  m_CachedInstanceID: 21056
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4149,7 +4155,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
-  m_CachedInstanceID: 18862
+  m_CachedInstanceID: 21058
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4231,11 +4237,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4243885e7be1ecd4faa6474f6c76e441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMessage: 1
+  debugMessage: 0
   healthPoint: 100
   healthPointLimit: 100
   moveSpeed: 0
   jumpSpeed: 0
+--- !u!114 &1719818327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719818311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d527899a3fda1f5488862bd77941cc35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMessage: 0
+  propertyManager: {fileID: 0}
+  stater: {fileID: 0}
+  showingColor: {r: 0.9137255, g: 0.24705882, b: 0.78431374, a: 1}
+  healingRate: 10
+  enableFastHealing: 0
+  TurnOffNormalHealing: 0
+  fastHealWarmUp: 2
+  allowVelocity: 0.1
+  fastHealRate: 40
+  enableHealingNearby: 0
+  ignoreTheseObjects:
+    serializedVersion: 2
+    m_Bits: 256
+  onlyHealThisTag: 
+  healingNearbyWarmUp: 2
+  healingNearbyRate: 4
 --- !u!4 &1746545828 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db,
