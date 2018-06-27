@@ -7,7 +7,7 @@
 using UnityEngine;
 
 public class LaserTrap2D : Mechanism2D {
-    
+
     //protected override void Start()
     //{
     //    if (Activated)
@@ -16,81 +16,106 @@ public class LaserTrap2D : Mechanism2D {
     //    }
 
     //}
-    public GameObject endPoint;
-    private LineRenderer laserLine;
-    [Tooltip("unit: melting factor(see PropertyFrozen). Set 0 to melt ice immediately.")]
-    public float meltingIcePeriod = 1f;
-    public float DestroyWoodPeriod = 3f;
-    [SerializeField]
-    private float timer_f = 0f;
-    private float timer_w = 0f;
-    private Vector2 lastPos;
-    private Vector2 Pos;
+    [Header("Basic Setting")]
+    public LineRenderer laserLineRenderer;
+    public Transform startPoint;
+    public Transform endPoint;
+    [Tooltip("When enable this, laser will go infinite far along startPoint -> endPoint.")]
+    public bool UseDirection;
+
+    [Header("Special Function")]
+    public float meltingIcePeriod;
+    private float timer_f;
+    public float DestroyWoodPeriod;
+    private float timer_w;
+
+    private bool resetTimer = false; //used by timers.
+
+    public string tagOfFloor = "Floor";
+    public string tagOfPlayer = "Player";
+
+    protected override void WhenActivate(bool isTurnOn)
+    {
+        base.WhenActivate(isTurnOn);
+        if (laserLineRenderer == null)
+            laserLineRenderer = GetComponent<LineRenderer>() == null ? gameObject.AddComponent<LineRenderer>() : GetComponent<LineRenderer>();
+        if (isTurnOn)
+        {
+            //basic draw laser.
+            DrawLaser(new Vector3[] { startPoint.position, endPoint.position });
+        }
+        else
+        {
+            laserLineRenderer.enabled = false;
+        }
+    }
 
     protected override void Start()
     {
-        if (meltingIcePeriod < 0)
+        if (startPoint == null) startPoint = transform;
+        if (endPoint == null)
         {
-            Debug.LogError(GetType().Name + " of " + name + " error: meltingIcePeriod is not allowed to set under 0. The script will not work if continues.");
-            enabled = false;
+            DebugMessage(LogType.Error, "endPoint not assigned. This laser will not work.");
+            Activated = false;
             return;
         }
-        laserLine = GetComponent<LineRenderer>();
-        laserLine.enabled = true;
+        base.Start();
     }
 
-    protected void ResetEffect()
+    // Update is called once per frame
+    void Update()
     {
-        timer_f = 0;
-        timer_w = 0;
+        if(Activated) ShootLaser(startPoint.position, endPoint.position - startPoint.position);
+        if (resetTimer) ResetTimerCount();
     }
-    private GameObject lastHittingObj = null;
-    protected void Update()
+    
+    private void DrawLaser(Vector3[] points)
     {
-        laserLine.positionCount = 2;
-        Vector2 pos = new Vector2((this.transform.position.x + this.transform.localScale.y * 0.49f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.49f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
-        //float k = endPoint.transform.position.y > this.transform.position.y ? this.transform.position.y + 0.225f : this.transform.position.y - 0.225f;
-        //Debug.Log(Mathf.Cos(this.transform.rotation.z / 180f * Mathf.PI));
-        //Debug.Log (this.transform.rotation);
-        laserLine.SetPosition(0, pos);
-        laserLine.SetPosition(1, endPoint.transform.position);
-
-        Vector2 l = new Vector2((this.transform.position.x + this.transform.localScale.y * 0.501f * Mathf.Sin(this.transform.eulerAngles.z / 180f * Mathf.PI)), (this.transform.position.y - this.transform.localScale.y * 0.501f * Mathf.Cos(this.transform.eulerAngles.z / 180f * Mathf.PI)));
-        RaycastHit2D hit = Physics2D.Raycast(l, new Vector2(endPoint.transform.position.x - l.x, endPoint.transform.position.y - l.y), Vector2.Distance(l, endPoint.transform.position));
-
-        bool needToReset = false;
-        //Debug.Log (hit.collider.name);
-        GameObject hitObj = null;
-        if (hit.collider != null)
-            hitObj = hit.collider.gameObject;
-        if (hitObj != lastHittingObj || hitObj == null)
+        laserLineRenderer.enabled = true;
+        laserLineRenderer.positionCount = points.Length;
+        for (int i = 0; i < points.Length; i++)
         {
-            needToReset = true;
+            laserLineRenderer.SetPosition(i, points[i]);
+        }
+        if (_showDebugMessage) DebugMessage(LogType.Normal, "line drawn.");
+    }
+
+    private Vector3 lastPos, Pos;
+    private GameObject lastHittingObj = null;
+    public void ShootLaser(Vector3 startPosition, Vector3 direction)
+    {
+        //Raycast.
+        RaycastHit2D hit;
+        if (UseDirection)
+            hit = Physics2D.Raycast(startPosition, direction);
+        else
+            hit = Physics2D.Raycast(startPosition, direction, direction.magnitude);
+        
+        GameObject hitObj = hit.collider.gameObject;
+        if (hitObj != lastHittingObj)
+        {
+            resetTimer = true;
             lastHittingObj = hitObj;
+            DrawLaser(new Vector3[] { startPosition, hit.point });
         }
         if (hitObj != null)
         {
-            if (hitObj.tag == "Floor")
+            if (hitObj.tag == tagOfPlayer)
             {
-
-            }
-            else if (hitObj.tag == "Player")
-            {
+                //design of player.
                 PropertyFrosting frosting = hitObj.GetComponent<PropertyFrosting>();
-                //PropertyMetal metal = hitObj.GetComponent<PropertyMetal>();
                 Player p = hitObj.GetComponent<Player>();
-                if (frosting)
+                if (frosting == null)
                 {
-                    laserLine.SetPosition(1, hit.point);
-                }
-                else
-                {
-                    p.Death();
+                    if(p) p.Death();
+                    else
+                    {
+                        DebugMessage(LogType.Warning, "hit object " + hitObj.name + " has tag of player but didn't assign Player(Script). This might be a bug and laser will not kill it.");
+                    }
                 }
             }
             else
             {
-                laserLine.SetPosition(1, hit.point);
                 PropertyManager objPropertyManager = hitObj.GetComponent<PropertyManager>();
                 //Debug.Log("Have got property manager of " + hitObj.name + ": " + (objPropertyManager!=null));
                 if (objPropertyManager != null)
@@ -101,7 +126,7 @@ public class LaserTrap2D : Mechanism2D {
                         timer_f += Time.deltaTime * 2; //DEV NOTE: the nasty sol. of Unity's broken collision detect.
                         if (frozenProperty.immortalize)
                         {
-                            timer_f = 0; //DEV NOTE: the nasty sol. of strange setting of Laser.
+                            timer_f = 0; //DEV NOTE: the nasty sol. of strange design of Laser.
                         }
                         if (timer_f >= meltingIcePeriod)
                         {
@@ -134,14 +159,11 @@ public class LaserTrap2D : Mechanism2D {
                 }
             }
         }
-        if (needToReset)
-        {
-            ResetEffect();
-        }
     }
-
-    private void Reflect()
+    protected void ResetTimerCount()
     {
-
+        timer_f = 0;
+        timer_w = 0;
+        resetTimer = false;
     }
 }

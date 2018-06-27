@@ -7,7 +7,7 @@ using System;
 using UnityEngine;
 namespace CMSR
 {
-    public class SUnitStater : MonoBehaviour
+    public class SUnitStater : STCMonoBehaviour
     {
         public bool debugMessage = false;
 
@@ -97,5 +97,4 @@ namespace CMSR
         }
 
     }
-    public enum LogType { Normal, Warning, Error }
 }

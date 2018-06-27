@@ -1,11 +1,11 @@
 ﻿//Mechanism2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/26
+//last maintained:  2018/06/27
 //usage:            this is base of any 2D mechanism. Inherit this to write a new mechanism that can be controlled by outside.
 
 using UnityEngine;
 
-public class Mechanism2D : MonoBehaviour {
+public class Mechanism2D : STCMonoBehaviour {
     public bool activated = false;
     public bool stayOnAfterActivated = false;
     public bool Activated
@@ -20,11 +20,16 @@ public class Mechanism2D : MonoBehaviour {
             WhenActivate(value);
         }
     }
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         WhenActivate(activated); // to do Activate effect
     }
 
+    /// <summary>
+    /// Called when Activated value is changed(set). Override it to make custom action.
+    /// </summary>
+    /// <param name="isTurnOn">Determine the situation.</param>
     protected virtual void WhenActivate(bool isTurnOn)
     {
         if (isTurnOn == false && stayOnAfterActivated == true)
