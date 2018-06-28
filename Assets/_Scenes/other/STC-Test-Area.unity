@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 18728
+  m_CachedInstanceID: 20982
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3309,7 +3309,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -170, y: 30}
   m_Transitions: []
-  m_CachedInstanceID: 18846
+  m_CachedInstanceID: 21100
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -3455,7 +3455,11 @@ MonoBehaviour:
     m_EventID: 1890031046
   - m_Destination: {fileID: 1719818325}
     m_EventID: 1662078051
-  m_CachedInstanceID: 18848
+  - m_Destination: {fileID: 1719818324}
+    m_EventID: 1135201954
+  - m_Destination: {fileID: 1719818321}
+    m_EventID: 1985460778
+  m_CachedInstanceID: 21102
   m_CanTransitionToSelf: 0
 --- !u!114 &1719818319
 MonoBehaviour:
@@ -3475,7 +3479,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 18850
+  m_CachedInstanceID: 21104
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -3574,7 +3578,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 18852
+  m_CachedInstanceID: 21106
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -3671,7 +3675,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -50}
   m_Transitions: []
-  m_CachedInstanceID: 18854
+  m_CachedInstanceID: 21108
   m_Description: Jump in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3829,7 +3833,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 18856
+  m_CachedInstanceID: 21110
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -3858,7 +3862,7 @@ MonoBehaviour:
     m_EventID: 1135201954
   - m_Destination: {fileID: 1719818321}
     m_EventID: 1985460778
-  m_CachedInstanceID: 18858
+  m_CachedInstanceID: 21112
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4000,7 +4004,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
   m_Transitions: []
-  m_CachedInstanceID: 18860
+  m_CachedInstanceID: 21114
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4149,7 +4153,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
-  m_CachedInstanceID: 18862
+  m_CachedInstanceID: 21116
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
