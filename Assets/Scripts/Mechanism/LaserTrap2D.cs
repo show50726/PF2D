@@ -5,8 +5,10 @@
 //NOTE:             Mechanism2D needed.
 
 using UnityEngine;
+using CMSR;
 
-public class LaserTrap2D : Mechanism2D {
+public class LaserTrap2D : Mechanism2D
+{
 
     //protected override void Start()
     //{
@@ -23,6 +25,8 @@ public class LaserTrap2D : Mechanism2D {
     [Tooltip("When enable this, laser will go infinite far along startPoint -> endPoint.")]
     public bool UseDirection;
     public LayerMask ignoreTheseObjects = (1 << 8) | (1 << 9); //this format means the Layer 8. 9 are selected.
+    public float damageToPlayer = 200;
+    public float damageToUnit = 10;
 
     [Header("Special Function")]
     public float meltingIcePeriod;
@@ -72,10 +76,10 @@ public class LaserTrap2D : Mechanism2D {
     // Update is called once per frame
     void Update()
     {
-        if(Activated) ShootLaser(startPoint.position, endPoint.position - startPoint.position);
+        if (Activated) ShootLaser(startPoint.position, endPoint.position - startPoint.position);
         if (resetTimer) ResetTimerCount();
     }
-    
+
     private void DrawLaser(Vector3[] points)
     {
         laserLineRenderer.enabled = true;
@@ -106,7 +110,7 @@ public class LaserTrap2D : Mechanism2D {
             hit = Physics2D.Raycast(startPosition, direction, Mathf.Infinity, ~ignoreTheseObjects);
         else
             hit = Physics2D.Raycast(startPosition, direction, direction.magnitude, ~ignoreTheseObjects);
-        
+
         GameObject hitObj = hit.collider != null ? hit.collider.gameObject : null;
 
         if (hitObj == null) hit.point = startPosition + (UseDirection ? 1000 : 1) * direction;
@@ -130,24 +134,30 @@ public class LaserTrap2D : Mechanism2D {
         }
         if (hitObj != null)
         {
+            PropertyManager objPropertyManager = hitObj.GetComponent<PropertyManager>();
+            SUnitStater unit = hitObj.GetComponent<SUnitStater>();
+
             if (hitObj.tag == tagOfPlayer)
             {
                 //design of player.
                 PropertyFrosting frosting = hitObj.GetComponent<PropertyFrosting>();
-                Player p = hitObj.GetComponent<Player>();
                 if (frosting == null)
                 {
-                    if(p) p.Death();
-                    else
-                    {
-                        DebugMessage(LogType.Warning, "hit object " + hitObj.name + " has tag of player but didn't assign Player(Script). This might be a bug and laser will not kill it.");
-                    }
+                    //if (unit.GetType() == typeof(Player))
+                    //{
+                    //    unit = (Player) unit;
+                    //    unit.Death();
+                    //}
+                    //else
+                    //{
+                    //    DebugMessage(LogType.Warning, "hit object " + hitObj.name + " has tag of player but didn't assign Player(Script). This might be a bug and laser will not kill it.");
+                    //}
+                    unit.Damage(damageToPlayer);
                 }
             }
             else
             {
-                PropertyManager objPropertyManager = hitObj.GetComponent<PropertyManager>();
-                //Debug.Log("Have got property manager of " + hitObj.name + ": " + (objPropertyManager!=null));
+                unit.Damage(damageToUnit);
                 if (objPropertyManager != null)
                 {
                     PropertyFrozen frozenProperty = objPropertyManager.GetProperty<PropertyFrozen>();

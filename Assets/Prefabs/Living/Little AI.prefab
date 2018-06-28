@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 58321283503039308}
   - component: {fileID: 114564403769125832}
   - component: {fileID: 114383755312410540}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ MonoBehaviour:
     m_EventID: 1135201954
   - m_Destination: {fileID: 114067755323978980}
     m_EventID: 1985460778
-  m_CachedInstanceID: 19100
+  m_CachedInstanceID: 19096
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -50}
   m_Transitions: []
-  m_CachedInstanceID: 19096
+  m_CachedInstanceID: 19100
   m_Description: Jump in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 19092
+  m_CachedInstanceID: 19104
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
   m_Transitions: []
-  m_CachedInstanceID: 19102
+  m_CachedInstanceID: 19094
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 19086
+  m_CachedInstanceID: 19110
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
-  m_CachedInstanceID: 19104
+  m_CachedInstanceID: 19092
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 19094
+  m_CachedInstanceID: 19102
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -160, y: 30}
   m_Transitions: []
-  m_CachedInstanceID: 19088
+  m_CachedInstanceID: 19108
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -1433,7 +1433,7 @@ MonoBehaviour:
     m_EventID: 1890031046
   - m_Destination: {fileID: 114448946969571410}
     m_EventID: 1662078051
-  m_CachedInstanceID: 19090
+  m_CachedInstanceID: 19106
   m_CanTransitionToSelf: 0
 --- !u!212 &212000532591771406
 SpriteRenderer:
