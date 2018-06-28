@@ -230,7 +230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &169960029 stripped
 Transform:
@@ -436,7 +436,7 @@ Transform:
   m_LocalScale: {x: 4.8, y: 4.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &424611084
 Prefab:
@@ -534,7 +534,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4561750573310070, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
@@ -627,7 +627,7 @@ Transform:
   m_LocalScale: {x: 4.8, y: 4.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &619685088
 MonoBehaviour:
@@ -931,7 +931,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4043366753097330, guid: 84d6b4bc9caac0c40ace1ea1bc4a9517, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1367897001452478, guid: 84d6b4bc9caac0c40ace1ea1bc4a9517, type: 2}
       propertyPath: m_IsActive
@@ -1011,7 +1011,7 @@ Transform:
   m_LocalScale: {x: 4.8, y: 4.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &949070352
 Prefab:
@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
-  m_CachedInstanceID: 37286
+  m_CachedInstanceID: 50020
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1246,11 +1246,9 @@ MonoBehaviour:
   m_StateName: Jump Random
   m_Color: 2
   m_HideScript: 1
-  m_Position: {x: 210, y: -50}
-  m_Transitions:
-  - m_Destination: {fileID: 983221860}
-    m_EventID: 1135201954
-  m_CachedInstanceID: 37288
+  m_Position: {x: 200, y: -50}
+  m_Transitions: []
+  m_CachedInstanceID: 50022
   m_Description: Jump in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1260,8 +1258,7 @@ MonoBehaviour:
     - BehaviourMachine.OnEnable
     - BehaviourMachine.TickFunction
     - BehaviourMachine.FloatSet
-    - BehaviourMachine.BoolRandom
-    - BehaviourMachine.TickFunction
+    - BehaviourMachine.IntSet
     - BehaviourMachine.FloatAbs
     - BehaviourMachine.PrioritySequence
     - BehaviourMachine.IsAllBoolTrue
@@ -1269,20 +1266,33 @@ MonoBehaviour:
     - BehaviourMachine.AddForce2D
     - BehaviourMachine.Update
     - BehaviourMachine.GetDeltaTime
+    - BehaviourMachine.GetRigidbody2DVelocity
     - BehaviourMachine.FloatAdd
-    - BehaviourMachine.IsFloatGreaterOrEqual
-    - BehaviourMachine.SendEvent
-    m_NodeTypeHash: 89ef8210c00f4abc77b81120f9872707c00f4abc79e713e6fbd4a9442856a0188d24a0b4f292859289ef821079e713e68d24a0b446d570ad0ee2ebc6
-    m_NodeFieldStartIndex: 00000000030000000a0000000f00000012000000190000001c0000001e000000230000002900000035000000380000003b00000040000000450000004b000000
-    m_BranchIndex: ffffffff000000000000000000000000000000000000000000000000060000000600000000000000ffffffff0a0000000a0000000a0000000a000000
+    - BehaviourMachine.Sequence
+    - BehaviourMachine.IsIntEqual
+    - BehaviourMachine.IsFloatGreater
+    - BehaviourMachine.IntSet
+    - BehaviourMachine.Sequence
+    - BehaviourMachine.IsIntEqual
+    - BehaviourMachine.IsFloatLess
+    - BehaviourMachine.IntSet
+    - BehaviourMachine.Sequence
+    - BehaviourMachine.IsIntEqual
+    - BehaviourMachine.IsFloatEqual
+    m_NodeTypeHash: 89ef8210c00f4abc77b811209df2e97c79e713e6fbd4a9442856a0188d24a0b4f292859289ef821079e713e6ce24ac258d24a0b4fbd4a9443d2ce7b746d570ad9df2e97cfbd4a9443d2ce7b746d570ad9df2e97cfbd4a9443d2ce7b704d0da1e
+    m_NodeFieldStartIndex: 00000000030000000a0000000f0000001400000017000000190000001e000000240000003000000033000000360000003c00000041000000430000004a0000005000000055000000570000005e00000064000000690000006b0000007200000079000000
+    m_BranchIndex: ffffffff0000000000000000000000000000000000000000050000000500000000000000ffffffff090000000900000009000000090000000d0000000d0000000d00000009000000110000001100000011000000090000001500000015000000
     m_UnityObjectValue:
     - {fileID: 983221855}
     - {fileID: 0}
-    m_IntValue: 0100000001000000110000000b0000009ad0e11d06000000644841480300000009000000d95784350a0000000c0000006448414810000000d95784350000000005000000d95784354dcc8242000000000000000002000000010000000d00000060d4a20f0f0000008047861560d4a20f000000000e000000c695a770804786159ad0e11d04000000a2cea943
+    m_IntValue: 0100000001000000110000000b0000009ad0e11d0e0000006b7e7a710000000009000000d95784350a0000000c0000006448414810000000d95784350000000005000000d95784354dcc8242000000000000000002000000010000000d00000060d4a20f03000000573572380f0000008047861560d4a20f0000000008000000150000006b7e7a71000000001800000057357238060000006b7e7a710100000004000000120000006b7e7a71010000001300000057357238190000006b7e7a710200000014000000160000006b7e7a71020000001a000000c695a77057357238
     m_FloatValue:
     - 2
     - -1
     - 10
+    - 0
+    - 0
+    - 0
     m_StringValue:
     - OnEnable
     - Initialization
@@ -1290,11 +1300,7 @@ MonoBehaviour:
     - DF
     - State Initialization
     - Set Action Time
-    - Choose a Direction
-    - Correct Facing
-    - BehaviourMachine.ConcreteGameObjectVar
-    - DF
-    - Correct Facing
+    - IntSet
     - Set Jump.X to abs
     - Jump Left
     - If facing Left
@@ -1305,26 +1311,52 @@ MonoBehaviour:
     - BehaviourMachine.ConcreteVector3Var
     - Update
     - GetDeltaTime
+    - GetRigidbody2DVelocity
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
     - Time Pass
-    - Time Out Reset
-    - ToWalk
+    - Sequence
+    - state==0
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteIntVar
+    - v>0
+    - BehaviourMachine.FsmEvent
+    - state=1
+    - Sequence
+    - state==1
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteIntVar
+    - v<0
+    - BehaviourMachine.FsmEvent
+    - state=2
+    - Sequence
+    - state==2
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteIntVar
+    - IsFloatEqual
     - BehaviourMachine.ConcreteFloatVar
-    - BehaviourMachine.ConcreteFloatVar
-    - BehaviourMachine.ConcreteBoolVar
     m_CurveValue: []
     m_GenericFieldType:
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteFloatVar
-    - BehaviourMachine.ConcreteStringVar
-    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteIntVar
     - BehaviourMachine.BoolVar
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.GetWeight
-    m_GenericFieldHash: 7de9e6027de9e602264ce8ef7de9e6027de9e60200000000264ce8ef6646b489
-    m_GenericFieldSize: 0100000001000000010000000100000001000000010000000100000003000000
-    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000000000000500000006000000060000000700000007000000080000000300000009000000040000000a000000080000000b000000090000000a0000000c0000000b0000000d0000000e000000050000000c0000000d0000000f0000000e00000006000000010000000f00000010000000100000001100000012000000110000001200000007000000000000000100000013000000020000001400000015000000130000001600000017000000140000001800000019000000150000001a0000001b0000001c0000001d000000160000001e0000001f0000002000000021000000170000002200000018000000190000001a000000
-    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001200000010000000030000000100000002000000140000000100000002000000110000001000000002000000100000000200000001000000020000001200000001000000020000000100000002000000110000001f00000014000000010000000200000012000000100000000300000005000000010000000200000011000000110000001200000012000000100000000f0000000f000000050000000300000005000000010000000200000005000000010000000200000012000000010000000200000012000000120000000500000001000000020000001e000000120000001200000001000000020000001e000000110000001100000011000000
+    - BehaviourMachine.ConcreteIntVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteIntVar
+    - BehaviourMachine.ConcreteIntVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteIntVar
+    - BehaviourMachine.ConcreteIntVar
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 7de9e6027de9e602264ce8effebf894900000000264ce8ef6646b489febf8949264ce8effebf8949febf8949264ce8effebf8949febf8949264ce8ef
+    m_GenericFieldSize: 010000000100000001000000010000000100000001000000030000000100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000002000000010000000200000000000000030000000100000004000000030000000500000004000000020000000000000005000000060000000600000003000000070000000800000007000000090000000a000000080000000b000000090000000a000000040000000c0000000d0000000b0000000e00000005000000010000000f000000100000000c0000000d0000000e0000001100000012000000060000000000000001000000130000000200000014000000150000000f0000001600000017000000100000001800000019000000110000001200000013000000140000001a0000001b000000150000001c0000001d0000001e0000001f0000001600000020000000170000001800000021000000070000002200000019000000230000001a0000001b000000240000000800000003000000250000001c000000260000000900000027000000280000001d000000290000001e0000001f0000002a0000000a0000002b000000200000002c00000021000000220000002d0000000b000000040000002e000000230000002f0000000c000000300000003100000024000000320000002500000026000000330000000d0000003400000027000000350000002800000036000000370000000e0000000500000029000000
+    m_FieldType: 010000000200000005000000010000000200000011000000100000000200000010000000020000000100000002000000120000001000000003000000010000000200000013000000100000000100000001000000020000001200000001000000020000000100000002000000110000001f00000014000000010000000200000012000000100000000300000005000000010000000200000011000000110000001200000012000000100000000f0000000f00000005000000030000000500000001000000020000000500000001000000020000001200000001000000020000001100000011000000110000001200000001000000020000001200000012000000050000000100000002000000010000000200000011000000130000001000000001000000110000000100000002000000110000001200000010000000030000000100000002000000130000001000000001000000010000000200000001000000020000001100000013000000100000000100000011000000010000000200000011000000120000001000000003000000010000000200000013000000100000000100000001000000020000000100000002000000110000001300000010000000010000001100000001000000020000001e00000012000000100000000300000011000000
     m_FieldPath:
     - instanceID
     - name
@@ -1343,14 +1375,9 @@ MonoBehaviour:
     - newValue.value
     - instanceID
     - name
-    - storeBool
-    - instanceID
-    - name
-    - gameObject
-    - treeName
-    - treeName.value
-    - functionName
-    - functionName.value
+    - variable
+    - newValue
+    - newValue.value
     - instanceID
     - name
     - variable
@@ -1387,20 +1414,71 @@ MonoBehaviour:
     - storeDeltaTime
     - instanceID
     - name
+    - gameObject
+    - velocity
+    - horizontalVelocity
+    - verticalVelocity
+    - instanceID
+    - name
     - variable
     - addBy
     - perSecond
     - instanceID
     - name
+    - instanceID
+    - name
     - onSuccess
     - a
     - b
+    - b.value
+    - tolerance
     - instanceID
     - name
-    - eventToSend
-    - delay
-    - storeDelayTime
-    - storeEventUsed
+    - onSuccess
+    - a
+    - b
+    - b.value
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - newValue.value
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - b.value
+    - tolerance
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - b.value
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - newValue.value
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - b.value
+    - tolerance
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - b.value
+    - tolerance
 --- !u!114 &983221859
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1424,7 +1502,7 @@ MonoBehaviour:
     m_EventID: 1135201954
   - m_Destination: {fileID: 983221858}
     m_EventID: 1985460778
-  m_CachedInstanceID: 37290
+  m_CachedInstanceID: 50024
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1434,20 +1512,33 @@ MonoBehaviour:
     - BehaviourMachine.OnEnable
     - BehaviourMachine.TickFunction
     - BehaviourMachine.FloatSet
+    - BehaviourMachine.Repeat
+    - BehaviourMachine.TickFunctionInSelf
     - BehaviourMachine.Update
     - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.RandomChild
     - BehaviourMachine.Wait
+    - BehaviourMachine.SendEvent
+    - BehaviourMachine.SendEvent
     - BehaviourMachine.RandomChild
     - BehaviourMachine.SendEvent
     - BehaviourMachine.SendEvent
-    m_NodeTypeHash: 89ef8210c00f4abc77b8112089ef8210fbd4a944ce7847da6592f5820ee2ebc60ee2ebc6
-    m_NodeFieldStartIndex: 00000000030000000a0000000f00000012000000140000001900000023000000290000002f000000
-    m_BranchIndex: ffffffff0000000000000000ffffffff0300000004000000040000000600000006000000
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.FloatRandomRange
+    - BehaviourMachine.FloatAdd
+    m_NodeTypeHash: 89ef8210c00f4abc77b811209df2e97c60e3c9bb89ef8210fbd4a9446592f582ce7847da0ee2ebc60ee2ebc66592f5820ee2ebc60ee2ebc689ef8210f527da638d24a0b4
+    m_NodeFieldStartIndex: 00000000030000000a0000000f00000014000000180000001b0000001d0000002a0000002f000000350000003b000000450000004b00000051000000540000005b00000060000000
+    m_BranchIndex: ffffffff00000000000000000000000003000000ffffffff0500000006000000070000000700000007000000060000000b0000000b000000ffffffff0e0000000e000000
     m_UnityObjectValue: []
-    m_IntValue: 010000000100000003000000060000009ad0e11d020000000100000004000000050000009ad0e11d0100000007000000080000000900000008000000a2cea943090000002aba5776
+    m_IntValue: 010000000100000003000000060000009ad0e11d0d0000000a0000000e0000000200000001000000040000000a000000050000000b0000000c000000050000009ad0e11d010000000b000000a2cea9430c0000002aba577607000000080000000900000008000000a2cea943090000002aba57760f000000010000001000000035107230110000009ad0e11d3510723000000000
     m_FloatValue:
-    - 1
+    - 0
     - 0.5
+    - 0.5
+    - 0.5
+    - 0.5
+    - 0.5
+    - 0
     - 0.5
     m_StringValue:
     - OnEnable
@@ -1456,10 +1547,23 @@ MonoBehaviour:
     - DF
     - State Initialization
     - Set Action Time
+    - Repeat
+    - BehaviourMachine.ConcreteIntVar
+    - Add Random Time
+    - Add Random Time
     - Update
     - PrioritySequence
+    - RandomChild
     - Wait
     - BehaviourMachine.ConcreteFloatVar
+    - ToWalk
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
+    - ToJump
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
     - RandomChild
     - ToWalk
     - BehaviourMachine.ConcreteFloatVar
@@ -1469,19 +1573,31 @@ MonoBehaviour:
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.ConcreteBoolVar
+    - Add Random Time
+    - FloatRandomRange
+    - FloatAdd
     m_CurveValue: []
     m_GenericFieldType:
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteIntVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.FloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - System.Int32
     - BehaviourMachine.FloatVar
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.ConcreteFloatVar
     - System.Int32
-    m_GenericFieldHash: 7de9e6027de9e602264ce8ef00000000264ce8ef264ce8ef00000000
-    m_GenericFieldSize: 01000000010000000100000002000000010000000100000002000000
-    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000000000000500000006000000060000000700000007000000080000000800000009000000090000000a0000000b0000000a0000000300000004000000010000000500000002000000060000000c0000000d0000000e0000000b0000000f0000000c0000000d0000000e000000100000000f00000011000000100000001100000012000000
-    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001200000010000000030000000100000002000000050000000100000002000000010000000200000012000000110000000400000001000000020000001f000000100000000300000010000000030000001f000000010000000100000001000000020000001e00000011000000110000001100000001000000020000001e000000110000001100000011000000
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 7de9e6027de9e602264ce8effebf89497de9e60200000000264ce8ef264ce8ef264ce8ef0000000000000000264ce8ef264ce8ef00000000264ce8ef264ce8ef
+    m_GenericFieldSize: 01000000010000000100000001000000010000000300000001000000010000000100000003000000020000000100000001000000020000000100000001000000
+    m_FieldIndex: 000000000000000001000000020000000100000002000000000000000300000001000000040000000300000005000000040000000200000000000000050000000600000003000000060000000700000007000000080000000400000009000000080000000a000000090000000a0000000b0000000b0000000c00000005000000060000000100000007000000020000000800000003000000090000000c0000000d0000000e0000000f0000000d000000100000000e00000011000000120000000f0000001300000010000000110000001200000014000000130000001500000014000000150000001600000016000000170000000a0000000b000000040000000c000000050000000d000000170000001800000019000000180000001a000000190000001a0000001b0000001b0000001c0000001c0000001d0000001e0000001f0000001d000000200000001e0000001f000000210000000e000000060000000f00000007000000200000002100000022000000220000002300000024000000
+    m_FieldType: 010000000200000005000000010000000200000011000000100000000200000010000000020000000100000002000000120000001000000003000000010000000200000010000000010000001100000001000000020000001000000002000000010000000200000005000000010000000200000001000000020000001f0000001000000003000000100000000300000010000000030000001f000000010000000100000001000000010000000200000012000000110000000400000001000000020000001e00000011000000110000001100000001000000020000001e00000011000000110000001100000001000000020000001f000000100000000300000010000000030000001f000000010000000100000001000000020000001e00000011000000110000001100000001000000020000001e000000110000001100000011000000010000000200000005000000010000000200000010000000030000001000000003000000120000000100000002000000120000001200000005000000
     m_FieldPath:
     - instanceID
     - name
@@ -1500,14 +1616,48 @@ MonoBehaviour:
     - newValue.value
     - instanceID
     - name
+    - times
+    - times.value
+    - index
+    - instanceID
+    - name
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
     - enabled
     - instanceID
     - name
     - instanceID
     - name
+    - weight
+    - weight.data[0]
+    - weight.data[0].value
+    - weight.data[1]
+    - weight.data[1].value
+    - weight.data[2]
+    - weight.data[2].value
+    - childrenID
+    - childrenID.data[0]
+    - childrenID.data[1]
+    - childrenID.data[2]
+    - instanceID
+    - name
     - intervalTime
     - storeCurrentTime
     - finishedStatus
+    - instanceID
+    - name
+    - eventToSend
+    - delay
+    - storeDelayTime
+    - storeEventUsed
+    - instanceID
+    - name
+    - eventToSend
+    - delay
+    - storeDelayTime
+    - storeEventUsed
     - instanceID
     - name
     - weight
@@ -1530,6 +1680,21 @@ MonoBehaviour:
     - delay
     - storeDelayTime
     - storeEventUsed
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - minimum
+    - minimum.value
+    - maximun
+    - maximun.value
+    - storeFloat
+    - instanceID
+    - name
+    - variable
+    - addBy
+    - perSecond
 --- !u!114 &983221860
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1549,7 +1714,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
   m_Transitions: []
-  m_CachedInstanceID: 37292
+  m_CachedInstanceID: 50026
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1559,6 +1724,8 @@ MonoBehaviour:
     - BehaviourMachine.OnEnable
     - BehaviourMachine.TickFunction
     - BehaviourMachine.FloatSet
+    - BehaviourMachine.Repeat
+    - BehaviourMachine.TickFunction
     - BehaviourMachine.BoolRandom
     - BehaviourMachine.TickFunction
     - BehaviourMachine.FloatAbs
@@ -1570,14 +1737,19 @@ MonoBehaviour:
     - BehaviourMachine.GetDeltaTime
     - BehaviourMachine.FloatAdd
     - BehaviourMachine.IsFloatGreaterOrEqual
-    m_NodeTypeHash: 89ef8210c00f4abc77b81120f9872707c00f4abc79e713e6fbd4a9442856a0188d24a0b489ef8210ce24ac2579e713e68d24a0b446d570ad
-    m_NodeFieldStartIndex: 00000000030000000a0000000f00000012000000190000001c0000001e00000023000000290000002c00000032000000350000003a0000003f000000
-    m_BranchIndex: ffffffff0000000000000000000000000000000000000000000000000600000006000000ffffffff09000000090000000900000009000000
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.FloatRandomRange
+    - BehaviourMachine.FloatAdd
+    m_NodeTypeHash: 89ef8210c00f4abc77b811209df2e97cc00f4abcf9872707c00f4abc79e713e6fbd4a9442856a0188d24a0b489ef8210ce24ac2579e713e68d24a0b446d570ad89ef8210f527da638d24a0b4
+    m_NodeFieldStartIndex: 00000000030000000a0000000f000000140000001b0000001e00000025000000280000002a0000002f00000035000000380000003e00000041000000460000004b0000004e000000550000005a000000
+    m_BranchIndex: ffffffff00000000000000000000000003000000000000000000000000000000000000000800000008000000ffffffff0b0000000b0000000b0000000b000000ffffffff1000000010000000
     m_UnityObjectValue: []
-    m_IntValue: 0100000001000000110000000b0000009ad0e11d0600000064484148030000000400000027c2222b0a0000000c000000644841480500000027c2222b0000000002000000010000000900000027c2222b0d00000060d4a20f0f0000008047861560d4a20f000000000e000000c695a770804786159ad0e11d
+    m_IntValue: 0100000001000000110000000b0000009ad0e11d0800000003000000120000000600000064484148030000000400000027c2222b0a0000000c000000644841480500000027c2222b0000000002000000010000000900000027c2222b0d00000060d4a20f0f0000008047861560d4a20f000000000e000000c695a770804786159ad0e11d13000000010000000700000035107230100000009ad0e11d3510723000000000
     m_FloatValue:
-    - 2.5
+    - 0
     - -1
+    - 0
+    - 0.5
     m_StringValue:
     - OnEnable
     - Initialization
@@ -1585,6 +1757,12 @@ MonoBehaviour:
     - DF
     - State Initialization
     - Set Action Time
+    - Repeat 3 times
+    - BehaviourMachine.ConcreteIntVar
+    - TickFunction
+    - BehaviourMachine.ConcreteGameObjectVar
+    - Walk Random
+    - Add Random Time
     - Choose a Direction
     - Correct Facing
     - BehaviourMachine.ConcreteGameObjectVar
@@ -1603,19 +1781,27 @@ MonoBehaviour:
     - GetDeltaTime
     - Time Pass
     - Time Out Reset
+    - Add Random Time
+    - Set Add Time
+    - FloatAdd
     m_CurveValue: []
     m_GenericFieldType:
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteIntVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.BoolVar
     - BehaviourMachine.ConcreteFloatVar
-    m_GenericFieldHash: 7de9e6027de9e602264ce8ef7de9e6027de9e60200000000264ce8ef
-    m_GenericFieldSize: 01000000010000000100000001000000010000000100000001000000
-    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000000000000500000006000000060000000700000007000000080000000300000009000000040000000a000000080000000b000000090000000a0000000c0000000b0000000d0000000e000000050000000c0000000d0000000f0000000e00000006000000010000000f00000010000000100000001100000012000000110000001200000013000000130000001400000014000000150000001500000016000000160000001700000018000000190000001a000000170000001b0000001c0000001d000000
-    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001200000010000000030000000100000002000000140000000100000002000000110000001000000002000000100000000200000001000000020000001200000001000000020000000100000002000000110000001f00000014000000010000000200000012000000100000000300000005000000010000000200000005000000010000000200000011000000110000001200000011000000010000000200000012000000010000000200000012000000120000000500000001000000020000001e0000001200000012000000
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 7de9e6027de9e602264ce8effebf89497de9e6027de9e6027de9e6027de9e60200000000264ce8ef264ce8ef264ce8ef
+    m_GenericFieldSize: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000000000000500000006000000030000000600000007000000070000000800000009000000040000000a000000050000000b000000080000000c000000090000000a0000000d0000000e000000060000000f00000007000000100000000b000000110000000c0000000d000000120000000e0000001300000014000000080000000f00000010000000150000001100000009000000010000001200000013000000160000001400000015000000170000001800000019000000160000001a000000170000001b00000018000000190000001c0000001a0000001b0000001c0000001d0000001d0000001e0000001f00000020000000210000001e00000022000000230000001f0000000a000000020000000b00000003000000240000002500000020000000260000002700000028000000
+    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001200000010000000030000000100000002000000100000000100000011000000010000000200000011000000100000000200000010000000020000000100000002000000140000000100000002000000110000001000000002000000100000000200000001000000020000001200000001000000020000000100000002000000110000001f00000014000000010000000200000012000000100000000300000005000000010000000200000005000000010000000200000011000000110000001200000011000000010000000200000012000000010000000200000012000000120000000500000001000000020000001e0000001200000012000000010000000200000005000000010000000200000010000000030000001000000003000000120000000100000002000000120000001200000005000000
     m_FieldPath:
     - instanceID
     - name
@@ -1632,6 +1818,18 @@ MonoBehaviour:
     - variable
     - newValue
     - newValue.value
+    - instanceID
+    - name
+    - times
+    - times.value
+    - index
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
     - instanceID
     - name
     - storeBool
@@ -1680,6 +1878,21 @@ MonoBehaviour:
     - onSuccess
     - a
     - b
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - minimum
+    - minimum.value
+    - maximun
+    - maximun.value
+    - storeFloat
+    - instanceID
+    - name
+    - variable
+    - addBy
+    - perSecond
 --- !u!114 &983221861
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1701,9 +1914,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 983221859}
     m_EventID: 1890031046
-  - m_Destination: {fileID: 983221857}
-    m_EventID: 1662078051
-  m_CachedInstanceID: 37294
+  m_CachedInstanceID: 50028
   m_CanTransitionToSelf: 0
 --- !u!114 &983221862
 MonoBehaviour:
@@ -1724,7 +1935,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 37296
+  m_CachedInstanceID: 50030
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -1824,7 +2035,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 37298
+  m_CachedInstanceID: 50032
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -1922,7 +2133,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -170, y: 30}
   m_Transitions: []
-  m_CachedInstanceID: 37300
+  m_CachedInstanceID: 50034
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -2065,7 +2276,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 37302
+  m_CachedInstanceID: 50036
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -2104,21 +2315,41 @@ MonoBehaviour:
     m_Name: Speed Jump.Y
     m_Blackboard: {fileID: 983221866}
     m_IsConstant: 0
-    value: 10
+    value: 12
   - m_ID: 897865689
     m_Name: Speed Jump.X
     m_Blackboard: {fileID: 983221866}
     m_IsConstant: 0
-    value: 3
+    value: 0
   - m_ID: 723698215
     m_Name: Speed Move
     m_Blackboard: {fileID: 983221866}
     m_IsConstant: 0
-    value: 2
-  m_IntVars: []
+    value: 9.333333
+  - m_ID: 812781621
+    m_Name: Time Add Random
+    m_Blackboard: {fileID: 983221866}
+    m_IsConstant: 0
+    value: 0
+  - m_ID: 947008855
+    m_Name: velocity.Y
+    m_Blackboard: {fileID: 983221866}
+    m_IsConstant: 0
+    value: 0
+  m_IntVars:
+  - m_ID: 1903853163
+    m_Name: Jump State
+    m_Blackboard: {fileID: 983221866}
+    m_IsConstant: 0
+    value: 0
   m_BoolVars:
   - m_ID: 1212237924
     m_Name: Face Left
+    m_Blackboard: {fileID: 983221866}
+    m_IsConstant: 0
+    value: 0
+  - m_ID: 1245293489
+    m_Name: New Bool
     m_Blackboard: {fileID: 983221866}
     m_IsConstant: 0
     value: 0
@@ -2275,13 +2506,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 983221855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.462, y: 2.804, z: 0}
+  m_LocalPosition: {x: 6.3, y: 8.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2105037454}
   - {fileID: 1601929137}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1013452498 stripped
 Transform:
@@ -2320,7 +2551,7 @@ Transform:
   - {fileID: 1431518781}
   - {fileID: 2028982963}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1014777518
 MonoBehaviour:
@@ -2421,7 +2652,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4358936450517684, guid: 0eed0e5446487644b91f2040950d185d, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8195094282771488468, guid: 0eed0e5446487644b91f2040950d185d,
         type: 2}
@@ -5023,10 +5254,52 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4499127107673606, guid: 75e67036c59a58e4e8c8595513bb11b9, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75e67036c59a58e4e8c8595513bb11b9, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1398406713
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.9999304
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.6374996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444029547270740, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 00a5d5ab9d2cdc44ebd504602d89efc3, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1421211429
 Prefab:
@@ -5208,7 +5481,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 37360
+  m_CachedInstanceID: 50094
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -5320,7 +5593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_LocalScale.y
@@ -5388,7 +5661,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4175769828419428, guid: c4071c493c2f2f04ab04be395dc4e24e, type: 2}
       propertyPath: m_LocalScale.y
@@ -5491,7 +5764,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1819330656
 Prefab:
@@ -5530,7 +5803,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4910228992360576, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
@@ -5651,6 +5924,52 @@ Prefab:
     - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
       propertyPath: m_LocalScale.x
       value: 5.75
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1887342937
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.318
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.350031
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 21.30109
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
@@ -5863,5 +6182,5 @@ Transform:
   m_LocalScale: {x: 4.8, y: 4.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

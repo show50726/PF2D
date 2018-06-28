@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa74e2b388de9b949884599faf7dc54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMessage: 0
   propertyManager: {fileID: 0}
   controller2D: {fileID: 0}
   player: {fileID: 0}
