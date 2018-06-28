@@ -232,6 +232,7 @@ MonoBehaviour:
   connectedMechanism:
   - {fileID: 114763710178643606}
   switchInsteadTurnOn: 0
+  turnOffInsteadTurnOn: 0
 --- !u!114 &114763710178643606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,8 +251,8 @@ MonoBehaviour:
   startPoint: {fileID: 4012381152209852}
   endPoint: {fileID: 4428733196560666}
   UseDirection: 0
-  meltingIcePeriod: 0
-  DestroyWoodPeriod: 0
+  meltingIcePeriod: 0.1
+  DestroyWoodPeriod: 1
   tagOfFloor: Floor
   tagOfPlayer: Player
 --- !u!120 &120175588244475786

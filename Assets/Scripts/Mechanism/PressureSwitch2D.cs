@@ -14,6 +14,8 @@ public class PressureSwitch2D : Mechanism2D {
     [Tooltip("When checked, mechanisms will 'switch state' (on<->off) instead of turning on / off.")]
     public bool switchInsteadTurnOn = false;
 
+    public bool turnOffInsteadTurnOn = false;
+
     private System.Collections.Generic.List<GameObject> pressingObject
         = new System.Collections.Generic.List<GameObject>();
 
@@ -48,7 +50,7 @@ public class PressureSwitch2D : Mechanism2D {
         if (LayerIsInLayerMask(col.gameObject.layer,ignoreTheseObjects) == false)
         {
             pressingObject.Add(col.gameObject);
-            Activated = true;
+            Activated = !turnOffInsteadTurnOn;
         }
     }
     private void OnCollisionExit2D(Collision2D col)
@@ -59,7 +61,7 @@ public class PressureSwitch2D : Mechanism2D {
             pressingObject.Remove(col.gameObject);
             if (pressingObject.Count == 0)
             {
-                Activated = false;
+                Activated = turnOffInsteadTurnOn;
             }
         }
     }

@@ -74,3 +74,6 @@ TagManager:
   - name: Editor Priority
     uniqueID: 1055208951
     locked: 0
+  - name: PropertyGiver
+    uniqueID: 1143632899
+    locked: 0
