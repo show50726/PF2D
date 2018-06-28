@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 61232415570727284}
   - component: {fileID: 114867072239991180}
   - component: {fileID: 114724495075000800}
+  - component: {fileID: 114462713078479976}
+  - component: {fileID: 114518015088427976}
   m_Layer: 9
   m_Name: HealingGiver
   m_TagString: Untagged
@@ -37,8 +39,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882356586815766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 7.505269, y: 2.5280209, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> origin/Feature
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,7 +59,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -68,6 +75,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114462713078479976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1882356586815766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479a503a0b825db45b4042bf448229f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 0.8
+  maxScale: 1
+  changingSpeed: 0.3
+  goBigger: 0
+  assignHeight: 0
+--- !u!114 &114518015088427976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1882356586815766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88f41b9c912ee1409e3d7f9244c29ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changingSpeed: 0.9
+  leastTransparency: 0.3
+  maxTransparency: 0.9
 --- !u!114 &114724495075000800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +185,11 @@ SpriteRenderer:
   m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: abba786cb21b85341bf3173efd3e5cb7, type: 3}
+<<<<<<< HEAD
   m_Color: {r: 0.74509805, g: 0.14901961, b: 0.2, a: 1}
+=======
+  m_Color: {r: 0.9117647, g: 0.24805364, b: 0.78359956, a: 1}
+>>>>>>> origin/Feature
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

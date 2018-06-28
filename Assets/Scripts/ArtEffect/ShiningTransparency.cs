@@ -1,6 +1,6 @@
 ﻿//ShiningTransparency made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/25
+//last maintained:  2018/06/28
 //Usage:            Assign it to the object, this will help you to make object's transparency go up & down. Something like "twinkle" effect.
 //NOTE:             2D (sprite) Only.
 
@@ -10,7 +10,7 @@ using System;
 
 public class ShiningTransparency : MonoBehaviour
 {
-    [Range(0.002f, 0.9f)]
+    [Range(0.001f, 30f)]
     [Tooltip("Per sec.The transparency value in program verify from 0 to 1. if changing value too large, this will make color looks like the same.")]
     public float changingSpeed = 0.005f;
     [Range(0, 1)]
@@ -29,9 +29,12 @@ public class ShiningTransparency : MonoBehaviour
             enabled = false;
             return;
         }
-        if (maxTransparency > leastTransparency)
+        if (maxTransparency < leastTransparency)
         {
-            Debug.LogWarning(name + "/" + GetType().Name + " warning: maxTransparency is less than leastTransparency. I assume that you mispelled them");
+            Debug.LogWarning(name + "/" + GetType().Name + " warning: maxTransparency is less than leastTransparency. I assume that you mix them up, and helped you correct it.");
+            float tmp = maxTransparency;
+            maxTransparency = leastTransparency;
+            leastTransparency = tmp;
         }
     }
 
