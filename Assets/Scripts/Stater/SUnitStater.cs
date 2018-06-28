@@ -1,13 +1,13 @@
 ﻿//S(Stater) Unit Stater by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/26
+//last maintained:  2018/06/27
 //Usage:            State the info of generic unit, such as hp. Assign it to any GO that needs these info.
 
 using System;
 using UnityEngine;
 namespace CMSR
 {
-    public class SUnitStater : MonoBehaviour
+    public class SUnitStater : STCMonoBehaviour
     {
         public bool debugMessage = false;
 
@@ -87,7 +87,7 @@ namespace CMSR
             DataCorrect();
             healthPoint = (healthPointLimit - healthPoint) <= healAmount ? healthPointLimit : healthPoint + healAmount;
             if (healthPoint <= 0) healthPoint = 0;
-            if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " successfully healed.");
+            if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " successfully healed " + healAmount + " hp.");
 
         }
         public void Damage(float damageAmount)
@@ -97,5 +97,4 @@ namespace CMSR
         }
 
     }
-    public enum LogType { Normal, Warning, Error }
 }
