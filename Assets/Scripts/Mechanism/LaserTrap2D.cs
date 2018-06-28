@@ -1,6 +1,6 @@
 ﻿//LaserTrap2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/27
+//last maintained:  2018/06/28
 //usage:            Laser Trap shoots laser and can be treated like a mechanism (such as button).
 //NOTE:             Mechanism2D needed.
 
@@ -22,6 +22,7 @@ public class LaserTrap2D : Mechanism2D {
     public Transform endPoint;
     [Tooltip("When enable this, laser will go infinite far along startPoint -> endPoint.")]
     public bool UseDirection;
+    public LayerMask ignoreTheseObjects = (1 << 8) | (1 << 9); //this format means the Layer 8. 9 are selected.
 
     [Header("Special Function")]
     public float meltingIcePeriod;
@@ -34,6 +35,11 @@ public class LaserTrap2D : Mechanism2D {
     public string tagOfFloor = "Floor";
     public string tagOfPlayer = "Player";
 
+    /// <summary>
+    /// used to check if need to re-draw line.
+    /// </summary>
+    private Vector2 lastHit;
+
     protected override void WhenActivate(bool isTurnOn)
     {
         base.WhenActivate(isTurnOn);
@@ -42,6 +48,7 @@ public class LaserTrap2D : Mechanism2D {
         if (isTurnOn)
         {
             //basic draw laser.
+            lastHit = endPoint.position;
             DrawLaser(new Vector3[] { startPoint.position, endPoint.position });
         }
         else
@@ -77,26 +84,49 @@ public class LaserTrap2D : Mechanism2D {
         {
             laserLineRenderer.SetPosition(i, points[i]);
         }
-        if (_showDebugMessage) DebugMessage(LogType.Normal, "line drawn.");
+        string pointsString = "";
+        foreach (Vector3 p in points)
+        {
+            pointsString += p + ", ";
+        }
+        pointsString.Remove(pointsString.Length - 2, 2);
+        if (_showDebugMessage) DebugMessage(LogType.Normal, "line drawn. Draw points are " + pointsString);
     }
 
-    private Vector3 lastPos, Pos;
+    /// <summary>
+    /// used by checking if wooden box is moved.
+    /// </summary>
+    private Vector3 objLastPos, objPos;
     private GameObject lastHittingObj = null;
     public void ShootLaser(Vector3 startPosition, Vector3 direction)
     {
         //Raycast.
         RaycastHit2D hit;
         if (UseDirection)
-            hit = Physics2D.Raycast(startPosition, direction);
+            hit = Physics2D.Raycast(startPosition, direction, Mathf.Infinity, ~ignoreTheseObjects);
         else
-            hit = Physics2D.Raycast(startPosition, direction, direction.magnitude);
+            hit = Physics2D.Raycast(startPosition, direction, direction.magnitude, ~ignoreTheseObjects);
         
-        GameObject hitObj = hit.collider.gameObject;
+        GameObject hitObj = hit.collider != null ? hit.collider.gameObject : null;
+
+        if (hitObj == null) hit.point = startPosition + (UseDirection ? 1000 : 1) * direction;
+        if (hitObj == gameObject)
+        {
+            DebugMessage(LogType.Error, " hit itself. Make sure that startPoint is NOT inside the shooter.");
+        }
+
         if (hitObj != lastHittingObj)
         {
             resetTimer = true;
             lastHittingObj = hitObj;
             DrawLaser(new Vector3[] { startPosition, hit.point });
+            if (hitObj) DebugMessage(LogType.Normal, "hit " + hitObj.name);
+            else DebugMessage(LogType.Normal, "hit nothing");
+        }
+        else if (hit.point != lastHit)
+        {
+            DrawLaser(new Vector3[] { startPosition, hit.point });
+            lastHit = hit.point;
         }
         if (hitObj != null)
         {
@@ -136,8 +166,8 @@ public class LaserTrap2D : Mechanism2D {
                     if (objPropertyManager.GetProperty<PropertyWooden>())
                     {
                         timer_w += Time.deltaTime;
-                        Pos = hitObj.transform.position;
-                        if (Pos == lastPos)
+                        objPos = hitObj.transform.position;
+                        if (objPos == objLastPos)
                         {
                             timer_w += Time.deltaTime;
                         }
@@ -150,7 +180,7 @@ public class LaserTrap2D : Mechanism2D {
                             Destroy(hitObj);
                             timer_w = 0;
                         }
-                        lastPos = Pos;
+                        objLastPos = objPos;
                     }
                     //if (objPropertyManager.GetProperty<PropertyMetal>())
                     //{
