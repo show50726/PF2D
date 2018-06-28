@@ -232,7 +232,7 @@ MonoBehaviour:
   connectedMechanism:
   - {fileID: 114763710178643606}
   switchInsteadTurnOn: 0
-  turnOffInsteadTurnOn: 0
+  turnOffInsteadTurnOn: 1
 --- !u!114 &114763710178643606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugMessage: 1
-  activated: 0
+  activated: 1
   stayOnAfterActivated: 0
   laserLineRenderer: {fileID: 120175588244475786}
   startPoint: {fileID: 4012381152209852}
