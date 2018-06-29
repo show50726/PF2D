@@ -1,6 +1,6 @@
 ﻿//LaserTrap2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/28
+//last maintained:  2018/06/29
 //usage:            Laser Trap shoots laser and can be treated like a mechanism (such as button).
 //NOTE:             Mechanism2D needed.
 
@@ -155,7 +155,7 @@ public class LaserTrap2D : Mechanism2D
                     unit.Damage(damageToPlayer);
                 }
             }
-            else
+            else if(unit != null)
             {
                 unit.Damage(damageToUnit);
                 if (objPropertyManager != null)
