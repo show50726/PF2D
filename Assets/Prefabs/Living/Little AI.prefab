@@ -287,7 +287,7 @@ MonoBehaviour:
     m_EventID: 1135201954
   - m_Destination: {fileID: 114067755323978980}
     m_EventID: 1985460778
-  m_CachedInstanceID: -7260
+  m_CachedInstanceID: 10518
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096392123069142}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
   m_Name: 
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -50}
   m_Transitions: []
-  m_CachedInstanceID: -7256
+  m_CachedInstanceID: 10520
   m_Description: Jump in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: -7252
+  m_CachedInstanceID: 10524
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
   m_Transitions: []
-  m_CachedInstanceID: -7262
+  m_CachedInstanceID: 10528
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -7230
+  m_CachedInstanceID: 10530
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
-  m_CachedInstanceID: -7264
+  m_CachedInstanceID: 10532
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: -7254
+  m_CachedInstanceID: 10534
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -1217,10 +1217,10 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -7258
+  m_CachedInstanceID: 10538
   m_Description: 
-  m_EnabledState: {fileID: 0}
-  m_LastEnabledState: {fileID: 0}
+  m_EnabledState: {fileID: 114067755323978980}
+  m_LastEnabledState: {fileID: 114067755323978980}
   m_StartState: {fileID: 114040450966096592}
   m_AnyState: {fileID: 114986364001316468}
   m_ConcurrentState: {fileID: 114576095044458876}
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -170, y: 30}
   m_Transitions: []
-  m_CachedInstanceID: -7248
+  m_CachedInstanceID: 10542
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -1415,7 +1415,7 @@ MonoBehaviour:
     m_EventID: 1890031046
   - m_Destination: {fileID: 114448946969571410}
     m_EventID: 1662078051
-  m_CachedInstanceID: -7250
+  m_CachedInstanceID: 10544
   m_CanTransitionToSelf: 0
 --- !u!212 &212000532591771406
 SpriteRenderer:
