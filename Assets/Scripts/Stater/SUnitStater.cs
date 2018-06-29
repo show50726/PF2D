@@ -7,9 +7,13 @@ using System;
 using UnityEngine;
 namespace CMSR
 {
+    public delegate void OnUnitDamageDelegate(float dmg); 
+
     public class SUnitStater : STCMonoBehaviour
     {
         public bool debugMessage = false;
+
+        public event OnUnitDamageDelegate OnUnitDamageEvent;
 
         public string LogTitle(LogType logType)
         {
@@ -93,6 +97,7 @@ namespace CMSR
         public void Damage(float damageAmount)
         {
             healthPoint = (healthPoint - damageAmount) <= 0 ? 0 : healthPoint - damageAmount;
+            if (OnUnitDamageEvent != null) OnUnitDamageEvent.Invoke(damageAmount);
             if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " damaged.");
         }
 

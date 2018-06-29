@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026488740072700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.71, y: 0, z: 0}
+  m_LocalPosition: {x: -0.51, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4090678852272316}
@@ -127,8 +127,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226137329650214}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.38, y: -0.87, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4090678852272316}
@@ -141,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1321590992053402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.5, z: 0}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4941162215834870}
@@ -251,8 +251,16 @@ MonoBehaviour:
   startPoint: {fileID: 4012381152209852}
   endPoint: {fileID: 4428733196560666}
   UseDirection: 0
+<<<<<<< HEAD
   meltingIcePeriod: 0.1
   DestroyWoodPeriod: 1
+=======
+  ignoreTheseObjects:
+    serializedVersion: 2
+    m_Bits: 12292
+  meltingIcePeriod: 0
+  DestroyWoodPeriod: 0
+>>>>>>> origin/Feature
   tagOfFloor: Floor
   tagOfPlayer: Player
 --- !u!120 &120175588244475786
@@ -289,9 +297,7 @@ LineRenderer:
   m_SortingLayerID: -1522151697
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.2
