@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.8
-  maxScale: 1
+  maxScale: 1.5
   changingSpeed: 0.3
   goBigger: 0
   assignHeight: 0
