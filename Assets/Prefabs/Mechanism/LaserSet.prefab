@@ -251,16 +251,11 @@ MonoBehaviour:
   startPoint: {fileID: 4012381152209852}
   endPoint: {fileID: 4428733196560666}
   UseDirection: 0
-<<<<<<< HEAD
-  meltingIcePeriod: 0.1
-  DestroyWoodPeriod: 1
-=======
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 12292
-  meltingIcePeriod: 0
-  DestroyWoodPeriod: 0
->>>>>>> origin/Feature
+  meltingIcePeriod: 0.1
+  DestroyWoodPeriod: 1
   tagOfFloor: Floor
   tagOfPlayer: Player
 --- !u!120 &120175588244475786
