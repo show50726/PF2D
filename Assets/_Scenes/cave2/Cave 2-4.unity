@@ -335,7 +335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &203703472
 Transform:
   m_ObjectHideFlags: 0
@@ -367,11 +367,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 19.41
+      value: 19.5
       objectReference: {fileID: 0}
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -459,6 +459,10 @@ Prefab:
         type: 2}
       propertyPath: goToThisScene
       value: Cave 2-5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483809408270286, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
@@ -598,7 +602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &537280183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,7 +949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1014777517
 Transform:
   m_ObjectHideFlags: 0

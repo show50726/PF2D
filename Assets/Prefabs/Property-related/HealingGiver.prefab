@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changingSpeed: 0.9
-  leastTransparency: 0.3
+  leastTransparency: 0.5
   maxTransparency: 0.9
 --- !u!114 &114724495075000800
 MonoBehaviour:

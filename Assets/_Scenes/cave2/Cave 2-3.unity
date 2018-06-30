@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: 4.52
       objectReference: {fileID: 0}
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -384,7 +384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &203703472
 Transform:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4889283253906092, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.7503
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4889283253906092, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
       propertyPath: m_LocalPosition.z
@@ -570,6 +570,25 @@ Prefab:
     - target: {fileID: 1140465058800024, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
       propertyPath: m_Name
       value: PropertyCleaner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212300630050761836, guid: d251fe3aab24aa148ae4ac02fc7ece83,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1143632899
+      objectReference: {fileID: 0}
+    - target: {fileID: 212300630050761836, guid: d251fe3aab24aa148ae4ac02fc7ece83,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889283253906092, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114686254722592460, guid: d251fe3aab24aa148ae4ac02fc7ece83,
+        type: 2}
+      propertyPath: maxScale
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
@@ -905,7 +924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1014777517
 Transform:
   m_ObjectHideFlags: 0
@@ -1156,7 +1175,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1781745091
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_MaxChunkCount: 16
@@ -2919,6 +2938,10 @@ Prefab:
       propertyPath: goToThisPosition.y
       value: 3.375
       objectReference: {fileID: 0}
+    - target: {fileID: 1483809408270286, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
   m_IsPrefabParent: 0
@@ -3273,6 +3296,10 @@ Prefab:
       propertyPath: connectedMechanism.Array.data[0]
       value: 
       objectReference: {fileID: 904909207}
+    - target: {fileID: 1000253501227158, guid: 74746ee75bb791b4d99db3d1c5c317c0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74746ee75bb791b4d99db3d1c5c317c0, type: 2}
   m_IsPrefabParent: 0
@@ -3445,6 +3472,10 @@ Prefab:
         type: 2}
       propertyPath: goToThisScene
       value: Cave 2-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973851332138044, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}

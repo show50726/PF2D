@@ -234,7 +234,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4910228992360576, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
@@ -535,7 +535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &265395300 stripped
 Transform:
@@ -4014,6 +4014,46 @@ Prefab:
       value: 
       objectReference: {fileID: 21300030, guid: d8e860c298b1e2346bce1f73e3041b65,
         type: 3}
+    - target: {fileID: 3664157345472835504, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1522151697
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664157345472835504, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664157344222225026, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1522151697
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664157344222225026, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664157343347882344, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1522151697
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664157343347882344, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664157346263704802, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1352065687
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664157346263704802, guid: 0eed0e5446487644b91f2040950d185d,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0eed0e5446487644b91f2040950d185d, type: 2}
   m_IsPrefabParent: 0
@@ -4312,7 +4352,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4889283253906092, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.644
+      value: 1.981
       objectReference: {fileID: 0}
     - target: {fileID: 4889283253906092, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4340,7 +4380,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4889283253906092, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5.005155
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889283253906092, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212300630050761836, guid: d251fe3aab24aa148ae4ac02fc7ece83,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1143632899
+      objectReference: {fileID: 0}
+    - target: {fileID: 212300630050761836, guid: d251fe3aab24aa148ae4ac02fc7ece83,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d251fe3aab24aa148ae4ac02fc7ece83, type: 2}
@@ -4393,7 +4447,7 @@ Transform:
   - {fileID: 729891567}
   - {fileID: 2062589285}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1014777518
 MonoBehaviour:
@@ -4468,6 +4522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caed90d903e7c874c84c38d3b5714fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   activated: 0
   stayOnAfterActivated: 0
   finish2d: {fileID: 652335165}
@@ -4648,6 +4703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caed90d903e7c874c84c38d3b5714fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   activated: 0
   stayOnAfterActivated: 0
   finish2d: {fileID: 652335165}

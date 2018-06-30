@@ -54,9 +54,6 @@ TagManager:
   - name: Door
     uniqueID: 2878709277
     locked: 0
-  - name: Ground
-    uniqueID: 1781745091
-    locked: 0
   - name: Decoration
     uniqueID: 140020661
     locked: 0
@@ -65,6 +62,9 @@ TagManager:
     locked: 0
   - name: ItemDescription
     uniqueID: 4278749781
+    locked: 0
+  - name: Ground
+    uniqueID: 1781745091
     locked: 0
   - name: Player
     uniqueID: 11451887
@@ -77,4 +77,7 @@ TagManager:
     locked: 0
   - name: PropertyGiver
     uniqueID: 1143632899
+    locked: 0
+  - name: Very Front
+    uniqueID: 2942901609
     locked: 0
