@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87c2057df10cdf47ae009f1b5083a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   activated: 0
   stayOnAfterActivated: 0
   destination: {x: 0.5, y: 0}
@@ -259,6 +260,7 @@ MonoBehaviour:
   stateName: 
   targetLayer: 0
   updateCondictionBoolName: InFinish
+  openThisDoor: FinishSet
 --- !u!114 &114907569646990992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87c2057df10cdf47ae009f1b5083a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   activated: 0
   stayOnAfterActivated: 0
   destination: {x: -0.5, y: 0}
@@ -350,8 +353,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1416258019
-  m_SortingLayer: 3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0.559, g: 0, b: 0, a: 1}
@@ -394,8 +397,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1416258019
-  m_SortingLayer: 3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0, g: 0.0038552745, b: 0.559, a: 1}

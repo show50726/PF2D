@@ -5004,7 +5004,7 @@ Prefab:
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -254182
+      value: -7716
       objectReference: {fileID: 0}
     - target: {fileID: 114220744217048450, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -10928,7 +10928,7 @@ Prefab:
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FloatValue.Array.data[0]
-      value: 9000
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -11113,7 +11113,7 @@ Prefab:
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FloatValue.Array.data[1]
-      value: 1500
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -11593,7 +11593,7 @@ Prefab:
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[14]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -16090,7 +16090,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 64312
+  m_CachedInstanceID: 15952
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -16119,10 +16119,10 @@ MonoBehaviour:
     m_UnityObjectValue:
     - {fileID: 1100825125}
     - {fileID: 0}
-    m_IntValue: 0100000001000000020000000100000006000000010000001cb165590a000000040000001cb16559568480d4090000001cb1655900000000010000000300000034b3ae2e01000000000000000c000000010000000d000000b29c5c79010000000e000000b29c5c790f000000b29c5c7901000000100000000100000011000000b29c5c790100000012000000b29c5c7913000000b29c5c790000000014000000b29c5c7901000000
+    m_IntValue: 0100000001000000020000000100000006000000010000001cb165590a000000040000001cb16559568480d4090000001cb1655900000000000000000300000034b3ae2e01000000000000000c000000010000000d000000b29c5c79010000000e000000b29c5c790f000000b29c5c7901000000100000000100000011000000b29c5c790100000012000000b29c5c7913000000b29c5c790000000014000000b29c5c7901000000
     m_FloatValue:
-    - -9000
-    - 1500
+    - -150
+    - 25
     - 14
     - -1
     m_StringValue:
