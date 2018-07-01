@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 1635943495190070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.23, y: 3.483, z: 0}
-  m_LocalScale: {x: 0.7272728, y: 1.2121212, z: 1}
+  m_LocalScale: {x: 0.6666667, y: 1.1111112, z: 1}
   m_Children:
   - {fileID: 4805244502813456}
   - {fileID: 4674546237114170}
@@ -660,7 +660,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd37cd4b48c767940aaa8badb94e36b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
+  debugMessage: 0
   healthPoint: 100
+  healthPointLimit: 100
+  moveSpeed: 0
+  jumpSpeed: 0
   manaPoint: 100
   lives: 0
   score: 0

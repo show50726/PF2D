@@ -35,6 +35,10 @@ GameObject:
   - component: {fileID: 114015413626490656}
   - component: {fileID: 114250517828350122}
   - component: {fileID: 114796864766302702}
+  - component: {fileID: 114591646312200186}
+  - component: {fileID: 114758943611585958}
+  - component: {fileID: 114631045293870552}
+  - component: {fileID: 114529464477581276}
   m_Layer: 0
   m_Name: BOSS2
   m_TagString: Untagged
@@ -73,24 +77,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1409043574049322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4580707753510072}
-  - component: {fileID: 58751879362601608}
-  - component: {fileID: 114468446113540200}
-  - component: {fileID: 114428949442743260}
-  m_Layer: 0
-  m_Name: Trigger Land
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1625777683528176
 GameObject:
   m_ObjectHideFlags: 1
@@ -118,24 +104,6 @@ GameObject:
   - component: {fileID: 212663160429241766}
   m_Layer: 0
   m_Name: Hat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1881450891881514
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4668070580057866}
-  - component: {fileID: 58733618882943756}
-  - component: {fileID: 114910214434006932}
-  - component: {fileID: 114278901866785270}
-  m_Layer: 0
-  m_Name: Trigger Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,19 +166,6 @@ Transform:
   m_Father: {fileID: 4797696989180130}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4580707753510072
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1409043574049322}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4797696989180130}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4655568947106204
 Transform:
   m_ObjectHideFlags: 1
@@ -224,19 +179,6 @@ Transform:
   m_Father: {fileID: 4740696710408436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
---- !u!4 &4668070580057866
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1881450891881514}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4797696989180130}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4740696710408436
 Transform:
   m_ObjectHideFlags: 1
@@ -265,8 +207,6 @@ Transform:
   - {fileID: 4382357468087860}
   - {fileID: 4740696710408436}
   - {fileID: 4455187221837014}
-  - {fileID: 4668070580057866}
-  - {fileID: 4580707753510072}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -302,37 +242,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2}
-  serializedVersion: 2
-  m_Radius: 0.4
---- !u!58 &58733618882943756
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1881450891881514}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.5, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.4
---- !u!58 &58751879362601608
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1409043574049322}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
 --- !u!61 &61090184368830594
@@ -422,12 +332,8 @@ MonoBehaviour:
   m_Color: 3
   m_HideScript: 1
   m_Position: {x: 0, y: -120}
-  m_Transitions:
-  - m_Destination: {fileID: 114357865290440270}
-    m_EventID: 1135201954
-  - m_Destination: {fileID: 0}
-    m_EventID: 1985460778
-  m_CachedInstanceID: -13742
+  m_Transitions: []
+  m_CachedInstanceID: 15346
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -438,20 +344,30 @@ MonoBehaviour:
     - BehaviourMachine.TickFunction
     - BehaviourMachine.FloatSet
     - BehaviourMachine.SetSpriteRenderer
+    - BehaviourMachine.RandomChild
+    - BehaviourMachine.TickFunction
+    - BehaviourMachine.TickFunction
+    - BehaviourMachine.TickFunction
+    - BehaviourMachine.TickFunction
     - BehaviourMachine.Update
     - BehaviourMachine.PrioritySequence
     - BehaviourMachine.Wait
     - BehaviourMachine.SetSpriteRenderer
+    - BehaviourMachine.SendEvent
     - BehaviourMachine.RandomChild
     - BehaviourMachine.SendEvent
     - BehaviourMachine.SendEvent
-    m_NodeTypeHash: 89ef8210c00f4abc77b811204edfbf7589ef8210fbd4a944ce7847da4edfbf756592f5820ee2ebc60ee2ebc6
-    m_NodeFieldStartIndex: 00000000030000000a0000000f0000001400000017000000190000001e000000230000002d0000003300000039000000
-    m_BranchIndex: ffffffff000000000000000000000000ffffffff040000000500000005000000050000000800000008000000
+    m_NodeTypeHash: 89ef8210c00f4abc77b811204edfbf756592f582c00f4abcc00f4abcc00f4abcc00f4abc89ef8210fbd4a944ce7847da4edfbf750ee2ebc66592f5820ee2ebc60ee2ebc6
+    m_NodeFieldStartIndex: 00000000030000000a0000000f00000014000000240000002b00000032000000390000004000000043000000450000004a0000004f000000550000005f000000650000006b000000
+    m_BranchIndex: ffffffff0000000000000000000000000000000004000000040000000400000004000000ffffffff090000000a0000000a0000000a0000000a0000000e0000000e000000
     m_UnityObjectValue: []
-    m_IntValue: 010000000100000003000000060000009ad0e11d0a000000f061c165020000000100000004000000050000009ad0e11d010000000b000000b4024e0d07000000080000000900000008000000a2cea943090000002aba5776
+    m_IntValue: 010000000100000003000000060000009ad0e11d0a000000f061c1650e0000000c0000000f00000010000000110000000c000000136d5f450f000000136d5f4510000000136d5f4511000000136d5f45020000000100000004000000050000009ad0e11d010000000b000000b4024e0d0d000000c695a77007000000080000000900000008000000a2cea943090000002aba5776
     m_FloatValue:
     - 1
+    - 0.5
+    - 0.5
+    - 0.5
+    - 0.5
     - 0.5
     - 0.5
     m_StringValue:
@@ -464,6 +380,19 @@ MonoBehaviour:
     - Change Color
     - BehaviourMachine.ConcreteGameObjectVar
     - BehaviourMachine.ConcreteObjectVar
+    - RandomChild
+    - TickFunction
+    - BehaviourTree
+    - ToLeft
+    - TickFunction
+    - BehaviourTree
+    - ToRight
+    - TickFunction
+    - BehaviourTree
+    - ToDown
+    - TickFunction
+    - BehaviourTree
+    - ToUp
     - Update
     - PrioritySequence
     - Wait
@@ -471,6 +400,10 @@ MonoBehaviour:
     - Change Color
     - BehaviourMachine.ConcreteGameObjectVar
     - BehaviourMachine.ConcreteObjectVar
+    - SendEvent
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
     - RandomChild
     - ToWalk
     - BehaviourMachine.ConcreteFloatVar
@@ -488,11 +421,25 @@ MonoBehaviour:
     - BehaviourMachine.FloatVar
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
     - System.Int32
-    m_GenericFieldHash: 7de9e6027de9e602264ce8ef00000000264ce8ef264ce8ef00000000
-    m_GenericFieldSize: 01000000010000000100000002000000010000000100000002000000
-    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000000000000500000006000000070000000800000006000000070000000900000008000000090000000a0000000a0000000b0000000b0000000c0000000c0000000d0000000d0000000e0000000f0000000e0000000f000000100000000300000004000000010000000500000002000000060000001000000011000000120000001100000013000000120000001300000014000000140000001500000015000000160000001700000018000000
-    m_FieldType: 010000000200000005000000010000000200000011000000100000000200000010000000020000000100000002000000120000001000000003000000010000000200000011000000110000001800000001000000020000000500000001000000020000000100000002000000120000001100000004000000010000000200000011000000110000001800000001000000020000001f000000100000000300000010000000030000001f000000010000000100000001000000020000001e00000011000000110000001100000001000000020000001e000000110000001100000011000000
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.FloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - System.Int32
+    m_GenericFieldHash: 7de9e6027de9e602264ce8ef00000000264ce8ef264ce8ef264ce8ef264ce8ef000000007de9e6027de9e6027de9e6027de9e6027de9e6027de9e6027de9e6027de9e60200000000264ce8ef264ce8ef00000000
+    m_GenericFieldSize: 010000000100000001000000040000000100000001000000010000000100000004000000010000000100000001000000010000000100000001000000010000000100000002000000010000000100000002000000
+    m_FieldIndex: 000000000000000001000000020000000100000002000000000000000300000001000000040000000300000005000000040000000200000000000000050000000600000007000000080000000600000007000000090000000300000004000000010000000500000002000000060000000300000007000000040000000800000008000000090000000a0000000b0000000c0000000a0000000d000000090000000b0000000a0000000c0000000e0000000d0000000f0000000b0000000e0000000c0000000f0000001000000010000000110000000d000000110000000e000000120000001200000013000000130000000f000000140000001000000015000000140000001600000015000000160000001700000017000000180000001800000019000000190000001a0000001a0000001b0000001c0000001b0000001c0000001d0000001d0000001e0000001f000000200000001e000000210000001100000012000000050000001300000006000000140000001f00000020000000210000002200000022000000230000002400000025000000230000002600000024000000270000002800000029000000
+    m_FieldType: 010000000200000005000000010000000200000011000000100000000200000010000000020000000100000002000000120000001000000003000000010000000200000011000000110000001800000001000000020000001f00000010000000030000001000000003000000100000000300000010000000030000001f0000000100000001000000010000000100000001000000020000001a0000001000000002000000100000000200000001000000020000001a0000001000000002000000100000000200000001000000020000001a0000001000000002000000100000000200000001000000020000001a0000001000000002000000100000000200000001000000020000000500000001000000020000000100000002000000120000001100000004000000010000000200000011000000110000001800000001000000020000001e00000011000000110000001100000001000000020000001f000000100000000300000010000000030000001f000000010000000100000001000000020000001e00000011000000110000001100000001000000020000001e000000110000001100000011000000
     m_FieldPath:
     - instanceID
     - name
@@ -516,6 +463,50 @@ MonoBehaviour:
     - newColor
     - instanceID
     - name
+    - weight
+    - weight.data[0]
+    - weight.data[0].value
+    - weight.data[1]
+    - weight.data[1].value
+    - weight.data[2]
+    - weight.data[2].value
+    - weight.data[3]
+    - weight.data[3].value
+    - childrenID
+    - childrenID.data[0]
+    - childrenID.data[1]
+    - childrenID.data[2]
+    - childrenID.data[3]
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
     - enabled
     - instanceID
     - name
@@ -529,6 +520,12 @@ MonoBehaviour:
     - gameObject
     - newSprite
     - newColor
+    - instanceID
+    - name
+    - eventToSend
+    - delay
+    - storeDelayTime
+    - storeEventUsed
     - instanceID
     - name
     - weight
@@ -594,11 +591,11 @@ MonoBehaviour:
   m_StateName: Swim Left
   m_Color: 2
   m_HideScript: 1
-  m_Position: {x: 70, y: 110}
+  m_Position: {x: 70, y: 100}
   m_Transitions:
   - m_Destination: {fileID: 114796864766302702}
     m_EventID: 248930610
-  m_CachedInstanceID: -13772
+  m_CachedInstanceID: 15354
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -606,6 +603,7 @@ MonoBehaviour:
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.OnEnable
+    - BehaviourMachine.TickFunction
     - BehaviourMachine.TickFunction
     - BehaviourMachine.BoolSet
     - BehaviourMachine.TickFunction
@@ -615,11 +613,11 @@ MonoBehaviour:
     - BehaviourMachine.SetRigidbody2DVelocity
     - BehaviourMachine.OnTriggerEnter2D
     - BehaviourMachine.HasTag
-    m_NodeTypeHash: 89ef8210c00f4abcbb8eb60cc00f4abc79e713e68d24a0b489ef8210ce24ac255248f43a2aea204d
-    m_NodeFieldStartIndex: 00000000030000000a0000000f00000016000000190000001f00000022000000280000002c00000032000000
-    m_BranchIndex: ffffffff0000000000000000000000000000000000000000ffffffff06000000ffffffff08000000
+    m_NodeTypeHash: 89ef8210c00f4abcc00f4abcbb8eb60cc00f4abc79e713e68d24a0b489ef8210ce24ac255248f43a2aea204d
+    m_NodeFieldStartIndex: 00000000030000000a00000011000000160000001d0000002000000026000000290000002f0000003300000039000000
+    m_BranchIndex: ffffffff000000000000000000000000000000000000000000000000ffffffff07000000ffffffff09000000
     m_UnityObjectValue: []
-    m_IntValue: 010000000100000011000000070000006448414801000000030000000400000027c2222b0500000027c2222b0000000002000000010000000900000027c2222b0600000001000000b1e14971080000003261d60eb1e14971
+    m_IntValue: 0100000001000000110000000a000000136d5f45070000006448414801000000030000000400000027c2222b0500000027c2222b0000000002000000010000000900000027c2222b0600000001000000b1e14971080000003261d60eb1e14971
     m_FloatValue:
     - -1
     m_StringValue:
@@ -628,6 +626,9 @@ MonoBehaviour:
     - BehaviourMachine.ConcreteGameObjectVar
     - DF
     - State Initialization
+    - Trigger to Left
+    - BehaviourTree
+    - ToLeft
     - Face Left
     - Correct Facing
     - BehaviourMachine.ConcreteGameObjectVar
@@ -647,19 +648,28 @@ MonoBehaviour:
     m_GenericFieldType:
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteBoolVar
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteStringVar
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.ConcreteStringVar
-    m_GenericFieldHash: 7de9e6027de9e602e4b98a667de9e6027de9e602264ce8ef7de9e602
-    m_GenericFieldSize: 01000000010000000100000001000000010000000100000001000000
-    m_FieldIndex: 00000000000000000100000002000000010000000200000000000000030000000100000004000000030000000500000004000000020000000500000006000000060000000700000003000000080000000400000009000000070000000a00000008000000090000000b0000000a00000005000000000000000b0000000c0000000c0000000d0000000e0000000d0000000e0000000f0000000f0000001000000010000000110000001100000012000000130000001200000014000000150000000600000013000000
-    m_FieldType: 010000000200000005000000010000000200000011000000100000000200000010000000020000000100000002000000140000001000000005000000010000000200000011000000100000000200000010000000020000000100000002000000120000000100000002000000120000001000000003000000050000000100000002000000050000000100000002000000110000001100000012000000110000000100000002000000050000001a00000001000000020000001e0000001a0000001000000002000000
+    m_GenericFieldHash: 7de9e6027de9e6027de9e6027de9e602e4b98a667de9e6027de9e602264ce8ef7de9e602
+    m_GenericFieldSize: 010000000100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000060000000300000007000000050000000800000006000000040000000700000008000000090000000a000000050000000b000000060000000c000000090000000d0000000a0000000b0000000e0000000c00000007000000000000000d0000000e0000000f0000000f00000010000000100000001100000012000000110000001300000012000000140000001300000014000000150000001500000016000000170000000800000016000000
+    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001a000000100000000200000010000000020000000100000002000000140000001000000005000000010000000200000011000000100000000200000010000000020000000100000002000000120000000100000002000000120000001000000003000000050000000100000002000000050000000100000002000000110000001100000012000000110000000100000002000000050000001a00000001000000020000001e0000001a0000001000000002000000
     m_FieldPath:
     - instanceID
     - name
     - enabled
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
     - instanceID
     - name
     - gameObject
@@ -707,55 +717,6 @@ MonoBehaviour:
     - gameObject
     - tag
     - tag.value
---- !u!114 &114278901866785270
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1881450891881514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Blackboard: {fileID: 114910214434006932}
-  m_Parent: {fileID: 0}
-  m_StateName: BehaviourTree
-  m_Color: 0
-  m_HideScript: 1
-  m_Position: {x: 0, y: 0}
-  m_Transitions: []
-  m_CachedInstanceID: -13796
-  m_Description: 
-  m_IgnoreTimeScale: 0
-  m_ResetStatusOnDisable: 1
-  m_EnabledStates: []
-  m_NodeSerialization:
-    m_NodeTypes:
-    - BehaviourMachine.OnEnable
-    - BehaviourMachine.Update
-    m_NodeTypeHash: 89ef821089ef8210
-    m_NodeFieldStartIndex: 000000000300000006000000
-    m_BranchIndex: ffffffffffffffff
-    m_UnityObjectValue: []
-    m_IntValue: 01000000010000000200000001000000
-    m_FloatValue: []
-    m_StringValue:
-    - OnEnable
-    - Update
-    m_CurveValue: []
-    m_GenericFieldType: []
-    m_GenericFieldHash: 
-    m_GenericFieldSize: 
-    m_FieldIndex: 000000000000000001000000020000000100000003000000
-    m_FieldType: 010000000200000005000000010000000200000005000000
-    m_FieldPath:
-    - instanceID
-    - name
-    - enabled
-    - instanceID
-    - name
-    - enabled
 --- !u!114 &114280615537393280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -774,7 +735,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
-  m_CachedInstanceID: -13730
+  m_CachedInstanceID: 15364
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -867,7 +828,7 @@ MonoBehaviour:
     m_EventID: 1890031046
   - m_Destination: {fileID: 114280615537393280}
     m_EventID: 1662078051
-  m_CachedInstanceID: -13722
+  m_CachedInstanceID: 15360
   m_CanTransitionToSelf: 0
 --- !u!114 &114357865290440270
 MonoBehaviour:
@@ -887,7 +848,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
   m_Transitions: []
-  m_CachedInstanceID: -13734
+  m_CachedInstanceID: 15366
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1018,55 +979,6 @@ MonoBehaviour:
     - onSuccess
     - a
     - b
---- !u!114 &114428949442743260
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1409043574049322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Blackboard: {fileID: 114468446113540200}
-  m_Parent: {fileID: 0}
-  m_StateName: BehaviourTree
-  m_Color: 0
-  m_HideScript: 1
-  m_Position: {x: 0, y: 0}
-  m_Transitions: []
-  m_CachedInstanceID: -13786
-  m_Description: 
-  m_IgnoreTimeScale: 0
-  m_ResetStatusOnDisable: 1
-  m_EnabledStates: []
-  m_NodeSerialization:
-    m_NodeTypes:
-    - BehaviourMachine.OnEnable
-    - BehaviourMachine.Update
-    m_NodeTypeHash: 89ef821089ef8210
-    m_NodeFieldStartIndex: 000000000300000006000000
-    m_BranchIndex: ffffffffffffffff
-    m_UnityObjectValue: []
-    m_IntValue: 01000000010000000200000001000000
-    m_FloatValue: []
-    m_StringValue:
-    - OnEnable
-    - Update
-    m_CurveValue: []
-    m_GenericFieldType: []
-    m_GenericFieldHash: 
-    m_GenericFieldSize: 
-    m_FieldIndex: 000000000000000001000000020000000100000003000000
-    m_FieldType: 010000000200000005000000010000000200000005000000
-    m_FieldPath:
-    - instanceID
-    - name
-    - enabled
-    - instanceID
-    - name
-    - enabled
 --- !u!114 &114429748609752666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1085,7 +997,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: -13738
+  m_CachedInstanceID: 15368
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -1166,33 +1078,6 @@ MonoBehaviour:
   m_Description: Walk to assigned position
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
---- !u!114 &114468446113540200
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1409043574049322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FloatVars: []
-  m_IntVars: []
-  m_BoolVars: []
-  m_StringVars: []
-  m_Vector3Vars: []
-  m_RectVars: []
-  m_ColorVars: []
-  m_QuaternionVars: []
-  m_GameObjectVars: []
-  m_TextureVars: []
-  m_MaterialVars: []
-  m_ObjectVars: []
-  m_DynamicLists: []
-  m_FsmEvents: []
-  m_ConcreteFsmEvents: []
-  m_Namespace: 
 --- !u!114 &114499632586766790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1211,7 +1096,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: -13728
+  m_CachedInstanceID: 15362
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -1308,7 +1193,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -13732
+  m_CachedInstanceID: 15352
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1317,21 +1202,65 @@ MonoBehaviour:
     m_NodeTypes:
     - BehaviourMachine.OnEnable
     - BehaviourMachine.Update
-    m_NodeTypeHash: 89ef821089ef8210
-    m_NodeFieldStartIndex: 000000000300000006000000
-    m_BranchIndex: ffffffffffffffff
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.SetPosition
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.SetPosition
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.SetPosition
+    - BehaviourMachine.FunctionNode
+    - BehaviourMachine.SetPosition
+    m_NodeTypeHash: 89ef821089ef821089ef82106aae7af389ef82106aae7af389ef82106aae7af389ef82106aae7af3
+    m_NodeFieldStartIndex: 00000000030000000600000009000000130000001600000020000000230000002d000000300000003a000000
+    m_BranchIndex: ffffffffffffffffffffffff02000000ffffffff04000000ffffffff06000000ffffffff08000000
     m_UnityObjectValue: []
-    m_IntValue: 01000000010000000200000001000000
-    m_FloatValue: []
+    m_IntValue: 0100000001000000020000000100000003000000010000000700000001000000040000000100000008000000010000000500000001000000090000000100000006000000010000000a00000001000000
+    m_FloatValue:
+    - 1.8
+    - 0
+    - 1.8
+    - 0
+    - 0
+    - -0.2
+    - 0
+    - 0.2
     m_StringValue:
     - OnEnable
     - Update
+    - ToLeft
+    - SetPosition
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
+    - ToRight
+    - SetPosition
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
+    - ToDown
+    - SetPosition
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
+    - ToUp
+    - SetPosition
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
     m_CurveValue: []
-    m_GenericFieldType: []
-    m_GenericFieldHash: 
-    m_GenericFieldSize: 
-    m_FieldIndex: 000000000000000001000000020000000100000003000000
-    m_FieldType: 010000000200000005000000010000000200000005000000
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 264ce8ef264ce8ef264ce8ef264ce8ef264ce8ef264ce8ef264ce8ef264ce8ef
+    m_GenericFieldSize: 0100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 000000000000000001000000020000000100000003000000040000000200000005000000060000000300000004000000050000000000000000000000010000000100000006000000070000000800000007000000090000000a00000008000000090000000a000000020000000200000003000000030000000b0000000b0000000c0000000c0000000d0000000e0000000d0000000e0000000f00000004000000040000000500000005000000100000000f00000010000000110000001100000012000000120000001300000014000000060000000600000007000000070000001500000013000000
+    m_FieldType: 01000000020000000500000001000000020000000500000001000000020000000500000001000000020000001100000011000000100000000300000010000000030000001100000004000000010000000200000005000000010000000200000011000000110000001000000003000000100000000300000011000000040000000100000002000000050000000100000002000000110000001100000010000000030000001000000003000000110000000400000001000000020000000500000001000000020000001100000011000000100000000300000010000000030000001100000004000000
     m_FieldPath:
     - instanceID
     - name
@@ -1339,6 +1268,336 @@ MonoBehaviour:
     - instanceID
     - name
     - enabled
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - newPosition
+    - newX
+    - newX.value
+    - newY
+    - newY.value
+    - newZ
+    - relativeTo
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - newPosition
+    - newX
+    - newX.value
+    - newY
+    - newY.value
+    - newZ
+    - relativeTo
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - newPosition
+    - newX
+    - newX.value
+    - newY
+    - newY.value
+    - newZ
+    - relativeTo
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - newPosition
+    - newX
+    - newX.value
+    - newY
+    - newY.value
+    - newZ
+    - relativeTo
+--- !u!114 &114529464477581276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060573465783760}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 114830335652338920}
+  m_Parent: {fileID: 114741187810888330}
+  m_StateName: Landing Left
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 430, y: 100}
+  m_Transitions:
+  - m_Destination: {fileID: 114631045293870552}
+    m_EventID: 486192882
+  m_CachedInstanceID: -11452
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnEnable
+    - BehaviourMachine.Wait
+    - BehaviourMachine.SendEvent
+    - BehaviourMachine.Update
+    m_NodeTypeHash: 89ef8210ce7847da0ee2ebc689ef8210
+    m_NodeFieldStartIndex: 0000000003000000090000000f00000012000000
+    m_BranchIndex: ffffffff0000000000000000ffffffff
+    m_UnityObjectValue: []
+    m_IntValue: 0100000001000000030000000100000004000000f2b6fa1c0200000001000000
+    m_FloatValue:
+    - 2
+    m_StringValue:
+    - OnEnable
+    - Wait
+    - BehaviourMachine.ConcreteFloatVar
+    - SendEvent
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
+    - Update
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 264ce8ef
+    m_GenericFieldSize: 01000000
+    m_FieldIndex: 000000000000000001000000020000000100000000000000000000000200000003000000040000000300000005000000040000000500000006000000060000000700000007000000
+    m_FieldType: 01000000020000000500000001000000020000001000000003000000110000000400000001000000020000001e000000110000001100000011000000010000000200000005000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - intervalTime
+    - intervalTime.value
+    - storeCurrentTime
+    - finishedStatus
+    - instanceID
+    - name
+    - eventToSend
+    - delay
+    - storeDelayTime
+    - storeEventUsed
+    - instanceID
+    - name
+    - enabled
+--- !u!114 &114591646312200186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060573465783760}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 114830335652338920}
+  m_Parent: {fileID: 114741187810888330}
+  m_StateName: Landing Right
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 70, y: 190}
+  m_Transitions:
+  - m_Destination: {fileID: 114250517828350122}
+    m_EventID: 1148494577
+  m_CachedInstanceID: -11446
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnEnable
+    - BehaviourMachine.Wait
+    - BehaviourMachine.SendEvent
+    - BehaviourMachine.Update
+    m_NodeTypeHash: 89ef8210ce7847da0ee2ebc689ef8210
+    m_NodeFieldStartIndex: 0000000003000000090000000f00000012000000
+    m_BranchIndex: ffffffff0000000000000000ffffffff
+    m_UnityObjectValue: []
+    m_IntValue: 0100000001000000040000000100000003000000f1a274440200000001000000
+    m_FloatValue:
+    - 2
+    m_StringValue:
+    - OnEnable
+    - Wait
+    - BehaviourMachine.ConcreteFloatVar
+    - SendEvent
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
+    - Update
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 264ce8ef
+    m_GenericFieldSize: 01000000
+    m_FieldIndex: 000000000000000001000000020000000100000000000000000000000200000003000000040000000300000005000000040000000500000006000000060000000700000007000000
+    m_FieldType: 01000000020000000500000001000000020000001000000003000000110000000400000001000000020000001e000000110000001100000011000000010000000200000005000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - intervalTime
+    - intervalTime.value
+    - storeCurrentTime
+    - finishedStatus
+    - instanceID
+    - name
+    - eventToSend
+    - delay
+    - storeDelayTime
+    - storeEventUsed
+    - instanceID
+    - name
+    - enabled
+--- !u!114 &114631045293870552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060573465783760}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 114830335652338920}
+  m_Parent: {fileID: 114741187810888330}
+  m_StateName: Swim Right
+  m_Color: 2
+  m_HideScript: 1
+  m_Position: {x: 440, y: 190}
+  m_Transitions:
+  - m_Destination: {fileID: 114758943611585958}
+    m_EventID: 948309937
+  m_CachedInstanceID: -11450
+  m_Description: Walk in Random Direction (left or right)
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnEnable
+    - BehaviourMachine.TickFunction
+    - BehaviourMachine.TickFunction
+    - BehaviourMachine.BoolSet
+    - BehaviourMachine.TickFunction
+    - BehaviourMachine.FloatAbs
+    - BehaviourMachine.Update
+    - BehaviourMachine.SetRigidbody2DVelocity
+    - BehaviourMachine.OnTriggerEnter2D
+    - BehaviourMachine.HasTag
+    m_NodeTypeHash: 89ef8210c00f4abcc00f4abcbb8eb60cc00f4abc79e713e689ef8210ce24ac255248f43a2aea204d
+    m_NodeFieldStartIndex: 00000000030000000a00000011000000160000001d0000002000000023000000290000002d00000033000000
+    m_BranchIndex: ffffffff0000000000000000000000000000000000000000ffffffff06000000ffffffff08000000
+    m_UnityObjectValue: []
+    m_IntValue: 0100000001000000110000000a000000136d5f45070000006448414800000000030000000400000027c2222b02000000010000000900000027c2222b0600000001000000b1e1497108000000b10f8638b1e14971
+    m_FloatValue: []
+    m_StringValue:
+    - OnEnable
+    - Initialization
+    - BehaviourMachine.ConcreteGameObjectVar
+    - DF
+    - State Initialization
+    - Trigger to Right
+    - BehaviourTree
+    - ToRight
+    - Face Right
+    - Correct Facing
+    - BehaviourMachine.ConcreteGameObjectVar
+    - DF
+    - Correct Facing
+    - Set Speed to ABS
+    - Update
+    - SetRigidbody2DVelocity
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
+    - OnTriggerEnter2D
+    - HasTag
+    - ground&wall
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 7de9e6027de9e6027de9e6027de9e602e4b98a667de9e6027de9e6027de9e602
+    m_GenericFieldSize: 0100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 0000000000000000010000000200000001000000020000000000000003000000010000000400000003000000050000000400000002000000060000000300000007000000050000000800000006000000040000000700000008000000090000000a000000050000000b000000060000000c000000090000000d0000000a0000000b0000000e0000000c0000000d0000000f00000010000000110000000e000000120000000f000000130000001000000011000000120000001400000013000000140000000700000015000000
+    m_FieldType: 0100000002000000050000000100000002000000110000001000000002000000100000000200000001000000020000001a000000100000000200000010000000020000000100000002000000140000001000000005000000010000000200000011000000100000000200000010000000020000000100000002000000120000000100000002000000050000000100000002000000110000001100000012000000110000000100000002000000050000001a00000001000000020000001e0000001a0000001000000002000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - newValue.value
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - variable
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - newVelocity
+    - horizontalVelocity
+    - verticalVelocity
+    - instanceID
+    - name
+    - enabled
+    - other
+    - instanceID
+    - name
+    - onSuccess
+    - gameObject
+    - tag
+    - tag.value
 --- !u!114 &114741187810888330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1357,14 +1616,119 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -13776
+  m_CachedInstanceID: 15370
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 114067755323978980, guid: 226f4060aec31de42a4ff6676cc29e76,
     type: 2}
-  m_StartState: {fileID: 114134457208208254}
+  m_StartState: {fileID: 114591646312200186}
   m_AnyState: {fileID: 114311062756807376}
   m_ConcurrentState: {fileID: 114991648842794162}
+--- !u!114 &114758943611585958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060573465783760}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 114830335652338920}
+  m_Parent: {fileID: 114741187810888330}
+  m_StateName: Jump Right
+  m_Color: 2
+  m_HideScript: 1
+  m_Position: {x: 250, y: 190}
+  m_Transitions:
+  - m_Destination: {fileID: 114591646312200186}
+    m_EventID: 640089174
+  m_CachedInstanceID: -11448
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnEnable
+    - BehaviourMachine.FloatAbs
+    - BehaviourMachine.AddForce2D
+    - BehaviourMachine.TickFunction
+    - BehaviourMachine.Update
+    - BehaviourMachine.OnTriggerEnter2D
+    - BehaviourMachine.HasTag
+    m_NodeTypeHash: 89ef821079e713e6f2928592c00f4abc89ef82105248f43a2aea204d
+    m_NodeFieldStartIndex: 00000000030000000600000012000000190000001c0000002000000026000000
+    m_BranchIndex: ffffffff000000000000000000000000ffffffffffffffff05000000
+    m_UnityObjectValue:
+    - {fileID: 1060573465783760}
+    - {fileID: 0}
+    m_IntValue: 010000000100000007000000d957843503000000d95784354dcc8242000000000000000006000000136d5f4502000000010000000400000001000000b1e149710500000056fc2626b1e14971
+    m_FloatValue:
+    - 14
+    m_StringValue:
+    - OnEnable
+    - FloatAbs
+    - AddForce2D
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - Trigger to Down
+    - BehaviourTree
+    - ToDown
+    - Update
+    - OnTriggerEnter2D
+    - HasTag
+    - ground&wall
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.GetWeight
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 6646b4897de9e6027de9e6027de9e602
+    m_GenericFieldSize: 03000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000002000000010000000300000004000000020000000300000004000000050000000600000000000000000000000100000007000000000000000800000009000000050000000a000000010000000600000002000000070000000b000000080000000c0000000d000000090000000e0000000f000000100000000a0000001100000012000000030000000b000000
+    m_FieldType: 010000000200000005000000010000000200000012000000010000000200000011000000110000001200000012000000100000000f0000000f00000005000000030000000500000001000000020000001a000000100000000200000010000000020000000100000002000000050000000100000002000000050000001a00000001000000020000001e0000001a0000001000000002000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - variable
+    - instanceID
+    - name
+    - gameObject
+    - force
+    - forceX
+    - forceY
+    - multiplyForceBy
+    - multiplyForceBy.target
+    - multiplyForceBy.component
+    - multiplyForceBy.isStatic
+    - maxVelocity
+    - perSecond
+    - instanceID
+    - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - enabled
+    - other
+    - instanceID
+    - name
+    - onSuccess
+    - gameObject
+    - tag
+    - tag.value
 --- !u!114 &114796864766302702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1381,9 +1745,11 @@ MonoBehaviour:
   m_StateName: Jump Left
   m_Color: 2
   m_HideScript: 1
-  m_Position: {x: 260, y: 110}
-  m_Transitions: []
-  m_CachedInstanceID: -13774
+  m_Position: {x: 250, y: 100}
+  m_Transitions:
+  - m_Destination: {fileID: 114529464477581276}
+    m_EventID: 1397121761
+  m_CachedInstanceID: 15344
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1391,41 +1757,61 @@ MonoBehaviour:
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.OnEnable
+    - BehaviourMachine.FloatAbs
+    - BehaviourMachine.FloatMultiply
     - BehaviourMachine.AddForce2D
+    - BehaviourMachine.TickFunction
     - BehaviourMachine.Update
     - BehaviourMachine.OnTriggerEnter2D
     - BehaviourMachine.HasTag
-    m_NodeTypeHash: 89ef8210f292859289ef82105248f43a2aea204d
-    m_NodeFieldStartIndex: 00000000030000000f00000012000000160000001b000000
-    m_BranchIndex: ffffffff00000000ffffffffffffffff03000000
+    m_NodeTypeHash: 89ef821079e713e68d24a0b4f2928592c00f4abc89ef82105248f43a2aea204d
+    m_NodeFieldStartIndex: 0000000003000000060000000c000000180000001f00000022000000260000002c000000
+    m_BranchIndex: ffffffff00000000000000000000000000000000ffffffffffffffff06000000
     m_UnityObjectValue:
     - {fileID: 1060573465783760}
     - {fileID: 0}
-    m_IntValue: 010000000100000003000000d95784354dcc8242000000000100000002000000010000000400000001000000b1e1497105000000
+    m_IntValue: 010000000100000007000000d957843508000000d95784350000000003000000d95784354dcc8242000000000000000006000000136d5f4502000000010000000400000001000000b1e1497105000000e1624653b1e14971
     m_FloatValue:
+    - -1
     - 14
     m_StringValue:
     - OnEnable
+    - FloatAbs
+    - FloatMultiply
     - AddForce2D
     - BehaviourMachine.ConcreteGameObjectVar
     - BehaviourMachine.ConcreteVector3Var
+    - Trigger to Down
+    - BehaviourTree
+    - ToDown
     - Update
     - OnTriggerEnter2D
     - HasTag
-    - BehaviourMachine.FsmEvent
-    - BehaviourMachine.ConcreteGameObjectVar
-    - BehaviourMachine.ConcreteStringVar
+    - ground&wall
     m_CurveValue: []
     m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.GetWeight
-    m_GenericFieldHash: 6646b489
-    m_GenericFieldSize: 03000000
-    m_FieldIndex: 00000000000000000100000002000000010000000200000003000000030000000400000000000000000000000100000005000000000000000600000007000000040000000800000009000000050000000a0000000b0000000c00000006000000070000000800000009000000
-    m_FieldType: 010000000200000005000000010000000200000011000000110000001200000012000000100000000f0000000f0000000500000003000000050000000100000002000000050000000100000002000000050000001a0000000100000002000000110000001100000011000000
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 264ce8ef6646b4897de9e6027de9e6027de9e602
+    m_GenericFieldSize: 0100000003000000010000000100000001000000
+    m_FieldIndex: 0000000000000000010000000200000001000000030000000400000002000000050000000000000000000000060000000700000003000000040000000500000008000000090000000100000000000000010000000a000000010000000b0000000c000000060000000d000000020000000700000003000000080000000e000000090000000f000000100000000a0000001100000012000000130000000b0000001400000015000000040000000c000000
+    m_FieldType: 010000000200000005000000010000000200000012000000010000000200000012000000100000000300000005000000010000000200000011000000110000001200000012000000100000000f0000000f00000005000000030000000500000001000000020000001a000000100000000200000010000000020000000100000002000000050000000100000002000000050000001a00000001000000020000001e0000001a0000001000000002000000
     m_FieldPath:
     - instanceID
     - name
     - enabled
+    - instanceID
+    - name
+    - variable
+    - instanceID
+    - name
+    - variable
+    - multiplyBy
+    - multiplyBy.value
+    - perSecond
     - instanceID
     - name
     - gameObject
@@ -1440,6 +1826,13 @@ MonoBehaviour:
     - perSecond
     - instanceID
     - name
+    - gameObject
+    - treeName
+    - treeName.value
+    - functionName
+    - functionName.value
+    - instanceID
+    - name
     - enabled
     - instanceID
     - name
@@ -1450,6 +1843,7 @@ MonoBehaviour:
     - onSuccess
     - gameObject
     - tag
+    - tag.value
 --- !u!114 &114830335652338920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1481,7 +1875,7 @@ MonoBehaviour:
     m_Name: Speed Jump.Y
     m_Blackboard: {fileID: 114830335652338920}
     m_IsConstant: 0
-    value: 14
+    value: 10
   - m_ID: 897865689
     m_Name: Speed Jump.X
     m_Blackboard: {fileID: 114830335652338920}
@@ -1545,6 +1939,11 @@ MonoBehaviour:
     m_Blackboard: {fileID: 114830335652338920}
     m_IsConstant: 0
     value: {fileID: 0}
+  - m_ID: 1163881747
+    m_Name: Trigger
+    m_Blackboard: {fileID: 114830335652338920}
+    m_IsConstant: 0
+    value: {fileID: 1996122702370332}
   m_TextureVars: []
   m_MaterialVars: []
   m_ObjectVars: []
@@ -1576,33 +1975,31 @@ MonoBehaviour:
     m_Blackboard: {fileID: 114830335652338920}
     m_IsConstant: 0
     m_IsSystem: 0
-  m_Namespace: 
---- !u!114 &114910214434006932
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1881450891881514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FloatVars: []
-  m_IntVars: []
-  m_BoolVars: []
-  m_StringVars: []
-  m_Vector3Vars: []
-  m_RectVars: []
-  m_ColorVars: []
-  m_QuaternionVars: []
-  m_GameObjectVars: []
-  m_TextureVars: []
-  m_MaterialVars: []
-  m_ObjectVars: []
-  m_DynamicLists: []
-  m_FsmEvents: []
-  m_ConcreteFsmEvents: []
+  - m_ID: 1397121761
+    m_Name: LandLeft
+    m_Blackboard: {fileID: 114830335652338920}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 486192882
+    m_Name: ToSwimRight
+    m_Blackboard: {fileID: 114830335652338920}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 948309937
+    m_Name: ToJumpRight
+    m_Blackboard: {fileID: 114830335652338920}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 640089174
+    m_Name: LandRight
+    m_Blackboard: {fileID: 114830335652338920}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 1148494577
+    m_Name: ToSwimLeft
+    m_Blackboard: {fileID: 114830335652338920}
+    m_IsConstant: 0
+    m_IsSystem: 0
   m_Namespace: 
 --- !u!114 &114991648842794162
 MonoBehaviour:
@@ -1622,7 +2019,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -170, y: 30}
   m_Transitions: []
-  m_CachedInstanceID: -13724
+  m_CachedInstanceID: 15356
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -1650,7 +2047,7 @@ MonoBehaviour:
     m_NodeFieldStartIndex: 00000000030000000b0000000e0000001000000012000000170000001d00000024000000260000002b00000032000000350000003a0000003d0000004100000047000000
     m_BranchIndex: ffffffff00000000000000000000000003000000040000000400000004000000030000000800000008000000ffffffff0b000000ffffffffffffffff0e000000
     m_UnityObjectValue: []
-    m_IntValue: 090000000100000003000000c9cbab700100000005000000c9cbab700b0000000c0000000d0000006448414806000000c9cbab700000000012000000c9cbab700f0000000e0000006448414811000000c9cbab701000000001000000130000008047861501000000010000000200000001000000b1e1497104000000634c1163b1e14971
+    m_IntValue: 090000000100000003000000c9cbab700100000005000000c9cbab700b0000000c0000000d0000006448414806000000c9cbab700000000012000000c9cbab700f0000000e0000006448414811000000c9cbab701000000001000000130000008047861501000000000000000200000000000000b1e1497104000000634c1163b1e14971
     m_FloatValue:
     - -1
     - 0
