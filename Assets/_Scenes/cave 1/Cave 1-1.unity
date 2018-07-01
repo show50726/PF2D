@@ -8908,6 +8908,7 @@ GameObject:
   - component: {fileID: 1014777519}
   - component: {fileID: 1014777518}
   - component: {fileID: 1014777520}
+  - component: {fileID: 1014777521}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -8988,6 +8989,24 @@ MonoBehaviour:
   checkTheseState: []
   assignedState: InFinish
   checkLayer: 0
+--- !u!114 &1014777521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014777516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04171f5f38935dc48891bff7a2439e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theSceneIsInGame: 1
+  afterThisLevelDoneWaitTime: 3
+  haveCompletedLevels: 0
+  animatorSM: {fileID: 0}
+  keyOfShowPList: 112
+  pauseKey: 27
+  WorldStarScore: 000000000000000000000000
 --- !u!4 &1046971360 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db,
