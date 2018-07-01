@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/23
+//last maintained:  2018/07/02
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -180,8 +180,41 @@ public class PF2DController : MonoBehaviour
     #region State Description
 
 
+    [SerializeField, ReadOnly]
+    private bool freezed = false; //if true, the controller will (for player) be unabled to use.
+    public bool Freezed
+    {
+        get
+        {
+            return freezed;
+        }
+        set
+        {
+            freezed = value;
+            if (!value) needToRefreshVelocity = true;
+        }
+    }
+    
+    //public void FreezeControl()
+    //{
+    //    freezed = true;
+    //}
+    //public void UnFreezeControl()
+    //{
+    //    freezed = false;
+    //    needToRefreshVelocity = true;
+    //}
+    public void FreezeControl(float freezeTime)
+    {
+        Freezed = true;
+        StartCoroutine(UnFreezeControl(freezeTime));
+    }
+    private IEnumerator UnFreezeControl(float freezeTime)
+    {
+        yield return new WaitForSeconds(freezeTime);
+        Freezed = false;
+    }
 
-    private bool isFreezed = false; //once isFreezed, the controller will (for player) be unabled to use.
     private bool isDead = false; //only used by "a-player-is-dead" situation. look at Dead / Reset.
 
     private GameObject standOn = null;
@@ -365,7 +398,7 @@ public class PF2DController : MonoBehaviour
     //private Vector2 lastMovingDirection = Vector2.zero;
     void Update()
     {
-        if (isFreezed) return;
+        if (freezed) return;
         if (isDead) return;
         if (inMidAir)
         {
@@ -530,7 +563,7 @@ public class PF2DController : MonoBehaviour
         allowMovement = initialAllowment[0];
         allowJump = initialAllowment[1];
         allowDash = initialAllowment[2];
-        isFreezed = false;
+        freezed = false;
         isDead = false;
     }
 
@@ -660,25 +693,6 @@ public class PF2DController : MonoBehaviour
         needToRefreshVelocity = true;
     }
     
-    public void FreezeControl()
-    {
-        isFreezed = true;
-    }
-    public void UnFreezeControl()
-    {
-        isFreezed = false;
-        needToRefreshVelocity = true;
-    }
-    public void FreezeControl(float freezeTime)
-    {
-        isFreezed = true;
-        StartCoroutine(UnFreezeControl(freezeTime));
-    }
-    private IEnumerator UnFreezeControl(float freezeTime)
-    {
-        yield return new WaitForSeconds(freezeTime);
-        UnFreezeControl();
-    }
     private Vector2 VectorOfGivenMagnitudeAndAngle(float magnitude, float angleInDegree)
     {
         return new Vector2(

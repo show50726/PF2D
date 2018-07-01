@@ -4,7 +4,7 @@
 //----------------------------------------------
 //DamageUnit made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/01
+//last maintained:  2018/07/02
 //NOTICE:           Must be used with (CMSR) SUnitStater.
 using UnityEngine;
 using CMSR;
@@ -39,16 +39,14 @@ namespace BehaviourMachine
         /// </summary>
         [VariableInfo(requiredField = false, nullLabel = "false", tooltip = "If checked, damage will be multiplied with time passed.")]
         public BoolVar isPerSecond;
-
-        // Called once when the node is created
-        public override void Awake() { }
-
-        // Called when the owner (BehaviourTree or ActionState) is enabled
-        public override void OnEnable() { }
+        
 
         // Called when the node starts its execution
         public override void Start() {
-            target = unitToDamage.Value.GetComponent<SUnitStater>();
+            if (unitToDamage.isNone)
+                target = self.GetComponent<SUnitStater>();
+            else
+                target = unitToDamage.Value.GetComponent<SUnitStater>();
             if (target == null)
             {
                 Debug.LogError(self.name + "/{b}/" + tree.name + "/" + name + ": cannot find SUnitStater.");
@@ -83,20 +81,13 @@ namespace BehaviourMachine
             //Error: 執行錯誤。
             //Running: 動作還需要更多Frame執行，像是等待時間的就是利用這個狀態檢查倒數，所以才一定要放在Update()底下
         }
-
-        // Called when the node ends its execution
-        public override void End() { }
-
-        // Called when the owner (BehaviourTree or ActionState) is disabled
-        public override void OnDisable() { }
+        
 
         // This function is called to reset the default values of the node
         public override void Reset() {
             unitToDamage = new ConcreteGameObjectVar();
             damageAmount = new ConcreteFloatVar();
         }
-
-        // Called when the script is loaded or a value is changed in the inspector (Called in the editor only)
-        public override void OnValidate() { }
+        
     }
 }

@@ -2,7 +2,9 @@
 //            Behaviour Machine
 // Copyright © 2014 Anderson Campos Cardoso
 //----------------------------------------------
-
+//NodeCustomExample made by STC
+//contact: stc.ntu@gmail.com
+//last maintained: 2018/07/02
 using UnityEngine;
 
 namespace BehaviourMachine
@@ -24,6 +26,19 @@ namespace BehaviourMachine
         description = "Write down some description here.")]
     public class CustomNode : ActionNode
     {
+        [VariableInfo(requiredField = false, nullLabel = "use self", tooltip = "The game object var.")]
+        public GameObjectVar obj;
+        //to call self, use self.
+        
+        //Called when the script is loaded or a value is changed in the inspector (Called in the editor only)
+        public override void OnValidate() { }
+
+        // This function is called to reset the default values of the node
+        public override void Reset()
+        {
+            //such as XXVar = new ConcreteXXVar();
+            obj = new ConcreteGameObjectVar();
+        }
 
         // Called once when the node is created
         public override void Awake() { }
@@ -38,7 +53,7 @@ namespace BehaviourMachine
         public override Status Update()
         {
             // Do stuff
-
+            
             // Never forget to set the node status
             return Status.Success;
             //Ready: 尚未被執行。
@@ -54,12 +69,5 @@ namespace BehaviourMachine
         // Called when the owner (BehaviourTree or ActionState) is disabled
         public override void OnDisable() { }
 
-        // This function is called to reset the default values of the node
-        public override void Reset() {
-            //such as XXVar = new ConcreteXXVar();
-        }
-
-        // Called when the script is loaded or a value is changed in the inspector (Called in the editor only)
-        public override void OnValidate() { }
     }
 }

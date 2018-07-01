@@ -346,7 +346,7 @@ MonoBehaviour:
     m_EventID: 1135201954
   - m_Destination: {fileID: 114067755323978980}
     m_EventID: 1985460778
-  m_CachedInstanceID: 19980
+  m_CachedInstanceID: 20638
   m_Description: wait and do something.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -50}
   m_Transitions: []
-  m_CachedInstanceID: 19976
+  m_CachedInstanceID: 20608
   m_Description: Jump in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 19972
+  m_CachedInstanceID: 20632
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: -120}
   m_Transitions: []
-  m_CachedInstanceID: 19982
+  m_CachedInstanceID: 20636
   m_Description: Walk in Random Direction (left or right)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 19966
+  m_CachedInstanceID: 20664
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 20}
   m_Transitions: []
-  m_CachedInstanceID: 19984
+  m_CachedInstanceID: 20640
   m_Description: Stunned like a stone
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -346794
+  m_CachedInstanceID: 20674
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1087,19 +1087,21 @@ MonoBehaviour:
     - BehaviourMachine.OnCollisionEnter2D
     - BehaviourMachine.DamageUnit
     - BehaviourMachine.AddForce2D
-    m_NodeTypeHash: 5248f43a765fced2f2928592
-    m_NodeFieldStartIndex: 00000000040000000b00000016000000
-    m_BranchIndex: ffffffff0000000000000000
+    - BehaviourMachine.FreezePlayer
+    m_NodeTypeHash: 5248f43a765fced2f292859232796743
+    m_NodeFieldStartIndex: 00000000040000000b000000160000001c000000
+    m_BranchIndex: ffffffff000000000000000000000000
     m_UnityObjectValue:
     - {fileID: 1096392123069142}
-    m_IntValue: 02000000010000006b37bf5704000000010000006b37bf5700000000
+    m_IntValue: 02000000010000006b37bf5704000000010000006b37bf5700000000030000006b37bf57
     m_FloatValue:
     - 10
-    - 100
+    - 1000
     - 6000
     - 0
     - 1
     - 0
+    - 2
     m_StringValue:
     - OnCollisionEnter2D
     - DamageUnit
@@ -1107,16 +1109,19 @@ MonoBehaviour:
     - AddForce2D
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.ConcreteFloatVar
+    - FreezePlayer
+    - BehaviourMachine.ConcreteBoolVar
     m_CurveValue: []
     m_GenericFieldType:
     - BehaviourMachine.ConcreteGameObjectVar
     - BehaviourMachine.ConcreteFloatVar
     - BehaviourMachine.ConcreteVector3Var
     - BehaviourMachine.ConcreteFloatVar
-    m_GenericFieldHash: e5faf787264ce8ef148542ea264ce8ef
-    m_GenericFieldSize: 01000000010000000100000001000000
-    m_FieldIndex: 00000000000000000100000002000000030000000100000000000000000000000100000000000000020000000400000003000000050000000200000001000000040000000500000003000000040000000500000006000000
-    m_FieldType: 0100000002000000050000001a0000000100000002000000100000000f00000010000000030000001100000001000000020000001a0000001000000007000000110000001100000010000000030000000300000005000000
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: e5faf787264ce8ef148542ea264ce8ef264ce8ef
+    m_GenericFieldSize: 0100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000002000000030000000100000000000000000000000100000000000000020000000400000003000000050000000200000001000000040000000500000003000000040000000500000006000000070000000600000008000000070000000400000006000000
+    m_FieldType: 0100000002000000050000001a0000000100000002000000100000000f00000010000000030000001100000001000000020000001a000000100000000700000011000000110000001000000003000000030000000500000001000000020000001a000000110000001000000003000000
     m_FieldPath:
     - instanceID
     - name
@@ -1140,6 +1145,12 @@ MonoBehaviour:
     - multiplyForceBy.value
     - maxVelocity
     - perSecond
+    - instanceID
+    - name
+    - playerObj
+    - setFreezed
+    - freezeTime
+    - freezeTime.value
 --- !u!114 &114481485852250908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1158,7 +1169,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 370, y: -190}
   m_Transitions: []
-  m_CachedInstanceID: 19974
+  m_CachedInstanceID: 20630
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.FloatSet
@@ -1362,7 +1373,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 210, y: 100}
   m_Transitions: []
-  m_CachedInstanceID: -346792
+  m_CachedInstanceID: 20646
   m_Description: dead.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1444,7 +1455,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 19978
+  m_CachedInstanceID: 20614
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1528,7 +1539,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -160, y: 30}
   m_Transitions: []
-  m_CachedInstanceID: 19968
+  m_CachedInstanceID: 20628
   m_Description: A set of Default Function. MUST be set as Concurrent to keep function
     work.
   m_IgnoreTimeScale: 0
@@ -1725,7 +1736,7 @@ MonoBehaviour:
     m_EventID: 1662078051
   - m_Destination: {fileID: 114515700549087338}
     m_EventID: 680969453
-  m_CachedInstanceID: 19970
+  m_CachedInstanceID: 20634
   m_CanTransitionToSelf: 0
 --- !u!212 &212000532591771406
 SpriteRenderer:

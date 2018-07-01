@@ -24,7 +24,7 @@ public class Finish_PlayerState : PlayerState
         }
         if (_controllerPF2d)
         {
-            _controllerPF2d.FreezeControl();
+            _controllerPF2d.Freezed = true;
         }
         if (_spr)
         {
@@ -71,7 +71,7 @@ public class Finish_PlayerState : PlayerState
         }
         if (_controllerPF2d)
         {
-            _controllerPF2d.UnFreezeControl();
+            _controllerPF2d.Freezed = false;
         }
         if (_spr)
         {

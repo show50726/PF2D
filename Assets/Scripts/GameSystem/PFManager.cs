@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) Manager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/21
+//last maintained:  2018/07/02
 //Usage:            add it to anywhere on scene, it will work with "PF-" scripts.
 
 using System.Collections.Generic;
@@ -122,7 +122,7 @@ public class PFManager : MonoBehaviour{
         //a player is finished, do PF-level effect here
         Debug.Log(GetType().Name + ": " + player.name + " has finished the PF level!");
         //freeze
-        player.GetComponent<PF2DController>().FreezeControl();
+        player.GetComponent<PF2DController>().Freezed = true;
 
         //judge if all finish is finished...
 
