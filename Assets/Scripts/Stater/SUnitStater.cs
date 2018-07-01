@@ -7,13 +7,15 @@ using System;
 using UnityEngine;
 namespace CMSR
 {
-    public delegate void OnUnitDamageDelegate(float dmg); 
+    public delegate void OnUnitDamageDelegate(float dmg);
+    public delegate void OnUnitDeathDelegate();
 
     public class SUnitStater : STCMonoBehaviour
     {
         public bool debugMessage = false;
 
         public event OnUnitDamageDelegate OnUnitDamageEvent;
+        public event OnUnitDeathDelegate OnUnitDeathEvent;
 
         public string LogTitle(LogType logType)
         {
@@ -94,11 +96,24 @@ namespace CMSR
             if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " successfully healed " + healAmount + " hp.");
 
         }
+        /// <summary>
+        /// Damage(damageAmount) will decrease HP. If HP is less than 0, Die() will be triggered.
+        /// </summary>
         public void Damage(float damageAmount)
         {
-            healthPoint = (healthPoint - damageAmount) <= 0 ? 0 : healthPoint - damageAmount;
+            float actualDmg = (healthPoint - damageAmount) <= 0 ? healthPoint : damageAmount;
+            healthPoint -= actualDmg;
+            if (debugMessage) Debug.Log(LogTitle(LogType.Normal) + " got " + actualDmg + " damage(s).");
             if (OnUnitDamageEvent != null) OnUnitDamageEvent.Invoke(damageAmount);
-            if(debugMessage) Debug.Log(LogTitle(LogType.Normal) + " damaged.");
+            if (healthPoint <= 0)
+            {
+                Die();
+            }
+        }
+        public void Die()
+        {
+            if (debugMessage) Debug.Log(LogTitle(LogType.Normal) + " is dead.");
+            if (OnUnitDeathEvent != null) OnUnitDeathEvent.Invoke();
         }
 
     }

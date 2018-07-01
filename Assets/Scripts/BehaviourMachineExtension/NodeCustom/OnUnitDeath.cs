@@ -2,7 +2,7 @@
 //            Behaviour Machine
 // Copyright © 2014 Anderson Campos Cardoso
 //----------------------------------------------
-//OnUnitDamage made by STC
+//OnUnitDeath made by STC
 //contact:          stc.ntu@gmail.com
 //last maintained:  2018/07/01
 //NOTICE:           Must be used with (CMSR) SUnitStater.
@@ -13,17 +13,13 @@ namespace BehaviourMachine
 {
     [NodeInfo(category = "Function/CMSR/",
         icon = "Function",
-        description = "Tick when the SUnitStater has been damaged.")]
-    public class OnUnitDamage : FunctionNode
+        description = "Tick when the SUnitStater has died.")]
+    public class OnUnitDeath : FunctionNode
     {
-
-        [VariableInfo(requiredField = false, nullLabel = "Don't Store", canBeConstant = false, tooltip = "Stores the amount of damage")]
-        public FloatVar damage; // Stores the amount of damage.
-
+        
         public override void Reset()
         {
             base.Reset();
-            damage = new ConcreteFloatVar();
         }
 
         // Called when the BehaviourTree is enabled
@@ -38,7 +34,7 @@ namespace BehaviourMachine
                     enabled = false;
                     return;
                 }
-                _stater.OnUnitDamageEvent += OnDamageCallback;
+                _stater.OnUnitDeathEvent += OnDeathCallback;
                 // Internal property used to check if the function node registered its callback
                 m_Registered = true;
             }
@@ -50,17 +46,15 @@ namespace BehaviourMachine
             SUnitStater _stater = self.GetComponent<SUnitStater>();
             if (_stater != null)
             {
-                _stater.OnUnitDamageEvent -= OnDamageCallback;
+                _stater.OnUnitDeathEvent -= OnDeathCallback;
             }
             // Internal property used to check if the function node registered its callback
             m_Registered = false;
         }
 
         // Callback registered to get the SUnitStater's OnUnitDamageEvent
-        protected void OnDamageCallback(float damageParameter)
+        protected void OnDeathCallback()
         {
-            // Update the damage value
-            damage.Value = damageParameter;
             // Tick children
             OnTick();
         }
