@@ -43,11 +43,6 @@ namespace BehaviourMachine
         public override void Start() {
             GameObject targetObj = playerObj.isNone ? self : playerObj.Value;
             controller = targetObj.GetComponent<PF2DController>();
-            if (controller == null)
-            {
-                Debug.LogError(self.name + "/{b}/" + tree.name + "/" + name + " error: cannot find controller on " + targetObj.name + ".");
-                return;
-            }
 
         }
 

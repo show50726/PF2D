@@ -1,6 +1,6 @@
 ﻿//PressureSwitch2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/19
+//last maintained:  2018/07/02
 //usage:            apply this on "button-like" objects to make pressure switches.
 //NOTE:             Mechanism2D needed. Using collider instead of trigger.
 
@@ -47,18 +47,36 @@ public class PressureSwitch2D : Mechanism2D {
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!enabled) return;
-        if (LayerIsInLayerMask(col.gameObject.layer,ignoreTheseObjects) == false)
-        {
-            pressingObject.Add(col.gameObject);
-            Activated = !turnOffInsteadTurnOn;
-        }
+        ObjectEntered(col.gameObject);
     }
     private void OnCollisionExit2D(Collision2D col)
     {
         if (!enabled || stayOnAfterActivated == true) return;
-        if (LayerIsInLayerMask(col.gameObject.layer, ignoreTheseObjects) == false)
+        ObjectExited(col.gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!enabled) return;
+        ObjectEntered(col.gameObject);
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (!enabled || stayOnAfterActivated == true) return;
+        ObjectExited(col.gameObject);
+    }
+    private void ObjectEntered(GameObject obj)
+    {
+        if (LayerIsInLayerMask(obj.layer, ignoreTheseObjects) == false)
         {
-            pressingObject.Remove(col.gameObject);
+            pressingObject.Add(obj.gameObject);
+            if(Activated == turnOffInsteadTurnOn) Activated = !turnOffInsteadTurnOn;
+        }
+    }
+    private void ObjectExited(GameObject obj)
+    {
+        if (LayerIsInLayerMask(obj.layer, ignoreTheseObjects) == false)
+        {
+            pressingObject.Remove(obj.gameObject);
             if (pressingObject.Count == 0)
             {
                 Activated = turnOffInsteadTurnOn;

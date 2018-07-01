@@ -32,6 +32,7 @@ public class Mechanism2D : STCMonoBehaviour {
     /// <param name="isTurnOn">Determine the situation.</param>
     protected virtual void WhenActivate(bool isTurnOn)
     {
+        DebugMessage(LogType.Normal, (isTurnOn ? "activated." : "deactivated."));
         if (isTurnOn == false && stayOnAfterActivated == true)
         {
             //trying to turn off, but should be stay on. Reverse it!
