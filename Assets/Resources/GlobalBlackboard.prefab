@@ -53,7 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FloatVars: []
   m_IntVars: []
-  m_BoolVars: []
+  m_BoolVars:
+  - m_ID: -842839698
+    m_Name: JUST DAMAGED
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    value: 0
   m_StringVars:
   - m_ID: -729775018
     m_Name: Tag Player
@@ -183,6 +188,21 @@ MonoBehaviour:
     m_IsSystem: 0
   - m_ID: -269976692
     m_Name: OnDamage
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: -818647525
+    m_Name: TO DIE
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: -620005631
+    m_Name: TO DASH
+    m_Blackboard: {fileID: 114934193876717976}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: -1777797933
+    m_Name: TO DAMAGED
     m_Blackboard: {fileID: 114934193876717976}
     m_IsConstant: 0
     m_IsSystem: 0

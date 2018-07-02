@@ -14,6 +14,11 @@ namespace BehaviourMachine {
         /// </summary>
         public static new GlobalBlackboard Instance {get {return InternalGlobalBlackboard.Instance as GlobalBlackboard;}}
 
+        // BoolVars
+        public static readonly int JUST_DAMAGED = -842839698;
+        // StringVars
+        public static readonly int Tag_Player = -729775018;
+        public static readonly int Tag_Wall_Collider = -977670856;
         // FsmEvents
         public static readonly int APPLICATION_FOCUS = -1;
         public static readonly int APPLICATION_PAUSE = -2;
@@ -35,5 +40,10 @@ namespace BehaviourMachine {
         public static readonly int TRIGGER_ENTER_2D = -18;
         public static readonly int TRIGGER_EXIT = -19;
         public static readonly int TRIGGER_EXIT_2D = -20;
+        public static readonly int ToIdle = -438203413;
+        public static readonly int OnDamage = -269976692;
+        public static readonly int TO_DIE = -818647525;
+        public static readonly int TO_DASH = -620005631;
+        public static readonly int TO_DAMAGED = -1777797933;
     }
 }
