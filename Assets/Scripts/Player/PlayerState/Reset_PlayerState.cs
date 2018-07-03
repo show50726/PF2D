@@ -1,6 +1,6 @@
 ﻿//Reset_PlayerState made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/01/19
+//last maintained:  2018/07/04
 //usage:            in this script, write special effects (like unable to move) when a player has reset to default state.
 //NOTE:             MUST be assigned on an Animator State, not GameObjects.
 
@@ -19,7 +19,7 @@ public class Reset_PlayerState : PlayerState
             {
                 if (name == "")
                 {
-                    Debug.LogWarning(GetType().Name + " of " + name + " warning: not all of " + resetParametersName + " is assigned. To avoid bugs, " + resetParameters + " will set to false.");
+                    Debug.LogWarning(GetType().Name + " of " + name + " warning: not all of " + resetParametersName + " is assigned. To avoid bugs, resetParameters will set to false.");
                     resetParameters = false;
                     break;
                 }

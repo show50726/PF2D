@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PropertyMetal : PlayerProperty2D {
-    public Color showingColor = new Color32(170, 170, 170, 255);
+    public PropertyMetal()
+    {
+        showingColor = new Color32(170, 170, 170, 255);
+    }
 
     protected override void Start()
 	{

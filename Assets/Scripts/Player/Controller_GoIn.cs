@@ -1,6 +1,6 @@
 ﻿//Controller_GoIn   made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/07
+//last maintained:  2018/07/04
 //usage:            a controller to make player "go in / go out" some room.
 
 using UnityEngine;
@@ -77,7 +77,7 @@ public class Controller_GoIn : MonoBehaviour {
         if(targetSM.GetBool(updateConditionBoolName) && col.gameObject.tag == "Player")
         {
             GoOut = false;
-            Debug.Log("Cannot go out now!");
+            //Debug.Log("Cannot go out now!");
         }
 
     }
@@ -87,7 +87,7 @@ public class Controller_GoIn : MonoBehaviour {
         if (targetSM.GetBool(updateConditionBoolName) && col.gameObject.tag == "Player")
         {
             GoOut = true;
-            Debug.Log("Can go out now!");
+            //Debug.Log("Can go out now!");
         }
     }
 

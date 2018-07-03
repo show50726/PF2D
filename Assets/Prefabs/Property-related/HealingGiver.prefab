@@ -51,7 +51,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882356586815766}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -111,8 +111,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b08dd8e87b790047994d61ea633b11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMessage: 0
+  _showDebugMessage: 0
   propertyManager: {fileID: 0}
+  _SetAnimatorBool:
+  - changeAppearance
+  _TurnOnAnimatorBool:
+  - PropertyHealing
+  _TurnOffAnimatorBool:
+  - PropertyNone
+  showingColor: {r: 0.9137255, g: 0.24705882, b: 0.78431374, a: 1}
   controller2D: {fileID: 0}
   player: {fileID: 0}
   healingPeriod: 1
@@ -127,7 +134,6 @@ MonoBehaviour:
     m_Bits: 512
   updateIfExists: 1
   maxHealth: 100
-  showingColor: {r: 0.9137255, g: 0.24705882, b: 0.78431374, a: 1}
 --- !u!114 &114867072239991180
 MonoBehaviour:
   m_ObjectHideFlags: 1

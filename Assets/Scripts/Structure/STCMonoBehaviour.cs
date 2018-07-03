@@ -9,7 +9,7 @@ public class STCMonoBehaviour : MonoBehaviour
 {
     public bool _showDebugMessage = false;
     protected string _debugTitle = "";
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         _debugTitle = name + "/" + GetType().Name;
 

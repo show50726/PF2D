@@ -1,9 +1,8 @@
 ﻿//Property Manager  PROUDLY made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/03
+//last maintained:  2018/07/04
 //Usage:            This helps managing properties. Make sure you apply it to ANY unit that will be involved by properties.
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -174,8 +173,6 @@ public class PropertyManager : MonoBehaviour {
         {
             RemoveProperty(propertyList[0].GetType());
         }
-        //player.Circle.GetComponent<SpriteRenderer>().color = Color.white;
-        PlayerProperty2D.EraseAllChange(this);
         return true;
     }
     
