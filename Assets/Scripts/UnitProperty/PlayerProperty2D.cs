@@ -1,6 +1,6 @@
 ﻿//Player Property 2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2017/11/25
+//last maintained:  2018/07/03
 //Usage:            This is made for player property 2D example. Inherit this to write a property script.
 
 using UnityEngine;
@@ -10,6 +10,16 @@ public class PlayerProperty2D : UnitProperty
 {
     public PF2DController controller2D;
     public Player player;
+    public virtual void ApplyAppearanceChange(bool apply)
+    {
+
+    }
+    public static void EraseAllChange(PropertyManager propertyManager)
+    {
+
+    }
+
+
     protected override void Start()
     {
         base.Start();
