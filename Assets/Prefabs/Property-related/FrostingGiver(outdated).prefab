@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114494783695069874}
   - component: {fileID: 114097739227103546}
   m_Layer: 9
-  m_Name: FrostingGiver-p
+  m_Name: FrostingGiver(outdated)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

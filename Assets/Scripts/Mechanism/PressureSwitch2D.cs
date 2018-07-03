@@ -2,7 +2,7 @@
 //contact:          stc.ntu@gmail.com
 //last maintained:  2018/07/02
 //usage:            apply this on "button-like" objects to make pressure switches.
-//NOTE:             Mechanism2D needed. Using collider instead of trigger.
+//NOTE:             Mechanism2D needed. Use collider / trigger. (2D only)
 
 using UnityEngine;
 
