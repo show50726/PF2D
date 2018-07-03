@@ -313,7 +313,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1014777517}
     m_Modifications:
     - target: {fileID: 4904803784472554, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.x
@@ -345,7 +345,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4904803784472554, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114581980933070902, guid: 499d053008f14da4e8930e6c4a821d14,
         type: 2}
@@ -364,7 +364,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1938233411730320, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
@@ -465,6 +465,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 573500313}
   m_Script: {fileID: 11500000, guid: cd37cd4b48c767940aaa8badb94e36b0, type: 3}
+--- !u!4 &721019166 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4904803784472554, guid: 499d053008f14da4e8930e6c4a821d14,
+    type: 2}
+  m_PrefabInternal: {fileID: 531169879}
 --- !u!213 &753248432
 Sprite:
   m_ObjectHideFlags: 0
@@ -3909,7 +3914,7 @@ Prefab:
     - target: {fileID: 8195094279718797848, guid: 0eed0e5446487644b91f2040950d185d,
         type: 2}
       propertyPath: m_TileRefreshArray.Array.data[0].m_DirtyIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8195094282771488468, guid: 0eed0e5446487644b91f2040950d185d,
         type: 2}
@@ -8709,7 +8714,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1483809408270286, guid: 0f53ca51089cce4438c127eed8beefdf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212405962915867048, guid: 0f53ca51089cce4438c127eed8beefdf,
         type: 2}
@@ -8776,6 +8781,7 @@ Transform:
   - {fileID: 918196055}
   - {fileID: 1618028813}
   - {fileID: 1707655447}
+  - {fileID: 721019166}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugMessage: 0
-  activated: 0
+  activated: 1
   stayOnAfterActivated: 0
   ignoreTheseObjects:
     serializedVersion: 2
