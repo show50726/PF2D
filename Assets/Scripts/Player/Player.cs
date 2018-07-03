@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/26
+//last maintained:  2018/07/03
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System;
@@ -80,18 +80,23 @@ public class Player : SLivingStater {
         GameObject thatDoorSet = null;
         foreach (Finish2D d in doors)
         {
-            if (d.gameObject.transform.parent.gameObject.name == openThisDoorInNextScene)
+            if (d.gameObject.name == openThisDoorInNextScene)
+            {
+                //the door is itself. Just open it.
+                thatDoor = d;
+            }
+            else if (d.gameObject.transform.parent == null)
+            {
+                continue;
+            }
+            else if (d.gameObject.transform.parent.gameObject.name == openThisDoorInNextScene)
             {
                 thatDoor = d;
                 thatDoorSet = thatDoor.gameObject.transform.parent.gameObject;
                 Debug.Log(name + "/" + GetType().Name + ": found a doorset named " + thatDoorSet.name + " to open.");
                 break;
             }
-            else if (d.gameObject.name == openThisDoorInNextScene)
-            {
-                //the door is itself. Just open it.
-                thatDoor = d;
-            }
+            
         }
         if (thatDoor == null) return;
         if (thatDoorSet != null)

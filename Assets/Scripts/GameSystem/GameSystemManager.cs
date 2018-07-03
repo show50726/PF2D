@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/17
+//last maintained:  2018/07/03
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -193,6 +193,7 @@ public class GameSystemManager : MonoBehaviour
         if(exist == null)
         {
             exist = this;
+            Debug.Log(name + "/" + GetType().Name + ": This object will NOT be destroyed on level finished.");
             DontDestroyOnLoad(gameObject);
         }
         else if(exist != this)
@@ -201,7 +202,8 @@ public class GameSystemManager : MonoBehaviour
             exist.theSceneIsInGame = theSceneIsInGame;
             exist.afterThisLevelDoneWaitTime = afterThisLevelDoneWaitTime;
             //update Game and Scene Data finished. Delete the later one (this)
-            Destroy(gameObject);
+            Debug.Log(GetType().Name + ": removing from " + name + ". This object might be destroyed on level finished.");
+            Destroy(this);
             return;
         }
         oringinalTimeScale = Time.timeScale;

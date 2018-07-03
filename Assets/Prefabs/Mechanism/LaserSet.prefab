@@ -228,7 +228,7 @@ MonoBehaviour:
   stayOnAfterActivated: 0
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 48
+    m_Bits: 4294966270
   connectedMechanism:
   - {fileID: 114763710178643606}
   switchInsteadTurnOn: 0
@@ -254,6 +254,8 @@ MonoBehaviour:
   ignoreTheseObjects:
     serializedVersion: 2
     m_Bits: 12292
+  damageToPlayer: 200
+  damageToUnit: 10
   meltingIcePeriod: 0.1
   DestroyWoodPeriod: 1
   tagOfFloor: Floor
@@ -376,7 +378,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1781745091
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0.309, g: 0.309, b: 0.309, a: 1}
@@ -420,7 +422,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1781745091
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a7bb20fae491fed438a298f811dedf7c, type: 3}
   m_Color: {r: 0.309, g: 0.309, b: 0.309, a: 1}

@@ -478,7 +478,7 @@ MonoBehaviour:
   stayOnAfterActivated: 0
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 48
+    m_Bits: 4294966270
   connectedMechanism:
   - {fileID: 114857582740433154}
   switchInsteadTurnOn: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
   stayOnAfterActivated: 0
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 48
+    m_Bits: 4294966270
   connectedMechanism:
   - {fileID: 114857582740433154}
   switchInsteadTurnOn: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   stayOnAfterActivated: 0
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 48
+    m_Bits: 4294966270
   connectedMechanism:
   - {fileID: 114857582740433154}
   switchInsteadTurnOn: 0

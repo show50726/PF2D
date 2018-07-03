@@ -106,7 +106,7 @@ MonoBehaviour:
   updateIfExists: 1
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 1792
+    m_Bits: 4294967294
   water:
     serializedVersion: 2
     m_Bits: 16
@@ -125,9 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 1812
+    m_Bits: 4294966270
   giveProperty: {fileID: 114638914031378388}
-  updateInfoIfPropertyExists: 0
+  updateInfoIfPropertyExists: 1
   removeWhenLeave: 0
 --- !u!114 &114826596575376422
 MonoBehaviour:

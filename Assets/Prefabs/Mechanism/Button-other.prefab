@@ -83,7 +83,7 @@ MonoBehaviour:
   stayOnAfterActivated: 0
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 304
+    m_Bits: 4294966270
   connectedMechanism:
   - {fileID: 0}
   switchInsteadTurnOn: 0
