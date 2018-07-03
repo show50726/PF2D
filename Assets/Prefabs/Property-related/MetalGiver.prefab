@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 1808
+    m_Bits: 4294966270
   giveProperty: {fileID: 114911206717483830}
   updateInfoIfPropertyExists: 1
   removeWhenLeave: 0
