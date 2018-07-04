@@ -4511,6 +4511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04171f5f38935dc48891bff7a2439e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   theSceneIsInGame: 1
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
@@ -5226,6 +5227,11 @@ Prefab:
         type: 2}
       propertyPath: activated
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114865292240414302, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+        type: 2}
+      propertyPath: _CountNeeded
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}

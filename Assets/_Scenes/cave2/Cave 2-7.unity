@@ -401,7 +401,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 22862
+  m_CachedInstanceID: 46092
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -5941,6 +5941,11 @@ Prefab:
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 114186122686175524, guid: 499d053008f14da4e8930e6c4a821d14,
+        type: 2}
+      propertyPath: _CountNeeded
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864596912076940, guid: 499d053008f14da4e8930e6c4a821d14,
         type: 2}
       propertyPath: _CountNeeded
       value: 3

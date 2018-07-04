@@ -446,22 +446,7 @@ Prefab:
     - target: {fileID: 114483832768087548, guid: 499d053008f14da4e8930e6c4a821d14,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -4362
-      objectReference: {fileID: 0}
-    - target: {fileID: 114685423538330168, guid: 499d053008f14da4e8930e6c4a821d14,
-        type: 2}
-      propertyPath: goToThisScene
-      value: Cave 1-2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114685423538330168, guid: 499d053008f14da4e8930e6c4a821d14,
-        type: 2}
-      propertyPath: goToThisPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114685423538330168, guid: 499d053008f14da4e8930e6c4a821d14,
-        type: 2}
-      propertyPath: goToThisPosition.y
-      value: 4
+      value: -600594
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
@@ -8639,6 +8624,11 @@ Prefab:
         type: 2}
       propertyPath: goToThisScene
       value: Main Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 114865292240414302, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+        type: 2}
+      propertyPath: _CountNeeded
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}

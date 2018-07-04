@@ -242,6 +242,11 @@ Prefab:
       propertyPath: switchCase.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114865292240414302, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+        type: 2}
+      propertyPath: _CountNeeded
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
   m_IsPrefabParent: 0
@@ -3374,7 +3379,7 @@ Transform:
   m_Children:
   - {fileID: 1196801418}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1790624861
 Prefab:
