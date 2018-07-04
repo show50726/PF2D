@@ -1,6 +1,6 @@
 ﻿//CountGate made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/02
+//last maintained:  2018/07/04
 //usage:            can be used in situation that need to activate several time to be success.
 //NOTE:             Mechanism2D needed. 
 
@@ -79,7 +79,7 @@ public class CountGate : Mechanism2D {
         if (isTurnOn)
         {
             if (_NowCount < _CountNeeded) _NowCount++;
-            if (_NowCount == _CountNeeded)
+            else if (_NowCount == _CountNeeded)
             {
                 ActivateMechanism(true);
             }
