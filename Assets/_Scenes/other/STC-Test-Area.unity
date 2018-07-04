@@ -3441,7 +3441,7 @@ Prefab:
     - target: {fileID: 61643725508653142, guid: 36aeaf13505ae144aa55bc6a075223db,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36aeaf13505ae144aa55bc6a075223db, type: 2}
@@ -3490,14 +3490,6 @@ Prefab:
     - target: {fileID: 4198604838215580, guid: b7edcc109882b6043a8a07826976a455, type: 2}
       propertyPath: m_RootOrder
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680040952508890, guid: b7edcc109882b6043a8a07826976a455, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680040952508890, guid: b7edcc109882b6043a8a07826976a455, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7edcc109882b6043a8a07826976a455, type: 2}
@@ -5099,65 +5091,70 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114478630891086656, guid: 226f4060aec31de42a4ff6676cc29e76,
+    - target: {fileID: 114307479744867736, guid: 226f4060aec31de42a4ff6676cc29e76,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -32066
-      objectReference: {fileID: 0}
-    - target: {fileID: 114383755312410540, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32056
-      objectReference: {fileID: 0}
-    - target: {fileID: 114515700549087338, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32038
-      objectReference: {fileID: 0}
-    - target: {fileID: 114448946969571410, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32032
-      objectReference: {fileID: 0}
-    - target: {fileID: 114040450966096592, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32030
-      objectReference: {fileID: 0}
-    - target: {fileID: 114335271763067580, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32028
-      objectReference: {fileID: 0}
-    - target: {fileID: 114986364001316468, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32026
-      objectReference: {fileID: 0}
-    - target: {fileID: 114172436066029696, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32024
-      objectReference: {fileID: 0}
-    - target: {fileID: 114481485852250908, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32022
-      objectReference: {fileID: 0}
-    - target: {fileID: 114576095044458876, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32020
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541902621333986, guid: 226f4060aec31de42a4ff6676cc29e76,
-        type: 2}
-      propertyPath: m_CachedInstanceID
-      value: -32010
+      value: -174716
       objectReference: {fileID: 0}
     - target: {fileID: 114067755323978980, guid: 226f4060aec31de42a4ff6676cc29e76,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -32006
+      value: -1750
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541902621333986, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1748
+      objectReference: {fileID: 0}
+    - target: {fileID: 114576095044458876, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1746
+      objectReference: {fileID: 0}
+    - target: {fileID: 114481485852250908, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1744
+      objectReference: {fileID: 0}
+    - target: {fileID: 114172436066029696, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1742
+      objectReference: {fileID: 0}
+    - target: {fileID: 114986364001316468, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1740
+      objectReference: {fileID: 0}
+    - target: {fileID: 114335271763067580, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1738
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040450966096592, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1736
+      objectReference: {fileID: 0}
+    - target: {fileID: 114448946969571410, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1734
+      objectReference: {fileID: 0}
+    - target: {fileID: 114515700549087338, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1732
+      objectReference: {fileID: 0}
+    - target: {fileID: 114383755312410540, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1730
+      objectReference: {fileID: 0}
+    - target: {fileID: 114478630891086656, guid: 226f4060aec31de42a4ff6676cc29e76,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1728
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 226f4060aec31de42a4ff6676cc29e76, type: 2}
@@ -5505,7 +5502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035654375}
   - component: {fileID: 2035654374}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Background-sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}

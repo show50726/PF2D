@@ -1,6 +1,6 @@
 ﻿//PushOut made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/03
+//last maintained:  2018/07/04
 //usage:            push out anything contains in the collider / trigger.
 
 using UnityEngine;
@@ -24,9 +24,8 @@ public class PushOut : STCMonoBehaviour
     public float pushOutSpeed = 10;
 
     // Use this for initialization
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         if (pushOutSpeed < 0)
         {
             DebugMessage(LogType.Warning, "speed cannot less than 0. Will change to positive.");

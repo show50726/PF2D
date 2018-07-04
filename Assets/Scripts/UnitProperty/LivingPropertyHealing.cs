@@ -1,6 +1,6 @@
 ﻿//Living Property Healing by STC
 //contact:          stc.ntu@gmail.com
-//last maintain:    2018/06/27
+//last maintain:    2018/07/04
 //usage:            put it along with unit stater, this will do the healing effect.
 
 using System.Collections.Generic;
@@ -110,14 +110,14 @@ public class LivingPropertyHealing : LivingProperty2D {
 
         //do the healing
         if(allowHealing) stater.Heal(healingRate * Time.deltaTime);
-        if(debugMessage) Debug.Log("Unit " + stater.name + " is healing." + "HP is now " + stater.healthPoint);
+        DebugMessage(LogType.Normal, "unit " + stater.name + " is healing." + "HP is now " + stater.healthPoint);
 
         //fast healing
         stayTimer += Time.deltaTime;
         if (JudgeFastHealing())
         {
             stater.Heal(fastHealRate * Time.deltaTime);
-            if (debugMessage) Debug.Log("Unit " + stater.name + " is fast healing." + "HP is now " + stater.healthPoint);
+            DebugMessage(LogType.Normal, "unit " + stater.name + " is fast healing." + "HP is now " + stater.healthPoint);
         }
         allowHealing = !(JudgeFastHealing() && TurnOffNormalHealing);
 
@@ -130,7 +130,7 @@ public class LivingPropertyHealing : LivingProperty2D {
                 if (p.touchTime >= healingNearbyWarmUp)
                 {
                     p.targetLiving.Heal(healingNearbyRate * Time.deltaTime);
-                    if (debugMessage) Debug.Log(p.targetLiving.gameObject.name + " is healed by " + name + " in a rate of " + healingNearbyRate);
+                    DebugMessage(LogType.Normal,"healing " + p.targetLiving.gameObject.name + " in a rate of " + healingNearbyRate);
                 }
             }
         }

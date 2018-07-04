@@ -1,38 +1,38 @@
 ﻿//Property Frosting made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/11
+//last maintained:  2018/07/04
 //Usage:            This is a specified property, which makes player "cool" and freeze other objects.
 
 using UnityEngine;
 
 public class PropertyFrosting : PropertyNegative
 {
-    public static System.Collections.Generic.List<GameObject> frozenWater = new System.Collections.Generic.List<GameObject>();
-    public Color showingColor = new Color32(94, 228, 240, 255);
-
-    protected override void Start()
-	{
-		base.Start();
-        player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
-    }
-
     public PropertyFrosting()
     {
         damagePeriod = 3f;
+        showingColor = new Color32(94, 228, 240, 255);
     }
+    public static System.Collections.Generic.List<GameObject> frozenWater = new System.Collections.Generic.List<GameObject>();
+
+    protected override void Start()
+    {
+        base.Start();
+        player.Circle.GetComponent<SpriteRenderer>().color = showingColor;
+    }
+    
     [Header("Freezing setting.")]
     [Tooltip("If not set, will apply as default.")]
     public PropertyFrozen freezePropertySample;
     public bool updateIfExists = true;
     [Tooltip("Objects in these layers won't be diffused.")]
-    public LayerMask ignoreTheseObjects = (1 << 8)|(1 << 9); //this format means the Layer 8. 9 are selected.
+    public LayerMask ignoreTheseObjects = (1 << 8) | (1 << 9); //this format means the Layer 8. 9 are selected.
 
     [Header("Make water Frozen")]
     public LayerMask water = (1 << 4);
     public GameObject icePrefab;
     [Tooltip("This prevents the repeat production of ice.")]
     public float heightTuning = 0.1f;
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!enabled) return;
@@ -50,7 +50,7 @@ public class PropertyFrosting : PropertyNegative
             {
                 rb.velocity -= new Vector2(0, rb.velocity.y);
             }
-            transform.position += new Vector3 (0, heightTuning * 1.3f); //this help ice effect work normally
+            transform.position += new Vector3(0, heightTuning * 1.3f); //this help ice effect work normally
 
             //create an ice
             Vector3 p = new Vector3(
@@ -77,14 +77,14 @@ public class PropertyFrosting : PropertyNegative
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!enabled) return;
-		if (CheckLayerIsInTheLayerMask(col.gameObject.layer, ignoreTheseObjects)) return;
+        if (CheckLayerIsInTheLayerMask(col.gameObject.layer, ignoreTheseObjects)) return;
         //notice that PropertyBurn has scripted to destroy each other on touch already.
         if (GetProperty<PropertyWooden>(col.gameObject) != null)
         {
             if (freezePropertySample) GivePropertyTo(col.gameObject, freezePropertySample, updateIfExists);
             else GivePropertyTo(col.gameObject, new PropertyFrozen(), updateIfExists);
         }
-        
+
     }
     private void OnCollisionExit2D(Collision2D col)
     {

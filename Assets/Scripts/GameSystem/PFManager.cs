@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) Manager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/02
+//last maintained:  2018/07/04
 //Usage:            add it to anywhere on scene, it will work with "PF-" scripts.
 
 using System.Collections.Generic;
@@ -17,7 +17,6 @@ public class PFManager : MonoBehaviour{
     public string assignedState = "InFinish";
     [Tooltip("Don't modifiy this until you know what you're doing.")]
     public int checkLayer = 0;
-    private int assignedStateHash;
 
     private void Start()
     {
@@ -93,10 +92,17 @@ public class PFManager : MonoBehaviour{
                 Debug.LogWarning(GetType().Name + " warning: checkTheseState list contains one that doesn't has animator. Did you forget to assign it?");
                 return;
             }
-            assignedStateHash = Animator.StringToHash(anim.GetLayerName(checkLayer) + "." + assignedState);
-            if (anim.GetCurrentAnimatorStateInfo(checkLayer).fullPathHash != assignedStateHash)
+            //int assignedStateHash = Animator.StringToHash(anim.GetLayerName(checkLayer) + "." + assignedState);
+            //if (anim.GetCurrentAnimatorStateInfo(checkLayer).fullPathHash != assignedStateHash)
+            //{
+            //    Debug.Log(GetType().Name + ": " + obj.name +" isn't in assignedState( "+ assignedStateHash +", player is + " + anim.GetCurrentAnimatorStateInfo(checkLayer).fullPathHash + ") so the level still not finished.");
+            //    return;
+            //}
+            //DEV NOTE: 根據實驗，有些Animator State似乎會在"進入State之前" 就執行上面的StateBehaviour - OnStateEnter(例如 Finish_PlayerState ...) 這會導致很嚴重的問題。
+
+            if (!anim.GetCurrentAnimatorStateInfo(checkLayer).IsName(assignedState))
             {
-                Debug.Log(GetType().Name + ": " + obj.name +" isn't in assignedState so the level still not finished.");
+                Debug.Log(GetType().Name + ": " + obj.name + " isn't in assignedState(" + assignedState + ") so the level still not finished.");
                 return;
             }
         }

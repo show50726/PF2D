@@ -1,15 +1,14 @@
 ﻿//Unit Property     made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/27
+//last maintained:  2018/07/04
 //Usage:            This is made for property example. Inherit this to write a property script.
 
 using UnityEngine;
 using System.Collections;
 
-public class UnitProperty : MonoBehaviour
+public class UnitProperty : STCMonoBehaviour
 {
     //public string test = "hi";
-    public bool debugMessage = false;
 
     #region String Saving Area
 

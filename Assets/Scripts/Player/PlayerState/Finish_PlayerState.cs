@@ -1,6 +1,6 @@
 ﻿//Finish_PlayerState made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/02
+//last maintained:  2018/07/04
 //usage:            in this script, write special effects (like unable to move) when a player has finished.
 //NOTE:             MUST be assigned on an Animator State, not GameObjects.
 
@@ -8,6 +8,11 @@ using UnityEngine;
 
 public class Finish_PlayerState : PlayerState
 {
+    /// <summary>
+    /// This is helped to prevent player into ground when comes out the door.
+    /// </summary>
+    [Tooltip("This is helped to prevent player into ground when comes out the door.")]
+    public Vector3 fixPos = new Vector3(0, 4, 0);
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
@@ -59,6 +64,7 @@ public class Finish_PlayerState : PlayerState
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
+        _obj.transform.position += fixPos;
         if (_rb2d)
         {
             _rb2d.bodyType = psInfo.rbType;
