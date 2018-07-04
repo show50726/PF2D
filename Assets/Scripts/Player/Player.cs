@@ -190,7 +190,7 @@ public class Player : SLivingStater {
         rb2D = GetComponent<Rigidbody2D>();
         cld = GetComponent<Collider>();
         cld2D = GetComponent<Collider2D>();
-
+        OnUnitDeathEvent += Death;
     }
     private void FixedUpdate()
     {
