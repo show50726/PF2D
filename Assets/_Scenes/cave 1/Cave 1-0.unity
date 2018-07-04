@@ -896,7 +896,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 43872
+  m_CachedInstanceID: 18224
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 43888
+  m_CachedInstanceID: 18240
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4513,7 +4513,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 180, y: 100}
   m_Transitions: []
-  m_CachedInstanceID: 43934
+  m_CachedInstanceID: 18286
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4615,7 +4615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d527899a3fda1f5488862bd77941cc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMessage: 0
+  _showDebugMessage: 0
   propertyManager: {fileID: 0}
   stater: {fileID: 1100825129}
   showingColor: {r: 0.9137255, g: 0.24705882, b: 0.78431374, a: 1}
@@ -4664,11 +4664,13 @@ MonoBehaviour:
   m_Blackboard: {fileID: 1100825139}
   m_Parent: {fileID: 1100825138}
   m_StateName: Die
-  m_Color: 0
+  m_Color: 2
   m_HideScript: 1
   m_Position: {x: 180, y: 160}
-  m_Transitions: []
-  m_CachedInstanceID: 43944
+  m_Transitions:
+  - m_Destination: {fileID: 1100825132}
+    m_EventID: 443394211
+  m_CachedInstanceID: 18296
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4677,25 +4679,126 @@ MonoBehaviour:
     m_NodeTypes:
     - BehaviourMachine.OnEnable
     - BehaviourMachine.Update
-    m_NodeTypeHash: 89ef821089ef8210
-    m_NodeFieldStartIndex: 000000000300000006000000
-    m_BranchIndex: ffffffffffffffff
-    m_UnityObjectValue: []
-    m_IntValue: 01000000010000000200000001000000
-    m_FloatValue: []
+    - BehaviourMachine.FloatAdd
+    - BehaviourMachine.ColorSetRGBA
+    - BehaviourMachine.ChangeColor
+    - BehaviourMachine.IsFloatGreaterOrEqual
+    m_NodeTypeHash: 89ef821089ef82108d24a0b4f88813276584b99e46d570ad
+    m_NodeFieldStartIndex: 0000000003000000060000000c00000013000000180000001e000000
+    m_BranchIndex: ffffffffffffffff01000000010000000100000001000000
+    m_UnityObjectValue:
+    - {fileID: 1751785734}
+    m_IntValue: 01000000010000000200000001000000060000003b7c77120000000004000000ead972223b7c771205000000ead9722203000000a3a86d1a3b7c7712
+    m_FloatValue:
+    - 1
+    - 255
     m_StringValue:
     - OnEnable
     - Update
+    - FloatAdd
+    - ColorSetRGBA
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - ChangeColor
+    - IsFloatGreaterOrEqual
     m_CurveValue: []
-    m_GenericFieldType: []
-    m_GenericFieldHash: 
-    m_GenericFieldSize: 
-    m_FieldIndex: 000000000000000001000000020000000100000003000000
-    m_FieldType: 010000000200000005000000010000000200000005000000
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 264ce8efe5faf787264ce8ef
+    m_GenericFieldSize: 010000000100000001000000
+    m_FieldIndex: 000000000000000001000000020000000100000003000000040000000200000005000000000000000000000006000000070000000300000008000000040000000500000006000000090000000a0000000700000001000000000000000b0000000c000000080000000d0000000e0000000200000001000000
+    m_FieldType: 010000000200000005000000010000000200000005000000010000000200000012000000100000000300000005000000010000000200000018000000110000001100000011000000120000000100000002000000100000000f0000001800000001000000020000001e000000120000001000000003000000
     m_FieldPath:
     - instanceID
     - name
     - enabled
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - variable
+    - addBy
+    - addBy.value
+    - perSecond
+    - instanceID
+    - name
+    - variable
+    - newR
+    - newG
+    - newB
+    - newA
+    - instanceID
+    - name
+    - gameObject
+    - gameObject.value
+    - newColor
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - b.value
+--- !u!114 &1100825132
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1100825125}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1100825139}
+  m_Parent: {fileID: 1100825138}
+  m_StateName: Change Scene
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 360, y: 160}
+  m_Transitions: []
+  m_CachedInstanceID: -119446
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnEnable
+    - BehaviourMachine.LoadLevel
+    - BehaviourMachine.Update
+    m_NodeTypeHash: 89ef8210b5961ce489ef8210
+    m_NodeFieldStartIndex: 0000000003000000090000000c000000
+    m_BranchIndex: ffffffff00000000ffffffff
+    m_UnityObjectValue: []
+    m_IntValue: 010000000100000003000000000000000200000001000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnEnable
+    - LoadLevel
+    - Cave 1-0-after
+    - BehaviourMachine.ConcreteIntVar
+    - Update
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 7de9e602
+    m_GenericFieldSize: 01000000
+    m_FieldIndex: 000000000000000001000000020000000100000000000000020000000300000003000000040000000400000005000000
+    m_FieldType: 010000000200000005000000010000000200000010000000020000001100000004000000010000000200000005000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - levelName
+    - levelName.value
+    - levelIndex
+    - loadLevelType
     - instanceID
     - name
     - enabled
@@ -5277,7 +5380,7 @@ GameObject:
   - component: {fileID: 1751785736}
   - component: {fileID: 1751785735}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Black Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5477,7 +5580,12 @@ Prefab:
     - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_FloatVars.Array.size
-      value: 15
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ColorVars.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114447050491482390, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -5492,7 +5600,7 @@ Prefab:
     - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_ConcreteFsmEvents.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114111282776357276, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -5507,7 +5615,7 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.size
-      value: 72
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 114648553683238828, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -5557,17 +5665,17 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeTypes.Array.size
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.size
-      value: 166
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.size
-      value: 166
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 114648553683238828, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -5657,7 +5765,7 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.size
-      value: 166
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 114648553683238828, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -5727,12 +5835,12 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_BranchIndex.Array.size
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.size
-      value: 64
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 114648553683238828, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -5777,7 +5885,7 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeTypeHash.Array.size
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 114648553683238828, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -5927,7 +6035,7 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeFieldStartIndex.Array.size
-      value: 34
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 114648553683238828, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -6049,7 +6157,7 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -327776
+      value: -38784
       objectReference: {fileID: 0}
     - target: {fileID: 114890758621043406, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -14354,12 +14462,12 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[56]
-      value: OnUnitDeath
+      value: IsKeyDown
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[57]
-      value: SetEnabled
+      value: OnUnitDeath
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20294,12 +20402,12 @@ Prefab:
     - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_IntVars.Array.data[1].m_ID
-      value: 613220103
+      value: 1678023186
       objectReference: {fileID: 0}
     - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_IntVars.Array.data[1].m_Name
-      value: 
+      value: Black Alpha
       objectReference: {fileID: 0}
     - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20309,7 +20417,7 @@ Prefab:
     - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_IntVars.Array.data[1].value
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20434,12 +20542,12 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[58]
-      value: BehaviourMachine.ConcreteGameObjectVar
+      value: SetEnabled
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[59]
-      value: Box Collider 2D
+      value: BehaviourMachine.ConcreteGameObjectVar
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20594,12 +20702,12 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[60]
-      value: SendEvent
+      value: Box Collider 2D
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[61]
-      value: BehaviourMachine.ConcreteFloatVar
+      value: SendEvent
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20689,37 +20797,37 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeTypes.Array.data[30]
-      value: BehaviourMachine.OnUnitDeath
+      value: BehaviourMachine.IsKeyDown
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeTypeHash.Array.data[30]
-      value: 277016457
+      value: 1009527106
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeFieldStartIndex.Array.data[31]
-      value: 153
+      value: 154
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_BranchIndex.Array.data[30]
-      value: -1
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[63]
-      value: BehaviourMachine.ConcreteBoolVar
+      value: BehaviourMachine.ConcreteFloatVar
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[64]
-      value: BehaviourMachine.ConcreteFloatVar
+      value: BehaviourMachine.ConcreteBoolVar
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_StringValue.Array.data[65]
-      value: BehaviourMachine.ConcreteFloatVar
+      value: BehaviourMachine.ConcreteBoolVar
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20754,12 +20862,12 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[152]
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[153]
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20774,12 +20882,12 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[152]
-      value: enabled
+      value: onSuccess
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[153]
-      value: instanceID
+      value: keyCode
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20789,122 +20897,122 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[66]
-      value: 20
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[67]
-      value: 1
+      value: 834955698
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[68]
-      value: 21
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[154]
-      value: 57
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_FieldType.Array.data[154]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_FieldPath.Array.data[154]
-      value: name
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_NodeTypes.Array.data[31]
-      value: BehaviourMachine.SetEnabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_NodeTypeHash.Array.data[31]
-      value: 149457095
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_NodeFieldStartIndex.Array.data[32]
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_BranchIndex.Array.data[31]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[155]
-      value: 58
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[156]
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[157]
       value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
+      propertyPath: m_NodeSerialization.m_FieldType.Array.data[154]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldPath.Array.data[154]
+      value: instanceID
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_NodeTypes.Array.data[31]
+      value: BehaviourMachine.OnUnitDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_NodeTypeHash.Array.data[31]
+      value: 277016457
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_NodeFieldStartIndex.Array.data[32]
+      value: 157
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_BranchIndex.Array.data[31]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[155]
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[156]
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[157]
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[158]
-      value: 17
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[155]
-      value: 17
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[156]
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
-        type: 2}
-      propertyPath: m_NodeSerialization.m_FieldType.Array.data[157]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
+      propertyPath: m_NodeSerialization.m_FieldType.Array.data[157]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[158]
-      value: 16
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[155]
-      value: gameObject
+      value: name
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[156]
-      value: Value
+      value: enabled
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[157]
-      value: Value.value
+      value: instanceID
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[158]
-      value: componentType
+      value: name
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[69]
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[70]
-      value: 33
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20914,12 +21022,12 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[159]
-      value: 2
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[159]
-      value: componentType.value
+      value: gameObject
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -20929,22 +21037,22 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[160]
-      value: 70
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[160]
-      value: 1
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[160]
-      value: instanceID
+      value: Value
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[71]
-      value: 834955698
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 114220744217048450, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -21322,97 +21430,97 @@ Prefab:
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeTypes.Array.data[32]
-      value: BehaviourMachine.SendEvent
+      value: BehaviourMachine.SetEnabled
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeTypeHash.Array.data[32]
-      value: -957619698
+      value: 149457095
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_NodeFieldStartIndex.Array.data[33]
-      value: 166
+      value: 164
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_BranchIndex.Array.data[32]
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[161]
-      value: 60
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[162]
-      value: 71
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[161]
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[162]
-      value: 30
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[161]
-      value: name
+      value: Value.value
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[162]
-      value: eventToSend
+      value: componentType
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[163]
-      value: 61
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[163]
-      value: 17
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[163]
-      value: delay
+      value: componentType.value
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[164]
-      value: 62
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[164]
-      value: 17
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[164]
-      value: storeDelayTime
+      value: instanceID
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[165]
-      value: 63
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldType.Array.data[165]
-      value: 17
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FieldPath.Array.data[165]
-      value: storeEventUsed
+      value: name
       objectReference: {fileID: 0}
     - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -21464,6 +21572,151 @@ Prefab:
       propertyPath: m_Transitions.Array.data[2].m_Destination
       value: 
       objectReference: {fileID: 1100825130}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ColorVars.Array.data[3].m_ID
+      value: 577952234
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ColorVars.Array.data[3].m_Name
+      value: Black Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ColorVars.Array.data[3].m_Blackboard
+      value: 
+      objectReference: {fileID: 1100825139}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_FloatVars.Array.data[15].m_ID
+      value: 309820475
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_FloatVars.Array.data[15].m_Name
+      value: Black Alpha
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_FloatVars.Array.data[15].m_Blackboard
+      value: 
+      objectReference: {fileID: 1100825139}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ConcreteFsmEvents.Array.data[8].m_ID
+      value: 443394211
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ConcreteFsmEvents.Array.data[8].m_Name
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ConcreteFsmEvents.Array.data[8].m_Blackboard
+      value: 
+      objectReference: {fileID: 1100825139}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_NodeTypes.Array.data[33]
+      value: BehaviourMachine.SendEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_NodeTypeHash.Array.data[33]
+      value: -957619698
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_NodeFieldStartIndex.Array.data[34]
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_BranchIndex.Array.data[33]
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_IntValue.Array.data[72]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_IntValue.Array.data[73]
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[166]
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[167]
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[168]
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldIndex.Array.data[169]
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldType.Array.data[166]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldType.Array.data[167]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldType.Array.data[168]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldType.Array.data[169]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldPath.Array.data[166]
+      value: eventToSend
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldPath.Array.data[167]
+      value: delay
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldPath.Array.data[168]
+      value: storeDelayTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_FieldPath.Array.data[169]
+      value: storeEventUsed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279300243012568, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_NodeSerialization.m_IntValue.Array.data[74]
+      value: 834955698
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770783121627614, guid: 119504c825d35a94eac88de796a3d594,
+        type: 2}
+      propertyPath: m_ColorVars.Array.data[3].value.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 119504c825d35a94eac88de796a3d594, type: 2}
   m_IsPrefabParent: 0
