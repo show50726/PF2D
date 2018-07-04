@@ -343,6 +343,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114758452447827630, guid: 549a7ecda4a94944b9e1c77aee6ec281,
+        type: 2}
+      propertyPath: connectedMechanism.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4864220685840834, guid: 549a7ecda4a94944b9e1c77aee6ec281, type: 2}
       propertyPath: m_LocalPosition.x
       value: 19.5
@@ -379,12 +384,12 @@ Prefab:
         type: 2}
       propertyPath: connectedMechanism.Array.data[0]
       value: 
-      objectReference: {fileID: 1917960076}
+      objectReference: {fileID: 1166759651}
     - target: {fileID: 114758452447827630, guid: 549a7ecda4a94944b9e1c77aee6ec281,
         type: 2}
       propertyPath: connectedMechanism.Array.data[1]
       value: 
-      objectReference: {fileID: 1166759651}
+      objectReference: {fileID: 1917960076}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 549a7ecda4a94944b9e1c77aee6ec281, type: 2}
   m_IsPrefabParent: 0
@@ -3057,7 +3062,7 @@ Prefab:
     - target: {fileID: 114567589948765508, guid: 85508191ce440d942a411935f117ed7a,
         type: 2}
       propertyPath: destination.x
-      value: -9.75
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 114567589948765508, guid: 85508191ce440d942a411935f117ed7a,
         type: 2}
@@ -3156,6 +3161,12 @@ Prefab:
       propertyPath: speed
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 212991538591438604, guid: 85508191ce440d942a411935f117ed7a,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300028, guid: 8aed14dee190b9c4c867dc5c6c463429,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85508191ce440d942a411935f117ed7a, type: 2}
   m_IsPrefabParent: 0
