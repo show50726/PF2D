@@ -78,6 +78,7 @@ public class Player : SLivingStater {
         //DEV NOTE: below are HEAVILY RELY on how door objects are named.
         Finish2D thatDoor = null;
         GameObject thatDoorSet = null;
+        DebugMessage(LogType.Normal, "trying to open this door named " + openThisDoorInNextScene);
         foreach (Finish2D d in doors)
         {
             if (d.gameObject.name == openThisDoorInNextScene)
@@ -98,7 +99,11 @@ public class Player : SLivingStater {
             }
             
         }
-        if (thatDoor == null) return;
+        if (thatDoor == null)
+        {
+            DebugMessage(LogType.Warning, "door named " + openThisDoorInNextScene + " not exists.");
+            return;
+        }
         if (thatDoorSet != null)
         {
             //it's a door set. Activate the beyond 2 button and the door will open.
@@ -114,6 +119,7 @@ public class Player : SLivingStater {
         }
         else
         {
+            DebugMessage(LogType.Warning, "door named " + openThisDoorInNextScene + ". trying to open " + thatDoor.gameObject.name);
             //only open the door (allow portal). Although it should not happen in this project...?
             for (int i = 0; i < thatDoor.switchCase.Length; i++)
             {
