@@ -767,7 +767,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -795,11 +795,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1882356586815766, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
       propertyPath: m_Name
       value: FeatherGiver (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081143082254162, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
