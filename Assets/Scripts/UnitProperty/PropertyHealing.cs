@@ -11,6 +11,7 @@ public class PropertyHealing : PlayerProperty2D
     {
         _TurnOnAnimatorBool = new string[]{ "PropertyHealing" };
         showingColor = new Color32(233, 63, 200, 255);
+        _SetOutfitKeyword = "PropertyHealing";
     }
 
     private Rigidbody2D rb2d;

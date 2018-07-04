@@ -1,9 +1,8 @@
 ﻿//S(Stater) Unit Stater by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/27
+//last maintained:  2018/07/04
 //Usage:            State the info of generic unit, such as hp. Assign it to any GO that needs these info.
 
-using System;
 using UnityEngine;
 namespace CMSR
 {
@@ -13,7 +12,11 @@ namespace CMSR
     public class SUnitStater : STCMonoBehaviour
     {
         public bool debugMessage = false;
-
+        /// <summary>
+        /// consider when changing outfit, use this to tell UIM to change picture (in UI).
+        /// </summary>
+        [ReadOnly] [Tooltip("Controlled by script. Don't modify from editor.")]
+        public string _SpecialOutfit = "";
         public event OnUnitDamageDelegate OnUnitDamageEvent;
         public event OnUnitDeathDelegate OnUnitDeathEvent;
 

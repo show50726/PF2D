@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
     public UIPointShow2D[] manaPointDisplay = new UIPointShow2D[0];
     public UIPropertyDisplayer[] propertyDisplay = new UIPropertyDisplayer[0];
 
+
+
     private string systemMessage;
 
     public int CheckPlayerIndex(Player aPlayer)

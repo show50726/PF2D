@@ -79,7 +79,7 @@ public class CountGate : Mechanism2D {
         if (isTurnOn)
         {
             if (_NowCount < _CountNeeded) _NowCount++;
-            else if (_NowCount == _CountNeeded)
+            if (_NowCount == _CountNeeded)
             {
                 ActivateMechanism(true);
             }
