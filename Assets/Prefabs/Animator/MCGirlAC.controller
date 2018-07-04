@@ -1145,7 +1145,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GirlNormalToFeather
+  m_Name: NormalToFeather
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1253,7 +1253,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GirlNormalToHealing
+  m_Name: NormalToHealing
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1279,7 +1279,7 @@ AnimatorState:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GirlNormal
+  m_Name: Normal
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
