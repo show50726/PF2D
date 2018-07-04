@@ -243,7 +243,7 @@ Prefab:
     - target: {fileID: 102723564107184114, guid: 154debe1556df344390cd20627e3eb5a,
         type: 2}
       propertyPath: m_Text
-      value: "\uFF37\uFF0F\u2191"
+      value: "\uFF33\uFF0F\u2193"
       objectReference: {fileID: 0}
     - target: {fileID: 102723564107184114, guid: 154debe1556df344390cd20627e3eb5a,
         type: 2}
@@ -2389,7 +2389,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 27220
+  m_CachedInstanceID: 31764
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
