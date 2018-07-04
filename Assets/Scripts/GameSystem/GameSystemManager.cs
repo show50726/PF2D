@@ -1,6 +1,6 @@
 ﻿//GameSystemManager made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/03
+//last maintained:  2018/07/04
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
 
-public class GameSystemManager : MonoBehaviour
+public class GameSystemManager : STCMonoBehaviour
 {
     #region Game and Scene Data (Should be updated to new one)
 
@@ -95,10 +95,11 @@ public class GameSystemManager : MonoBehaviour
         GameObject playerStaticCopy = CheckPlayerDataStoraged(playerObj);
         if (playerStaticCopy == null)
         {
-            Debug.LogWarning(GetType().Name + " warning: cannot find saved data called " + loadTargetName + ", " +
+            DebugMessage(LogType.Warning, "cannot find saved data called " + loadTargetName + ", " +
                 "thus the data of " + playerObj.name + " will remain the same.");
             return;
         }
+        DebugMessage(LogType.Normal, playerObj.name + " is going to load data from " + playerStaticCopy.name + ".");
 
         //Data Inherition. DEV NOTE: could use interface and function to make a better / simpler code?
         Player d_player = playerStaticCopy.GetComponent<Player>();
@@ -187,8 +188,9 @@ public class GameSystemManager : MonoBehaviour
     public static GameSystemManager exist;
     //this is used to check whether there's already one manager.
     
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         //here, do the "only-one" process.
         if(exist == null)
         {

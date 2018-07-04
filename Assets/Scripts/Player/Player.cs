@@ -1,6 +1,6 @@
 ﻿//Player            proudly made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/03
+//last maintained:  2018/07/04
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
 using System;
@@ -191,6 +191,7 @@ public class Player : SLivingStater {
         cld = GetComponent<Collider>();
         cld2D = GetComponent<Collider2D>();
         OnUnitDeathEvent += Death;
+        OnUnitDamageEvent += TakeDamage;
     }
     private void FixedUpdate()
     {
