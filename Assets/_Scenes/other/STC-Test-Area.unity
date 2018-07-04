@@ -4815,6 +4815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04171f5f38935dc48891bff7a2439e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   theSceneIsInGame: 1
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
@@ -5019,11 +5020,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4910228992360576, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.1
+      value: 6.89
       objectReference: {fileID: 0}
     - target: {fileID: 4910228992360576, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4910228992360576, guid: 7541c8b600d850044929c880a4f2678d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5373,6 +5374,31 @@ Prefab:
     - target: {fileID: 4912694690316944, guid: 7937109a86209f94fa0fe6737bd4eb7b, type: 2}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866398655032990, guid: 7937109a86209f94fa0fe6737bd4eb7b,
+        type: 2}
+      propertyPath: activated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857582740433154, guid: 7937109a86209f94fa0fe6737bd4eb7b,
+        type: 2}
+      propertyPath: _showDebugMessage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866398655032990, guid: 7937109a86209f94fa0fe6737bd4eb7b,
+        type: 2}
+      propertyPath: _showDebugMessage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61317160208095288, guid: 7937109a86209f94fa0fe6737bd4eb7b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61688270419711372, guid: 7937109a86209f94fa0fe6737bd4eb7b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7937109a86209f94fa0fe6737bd4eb7b, type: 2}

@@ -4,7 +4,7 @@
 //Usage:            This is made for player property 2D example. Inherit this to write a property script.
 
 using UnityEngine;
-
+using CMSR;
 public class PlayerProperty2D : UnitProperty
 {
     [Header("Change Appearance")]
@@ -15,7 +15,13 @@ public class PlayerProperty2D : UnitProperty
     [Tooltip("This will be set false when enabled, and true when disabled.")]
     public string[] _TurnOffAnimatorBool = { "PropertyNone" };
     public Color showingColor;
+    /// <summary>
+    /// to tell UIManager to change special picture if player has property. See SUnitStater._SpecialOutfit
+    /// </summary>
+    public string _SetOutfitKeyword = "";
+    private string originalOutfitKeyword = "";
 
+    [Header("Setting Data")]
     public PF2DController controller2D;
     public Player player;
     /// <summary>
@@ -24,6 +30,7 @@ public class PlayerProperty2D : UnitProperty
     /// <param name="apply">to tell if is apply(true) or unapply(false)</param>
     public virtual void ApplyAppearanceChange(bool apply)
     {
+        #region Animator
         Animator anim = GetComponent<Animator>();
         if (anim != null && anim.isActiveAndEnabled)
         {
@@ -63,6 +70,24 @@ public class PlayerProperty2D : UnitProperty
                 DebugMessage(LogType.Normal, "set " + s + " to true.");
             }
         }
+        #endregion
+
+        #region UI Outfit
+        SUnitStater stater = GetComponent<SUnitStater>();
+        if (stater != null && _SetOutfitKeyword != "")
+        {
+            if (apply)
+            {
+                originalOutfitKeyword = stater._SpecialOutfit;
+                stater._SpecialOutfit = _SetOutfitKeyword;
+            }
+            else
+            {
+                stater._SpecialOutfit = originalOutfitKeyword;
+            }
+        }
+
+        #endregion
     }
 
     protected virtual void OnEnable()

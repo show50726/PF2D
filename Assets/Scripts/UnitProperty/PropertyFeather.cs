@@ -11,6 +11,7 @@ public class PropertyFeather : PlayerProperty2D
     {
         _TurnOnAnimatorBool = new string[] { "PropertyFeather" };
         showingColor = new Color32(79, 44, 167, 255);
+        _SetOutfitKeyword = "PropertyFeather";
     }
     public float moveSpeedMultiplier = 1.4f;
     public float jumpHeightMultiplier = 1.571428f;
