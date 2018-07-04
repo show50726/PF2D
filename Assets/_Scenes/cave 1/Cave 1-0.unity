@@ -792,7 +792,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 23150
+  m_CachedInstanceID: 22022
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -837,7 +837,7 @@ MonoBehaviour:
     - 14
     - -75
     - 14
-    - 40
+    - 20
     - 30
     - 14
     m_StringValue:
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 23166
+  m_CachedInstanceID: 22038
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4452,7 +4452,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 180, y: 100}
   m_Transitions: []
-  m_CachedInstanceID: 23214
+  m_CachedInstanceID: 22086
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4543,34 +4543,6 @@ MonoBehaviour:
     - b
     - b.value
     - tolerance
---- !u!114 &1100825127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100825125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d527899a3fda1f5488862bd77941cc35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugMessage: 0
-  propertyManager: {fileID: 0}
-  stater: {fileID: 1100825129}
-  showingColor: {r: 0.9137255, g: 0.24705882, b: 0.78431374, a: 1}
-  healingRate: 1
-  enableFastHealing: 1
-  TurnOffNormalHealing: 1
-  fastHealWarmUp: 0.5
-  allowVelocity: 0.1
-  fastHealRate: 18
-  enableHealingNearby: 0
-  ignoreTheseObjects:
-    serializedVersion: 2
-    m_Bits: 256
-  onlyHealThisTag: 
-  healingNearbyWarmUp: 2
-  healingNearbyRate: 4
 --- !u!114 &1100825128 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114938888306322660, guid: 119504c825d35a94eac88de796a3d594,
@@ -4609,7 +4581,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1100825132}
     m_EventID: 443394211
-  m_CachedInstanceID: 23224
+  m_CachedInstanceID: 22096
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4701,7 +4673,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 360, y: 160}
   m_Transitions: []
-  m_CachedInstanceID: 23226
+  m_CachedInstanceID: 22098
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4778,7 +4750,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: -200, y: -100}
   m_Transitions: []
-  m_CachedInstanceID: 23234
+  m_CachedInstanceID: 22106
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -23305,7 +23277,7 @@ Prefab:
     - target: {fileID: 114862304887424892, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -317176
+      value: -18628
       objectReference: {fileID: 0}
     - target: {fileID: 114862304887424892, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
@@ -23955,7 +23927,7 @@ Prefab:
     - target: {fileID: 114862304887424892, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
       propertyPath: m_NodeSerialization.m_FloatValue.Array.data[8]
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114862304887424892, guid: 119504c825d35a94eac88de796a3d594,
         type: 2}
