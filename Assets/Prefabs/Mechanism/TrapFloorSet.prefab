@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4292932433123556}
   - component: {fileID: 212311903291216302}
-  - component: {fileID: 60868666351654410}
   m_Layer: 8
   m_Name: TrapFloorRight
   m_TagString: Untagged
@@ -38,6 +37,7 @@ GameObject:
   - component: {fileID: 4489472081013388}
   - component: {fileID: 50410672568931794}
   - component: {fileID: 114457566586068948}
+  - component: {fileID: 61071473815205342}
   m_Layer: 8
   m_Name: TrapFloorSet
   m_TagString: Untagged
@@ -54,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4911712252720856}
   - component: {fileID: 212240609713898354}
-  - component: {fileID: 60410190102092240}
   m_Layer: 8
   m_Name: TrapFloorLeft
   m_TagString: Untagged
@@ -71,7 +70,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4531942137379308}
   - component: {fileID: 212797576727984284}
-  - component: {fileID: 60559827370190236}
   m_Layer: 8
   m_Name: TrapFloorMiddle
   m_TagString: Untagged
@@ -99,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203437726161662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.28, y: 10.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4531942137379308}
@@ -154,90 +152,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60410190102092240
-PolygonCollider2D:
+--- !u!61 &61071473815205342
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1718818541681228}
+  m_GameObject: {fileID: 1203437726161662}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.11904762}
-      - {x: 0.5, y: -0.11904762}
-      - {x: 0.5, y: 0.5}
---- !u!60 &60559827370190236
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1939283799610676}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.11904762}
-      - {x: 0.5, y: -0.11904762}
-      - {x: 0.5, y: 0.5}
---- !u!60 &60868666351654410
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1150055534838534}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.11904762}
-      - {x: 0.5, y: -0.11904762}
-      - {x: 0.5, y: 0.5}
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!114 &114457566586068948
 MonoBehaviour:
   m_ObjectHideFlags: 1
