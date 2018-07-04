@@ -12,7 +12,7 @@ public class CountGate : Mechanism2D {
     public int _CountNeeded = 3;
     [SerializeField, ReadOnly]
     [Tooltip("Value only used by script. Allowed to view as debug usage.")]
-    protected int _NowCount = 0;
+    public int _NowCount = 0;
     [Header("Setting to connected mechanism.")]
     public Mechanism2D[] connectedMechanism;
 
