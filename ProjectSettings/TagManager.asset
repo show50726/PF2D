@@ -8,6 +8,7 @@ TagManager:
   - Fragile
   - Wall Collider
   - ground&wall
+  - heavy object
   layers:
   - Default
   - TransparentFX

@@ -3394,7 +3394,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.125
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3433,12 +3433,12 @@ Prefab:
     - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
       propertyPath: goToThisPosition.x
-      value: 3.75
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
       propertyPath: goToThisPosition.y
-      value: 2.75
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
@@ -3449,6 +3449,11 @@ Prefab:
         type: 2}
       propertyPath: activated
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+        type: 2}
+      propertyPath: goToThisScene
+      value: Main Map
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}

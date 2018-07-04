@@ -5060,7 +5060,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1802270482320094, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
       propertyPath: m_Name
-      value: Player
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
@@ -6223,7 +6223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.125
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6407,7 +6407,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1938233411730320, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114685423538330168, guid: 499d053008f14da4e8930e6c4a821d14,
+        type: 2}
+      propertyPath: goToThisScene
+      value: Cave 1-5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114685423538330168, guid: 499d053008f14da4e8930e6c4a821d14,
+        type: 2}
+      propertyPath: goToThisPosition.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114685423538330168, guid: 499d053008f14da4e8930e6c4a821d14,
+        type: 2}
+      propertyPath: goToThisPosition.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}

@@ -1724,7 +1724,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.125
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1774,6 +1774,15 @@ Prefab:
         type: 2}
       propertyPath: switchCase.Array.data[0]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973851332138044, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -1252
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
@@ -2905,6 +2914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04171f5f38935dc48891bff7a2439e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   theSceneIsInGame: 1
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
@@ -3183,7 +3193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.125
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3209,29 +3219,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1973851332138044, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114865292240414302, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+    - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
-      propertyPath: _CountNeeded
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: goToThisScene
-      value: Cave 1-3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: goToThisPosition.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: goToThisPosition.y
-      value: 3
+      propertyPath: m_CachedInstanceID
+      value: -1424
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
@@ -3258,7 +3249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1970330551
 Transform:
   m_ObjectHideFlags: 0
