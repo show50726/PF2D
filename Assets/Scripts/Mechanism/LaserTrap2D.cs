@@ -152,6 +152,7 @@ public class LaserTrap2D : Mechanism2D
                     //{
                     //    DebugMessage(LogType.Warning, "hit object " + hitObj.name + " has tag of player but didn't assign Player(Script). This might be a bug and laser will not kill it.");
                     //}
+                    DebugMessage(LogType.Warning, "hit object " + hitObj.name + " has tag of player but didn't assign Player(Script). This might be a bug and laser will not kill it.");
                     unit.Damage(damageToPlayer);
                 }
             }

@@ -378,6 +378,199 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &92136549 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1200116083823812, guid: 30ed393c7e96c9a45a227b39798850e2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1309246964}
+--- !u!114 &92136555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92136549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 92136556}
+  m_Parent: {fileID: 0}
+  m_StateName: BehaviourTree
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 0, y: 0}
+  m_Transitions: []
+  m_CachedInstanceID: -119070
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnEnable
+    - BehaviourMachine.Update
+    - BehaviourMachine.GetRigidbody2DVelocity
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.IsFloatLess
+    - BehaviourMachine.IsAllBoolFalse
+    - BehaviourMachine.BoolSet
+    - BehaviourMachine.SetRigidbody2DVelocity
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.IsAllBoolTrue
+    - BehaviourMachine.IsFloatEqual
+    - BehaviourMachine.BoolSet
+    m_NodeTypeHash: 89ef821089ef8210ce24ac25fbd4a94446d570ad2856a018bb8eb60cce24ac25fbd4a9442856a01804d0da1ebb8eb60c
+    m_NodeFieldStartIndex: 0000000003000000060000000c0000000e00000014000000190000001e00000025000000270000002c0000003400000039000000
+    m_BranchIndex: ffffffffffffffff01000000010000000300000003000000030000000300000001000000080000000800000008000000
+    m_UnityObjectValue: []
+    m_IntValue: 0100000000000000020000000000000003000000f83ab64ce9eb8c7a0600000005000000e9eb8c7a0800000006de7d400700000006de7d4001000000040000000b0000000a000000031d803c0c000000e9eb8c7a0900000006de7d4000000000
+    m_FloatValue:
+    - -5
+    - 0
+    - 0
+    - 0.00001
+    m_StringValue:
+    - OnEnable
+    - Update
+    - GetRigidbody2DVelocity
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - PrioritySequence
+    - IsFloatLess
+    - BehaviourMachine.FsmEvent
+    - IsAllBoolFalse
+    - BehaviourMachine.FsmEvent
+    - BoolSet
+    - SetRigidbody2DVelocity
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
+    - PrioritySequence
+    - IsAllBoolTrue
+    - BehaviourMachine.FsmEvent
+    - IsFloatEqual
+    - BehaviourMachine.FsmEvent
+    - BoolSet
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.BoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.BoolVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
+    m_GenericFieldHash: 264ce8ef00000000e4b98a66264ce8ef00000000264ce8ef264ce8efe4b98a66
+    m_GenericFieldSize: 0100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000002000000010000000300000004000000020000000300000004000000050000000600000007000000050000000800000006000000070000000900000000000000000000000a0000000800000009000000010000000b0000000c0000000a0000000d000000020000000e0000000f0000000b0000000c0000000d00000003000000010000000e000000100000000f000000110000001000000011000000040000001200000013000000120000001300000014000000050000000200000006000000030000001500000014000000160000000700000017000000
+    m_FieldType: 01000000020000000500000001000000020000000500000001000000020000001100000011000000120000001200000001000000020000000100000002000000110000001200000010000000030000000100000002000000110000001f0000001400000001000000020000001400000010000000050000000100000002000000110000001100000010000000030000001100000001000000020000000100000002000000110000001f0000001400000001000000020000001100000012000000100000000300000010000000030000000100000002000000140000001000000005000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - gameObject
+    - velocity
+    - horizontalVelocity
+    - verticalVelocity
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - b.value
+    - instanceID
+    - name
+    - onSuccess
+    - values
+    - values.data[0]
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - newValue.value
+    - instanceID
+    - name
+    - gameObject
+    - newVelocity
+    - horizontalVelocity
+    - horizontalVelocity.value
+    - verticalVelocity
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - values
+    - values.data[0]
+    - instanceID
+    - name
+    - onSuccess
+    - a
+    - b
+    - b.value
+    - tolerance
+    - tolerance.value
+    - instanceID
+    - name
+    - variable
+    - newValue
+    - newValue.value
+--- !u!114 &92136556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92136549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FloatVars:
+  - m_ID: 1287011064
+    m_Name: v.x
+    m_Blackboard: {fileID: 92136556}
+    m_IsConstant: 0
+    value: 0
+  - m_ID: 2056055785
+    m_Name: v.y
+    m_Blackboard: {fileID: 92136556}
+    m_IsConstant: 0
+    value: 0
+  m_IntVars: []
+  m_BoolVars:
+  - m_ID: 1081990662
+    m_Name: New Bool
+    m_Blackboard: {fileID: 92136556}
+    m_IsConstant: 0
+    value: 0
+  - m_ID: 1015028995
+    m_Name: New Bool (2)
+    m_Blackboard: {fileID: 92136556}
+    m_IsConstant: 0
+    value: 0
+  m_StringVars: []
+  m_Vector3Vars: []
+  m_RectVars: []
+  m_ColorVars: []
+  m_QuaternionVars: []
+  m_GameObjectVars: []
+  m_TextureVars: []
+  m_MaterialVars: []
+  m_ObjectVars: []
+  m_DynamicLists: []
+  m_FsmEvents: []
+  m_ConcreteFsmEvents: []
+  m_Namespace: 
 --- !u!1001 &97191552
 Prefab:
   m_ObjectHideFlags: 0
@@ -6415,6 +6608,11 @@ Prefab:
         type: 2}
       propertyPath: m_Mass
       value: 7.2000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 50802228269366940, guid: 30ed393c7e96c9a45a227b39798850e2,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30ed393c7e96c9a45a227b39798850e2, type: 2}
