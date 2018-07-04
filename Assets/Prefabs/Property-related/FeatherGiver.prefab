@@ -111,14 +111,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de9cc912c418764cb43ff747a0348dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMessage: 0
+  _showDebugMessage: 0
   propertyManager: {fileID: 0}
+  _SetAnimatorBool:
+  - changeAppearance
+  _TurnOnAnimatorBool:
+  - PropertyFeather
+  _TurnOffAnimatorBool:
+  - PropertyNone
+  showingColor: {r: 0.30980393, g: 0.17254902, b: 0.654902, a: 1}
+  _SetOutfitKeyword: PropertyFeather
   controller2D: {fileID: 0}
   player: {fileID: 0}
   moveSpeedMultiplier: 1.0256453
   jumpHeightMultiplier: 1.571428
-  weightMultiplier: 0.2
-  showingColor: {r: 0.30980393, g: 0.17254902, b: 0.654902, a: 1}
+  weightMultiplier: 0.1
   allowJumpOnTheseThing:
     serializedVersion: 2
     m_Bits: 16

@@ -401,7 +401,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 46092
+  m_CachedInstanceID: 84394
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -5950,9 +5950,20 @@ Prefab:
       propertyPath: _CountNeeded
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114685423538330168, guid: 499d053008f14da4e8930e6c4a821d14,
+        type: 2}
+      propertyPath: goToThisScene
+      value: Title
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &794787316 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114864596912076940, guid: 499d053008f14da4e8930e6c4a821d14,
+    type: 2}
+  m_PrefabInternal: {fileID: 794787315}
+  m_Script: {fileID: 11500000, guid: d1ce77550872c664baa6984679854b8b, type: 3}
 --- !u!1001 &887724167
 Prefab:
   m_ObjectHideFlags: 0
@@ -6679,6 +6690,16 @@ Prefab:
       propertyPath: _CountNeeded
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114130172765217374, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+        type: 2}
+      propertyPath: activated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+        type: 2}
+      propertyPath: switchCase.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
   m_IsPrefabParent: 0
@@ -7102,7 +7123,7 @@ Prefab:
         type: 2}
       propertyPath: connectedMechanism.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 794787316}
     - target: {fileID: 114293476275595200, guid: 1be04559989c1084897d8a7676b3d381,
         type: 2}
       propertyPath: connectedMechanism.Array.data[1]
