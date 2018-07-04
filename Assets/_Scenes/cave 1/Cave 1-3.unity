@@ -429,11 +429,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4904803784472554, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4904803784472554, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 3.125
       objectReference: {fileID: 0}
     - target: {fileID: 4904803784472554, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.z
@@ -461,15 +461,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4219519584554654, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4183044629522256, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4183044629522256, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.01
+      value: 9.39
       objectReference: {fileID: 0}
     - target: {fileID: 114581980933070902, guid: 499d053008f14da4e8930e6c4a821d14,
         type: 2}
@@ -493,6 +493,10 @@ Prefab:
     - target: {fileID: 4225812969102090, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219519584554654, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.63
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499d053008f14da4e8930e6c4a821d14, type: 2}
@@ -1506,6 +1510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04171f5f38935dc48891bff7a2439e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   theSceneIsInGame: 1
   afterThisLevelDoneWaitTime: 3
   haveCompletedLevels: 0
@@ -6161,6 +6166,10 @@ Prefab:
       propertyPath: m_Tiles.Array.data[85].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1464931424177952, guid: 0eed0e5446487644b91f2040950d185d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0eed0e5446487644b91f2040950d185d, type: 2}
   m_IsPrefabParent: 0
@@ -6177,7 +6186,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.13
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_LocalPosition.z
