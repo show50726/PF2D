@@ -280,11 +280,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4635221740417382, guid: 3a45b0501471ae942aee2579b7de1c4f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.07
+      value: 10.41
       objectReference: {fileID: 0}
     - target: {fileID: 4635221740417382, guid: 3a45b0501471ae942aee2579b7de1c4f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.63
+      value: 11.4
       objectReference: {fileID: 0}
     - target: {fileID: 4635221740417382, guid: 3a45b0501471ae942aee2579b7de1c4f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -119070
+  m_CachedInstanceID: 26546
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -5814,7 +5814,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1802270482320094, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
       propertyPath: m_Name
-      value: Player
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
