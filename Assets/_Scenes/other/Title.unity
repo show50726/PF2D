@@ -747,6 +747,21 @@ Prefab:
       value: 
       objectReference: {fileID: 21300210, guid: d8e860c298b1e2346bce1f73e3041b65,
         type: 3}
+    - target: {fileID: 114444392993431912, guid: 6870023d070856e498f1f446e7556772,
+        type: 2}
+      propertyPath: activated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290411791110364, guid: 6870023d070856e498f1f446e7556772,
+        type: 2}
+      propertyPath: m_CachedInstanceID
+      value: -268182
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290411791110364, guid: 6870023d070856e498f1f446e7556772,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6870023d070856e498f1f446e7556772, type: 2}
   m_IsPrefabParent: 0
@@ -899,12 +914,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4131272082595096, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -554006
+      value: -738014
       objectReference: {fileID: 0}
     - target: {fileID: 1973851332138044, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
       propertyPath: m_Name
@@ -1110,7 +1125,7 @@ Prefab:
     - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
@@ -1120,7 +1135,7 @@ Prefab:
     - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[3]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
@@ -2131,8 +2146,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1481134935}
   - {fileID: 534460571}
+  - {fileID: 1481134935}
   - {fileID: 1152309192}
   - {fileID: 1488020874}
   - {fileID: 1842785368}
@@ -2374,7 +2389,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 35676
+  m_CachedInstanceID: 27220
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -2401,7 +2416,7 @@ MonoBehaviour:
     m_UnityObjectValue:
     - {fileID: 21300330, guid: d8e860c298b1e2346bce1f73e3041b65, type: 3}
     - {fileID: 21300210, guid: d8e860c298b1e2346bce1f73e3041b65, type: 3}
-    m_IntValue: 0100000001000000020000000100000007000000010000005eec1f03030000000b000000040000005eec1f03568480d40a0000005eec1f030f00000008000000010000005eec1f030e000000090000000c0000005eec1f03568480d40d0000005eec1f0310000000
+    m_IntValue: 0100000000000000020000000000000007000000010000005eec1f03030000000b000000040000005eec1f03568480d40a0000005eec1f030f00000008000000010000005eec1f030e000000090000000c0000005eec1f03568480d40d0000005eec1f0310000000
     m_FloatValue: []
     m_StringValue:
     - OnEnable
@@ -2578,7 +2593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4944430586509126, guid: 1d97f8bd55b426b49976e2c196664754, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114283081317386266, guid: 1d97f8bd55b426b49976e2c196664754,
         type: 2}
@@ -3088,6 +3103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1818051530}
   - component: {fileID: 1818051529}
+  - component: {fileID: 1818051531}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -3152,6 +3168,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1818051531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818051528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ce77550872c664baa6984679854b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugMessage: 0
+  activated: 0
+  stayOnAfterActivated: 0
+  _CountNeeded: 3
+  _NowCount: 0
+  connectedMechanism: []
+  switchInsteadTurnOn: 0
+  turnOffInsteadTurnOn: 0
 --- !u!1001 &1819330656
 Prefab:
   m_ObjectHideFlags: 0

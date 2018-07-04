@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212659779707421274}
   - component: {fileID: 114758452447827630}
   - component: {fileID: 60643449018344980}
+  - component: {fileID: 114605231874893204}
+  - component: {fileID: 114277541766087336}
   m_Layer: 8
   m_Name: Button-yellow
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000253501227158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 3.5, z: 0}
+  m_LocalPosition: {x: 26.716528, y: 4.367833, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,6 +72,186 @@ PolygonCollider2D:
       - {x: -0.3, y: -0.2}
       - {x: -0.3, y: -0.5}
       - {x: 0.3, y: -0.5}
+--- !u!114 &114277541766087336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000253501227158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 114605231874893204}
+  m_Parent: {fileID: 0}
+  m_StateName: BehaviourTree
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 0, y: 0}
+  m_Transitions: []
+  m_CachedInstanceID: -227124
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnEnable
+    - BehaviourMachine.Update
+    - BehaviourMachine.OnTriggerEnter2D
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.Selector
+    - BehaviourMachine.HasTag
+    - BehaviourMachine.HasTag
+    - BehaviourMachine.SetSpriteRenderer
+    - BehaviourMachine.OnTriggerExit2D
+    - BehaviourMachine.PrioritySequence
+    - BehaviourMachine.Selector
+    - BehaviourMachine.HasTag
+    - BehaviourMachine.HasTag
+    - BehaviourMachine.SetSpriteRenderer
+    m_NodeTypeHash: 89ef821089ef82105248f43afbd4a944fbd4a9442aea204d2aea204d4edfbf755248f43afbd4a944fbd4a9442aea204d2aea204d4edfbf75
+    m_NodeFieldStartIndex: 0000000003000000060000000a0000000c0000000e0000001300000019000000200000002400000026000000280000002d000000330000003a000000
+    m_BranchIndex: ffffffffffffffffffffffff0200000003000000040000000400000003000000ffffffff08000000090000000a0000000a00000009000000
+    m_UnityObjectValue:
+    - {fileID: 21300268, guid: d8e860c298b1e2346bce1f73e3041b65, type: 3}
+    - {fileID: 21300148, guid: d8e860c298b1e2346bce1f73e3041b65, type: 3}
+    m_IntValue: 0100000000000000020000000000000007000000010000005eec1f03030000000b000000040000005eec1f03568480d40a0000005eec1f030f00000008000000010000005eec1f030e000000090000000c0000005eec1f03568480d40d0000005eec1f0310000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnEnable
+    - Update
+    - OnTriggerEnter2D
+    - PrioritySequence
+    - Selector
+    - HasTag
+    - BehaviourMachine.FsmEvent
+    - HasTag
+    - BehaviourMachine.FsmEvent
+    - heavy object
+    - SetSpriteRenderer2pushed
+    - BehaviourMachine.ConcreteGameObjectVar
+    - 
+    - BehaviourMachine.ConcreteColorVar
+    - OnTriggerExit2D
+    - PrioritySequence
+    - Selector
+    - HasTag
+    - BehaviourMachine.FsmEvent
+    - HasTag
+    - BehaviourMachine.FsmEvent
+    - heavy object
+    - SetSpriteRenderer2normal
+    - BehaviourMachine.ConcreteGameObjectVar
+    - 
+    - BehaviourMachine.ConcreteColorVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteObjectVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteObjectVar
+    m_GenericFieldHash: 7de9e602f4dc0c6b7de9e602f4dc0c6b
+    m_GenericFieldSize: 01000000020000000100000002000000
+    m_FieldIndex: 00000000000000000100000002000000010000000300000004000000020000000500000006000000070000000300000008000000040000000900000005000000060000000a0000000b0000000c00000007000000080000000d00000000000000090000000e0000000a0000000b00000001000000000000000c0000000d0000000f0000000e0000001000000011000000120000000f0000001300000010000000140000001100000012000000150000001600000017000000130000001400000018000000020000001500000019000000160000001700000003000000010000001800000019000000
+    m_FieldType: 0100000002000000050000000100000002000000050000000100000002000000050000001a000000010000000200000001000000020000000100000002000000110000001a000000150000000100000002000000110000001a0000001000000002000000010000000200000011000000100000000f00000002000000110000000100000002000000050000001a000000010000000200000001000000020000000100000002000000110000001a000000150000000100000002000000110000001a0000001000000002000000010000000200000011000000100000000f0000000200000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - enabled
+    - other
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - gameObject
+    - tag
+    - instanceID
+    - name
+    - onSuccess
+    - gameObject
+    - tag
+    - tag.value
+    - instanceID
+    - name
+    - gameObject
+    - newSprite
+    - newSprite.value
+    - newSprite.objectType
+    - newColor
+    - instanceID
+    - name
+    - enabled
+    - other
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - gameObject
+    - tag
+    - instanceID
+    - name
+    - onSuccess
+    - gameObject
+    - tag
+    - tag.value
+    - instanceID
+    - name
+    - gameObject
+    - newSprite
+    - newSprite.value
+    - newSprite.objectType
+    - newColor
+--- !u!114 &114605231874893204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000253501227158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FloatVars: []
+  m_IntVars: []
+  m_BoolVars:
+  - m_ID: 2006321163
+    m_Name: New Bool
+    m_Blackboard: {fileID: 114605231874893204}
+    m_IsConstant: 0
+    value: 0
+  m_StringVars: []
+  m_Vector3Vars: []
+  m_RectVars: []
+  m_ColorVars: []
+  m_QuaternionVars: []
+  m_GameObjectVars:
+  - m_ID: 52423774
+    m_Name: triggered
+    m_Blackboard: {fileID: 114605231874893204}
+    m_IsConstant: 0
+    value: {fileID: 0}
+  m_TextureVars: []
+  m_MaterialVars: []
+  m_ObjectVars: []
+  m_DynamicLists: []
+  m_FsmEvents: []
+  m_ConcreteFsmEvents: []
+  m_Namespace: 
 --- !u!114 &114758452447827630
 MonoBehaviour:
   m_ObjectHideFlags: 1
