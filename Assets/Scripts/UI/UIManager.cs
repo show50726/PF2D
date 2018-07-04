@@ -1,6 +1,6 @@
 ﻿//UI Manager        made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/04/07
+//Last maintained:  2018/07/04
 //Usage:            UI Manager is used to 'connect' UI functions (like buttons) to 'Game System' (like GameSystemManager). Assign it to object that contain all UI-things.
 //Notice:           Unlike other manager, Multiple UI Manager is ALLOWED.
 
@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
         {
             for (int i = 0; i < healthPointDisplay.Length; i++)
             {
-                healthPointDisplay[i].SetFullPoint(players[i].initialHP);
+                healthPointDisplay[i].SetFullPoint(players[i].healthPointLimit);
                 healthPointDisplay[i].UpdatePoint(players[i].healthPoint); //this helps to initialize
             }
         }
