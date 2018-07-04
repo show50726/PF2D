@@ -1,6 +1,6 @@
 ﻿//LaserTrap2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/29
+//last maintained:  2018/07/04
 //usage:            Laser Trap shoots laser and can be treated like a mechanism (such as button).
 //NOTE:             Mechanism2D needed.
 
@@ -158,45 +158,45 @@ public class LaserTrap2D : Mechanism2D
             else if(unit != null)
             {
                 unit.Damage(damageToUnit);
-                if (objPropertyManager != null)
+            }
+            if (objPropertyManager != null)
+            {
+                PropertyFrozen frozenProperty = objPropertyManager.GetProperty<PropertyFrozen>();
+                if (frozenProperty)
                 {
-                    PropertyFrozen frozenProperty = objPropertyManager.GetProperty<PropertyFrozen>();
-                    if (frozenProperty)
+                    timer_f += Time.deltaTime * 2; //DEV NOTE: the nasty sol. of Unity's broken collision detect.
+                    if (frozenProperty.immortalize)
                     {
-                        timer_f += Time.deltaTime * 2; //DEV NOTE: the nasty sol. of Unity's broken collision detect.
-                        if (frozenProperty.immortalize)
-                        {
-                            timer_f = 0; //DEV NOTE: the nasty sol. of strange design of Laser.
-                        }
-                        if (timer_f >= meltingIcePeriod)
-                        {
-                            frozenProperty.Melt();
-                        }
+                        timer_f = 0; //DEV NOTE: the nasty sol. of strange design of Laser.
                     }
-                    if (objPropertyManager.GetProperty<PropertyWooden>())
+                    if (timer_f >= meltingIcePeriod)
+                    {
+                        frozenProperty.Melt();
+                    }
+                }
+                if (objPropertyManager.GetProperty<PropertyWooden>())
+                {
+                    timer_w += Time.deltaTime;
+                    objPos = hitObj.transform.position;
+                    if (objPos == objLastPos)
                     {
                         timer_w += Time.deltaTime;
-                        objPos = hitObj.transform.position;
-                        if (objPos == objLastPos)
-                        {
-                            timer_w += Time.deltaTime;
-                        }
-                        else
-                        {
-                            timer_w = 0;
-                        }
-                        if (timer_w >= DestroyWoodPeriod)
-                        {
-                            Destroy(hitObj);
-                            timer_w = 0;
-                        }
-                        objLastPos = objPos;
                     }
-                    //if (objPropertyManager.GetProperty<PropertyMetal>())
-                    //{
-                    //    Reflect();
-                    //}
+                    else
+                    {
+                        timer_w = 0;
+                    }
+                    if (timer_w >= DestroyWoodPeriod)
+                    {
+                        Destroy(hitObj);
+                        timer_w = 0;
+                    }
+                    objLastPos = objPos;
                 }
+                //if (objPropertyManager.GetProperty<PropertyMetal>())
+                //{
+                //    Reflect();
+                //}
             }
         }
     }
