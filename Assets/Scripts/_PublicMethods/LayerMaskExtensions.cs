@@ -6,7 +6,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace UnityExtension
+namespace UnityExtensions
 {
     public static class LayerMaskExtensions
     {

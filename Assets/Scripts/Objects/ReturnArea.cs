@@ -4,7 +4,7 @@
 //usage:            in some game -- like platformer -- in case the player go "too far," use this surround the level and the player would return.
 
 using UnityEngine;
-using UnityExtension;
+using UnityExtensions;
 
 public class ReturnArea : STCMonoBehaviour
 {
