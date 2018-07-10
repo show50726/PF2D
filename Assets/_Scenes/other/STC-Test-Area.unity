@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 474697317}
     m_EventID: 1890031046
-  m_CachedInstanceID: -40984
+  m_CachedInstanceID: 19680
   m_Description: Set something that only need to set once. (such as HP bar)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -5107,6 +5107,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theWorld: 1
   starScoreRequired: 1
+--- !u!1001 &1377535059
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -20.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169338689846640, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05b5451c007d1294782fc9822f84dfb1, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1379082596 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4070258431549338, guid: 36aeaf13505ae144aa55bc6a075223db,
@@ -9593,6 +9635,10 @@ Prefab:
         type: 2}
       propertyPath: m_NodeSerialization.m_IntValue.Array.data[65]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096392123069142, guid: 226f4060aec31de42a4ff6676cc29e76, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 226f4060aec31de42a4ff6676cc29e76, type: 2}
