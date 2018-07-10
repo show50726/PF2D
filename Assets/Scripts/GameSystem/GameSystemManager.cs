@@ -267,6 +267,14 @@ public class GameSystemManager : STCMonoBehaviour
                 }
             }
         }
+
+        if (LevelManager.exist)
+        {
+            if (Input.GetKeyDown(LevelManager.exist.skipLevelKey))
+            {
+                LevelManager.exist.SkipLevel(false);
+            }
+        }
     }
 
     #region Pause Thing

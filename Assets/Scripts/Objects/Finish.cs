@@ -1,6 +1,6 @@
 ﻿//Finish made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/07
+//last maintained:  2018/07/10
 //usage:            this is a BASE class. Inherit this to make a custom one.
 
 using UnityEngine;
@@ -131,6 +131,18 @@ public class Finish : MonoBehaviour
         if(goToThisPosition != Vector3.zero) player.nextPosition = goToThisPosition;
         //player.levelGoingDirectionConditionName = directionConditionBool;
         return;
+    }
+
+    /// <summary>
+    /// Only use in script to deal with specific situation (ex. skip level.)
+    /// </summary>
+    public void OpenFinish()
+    {
+        for (int i = 0; i < switchCase.Length; i++)
+        {
+            switchCase[i] = true;
+        }
+        RefreshCheckedStatus();
     }
 
 }

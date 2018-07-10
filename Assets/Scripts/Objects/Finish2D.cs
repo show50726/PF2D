@@ -1,12 +1,15 @@
 ﻿//Finish2D      made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/06/01
+//last maintained:  2018/07/10
 //usage:            set this to an object, then when (assigned) player is in right status, it will be checked.
 //NOTE:             use trigger. 2D only.
 using UnityEngine;
 
 public class Finish2D : Finish
 {
+    /// <summary>
+    /// If next scene contains this door (by name), it will be opened. Assign the DOORSET name, not the door.
+    /// </summary>
     [Tooltip("If next scene contains this door (by name), it will be opened. Assign the DOORSET name, not the door.")]
     public string openThisDoor = "FinishSet";
 

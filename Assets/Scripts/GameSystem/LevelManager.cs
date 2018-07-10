@@ -1,19 +1,19 @@
 ﻿//Level Manager     made by STC
 //Contact:          stc.ntu@gmail.com
-//Last maintained:  2018/04/18
+//Last maintained:  2018/07/10
 //Usage:            Level Manager records eveything happened in level, and will call related system to work (think about completing level). Better assign it to an empty gameobject, which contains 'the whole level objects'.
 
 using UnityEngine;
 using System.Collections;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : STCMonoBehaviour
 {
     #region Preparation: call Level Manager from public
     public static LevelManager exist;
-    private void Awake()
+    protected override void Awake()
     {
-        //always set the newest level manager to be current / working one.
-        exist = this;
+        base.Awake();
+        exist = this; //always set the newest level manager to be current / working one.
     }
     #endregion
 
@@ -26,6 +26,15 @@ public class LevelManager : MonoBehaviour
     public float restartWaitingTime = 3f;
     public bool stopTimeAfterGameOver = false;
 
+    /// <summary>
+    /// Used by SkipLevel. Once a player's distance between the door is greater than this, players will be transfered to that door.
+    /// </summary>
+    [Header("Cheating Setting")]
+
+    public KeyCode skipLevelKey = KeyCode.F12;
+    [Tooltip("Used by SkipLevel. Once a player's distance between the door is greater than this, players will be transfered to that door.")]
+    public float transferPlayersAwayFromDoor = 5;
+    
     #region Security check.
 
     private void Start()
@@ -279,6 +288,57 @@ public class LevelManager : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Use this to skip a level in demo.
+    /// </summary>
+    /// <param name="gainLevelFromLM">If true, use the finish functions(sets) of LM.</param>
+    public void SkipLevel(bool gainLevelFromLM)
+    {
+        DebugMessage(LogType.Normal, "skip a level.");
+        if (gainLevelFromLM) LevelIsFinished();
+        else
+        {
+            Finish2D[] allDoors = FindObjectsOfType<Finish2D>();
+            if (allDoors.Length == 0)
+            {
+                DebugMessage(LogType.Error, "cannot find Finish. The level might not be able to skip.");
+                return;
+            }
+            foreach (Finish2D door in allDoors)
+            {
+                door.OpenFinish();
+            }
+            // transmit players to the further door.
+            foreach (Finish2D door in allDoors)
+            {
+                bool checkPoint = false;
+                Vector3 transferPos = Vector3.zero;
+                foreach (Player p in players)
+                {
+                    float dist = (p.transform.position - door.transform.position).magnitude;
+                    if (dist > transferPlayersAwayFromDoor)
+                    {
+                        checkPoint = true;
+                        transferPos = door.transform.position;
+                        break;
+                    }
+                }
+                if (checkPoint)
+                {
+                    Vector3 fix = new Vector3(1, 0, 0);//used to prevent players transfer to the same point.
+                    Vector3 startPos = transferPos - fix * players.Length / 2;
+                    foreach (Player p in players)
+                    {
+                        p.transform.position = startPos + fix;
+                        fix += fix;
+                    }
+                    break;
+                }
+            }
+
+        }
+    }
+
     #endregion
 
     #region UI Function
