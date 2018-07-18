@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 95484388098076296}
   - component: {fileID: 114482633409753506}
   - component: {fileID: 114889971047465268}
+  - component: {fileID: 60691171654164084}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -311,7 +312,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802270482320094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.75, y: 6.57, z: 0}
+  m_LocalPosition: {x: 17.219, y: 1.774, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4282592811875722}
@@ -395,6 +396,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!60 &60691171654164084
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802270482320094}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.71428573, y: 1.1428572}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.355, y: 0.5}
+      - {x: -0.355, y: -0.5}
+      - {x: -0.3, y: -0.57}
+      - {x: 0.3, y: -0.57}
+      - {x: 0.355, y: -0.5}
+      - {x: 0.355, y: 0.5}
+      - {x: 0.3, y: 0.57}
+      - {x: -0.3, y: 0.57}
 --- !u!61 &61649461403838934
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -500,6 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showDebugMessage: 0
   debugMessage: 0
+  _SpecialOutfit: 
   healthPoint: 100
   healthPointLimit: 100
   moveSpeed: 0
@@ -619,10 +653,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2652784601de1f42be968731abff9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   keyOfIn: 115
   targetSM: {fileID: 95484388098076296}
   checkConditionBoolName: InFinish
   updateConditionBoolName: HoldingIn
+  stopByTheseObjects:
+    serializedVersion: 2
+    m_Bits: 1025
 --- !u!212 &212134519899323824
 SpriteRenderer:
   m_ObjectHideFlags: 1

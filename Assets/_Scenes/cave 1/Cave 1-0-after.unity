@@ -835,6 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c79f38fe9f86e348bb64cea7debadfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugMessage: 0
   levelUIManager: {fileID: 1014777518}
   players:
   - {fileID: 573500315}
@@ -842,6 +843,8 @@ MonoBehaviour:
   levelScore: 0
   restartWaitingTime: 3
   stopTimeAfterGameOver: 0
+  skipLevelKey: 293
+  transferPlayersAwayFromDoor: 5
 --- !u!114 &1014777520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3462,40 +3465,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 212070842306092940, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+    - target: {fileID: 114220924215481378, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
-      propertyPath: m_SortingLayerID
-      value: -1416258019
+      propertyPath: m_CachedInstanceID
+      value: -771658
       objectReference: {fileID: 0}
-    - target: {fileID: 212070842306092940, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
+    - target: {fileID: 114865292240414302, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
         type: 2}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: goToThisPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: goToThisPosition.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: switchCase.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130172765217374, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: activated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114745168378980362, guid: 8d75db78c1e5f444ea6a2c630f33b13b,
-        type: 2}
-      propertyPath: goToThisScene
-      value: Main Map
+      propertyPath: _CountNeeded
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d75db78c1e5f444ea6a2c630f33b13b, type: 2}
