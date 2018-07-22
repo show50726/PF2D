@@ -1,9 +1,8 @@
-﻿//Player            proudly made by STC
+﻿//Player            made by STC, PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/04
+//last maintained:  2018/07/22
 //Usage:            add it to objects that represent players (remember to set their tags to "Player"), it will provide basic data and function which a 'player' should have.
 
-using System;
 using System.Collections;
 using UnityEngine;
 using CMSR;
@@ -19,8 +18,11 @@ public class Player : SLivingStater {
 
     [Header("Damage Setting")]
     public Transform criticalPosition;
-    
+
     #region Player Data Inherition
+    [Header("Inherition / On Scene Change")]
+    [Tooltip("If true, when player goes to a new scene, HP will be corrected to full if less than 0.")]
+    public bool HPCorrection = true;
     [Header("Update Animator")]
     public Animator animator = new Animator();
     [Tooltip("With this BOOL parameter name assigned, the parameter will be updated to TRUE when loaded.")]
@@ -39,6 +41,11 @@ public class Player : SLivingStater {
     public void CopyData(Player player)
     {
         healthPoint = player.healthPoint;
+        if (HPCorrection && healthPoint <= 0)
+        {
+            healthPoint = healthPointLimit;
+            DebugMessage(LogType.Normal, "updated HP to full due to HP Correction.");
+        }
         manaPoint = player.manaPoint;
         nextPosition = player.nextPosition;
         openThisDoorInNextScene = player.openThisDoorInNextScene;
