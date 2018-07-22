@@ -1,6 +1,6 @@
-﻿//GameSystemManager made by STC
+﻿//GameSystemManager made by STC, PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/04
+//last maintained:  2018/07/22
 //usage:            this script provides basic feature, such as pause & continue, exit game, etc.
 //Suggestion:       put it on an empty gameobject called "System" or "GameSystem".
 using UnityEngine;
@@ -30,9 +30,30 @@ public class GameSystemManager : STCMonoBehaviour
     
     public Player[] GetPlayerList()
     {
+        CorrectPlayerList();
         Player[] pL = new Player[playerList.Count];
         for (int i = 0; i < playerList.Count; i++) pL[i] = playerList[i];
         return pL;
+    }
+    /// <summary>
+    /// Used to debug. Make player list as correct as we want.
+    /// </summary>
+    public void CorrectPlayerList()
+    {
+        if (playerList.Count == 0)
+        {
+            DebugMessage(LogType.Warning, "player list is 0 and cannot be corrected. There might be bugs, because correction should be done ONLY when data is saved.");
+            return;
+        }
+        #region Custom Correction
+        if (playerList[0].gameObject.name == "Player2" && playerList.Count > 1)
+        {
+            Player tmpPlayer = playerList[0];
+            playerList[0] = playerList[1];
+            playerList[1] = tmpPlayer;
+        }
+
+        #endregion
     }
 
     public static List<GameObject> playerStaticCopySeries = new List<GameObject>();
