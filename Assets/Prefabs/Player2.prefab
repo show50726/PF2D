@@ -114,7 +114,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4910228992360576}
   - component: {fileID: 212075486326428414}
-  - component: {fileID: 61127002171695978}
   - component: {fileID: 50187022435395300}
   - component: {fileID: 114972848826850362}
   - component: {fileID: 114515540615921190}
@@ -428,31 +427,6 @@ PolygonCollider2D:
       - {x: 0.355, y: 0.5}
       - {x: 0.3, y: 0.57}
       - {x: -0.3, y: 0.57}
---- !u!61 &61127002171695978
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1635943495190070}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.71428573, y: 1.1428572}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.71428573, y: 1.1428572}
-  m_EdgeRadius: 0
 --- !u!61 &61544937813675568
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -651,6 +625,7 @@ MonoBehaviour:
   score: 0
   Circle: {fileID: 1445374451704404}
   criticalPosition: {fileID: 0}
+  HPCorrection: 1
   animator: {fileID: 95168167685974542}
   resetParameter: reset
   onDead:
