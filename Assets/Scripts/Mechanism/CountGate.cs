@@ -1,6 +1,6 @@
 ﻿//CountGate made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/04
+//last maintained:  2018/08/01
 //usage:            can be used in situation that need to activate several time to be success.
 //NOTE:             Mechanism2D needed. 
 
@@ -39,11 +39,15 @@ public class CountGate : Mechanism2D {
                 return;
             }
         }
-        if (_CountNeeded <= 0)
+        if (_CountNeeded < 0)
         {
             DebugMessage(LogType.Error, "the Count Needed is less than 0. Unable to work.");
             enabled = false;
             return;
+        }
+        else if (_CountNeeded == 0)
+        {
+            DebugMessage(LogType.Warning, "the Count Needed is 0. That means mechanisms under CountGate will be set on INSTANTLY. To do this on purpose, please just set mechanism to activated.");
         }
         if (_NowCount < 0)
         {
@@ -75,7 +79,7 @@ public class CountGate : Mechanism2D {
         //			關閉一個switchcase
         //	否則(都是全關的話)
         //		(不做事)
-        if (stayOnAfterActivated && _NowCount >= _CountNeeded) return; //activated once. No need to turn off or reset.
+        if (stayOnAfterActivated && _NowCount > _CountNeeded) return; //activated once. No need to turn off or reset.
         if (isTurnOn)
         {
             if (_NowCount < _CountNeeded) _NowCount++;

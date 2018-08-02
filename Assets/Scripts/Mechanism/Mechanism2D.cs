@@ -1,6 +1,6 @@
 ﻿//Mechanism2D made by STC
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/04
+//last maintained:  2018/08/01
 //usage:            this is base of any 2D mechanism. Inherit this to write a new mechanism that can be controlled by outside.
 
 using UnityEngine;
@@ -22,7 +22,8 @@ public class Mechanism2D : STCMonoBehaviour {
     }
     protected virtual void Start()
     {
-        WhenActivate(activated); // to do Activate effect
+        //WhenActivate(activated); // to do Activate effect
+        Activated = activated; // to do Activate effect
     }
 
     /// <summary>
