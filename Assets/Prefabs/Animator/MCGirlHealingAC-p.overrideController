@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MCGirlHealingAC-p
+  m_Controller: {fileID: 9100000, guid: 2089625090f0de94cbe731b8b4abbe66, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8914ea4cc91fa854bb6dcfd25407ac91, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9f913317ceeed6a4ba0bd277cf236cd5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 371f6e04fb107234dba14194ea9966bd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 371f6e04fb107234dba14194ea9966bd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 357647b4b3897bd4583f0b5730d0f10a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fb123d8b05b36dc4d8550076d98f5f30, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d28091ea626c9634e983699a5ed7b4fa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6c8fcdae93a2785448204702695a1a5b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 51df8176935ea4647bb7283aabc7a97e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 88d6353117b6c014abfb7f0ec2153f82, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d7323bfda193b5543abe83842e1dcc7d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d0c4bc7ef6074d54b95ff9e60724a891, type: 2}
