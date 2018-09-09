@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882356586815766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.787915, y: 10.963127, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   _TurnOffAnimatorBool:
   - PropertyNone
   showingColor: {r: 0.9137255, g: 0.24705882, b: 0.78431374, a: 1}
+  _SetOutfitKeyword: PropertyHealing
   controller2D: {fileID: 0}
   player: {fileID: 0}
   healingPeriod: 1
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 4294966270
+    m_Bits: 4294967294
   giveProperty: {fileID: 114724495075000800}
   updateInfoIfPropertyExists: 1
   removeWhenLeave: 0

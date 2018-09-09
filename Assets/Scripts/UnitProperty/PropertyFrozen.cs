@@ -1,6 +1,6 @@
 ﻿//Property Frozen   made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/04/11
+//last maintained:  2018/09/09
 //Usage:            This is a specified property, which makes things become frozen.
 
 using UnityEngine;
@@ -31,7 +31,10 @@ public class PropertyFrozen : UnitProperty
         if (rb2d)
         {
             originalPM2d = rb2d.sharedMaterial;
-            rb2d.sharedMaterial.friction = 0;
+            PhysicsMaterial2D frictionLessMaterial = new PhysicsMaterial2D();
+            frictionLessMaterial.friction = 0;
+            frictionLessMaterial.bounciness = originalPM2d.bounciness;
+            rb2d.sharedMaterial = frictionLessMaterial;
         }
         initialMeltingFactorStorage = meltingFactorStorage;
     }
@@ -52,6 +55,7 @@ public class PropertyFrozen : UnitProperty
 
     private void ModifyControllerSpeed(PF2DController controller, bool isMultiply)
     {
+        if (!enabled) return;
         //if isMultiply set to false, will divide then
         if (moveSpeedMultiplier < 0)
         {
@@ -86,24 +90,24 @@ public class PropertyFrozen : UnitProperty
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
-    //    PF2DController controller = col.gameObject.GetComponent<PF2DController>();
-    //    if (controller)
-    //    {
-    //        ModifyControllerSpeed(controller, true);
-    //    }
-    //}
-    //private void OnCollisionExit2D(Collision2D col)
-    //{
-    //    Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
-    //    PF2DController controller = col.gameObject.GetComponent<PF2DController>();
-    //    if (controller)
-    //    {
-    //        ModifyControllerSpeed(controller, false);
-    //    }
-    //}
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        //Debug.Log("Hey yo, " + col.gameObject.name + " has touched " + name + "!");
+        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
+        if (controller)
+        {
+            ModifyControllerSpeed(controller, true);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        //Debug.Log("Hey yo, " + col.gameObject.name + " has left " + name + "!");
+        PF2DController controller = col.gameObject.GetComponent<PF2DController>();
+        if (controller)
+        {
+            ModifyControllerSpeed(controller, false);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
