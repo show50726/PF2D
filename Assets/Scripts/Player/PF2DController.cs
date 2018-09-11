@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/04
+//last maintained:  2018/08/04
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -374,7 +374,7 @@ public class PF2DController : MonoBehaviour
         {
             Debug.LogWarning(GetType().Name + " warning: left or right position is not assigned, thus wall jump cannot find judge point and will not work.");
         }
-        sideJudgeRange = GetComponent<BoxCollider2D>().size.y / 2.5f; //just a little bit smaller than 1/2, to avoid judging a ground as wall when falling too quickly.
+        sideJudgeRange = GetComponent<Collider2D>().bounds.size.y  / 2.5f; //just a little bit smaller than 1/2, to avoid judging a ground as wall when falling too quickly.
 
         //Store initial Data
         initialAllowment[0] = allowMovement;

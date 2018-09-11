@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114817562835056118}
   - component: {fileID: 114401318184119492}
   - component: {fileID: 114826596575376422}
+  - component: {fileID: 114001404329510126}
   m_Layer: 9
   m_Name: FrostingGiver
   m_TagString: Untagged
@@ -38,8 +39,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262207171531424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.42, y: -3.4678617, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,6 +71,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114001404329510126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262207171531424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757cb62652ff6814fa1af14857bab2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugMessage: 0
+  propertyManager: {fileID: 0}
+  meltingFactorStorage: 0
+  immortalize: 0
+  friction: 0
+  moveSpeedMultiplier: 1.4
 --- !u!114 &114401318184119492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,22 +113,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa74e2b388de9b949884599faf7dc54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMessage: 0
+  _showDebugMessage: 0
   propertyManager: {fileID: 0}
+  _SetAnimatorBool:
+  - changeAppearance
+  _TurnOnAnimatorBool: []
+  _TurnOffAnimatorBool:
+  - PropertyNone
+  showingColor: {r: 0.36862746, g: 0.89411765, b: 0.9411765, a: 1}
+  _SetOutfitKeyword: 
   controller2D: {fileID: 0}
   player: {fileID: 0}
   damage: 1
   damagePeriod: 3
-  showingColor: {r: 0.36862746, g: 0.89411765, b: 0.9411765, a: 1}
-  freezePropertySample: {fileID: 0}
+  freezePropertySample: {fileID: 114001404329510126}
   updateIfExists: 1
   ignoreTheseObjects:
     serializedVersion: 2
-    m_Bits: 4294967294
+    m_Bits: 4294966270
   water:
     serializedVersion: 2
     m_Bits: 16
-  icePrefab: {fileID: 1731506550751006, guid: 58e2711332ef4184687a8da82bca8079, type: 2}
+  icePrefab: {fileID: 0}
   heightTuning: 0.1
 --- !u!114 &114817562835056118
 MonoBehaviour:

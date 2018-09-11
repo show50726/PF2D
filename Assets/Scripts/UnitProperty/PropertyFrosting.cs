@@ -1,6 +1,6 @@
 ﻿//Property Frosting made by STC, designed by Katian Stoner and WXM.
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/07/04
+//last maintained:  2018/09/09
 //Usage:            This is a specified property, which makes player "cool" and freeze other objects.
 
 using UnityEngine;
@@ -27,7 +27,7 @@ public class PropertyFrosting : PropertyNegative
     [Tooltip("Objects in these layers won't be diffused.")]
     public LayerMask ignoreTheseObjects = (1 << 8) | (1 << 9); //this format means the Layer 8. 9 are selected.
 
-    [Header("Make water Frozen")]
+    [Header("Make Ice")]
     public LayerMask water = (1 << 4);
     public GameObject icePrefab;
     [Tooltip("This prevents the repeat production of ice.")]
@@ -81,8 +81,13 @@ public class PropertyFrosting : PropertyNegative
         //notice that PropertyBurn has scripted to destroy each other on touch already.
         if (GetProperty<PropertyWooden>(col.gameObject) != null)
         {
-            if (freezePropertySample) GivePropertyTo(col.gameObject, freezePropertySample, updateIfExists);
-            else GivePropertyTo(col.gameObject, new PropertyFrozen(), updateIfExists);
+            bool b;
+            if (freezePropertySample) b = GivePropertyTo(col.gameObject, freezePropertySample, updateIfExists);
+            else b = GivePropertyTo(col.gameObject, new PropertyFrozen() , updateIfExists);
+
+            if (b) DebugMessage(LogType.Normal, "given frozen to " + col.gameObject.name);
+            else DebugMessage(LogType.Error, "failed giving frozen to" + col.gameObject.name);
+
         }
 
     }
