@@ -1,6 +1,6 @@
 ﻿//PF (Platformer) 2D Controller made by STC PROUDLY
 //contact:          stc.ntu@gmail.com
-//last maintained:  2018/08/04
+//last maintained:  2018/10/27
 //Usage:            Assign it to the "player" object you want to control. It will give you basic control, plus functions working with other "PF-" scripts.
 //NOTE:             2D only.
 //NOTE(of jump):    Due to the physics of "jump", component rigidbody2D is needed. If no, the script will add one.
@@ -656,7 +656,11 @@ public class PF2DController : MonoBehaviour
     public void DoJump()
     {
         CheckJumpSpeed();
-        rb.velocity = new Vector2(rb.velocity.x, initialJumpSpeed);
+        //rb.velocity = new Vector2(rb.velocity.x, initialJumpSpeed);
+        Rigidbody2D refRb = standOn.GetComponent<Rigidbody2D>();
+        rb.velocity = refRb != null ? 
+            new Vector2(rb.velocity.x,initialJumpSpeed + refRb.velocity.y) : 
+            new Vector2(rb.velocity.x, initialJumpSpeed);
         JumpEffect(true);
     }
 
