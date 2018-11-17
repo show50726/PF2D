@@ -89,8 +89,10 @@ public class VelocityModifier : STCMonoBehaviour {
             case ModifyVelocityStatus.horizontalStop:
                 DebugMessage(LogType.Normal, "change x speed to zero.");
                 _rb.velocity -= new Vector2(_rb.velocity.x, 0);
+                _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 break;
             default:
+                _rb.constraints = RigidbodyConstraints2D.None;
                 break;
         }
 
