@@ -18,6 +18,7 @@ public class ChangingPropertyGiver : PropertyGiver2D
     {
         //DEV NOTE: 記得修改這邊改為適合的寫法。
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) spriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.color = property.showingColor;

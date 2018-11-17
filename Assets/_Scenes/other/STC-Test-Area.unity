@@ -2896,11 +2896,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114697833397423052, guid: 15219aba2dc3eab498e3a558b87ffb9d,
-        type: 2}
-      propertyPath: weightMultiplier
-      value: 0.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15219aba2dc3eab498e3a558b87ffb9d, type: 2}
   m_IsPrefabParent: 0
@@ -3118,7 +3113,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 474697317}
     m_EventID: 1890031046
-  m_CachedInstanceID: 19158
+  m_CachedInstanceID: 19164
   m_Description: Set something that only need to set once. (such as HP bar)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -11256,20 +11251,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 114941488938255988, guid: fb153b5767d2d0d43ae808a284ed2e3b,
+    - target: {fileID: 114853247396249704, guid: fb153b5767d2d0d43ae808a284ed2e3b,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -166436
+      value: -95862
       objectReference: {fileID: 0}
-    - target: {fileID: 114789668815444860, guid: fb153b5767d2d0d43ae808a284ed2e3b,
+    - target: {fileID: 114892108040611346, guid: fb153b5767d2d0d43ae808a284ed2e3b,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -157180
+      value: -94554
       objectReference: {fileID: 0}
-    - target: {fileID: 114203418896959494, guid: fb153b5767d2d0d43ae808a284ed2e3b,
+    - target: {fileID: 114879689708451532, guid: fb153b5767d2d0d43ae808a284ed2e3b,
         type: 2}
       propertyPath: m_CachedInstanceID
-      value: -155744
+      value: -92092
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb153b5767d2d0d43ae808a284ed2e3b, type: 2}
