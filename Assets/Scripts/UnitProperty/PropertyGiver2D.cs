@@ -27,19 +27,19 @@ public class PropertyGiver2D : STCMonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    protected virtual void OnCollisionEnter2D(Collision2D col)
     {
         if (!enabled) return;
         if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
         GivePropertyTo(col.gameObject);
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (!enabled) return;
         if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
         GivePropertyTo(col.gameObject);
     }
-    private void OnCollisionExit2D(Collision2D col)
+    protected virtual void OnCollisionExit2D(Collision2D col)
     {
         if (!enabled) return;
         if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;
@@ -48,7 +48,7 @@ public class PropertyGiver2D : STCMonoBehaviour
             RemovePropertyFrom(col.gameObject);
         }
     }
-    private void OnTriggerExit2D(Collider2D col)
+    protected virtual void OnTriggerExit2D(Collider2D col)
     {
         if (!enabled) return;
         if (ignoreTheseObjects == (ignoreTheseObjects | (1 << col.gameObject.layer))) return;

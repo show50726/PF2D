@@ -13,21 +13,6 @@ public class ChangingPropertyGiver : PropertyGiver2D
     {
         changeByOrder[0] = new PropertyAndTime(giveProperty, 0.5f);
     }
-
-    protected virtual void SetPropertyAppearance(PlayerProperty2D property)
-    {
-        //DEV NOTE: 記得修改這邊改為適合的寫法。
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null) spriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = property.showingColor;
-        }
-        else
-        {
-            DebugMessage(LogType.Error, "trying to set giver's color while there's no renderer. Re-write your code.");
-        }
-    }
     private float timer = 0;
     protected override void Start()
     {
@@ -44,21 +29,59 @@ public class ChangingPropertyGiver : PropertyGiver2D
     {
         timer += Time.deltaTime;
         int newPropertyIndex = CheckTimePropertyIndex(timer);
-        if(newPropertyIndex >= changeByOrder.Length)
+        if (newPropertyIndex >= changeByOrder.Length)
         {
             DebugMessage(LogType.Normal, "found new property index larger than array. Force-fix it.");
             newPropertyIndex = 0;
         }
-        if(changeByOrder[newPropertyIndex].property != giveProperty)
+        if (changeByOrder[newPropertyIndex].property != giveProperty)
         {
-            DebugMessage(LogType.Normal, "change property from " + giveProperty.GetType().Name + " to " + changeByOrder[newPropertyIndex].property.GetType().Name + ".");
-            giveProperty = changeByOrder[newPropertyIndex].property;
-            SetPropertyAppearance((PlayerProperty2D)giveProperty);
-            if(newPropertyIndex == 0)
+            ChangeGivingProperty((PlayerProperty2D)changeByOrder[newPropertyIndex].property);
+            if (newPropertyIndex == 0)
             {
                 //has finished a cycle. Reset timer.
                 timer = 0;
             }
+        }
+    }
+    protected override void OnCollisionEnter2D(Collision2D col)
+    {
+        base.OnCollisionEnter2D(col);
+        if (col.gameObject.tag == "Player")
+        {
+            //企劃的要求。
+            ChangeGivingProperty((PlayerProperty2D)changeByOrder[0].property);
+            timer = 0;
+        }
+    }
+    protected override void OnTriggerEnter2D(Collider2D col)
+    {
+        base.OnTriggerEnter2D(col);
+        if (col.gameObject.tag == "Player")
+        {
+            //企劃的要求。
+            ChangeGivingProperty((PlayerProperty2D)changeByOrder[0].property);
+            timer = 0;
+        }
+    }
+    private void ChangeGivingProperty(PlayerProperty2D property)
+    {
+        DebugMessage(LogType.Normal, "change property from " + giveProperty.GetType().Name + " to " + property.GetType().Name + ".");
+        giveProperty = property;
+        SetPropertyAppearance(property);
+    }
+    protected virtual void SetPropertyAppearance(PlayerProperty2D property)
+    {
+        //DEV NOTE: 記得修改這邊改為適合的寫法。
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) spriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = property.showingColor;
+        }
+        else
+        {
+            DebugMessage(LogType.Error, "trying to set giver's color while there's no renderer. Re-write your code.");
         }
     }
     private int CheckTimePropertyIndex(float nowTime)

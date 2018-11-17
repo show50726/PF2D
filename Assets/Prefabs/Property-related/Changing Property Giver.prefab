@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114328375568522616}
   - component: {fileID: 114373117614303938}
   - component: {fileID: 114029572115276622}
+  - component: {fileID: 114790837700920724}
   m_Layer: 9
   m_Name: Changing Property Giver
   m_TagString: Untagged
@@ -258,6 +259,8 @@ MonoBehaviour:
     time: 2
   - property: {fileID: 114029572115276622}
     time: 2
+  - property: {fileID: 114790837700920724}
+    time: 2
 --- !u!114 &114685374995110642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,6 +277,40 @@ MonoBehaviour:
   changingSpeed: 0.3
   goBigger: 0
   assignHeight: 0
+--- !u!114 &114790837700920724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129193973539060}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa74e2b388de9b949884599faf7dc54b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugMessage: 0
+  propertyManager: {fileID: 0}
+  _SetAnimatorBool:
+  - changeAppearance
+  _TurnOnAnimatorBool: []
+  _TurnOffAnimatorBool:
+  - PropertyNone
+  showingColor: {r: 0.36862746, g: 0.89411765, b: 0.9411765, a: 1}
+  _SetOutfitKeyword: 
+  controller2D: {fileID: 0}
+  player: {fileID: 0}
+  damage: 1
+  damagePeriod: 3
+  freezePropertySample: {fileID: 0}
+  updateIfExists: 1
+  ignoreTheseObjects:
+    serializedVersion: 2
+    m_Bits: 768
+  water:
+    serializedVersion: 2
+    m_Bits: 16
+  icePrefab: {fileID: 0}
+  heightTuning: 0.1
 --- !u!114 &114853247396249704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,7 +329,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 330, y: 70}
   m_Transitions: []
-  m_CachedInstanceID: -108492
+  m_CachedInstanceID: 19684
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -341,7 +378,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -108496
+  m_CachedInstanceID: 19688
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -366,7 +403,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 140, y: 70}
   m_Transitions: []
-  m_CachedInstanceID: -108494
+  m_CachedInstanceID: 19686
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
