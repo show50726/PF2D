@@ -105,6 +105,7 @@ public class PF2DController : MonoBehaviour
     public float movingSpeed = 10f;
     [Tooltip("Calculated as unit/sec^2. Would be unable to move when set to 0.")]
     public float movingAcceleration = 40f; //DEV NOTE: more smart detection / correction?
+    public bool usingSmooth = true;
     public GameObject SmoothyL;
     public GameObject SmoothyR;
     [Tooltip("If true, movement will consider the stand-on platform speed.")]
@@ -382,8 +383,11 @@ public class PF2DController : MonoBehaviour
         initialAllowment[2] = allowDash;
         initialMovingSpeed = movingSpeed;
 
-        SmoothyR.SetActive(false);
-        SmoothyL.SetActive(false);
+        if (usingSmooth)
+        {
+            SmoothyR.SetActive(false);
+            SmoothyL.SetActive(false);
+        }
 
         //check if animator have the right bool var.
         /*if (animator != null)
@@ -623,6 +627,7 @@ public class PF2DController : MonoBehaviour
         {
             baseVector += directionVector;
             ChangeFacing(directionVector.x > 0);
+            if (!usingSmooth) return;
             if (isFacingRight)
             {
                 SmoothyR.SetActive(true);
@@ -636,6 +641,7 @@ public class PF2DController : MonoBehaviour
 
         if (Input.GetKeyUp(keyCode))
         {
+            if (!usingSmooth) return;
             SmoothyR.SetActive(false);
             SmoothyL.SetActive(false);
         }

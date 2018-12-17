@@ -350,7 +350,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635943495190070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.57, y: 10.61, z: 0}
+  m_LocalPosition: {x: 25.22, y: 11.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4805244502813456}
@@ -547,7 +547,8 @@ MonoBehaviour:
   leftButton: 276
   rightButton: 275
   movingSpeed: 7.5
-  movingAcceleration: 400
+  movingAcceleration: 80
+  usingSmooth: 0
   SmoothyL: {fileID: 1773218896331644}
   SmoothyR: {fileID: 1887141755958582}
   referVel: 1
