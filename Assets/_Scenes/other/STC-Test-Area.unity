@@ -3114,7 +3114,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 474697317}
     m_EventID: 1890031046
-  m_CachedInstanceID: 19816
+  m_CachedInstanceID: 19192
   m_Description: Set something that only need to set once. (such as HP bar)
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -4727,11 +4727,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4561750573310070, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.85
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 4561750573310070, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.03
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4561750573310070, guid: a74ed24c9cd896143aa4914b50ac2578, type: 2}
       propertyPath: m_LocalPosition.z
